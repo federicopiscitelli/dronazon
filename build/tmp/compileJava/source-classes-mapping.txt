@@ -1,2 +1,10 @@
 Main.java
  Main
+Server/Drones.java
+ Server.Drones
+Server/Amministratore.java
+ Server.Amministratore
+Server/DronesService.java
+ Server.DronesService
+Server/Drone.java
+ Server.Drone
