@@ -4,11 +4,15 @@ Main.java
  Main
 Server/Administrator.java
  Server.Administrator
-Server/beans/Drones.java
- Server.beans.Drones
+Server/modules/Position.java
+ Server.modules.Position
+Server/Drone.java
+ Server.Drone
+Server/modules/Drones.java
+ Server.modules.Drones
 DroneProcess.java
  DroneProcess
 Server/services/DronesService.java
  Server.services.DronesService
-Server/Drone.java
- Server.Drone
+Server/modules/AddResponse.java
+ Server.modules.AddResponse

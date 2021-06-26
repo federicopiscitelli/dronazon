@@ -1,17 +1,15 @@
 import Server.Drone;
-import Server.beans.Drones;
+import Server.modules.AddResponse;
+import Server.modules.Drones;
 import com.google.gson.Gson;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientHandlerException;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
-import com.sun.jersey.api.container.httpserver.HttpServerFactory;
-import com.sun.net.httpserver.HttpServer;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.UUID;
 
 public class DroneProcess {
     private static final String RESTServerAddress = "http://localhost:1337";
@@ -38,9 +36,10 @@ public class DroneProcess {
         String postPath = "/drones/add";
         clientResponse = postRequest(client,RESTServerAddress+postPath,drone);
         System.out.println(clientResponse.toString());
-        Drones dronesList = clientResponse.getEntity(Drones.class);
-        drone.setDronesList(dronesList.getDronesList());
-        System.out.println(drone.toString());
+        AddResponse response = clientResponse.getEntity(AddResponse.class);
+        drone.setDronesList(response.getDrones());
+        drone.setPosition(response.getPosition());
+        System.out.println(drone);
     }
 
 

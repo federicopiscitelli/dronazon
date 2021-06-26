@@ -1,4 +1,4 @@
-package Server.beans;
+package Server.modules;
 
 import Server.Drone;
 
@@ -50,12 +50,22 @@ public class Drones {
     }
 
 
-    public Drone getById(String id){
+    public synchronized Drone getById(String id){
         List<Drone> dronesCopy = getDronesList();
         for(Drone d: dronesCopy)
             if(d.getId().toLowerCase().equals(id.toLowerCase()))
                 return d;
         return null;
+    }
+
+    public synchronized boolean deleteById(String id){
+        Drone d = this.getById(id);
+        if(d!=null) {
+            dronesList.remove(d);
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }

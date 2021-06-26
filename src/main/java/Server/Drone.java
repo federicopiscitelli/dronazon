@@ -1,9 +1,9 @@
 package Server;
 
+import Server.modules.Position;
 import org.codehaus.jackson.annotate.JsonIgnore;
 
 import javax.xml.bind.annotation.XmlRootElement;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -14,7 +14,7 @@ public class Drone {
     private String ip;
     private int port;
     @JsonIgnore
-    private int[] position;
+    private Position position;
     @JsonIgnore
     private List<Drone> dronesList;
 
@@ -51,11 +51,11 @@ public class Drone {
         this.port = port;
     }
 
-    public int[] getPosition() {
+    public Position getPosition() {
         return position;
     }
 
-    public void setPosition(int[] position) {
+    public void setPosition(Position position) {
         this.position = position;
     }
 
@@ -70,11 +70,11 @@ public class Drone {
     @Override
     public String toString() {
         return "Drone{" +
-                "id='" + id + '\'' +
-                ", ip='" + ip + '\'' +
-                ", port=" + port +
-                ", position=" + Arrays.toString(position) +
-                ", dronesList=" + dronesList +
+                    "id='" + id + '\'' +
+                    ", ip='" + ip + '\'' +
+                    ", port=" + port +
+                    ", position=" + (position == null ? "null" : position.toString()) +
+                    ", dronesList=" + (dronesList == null ? "null" : dronesList) +
                 '}';
     }
 }
