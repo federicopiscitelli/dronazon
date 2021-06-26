@@ -1,5 +1,7 @@
 package Server.beans;
 
+import Server.Drone;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,9 +40,13 @@ public class Drones {
         this.dronesList = dronesList;
     }
 
-    public synchronized void add(Drone u){
-        //if()
-        dronesList.add(u);
+    public synchronized boolean add(Drone d){
+        if(this.getById(d.getId()) == null) {
+            dronesList.add(d);
+            return true;
+        } else {
+            return false;
+        }
     }
 
 

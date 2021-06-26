@@ -1,10 +1,14 @@
+Server/services/StatService.java
+ Server.services.StatService
 Main.java
  Main
 Server/Administrator.java
  Server.Administrator
-Server/beans/Drone.java
- Server.beans.Drone
 Server/beans/Drones.java
  Server.beans.Drones
+DroneProcess.java
+ DroneProcess
 Server/services/DronesService.java
  Server.services.DronesService
+Server/Drone.java
+ Server.Drone
