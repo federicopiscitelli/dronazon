@@ -21,4 +21,4 @@ Gli amministratori di Dronazon potranno monitorare il proprio sistema di consegn
 Inoltre, tramite il Server Amministratore è anche possibile registrare e rimuovere droni dal sistema dinamicamente.
 
 ## Autori
-👨‍💻[@federicopiscitelli](https://gitlab.com/federicopiscitelli)  
+[@federicopiscitelli](https://gitlab.com/federicopiscitelli)  
