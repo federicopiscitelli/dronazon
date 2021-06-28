@@ -1,4 +1,4 @@
-package Server.services;
+package services;
 
 
 import javax.ws.rs.Path;

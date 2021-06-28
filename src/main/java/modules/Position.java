@@ -1,4 +1,4 @@
-package Server.modules;
+package modules;
 
 public class Position {
     private int x;

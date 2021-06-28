@@ -1,10 +1,7 @@
-package Server;
-
-import Server.modules.Position;
+import modules.Position;
 import org.codehaus.jackson.annotate.JsonIgnore;
 
 import javax.xml.bind.annotation.XmlRootElement;
-import java.util.Arrays;
 import java.util.List;
 
 @XmlRootElement

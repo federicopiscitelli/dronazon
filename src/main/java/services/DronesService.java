@@ -1,13 +1,12 @@
-package Server.services;
+package services;
 
-import Server.Drone;
-import Server.modules.AddResponse;
-import Server.modules.Drones;
-import Server.modules.Position;
+import Drone;
+import modules.AddResponse;
+import modules.Drones;
+import modules.Position;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
-import java.util.List;
 import java.util.Random;
 
 @Path("drones")

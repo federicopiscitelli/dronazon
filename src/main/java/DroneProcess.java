@@ -1,6 +1,4 @@
-import Server.Drone;
-import Server.modules.AddResponse;
-import Server.modules.Drones;
+import modules.AddResponse;
 import com.google.gson.Gson;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientHandlerException;

@@ -1,6 +1,6 @@
-package Server.modules;
+package modules;
 
-import Server.Drone;
+import Drone;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

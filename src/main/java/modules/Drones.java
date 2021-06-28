@@ -1,6 +1,6 @@
-package Server.modules;
+package modules;
 
-import Server.Drone;
+import Drone;
 
 import java.util.ArrayList;
 import java.util.List;
