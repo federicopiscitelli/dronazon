@@ -1,4 +1,5 @@
-import modules.Position;
+package modules;
+
 import org.codehaus.jackson.annotate.JsonIgnore;
 
 import javax.xml.bind.annotation.XmlRootElement;
@@ -14,6 +15,8 @@ public class Drone {
     private Position position;
     @JsonIgnore
     private List<Drone> dronesList;
+    private int batteryLevel = 100;
+    private List<Drone> next;
 
 
     public Drone(){}
@@ -64,9 +67,17 @@ public class Drone {
         this.dronesList = dronesList;
     }
 
+    public int getBatteryLevel() {
+        return batteryLevel;
+    }
+
+    public void setBatteryLevel(int batteryLevel) {
+        this.batteryLevel = batteryLevel;
+    }
+
     @Override
     public String toString() {
-        return "Drone{" +
+        return "modules.Drone{" +
                     "id='" + id + '\'' +
                     ", ip='" + ip + '\'' +
                     ", port=" + port +
@@ -74,4 +85,5 @@ public class Drone {
                     ", dronesList=" + (dronesList == null ? "null" : dronesList) +
                 '}';
     }
+
 }
