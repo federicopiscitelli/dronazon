@@ -16,7 +16,7 @@ public class DronesService {
     @GET
     @Produces({"application/json", "application/xml"})
     public Response getDronesList(){
-        return Response.ok(Drones.getInstance()).build();
+        return Response.ok(Drones.getInstance().getDronesList()).build();
     }
 
     //insert a drone
