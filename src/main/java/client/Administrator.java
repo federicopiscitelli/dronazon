@@ -17,6 +17,7 @@ public class Administrator {
         BufferedReader inFromUser =new BufferedReader(new InputStreamReader(System.in));
         Client client = Client.create();
         ClientResponse clientResponse = null;
+        Gson gson = new Gson();
 
         int choice = -1;
 
@@ -29,7 +30,7 @@ public class Administrator {
 
         do {
 
-            System.out.println("\n\n>Welcome! Choose an option from the menu:");
+            System.out.println("\n\n>Choose an option from the menu:");
             System.out.println("> [1] Get the drones list in the network");
             System.out.println("> [2] Get the last n global statistics");
             System.out.println("> [3] Get the average of the deliveries between two timestamp");
@@ -46,12 +47,32 @@ public class Administrator {
                         try {
                             WebResource webResource = client.resource(RESTServerAddress + path);
                             clientResponse = webResource.type("application/json").get(ClientResponse.class);
-                            System.out.println(clientResponse.getEntity(String.class));
+                            String json = clientResponse.getEntity(String.class);
+                            Object o = gson.fromJson(json, Object.class);
+                            System.out.println(o.toString());
 
                         } catch (ClientHandlerException e) {
                             System.out.println("Error during the request: "+e.getMessage());
                         }
                     } break;
+                    case 2:{
+                        System.out.print("> Your choice: ");
+                        String n = inFromUser.readLine();
+
+                        String path = "/stats/"+n;
+                        try {
+                            WebResource webResource = client.resource(RESTServerAddress + path);
+                            clientResponse = webResource.type("application/json").get(ClientResponse.class);
+                            String json = clientResponse.getEntity(String.class);
+                            Object o = gson.fromJson(json, Object.class);
+                            System.out.println(o.toString());
+
+                        } catch (ClientHandlerException e) {
+                            System.out.println("Error during the request: "+e.getMessage());
+                        }
+                    } break;
+                    default:
+                        break;
                 }
 
             } catch (IOException e) {
