@@ -56,7 +56,7 @@ public class Administrator {
                         }
                     } break;
                     case 2:{
-                        System.out.print("> Your choice: ");
+                        System.out.print("> Write the number: ");
                         String n = inFromUser.readLine();
 
                         String path = "/stats/"+n;
@@ -78,7 +78,6 @@ public class Administrator {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
 
         }while(choice != 0);
 
