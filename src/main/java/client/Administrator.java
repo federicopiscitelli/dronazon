@@ -52,7 +52,7 @@ public class Administrator {
                             System.out.println(o.toString());
 
                         } catch (ClientHandlerException e) {
-                            System.out.println("Error during the request: "+e.getMessage());
+                            System.out.println("> Error during the request: "+e.getMessage());
                         }
                     } break;
                     case 2:{
@@ -68,7 +68,7 @@ public class Administrator {
                             System.out.println(o.toString());
 
                         } catch (ClientHandlerException e) {
-                            System.out.println("Error during the request: "+e.getMessage());
+                            System.out.println("> Error during the request: "+e.getMessage());
                         }
                     } break;
                     default:
