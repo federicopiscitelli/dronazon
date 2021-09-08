@@ -1,5 +1,5 @@
-DroneProcess.java
- DroneProcess
+client/Administrator.java
+ client.Administrator
 simulators/Simulator.java
  simulators.Simulator
 simulators/Buffer.java
@@ -8,12 +8,16 @@ modules/Position.java
  modules.Position
 modules/Drones.java
  modules.Drones
+services/DronesService.java
+ services.DronesService
+simulators/Measurement.java
+ simulators.Measurement
 modules/Stat.java
  modules.Stat
 modules/Drone.java
  modules.Drone
-Main.java
- Main
+Dronazon.java
+ Dronazon
 modules/AddResponse.java
  modules.AddResponse
 server/RestThread.java
@@ -22,13 +26,13 @@ services/StatService.java
  services.StatService
 modules/Stats.java
  modules.Stats
-services/DronesService.java
- services.DronesService
+modules/Order.java
+ modules.Order
 simulators/PM10Simulator.java
  simulators.PM10Simulator
 server/Administrator.java
  server.Administrator
-simulators/Measurement.java
- simulators.Measurement
-client/Administrator.java
- client.Administrator
+DroneProcess.java
+ DroneProcess
+threads/InsertDrone.java
+ threads.InsertDrone
