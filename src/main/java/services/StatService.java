@@ -31,10 +31,10 @@ public class StatService {
     }
 
     //get average delivery
-    @Path("avg/delivery")
+    @Path("avg/delivery/{t1}/{t2}")
     @POST
     @Consumes({"application/json", "application/xml"})
-    public Response avgDelivery(Timestamp t1, Timestamp t2){
+    public Response avgDelivery(@PathParam("t1") Timestamp t1,@PathParam("t2")  Timestamp t2){
         if(t1 != null && t2 != null){
             return Response.ok(Stats.getInstance().getAvgDelivery(t1,t2)).build();
         } else {
@@ -44,10 +44,10 @@ public class StatService {
     }
 
     //get average delivery
-    @Path("avg/distance")
+    @Path("avg/distance/{t1}/{t2}")
     @POST
     @Consumes({"application/json", "application/xml"})
-    public Response avgDistance(Timestamp t1, Timestamp t2){
+    public Response avgDistance(@PathParam("t1") Timestamp t1,@PathParam("t2")  Timestamp t2){
         if(t1 != null && t2 != null){
             return Response.ok(Stats.getInstance().getAvgDistance(t1,t2)).build();
         } else {
