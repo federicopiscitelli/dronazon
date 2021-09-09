@@ -12,12 +12,17 @@ public class Drone {
     private String ip;
     private int port;
     @JsonIgnore
+    private boolean master;
+    @JsonIgnore
     private Position position;
     @JsonIgnore
     private List<Drone> dronesList;
+    @JsonIgnore
     private int batteryLevel = 100;
-    private List<Drone> next;
-
+    @JsonIgnore
+    private Drone next;
+    @JsonIgnore
+    private String masterID;
 
     public Drone(){}
 
@@ -25,6 +30,23 @@ public class Drone {
         this.id = id;
         this.ip = ip;
         this.port = port;
+        this.master = false;
+    }
+
+    public boolean isMaster() {
+        return master;
+    }
+
+    public void setMaster(boolean master) {
+        this.master = master;
+    }
+
+    public Drone getNext() {
+        return next;
+    }
+
+    public void setNext(Drone next) {
+        this.next = next;
     }
 
     public String getId() {
@@ -74,6 +96,16 @@ public class Drone {
     public void setBatteryLevel(int batteryLevel) {
         this.batteryLevel = batteryLevel;
     }
+
+    public String getMasterID() {
+        return masterID;
+    }
+
+    public void setMasterID(String masterID) {
+        this.masterID = masterID;
+    }
+
+
 
     @Override
     public String toString() {

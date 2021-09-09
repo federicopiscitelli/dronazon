@@ -1,0 +1,67 @@
+threads/CreateDrone.java
+ threads.CreateDrone
+threads/WelcomeThread.java
+ threads.WelcomeThread
+simulators/Simulator.java
+ simulators.Simulator
+simulators/Buffer.java
+ simulators.Buffer
+modules/Position.java
+ modules.Position
+REST/server/Administrator.java
+ REST.server.Administrator
+simulators/PM10Simulator.java
+ simulators.PM10Simulator
+Dronazon.java
+ Dronazon
+modules/Stats.java
+ modules.Stats
+modules/Order.java
+ modules.Order
+modules/Stat.java
+ modules.Stat
+proto/Welcome.java
+ proto.Welcome
+ proto.Welcome$1
+ proto.Welcome$WelcomeMessage
+ proto.Welcome$WelcomeMessage$1
+ proto.Welcome$WelcomeMessage$Builder
+ proto.Welcome$WelcomeMessageOrBuilder
+ proto.Welcome$WelcomeResponse
+ proto.Welcome$WelcomeResponse$1
+ proto.Welcome$WelcomeResponse$Builder
+ proto.Welcome$WelcomeResponseOrBuilder
+modules/AddResponse.java
+ modules.AddResponse
+simulators/Measurement.java
+ simulators.Measurement
+REST/services/StatService.java
+ REST.services.StatService
+proto/ManagerGrpc.java
+ proto.ManagerGrpc
+ proto.ManagerGrpc$1
+ proto.ManagerGrpc$ManagerBaseDescriptorSupplier
+ proto.ManagerGrpc$ManagerBlockingStub
+ proto.ManagerGrpc$ManagerFileDescriptorSupplier
+ proto.ManagerGrpc$ManagerFutureStub
+ proto.ManagerGrpc$ManagerImplBase
+ proto.ManagerGrpc$ManagerMethodDescriptorSupplier
+ proto.ManagerGrpc$ManagerStub
+ proto.ManagerGrpc$MethodHandlers
+threads/GRPCDroneServer.java
+ threads.GRPCDroneServer
+REST/client/Administrator.java
+ REST.client.Administrator
+DroneProcess.java
+ DroneProcess
+ DroneProcess$1
+REST/services/DronesService.java
+ REST.services.DronesService
+modules/Drone.java
+ modules.Drone
+modules/Drones.java
+ modules.Drones
+GRPC/ManagerServiceImpl.java
+ GRPC.ManagerServiceImpl
+threads/DronesInput.java
+ threads.DronesInput

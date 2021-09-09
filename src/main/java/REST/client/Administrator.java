@@ -7,6 +7,7 @@ import modules.Drone;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 public class Administrator {
 
@@ -47,8 +48,8 @@ public class Administrator {
                             WebResource webResource = client.resource(RESTServerAddress + path);
                             clientResponse = webResource.type("application/json").get(ClientResponse.class);
                             String json = clientResponse.getEntity(String.class);
-                            Object o = gson.fromJson(json, Object.class);
-                            System.out.println(o.toString());
+                            ArrayList<Drone> drones = gson.fromJson(json, ArrayList.class);
+                            System.out.println(drones.toString());
 
                         } catch (ClientHandlerException e) {
                             System.out.println("> Error during the request: "+e.getMessage());
