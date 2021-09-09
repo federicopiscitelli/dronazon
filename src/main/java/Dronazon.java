@@ -17,13 +17,13 @@ public class Dronazon {
         int orderId = 0;
         Gson gson = new Gson();
 
-        //brew services start mosquitto
+        //brew REST.services.services start mosquitto
         try {
             client = new MqttClient(broker, clientId);
             MqttConnectOptions connOpts = new MqttConnectOptions();
             connOpts.setCleanSession(true);
 
-            // Connect the client
+            // Connect the REST.REST.REST.client.client
             System.out.println(">" + clientId + " Connecting Broker " + broker);
             client.connect(connOpts);
             System.out.println(">" + clientId + " Connected");

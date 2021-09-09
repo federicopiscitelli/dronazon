@@ -1,0 +1,17 @@
+//Service used when a drone enters the network
+service Welcomer{
+  rpc Welcome(WelcomeMessage) returns (WelcomeResponse);
+}
+
+//Message of welcome
+message WelcomeMessage {
+  required int32 port = 1;
+  required int32 id = 2;
+  required string ip = 3;
+}
+
+//Message of response to the welcome
+message WelcomeResponse {
+  required int32 id = 1;
+  required bool master = 2;
+}

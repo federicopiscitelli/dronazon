@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1cea5345-8023-44b2-b8c7-efda0cc3016e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/classAnalysis.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/javaCompile.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/taskHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/configuration-cache/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/vcs-1/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries-with-intellij-classes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/Dronazon.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Dronazon.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/DroneProcess.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/client/Administrator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/modules/AddResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/modules/Drone.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/modules/Drones.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/modules/Order.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/modules/Position.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/modules/Stat.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/modules/Stats.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/server/Administrator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/server/RestThread.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/services/DronesService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/services/StatService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/simulators/Buffer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/simulators/Measurement.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/simulators/PM10Simulator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/simulators/Simulator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/threads/InsertDrone.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/api/annotations.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/api/auth.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/api/backend.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/api/billing.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/api/config_change.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/api/consumer.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/api/context.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/api/control.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/api/distribution.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/api/documentation.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/api/endpoint.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/api/experimental/authorization_config.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/api/experimental/experimental.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/api/http.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/api/httpbody.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/api/label.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/api/log.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/api/logging.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/api/metric.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/api/monitored_resource.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/api/monitoring.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/api/quota.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/api/service.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/api/source_info.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/api/system_parameter.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/api/usage.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/cloud/audit/audit_log.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/logging/type/http_request.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/logging/type/log_severity.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/longrunning/operations.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/protobuf/any.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/protobuf/api.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/protobuf/compiler/plugin.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/protobuf/descriptor.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/protobuf/duration.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/protobuf/empty.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/protobuf/field_mask.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/protobuf/source_context.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/protobuf/struct.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/protobuf/timestamp.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/protobuf/type.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/protobuf/wrappers.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/rpc/code.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/rpc/error_details.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/rpc/status.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/type/color.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/type/date.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/type/dayofweek.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/type/latlng.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/type/money.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/type/postal_address.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/type/timeofday.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/api/annotations.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/api/auth.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/api/backend.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/api/billing.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/api/config_change.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/api/consumer.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/api/context.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/api/control.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/api/distribution.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/api/documentation.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/api/endpoint.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/api/experimental/authorization_config.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/api/experimental/experimental.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/api/http.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/api/httpbody.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/api/label.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/api/log.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/api/logging.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/api/metric.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/api/monitored_resource.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/api/monitoring.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/api/quota.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/api/service.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/api/source_info.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/api/system_parameter.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/api/usage.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/cloud/audit/audit_log.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/logging/type/http_request.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/logging/type/log_severity.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/longrunning/operations.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/protobuf/any.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/protobuf/api.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/protobuf/compiler/plugin.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/protobuf/descriptor.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/protobuf/duration.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/protobuf/empty.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/protobuf/field_mask.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/protobuf/source_context.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/protobuf/struct.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/protobuf/timestamp.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/protobuf/type.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/protobuf/wrappers.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/rpc/code.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/rpc/error_details.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/rpc/status.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/type/color.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/type/date.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/type/dayofweek.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/type/latlng.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/type/money.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/type/postal_address.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/type/timeofday.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/war/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/paho21920683803583-tcplocalhost1883/.lck" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Dronazon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dronazon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DroneProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DroneProcess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/Administrator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/REST/client/Administrator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/Administrator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/REST/server/Administrator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/RestThread.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/DronesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/REST/services/DronesService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/StatService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/REST/services/StatService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/threads/InsertDrone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/threads/CreateDrone.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1xuAIwiOphG0F9XpIdE3r7gXssU" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1cea5345-8023-44b2-b8c7-efda0cc3016e" name="Default Changelist" comment="" />
+      <created>1631194526146</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1631194526146</updated>
+      <workItem from="1631194529835" duration="188000" />
+      <workItem from="1631194756949" duration="3000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
