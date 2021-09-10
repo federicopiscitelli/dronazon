@@ -28,21 +28,24 @@ public class DronesInput extends Thread{
 
     public void run() {
         BufferedReader inFromUser = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("> Digit exit to leave the network with this drone: ");
-        try {
-            if(inFromUser.readLine().equals("exit")){
-                Client client = Client.create();
+        System.out.println("> Hit return to stop...");
 
-                //Remove a drone to the REST Server
-                String deletePath = "/drones/"+d.getId();
-                WebResource webResource = client.resource(RESTServerAddress+deletePath);
-                try {
-                    webResource.type("application/json").delete();
-                } catch (ClientHandlerException e) {
-                    System.out.println("> Server not reachable");
-                }
-                System.exit(0);
+        try {
+            System.in.read();
+            Client client = Client.create();
+
+            System.out.println("> Removing the drone from the network...");
+            //Remove a drone to the REST Server
+            String deletePath = "/drones/"+d.getId();
+            WebResource webResource = client.resource(RESTServerAddress+deletePath);
+            try {
+                webResource.type("application/json").delete();
+
+            } catch (ClientHandlerException e) {
+                System.out.println("> Server not reachable");
             }
+            System.out.println("> Drone removed...");
+            System.exit(0);
         } catch (IOException e) {
             e.printStackTrace();
         }

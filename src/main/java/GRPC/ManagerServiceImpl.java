@@ -5,6 +5,8 @@ import proto.Welcome;
 import proto.ManagerGrpc;
 import io.grpc.stub.StreamObserver;
 
+import java.util.List;
+
 public class ManagerServiceImpl extends ManagerGrpc.ManagerImplBase {
 
     Drone d;
@@ -15,6 +17,20 @@ public class ManagerServiceImpl extends ManagerGrpc.ManagerImplBase {
 
     @Override
     public void welcome(Welcome.WelcomeMessage request, StreamObserver<Welcome.WelcomeResponse> responseObserver) {
+        //adding the drone to my list is equivalent to adding the drone to my topology of the network
+
+        List<Drone> myDronesList = d.getDronesList();
+        int originalSize = myDronesList.size();
+
+        for(int i=0; i<originalSize; i++){
+            if(request.getId()<Integer.parseInt(myDronesList.get(i).getId())){
+                Drone droneToInsert = new Drone(String.valueOf(request.getId()), request.getIp(), request.getPort());
+                myDronesList.add(i,droneToInsert);
+            }
+        }
+
+        d.setDronesList(myDronesList);
+
         Welcome.WelcomeResponse response = Welcome.WelcomeResponse
                 .newBuilder()
                 .setId(Integer.parseInt(d.getId()))

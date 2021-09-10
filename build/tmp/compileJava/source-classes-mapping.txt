@@ -8,8 +8,8 @@ simulators/Buffer.java
  simulators.Buffer
 modules/Position.java
  modules.Position
-REST/server/Administrator.java
- REST.server.Administrator
+threads/DronesInput.java
+ threads.DronesInput
 simulators/PM10Simulator.java
  simulators.PM10Simulator
 Dronazon.java
@@ -48,20 +48,20 @@ proto/ManagerGrpc.java
  proto.ManagerGrpc$ManagerMethodDescriptorSupplier
  proto.ManagerGrpc$ManagerStub
  proto.ManagerGrpc$MethodHandlers
-threads/GRPCDroneServer.java
- threads.GRPCDroneServer
+modules/Drones.java
+ modules.Drones
 REST/client/Administrator.java
  REST.client.Administrator
-DroneProcess.java
- DroneProcess
- DroneProcess$1
+REST/server/Administrator.java
+ REST.server.Administrator
 REST/services/DronesService.java
  REST.services.DronesService
 modules/Drone.java
  modules.Drone
-modules/Drones.java
- modules.Drones
+DroneProcess.java
+ DroneProcess
+ DroneProcess$1
+threads/GRPCDroneServer.java
+ threads.GRPCDroneServer
 GRPC/ManagerServiceImpl.java
  GRPC.ManagerServiceImpl
-threads/DronesInput.java
- threads.DronesInput

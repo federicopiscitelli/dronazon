@@ -17,6 +17,7 @@ import threads.DronesInput;
 import threads.GRPCDroneServer;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class DroneProcess {
@@ -57,7 +58,10 @@ public class DroneProcess {
 
         //The response of the REST server is the list of the drones in the network
         AddResponse response = clientResponse.getEntity(AddResponse.class);
-        drone.setDronesList(response.getDrones());
+
+        List<Drone> tempList = drone.getDronesList();
+        tempList.add(drone);
+        drone.setDronesList(tempList);
         drone.setPosition(response.getPosition());
 
         GRPCDroneServer threadServerGRPC = new GRPCDroneServer(drone);

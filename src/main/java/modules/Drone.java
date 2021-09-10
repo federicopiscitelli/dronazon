@@ -3,6 +3,7 @@ package modules;
 import org.codehaus.jackson.annotate.JsonIgnore;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import java.util.ArrayList;
 import java.util.List;
 
 @XmlRootElement
@@ -31,6 +32,7 @@ public class Drone {
         this.ip = ip;
         this.port = port;
         this.master = false;
+        dronesList = new ArrayList<Drone>();
     }
 
     public boolean isMaster() {

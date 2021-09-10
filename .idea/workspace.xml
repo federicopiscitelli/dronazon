@@ -5,27 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1cea5345-8023-44b2-b8c7-efda0cc3016e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries-with-intellij-classes.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/dronazon.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GRPC/ManagerServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/threads/GRPCDroneServer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/threads/WelcomeThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/DroneProcess$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/DroneProcess$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/DroneProcess.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/DroneProcess.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/GRPC/ManagerServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/GRPC/ManagerServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/modules/Drone.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/modules/Drone.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DroneProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DroneProcess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GRPC/WelcomerImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/REST/client/Administrator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/REST/client/Administrator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GRPC/ManagerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GRPC/ManagerServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/REST/server/Administrator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/REST/server/Administrator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/modules/Drone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modules/Drone.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/threads/DronesInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/threads/DronesInput.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/proto/Welcome.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/proto/Welcome.proto" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +66,7 @@
     <property name="project.structure.side.proportion" value="0.68443805" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
   </component>
-  <component name="RunManager" selected="Application.Administrator (1)">
+  <component name="RunManager" selected="Application.DroneProcess">
     <configuration name="Administrator (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="REST.client.Administrator" />
       <module name="testProgetto.main" />
@@ -102,13 +100,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -131,7 +131,8 @@
       <updated>1631194526146</updated>
       <workItem from="1631194529835" duration="188000" />
       <workItem from="1631194756949" duration="2423000" />
-      <workItem from="1631197209428" duration="6466000" />
+      <workItem from="1631197209428" duration="11092000" />
+      <workItem from="1631252813794" duration="1153000" />
     </task>
     <servers />
   </component>

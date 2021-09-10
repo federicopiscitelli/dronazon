@@ -18,7 +18,7 @@ public class Administrator {
         System.out.println("> Server started on: http://"+HOST+":"+PORT);
         System.out.println("> Hit return to stop...");
         System.in.read();
-        System.out.println("> Stopping REST.REST.client.client.server");
+        System.out.println("> Stopping REST server");
         server.stop(0);
         System.out.println("> Server stopped");
     }
