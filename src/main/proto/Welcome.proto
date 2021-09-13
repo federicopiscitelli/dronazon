@@ -3,6 +3,8 @@ package proto;
 //Service used when a drone enters the network
 service Manager{
   rpc Welcome(WelcomeMessage) returns (WelcomeResponse);
+  rpc Election(ElectionMessage) returns (ElectionResponse);
+  rpc Elected(ElectedMessage) returns (ElectedResponse);
 }
 
 //Message of welcome
@@ -16,4 +18,22 @@ message WelcomeMessage {
 message WelcomeResponse {
   required int32 id = 1;
   required bool master = 2;
+}
+
+message ElectionMessage{
+  required int32 battery = 1;
+  required int32 id = 2;
+}
+
+message ElectionResponse{
+  required int32 battery = 1;
+  required int32 id = 2;
+}
+
+message ElectedMessage{
+  required int32 id = 1;
+}
+
+message ElectedResponse{
+  required int32 id = 1;
 }

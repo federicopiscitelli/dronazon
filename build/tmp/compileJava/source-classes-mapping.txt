@@ -1,21 +1,18 @@
-threads/CreateDrone.java
- threads.CreateDrone
-threads/WelcomeThread.java
- threads.WelcomeThread
+DroneProcess.java
+ DroneProcess
+ DroneProcess$1
 simulators/Simulator.java
  simulators.Simulator
 simulators/Buffer.java
  simulators.Buffer
 modules/Position.java
  modules.Position
-threads/DronesInput.java
- threads.DronesInput
-simulators/PM10Simulator.java
- simulators.PM10Simulator
-Dronazon.java
- Dronazon
-modules/Stats.java
- modules.Stats
+REST/server/Administrator.java
+ REST.server.Administrator
+modules/Drones.java
+ modules.Drones
+GRPC/ManagerServiceImpl.java
+ GRPC.ManagerServiceImpl
 modules/Order.java
  modules.Order
 modules/Stat.java
@@ -23,6 +20,22 @@ modules/Stat.java
 proto/Welcome.java
  proto.Welcome
  proto.Welcome$1
+ proto.Welcome$ElectedMessage
+ proto.Welcome$ElectedMessage$1
+ proto.Welcome$ElectedMessage$Builder
+ proto.Welcome$ElectedMessageOrBuilder
+ proto.Welcome$ElectedResponse
+ proto.Welcome$ElectedResponse$1
+ proto.Welcome$ElectedResponse$Builder
+ proto.Welcome$ElectedResponseOrBuilder
+ proto.Welcome$ElectionMessage
+ proto.Welcome$ElectionMessage$1
+ proto.Welcome$ElectionMessage$Builder
+ proto.Welcome$ElectionMessageOrBuilder
+ proto.Welcome$ElectionResponse
+ proto.Welcome$ElectionResponse$1
+ proto.Welcome$ElectionResponse$Builder
+ proto.Welcome$ElectionResponseOrBuilder
  proto.Welcome$WelcomeMessage
  proto.Welcome$WelcomeMessage$1
  proto.Welcome$WelcomeMessage$Builder
@@ -31,12 +44,38 @@ proto/Welcome.java
  proto.Welcome$WelcomeResponse$1
  proto.Welcome$WelcomeResponse$Builder
  proto.Welcome$WelcomeResponseOrBuilder
-modules/AddResponse.java
- modules.AddResponse
-simulators/Measurement.java
- simulators.Measurement
+REST/client/Administrator.java
+ REST.client.Administrator
+REST/services/DronesService.java
+ REST.services.DronesService
 REST/services/StatService.java
  REST.services.StatService
+modules/Drone.java
+ modules.Drone
+proto/ElectionerGrpc.java
+ proto.ElectionerGrpc
+ proto.ElectionerGrpc$1
+ proto.ElectionerGrpc$ElectionerBaseDescriptorSupplier
+ proto.ElectionerGrpc$ElectionerBlockingStub
+ proto.ElectionerGrpc$ElectionerFileDescriptorSupplier
+ proto.ElectionerGrpc$ElectionerFutureStub
+ proto.ElectionerGrpc$ElectionerImplBase
+ proto.ElectionerGrpc$ElectionerMethodDescriptorSupplier
+ proto.ElectionerGrpc$ElectionerStub
+ proto.ElectionerGrpc$MethodHandlers
+modules/AddResponse.java
+ modules.AddResponse
+MQTT/Dronazon.java
+ MQTT.Dronazon
+modules/Stats.java
+ modules.Stats
+simulators/PM10Simulator.java
+ simulators.PM10Simulator
+MQTT/DroneSubscriber.java
+ MQTT.DroneSubscriber
+ MQTT.DroneSubscriber$1
+GRPC/GRPCDroneServer.java
+ GRPC.GRPCDroneServer
 proto/ManagerGrpc.java
  proto.ManagerGrpc
  proto.ManagerGrpc$1
@@ -48,20 +87,7 @@ proto/ManagerGrpc.java
  proto.ManagerGrpc$ManagerMethodDescriptorSupplier
  proto.ManagerGrpc$ManagerStub
  proto.ManagerGrpc$MethodHandlers
-modules/Drones.java
- modules.Drones
-REST/client/Administrator.java
- REST.client.Administrator
-REST/server/Administrator.java
- REST.server.Administrator
-REST/services/DronesService.java
- REST.services.DronesService
-modules/Drone.java
- modules.Drone
-DroneProcess.java
- DroneProcess
- DroneProcess$1
-threads/GRPCDroneServer.java
- threads.GRPCDroneServer
-GRPC/ManagerServiceImpl.java
- GRPC.ManagerServiceImpl
+threads/DronesInput.java
+ threads.DronesInput
+simulators/Measurement.java
+ simulators.Measurement

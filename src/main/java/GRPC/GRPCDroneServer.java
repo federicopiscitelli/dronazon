@@ -1,4 +1,4 @@
-package threads;
+package GRPC;
 
 import GRPC.ManagerServiceImpl;
 import io.grpc.Server;

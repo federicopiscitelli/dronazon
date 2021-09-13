@@ -1,4 +1,4 @@
-import GRPC.ManagerServiceImpl;
+import MQTT.DroneSubscriber;
 import com.google.gson.Gson;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientHandlerException;
@@ -6,15 +6,13 @@ import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
-import io.grpc.Server;
-import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
 import modules.AddResponse;
 import modules.Drone;
 import proto.ManagerGrpc;
 import proto.Welcome;
 import threads.DronesInput;
-import threads.GRPCDroneServer;
+import GRPC.GRPCDroneServer;
 
 import java.io.IOException;
 import java.util.List;
@@ -125,6 +123,8 @@ public class DroneProcess {
             }
         } else {
             drone.setMaster(true);
+            DroneSubscriber droneSubscriber = new DroneSubscriber(drone);
+            droneSubscriber.run();
         }
     }
 

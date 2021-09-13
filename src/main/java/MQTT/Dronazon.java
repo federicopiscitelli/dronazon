@@ -1,3 +1,5 @@
+package MQTT;
+
 import com.google.gson.Gson;
 import com.sun.org.apache.xpath.internal.operations.Or;
 import modules.Order;
@@ -44,7 +46,7 @@ public class Dronazon {
 
                // Set the QoS on the Message
                newOrderMessage.setQos(qos);
-               System.out.println(">" + clientId + " Publishing message: " + jsonOrder + " ...");
+               System.out.println(">" + clientId + " Publishing order: " + jsonOrder + " ...");
                client.publish(topic, newOrderMessage);
                orderId++;
 

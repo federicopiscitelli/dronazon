@@ -24,6 +24,8 @@ public class Drone {
     private Drone next;
     @JsonIgnore
     private String masterID;
+    @JsonIgnore
+    private boolean inElection;
 
     public Drone(){}
 
@@ -33,6 +35,7 @@ public class Drone {
         this.port = port;
         this.master = false;
         dronesList = new ArrayList<Drone>();
+        this.inElection = false;
     }
 
     public boolean isMaster() {
@@ -107,7 +110,13 @@ public class Drone {
         this.masterID = masterID;
     }
 
+    public boolean isInElection() {
+        return inElection;
+    }
 
+    public void setInElection(boolean inElection) {
+        this.inElection = inElection;
+    }
 
     @Override
     public String toString() {

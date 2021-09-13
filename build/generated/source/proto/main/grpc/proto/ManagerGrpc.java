@@ -61,6 +61,68 @@ public final class ManagerGrpc {
     return getWelcomeMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<proto.Welcome.ElectionMessage,
+      proto.Welcome.ElectionResponse> getElectionMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "Election",
+      requestType = proto.Welcome.ElectionMessage.class,
+      responseType = proto.Welcome.ElectionResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<proto.Welcome.ElectionMessage,
+      proto.Welcome.ElectionResponse> getElectionMethod() {
+    io.grpc.MethodDescriptor<proto.Welcome.ElectionMessage, proto.Welcome.ElectionResponse> getElectionMethod;
+    if ((getElectionMethod = ManagerGrpc.getElectionMethod) == null) {
+      synchronized (ManagerGrpc.class) {
+        if ((getElectionMethod = ManagerGrpc.getElectionMethod) == null) {
+          ManagerGrpc.getElectionMethod = getElectionMethod =
+              io.grpc.MethodDescriptor.<proto.Welcome.ElectionMessage, proto.Welcome.ElectionResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "Election"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  proto.Welcome.ElectionMessage.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  proto.Welcome.ElectionResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new ManagerMethodDescriptorSupplier("Election"))
+              .build();
+        }
+      }
+    }
+    return getElectionMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<proto.Welcome.ElectedMessage,
+      proto.Welcome.ElectedResponse> getElectedMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "Elected",
+      requestType = proto.Welcome.ElectedMessage.class,
+      responseType = proto.Welcome.ElectedResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<proto.Welcome.ElectedMessage,
+      proto.Welcome.ElectedResponse> getElectedMethod() {
+    io.grpc.MethodDescriptor<proto.Welcome.ElectedMessage, proto.Welcome.ElectedResponse> getElectedMethod;
+    if ((getElectedMethod = ManagerGrpc.getElectedMethod) == null) {
+      synchronized (ManagerGrpc.class) {
+        if ((getElectedMethod = ManagerGrpc.getElectedMethod) == null) {
+          ManagerGrpc.getElectedMethod = getElectedMethod =
+              io.grpc.MethodDescriptor.<proto.Welcome.ElectedMessage, proto.Welcome.ElectedResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "Elected"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  proto.Welcome.ElectedMessage.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  proto.Welcome.ElectedResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new ManagerMethodDescriptorSupplier("Elected"))
+              .build();
+        }
+      }
+    }
+    return getElectedMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -98,6 +160,20 @@ public final class ManagerGrpc {
       asyncUnimplementedUnaryCall(getWelcomeMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void election(proto.Welcome.ElectionMessage request,
+        io.grpc.stub.StreamObserver<proto.Welcome.ElectionResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getElectionMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void elected(proto.Welcome.ElectedMessage request,
+        io.grpc.stub.StreamObserver<proto.Welcome.ElectedResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getElectedMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -107,6 +183,20 @@ public final class ManagerGrpc {
                 proto.Welcome.WelcomeMessage,
                 proto.Welcome.WelcomeResponse>(
                   this, METHODID_WELCOME)))
+          .addMethod(
+            getElectionMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                proto.Welcome.ElectionMessage,
+                proto.Welcome.ElectionResponse>(
+                  this, METHODID_ELECTION)))
+          .addMethod(
+            getElectedMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                proto.Welcome.ElectedMessage,
+                proto.Welcome.ElectedResponse>(
+                  this, METHODID_ELECTED)))
           .build();
     }
   }
@@ -139,6 +229,22 @@ public final class ManagerGrpc {
       asyncUnaryCall(
           getChannel().newCall(getWelcomeMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void election(proto.Welcome.ElectionMessage request,
+        io.grpc.stub.StreamObserver<proto.Welcome.ElectionResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getElectionMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void elected(proto.Welcome.ElectedMessage request,
+        io.grpc.stub.StreamObserver<proto.Welcome.ElectedResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getElectedMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -167,6 +273,20 @@ public final class ManagerGrpc {
     public proto.Welcome.WelcomeResponse welcome(proto.Welcome.WelcomeMessage request) {
       return blockingUnaryCall(
           getChannel(), getWelcomeMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public proto.Welcome.ElectionResponse election(proto.Welcome.ElectionMessage request) {
+      return blockingUnaryCall(
+          getChannel(), getElectionMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public proto.Welcome.ElectedResponse elected(proto.Welcome.ElectedMessage request) {
+      return blockingUnaryCall(
+          getChannel(), getElectedMethod(), getCallOptions(), request);
     }
   }
 
@@ -198,9 +318,27 @@ public final class ManagerGrpc {
       return futureUnaryCall(
           getChannel().newCall(getWelcomeMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<proto.Welcome.ElectionResponse> election(
+        proto.Welcome.ElectionMessage request) {
+      return futureUnaryCall(
+          getChannel().newCall(getElectionMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<proto.Welcome.ElectedResponse> elected(
+        proto.Welcome.ElectedMessage request) {
+      return futureUnaryCall(
+          getChannel().newCall(getElectedMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_WELCOME = 0;
+  private static final int METHODID_ELECTION = 1;
+  private static final int METHODID_ELECTED = 2;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -222,6 +360,14 @@ public final class ManagerGrpc {
         case METHODID_WELCOME:
           serviceImpl.welcome((proto.Welcome.WelcomeMessage) request,
               (io.grpc.stub.StreamObserver<proto.Welcome.WelcomeResponse>) responseObserver);
+          break;
+        case METHODID_ELECTION:
+          serviceImpl.election((proto.Welcome.ElectionMessage) request,
+              (io.grpc.stub.StreamObserver<proto.Welcome.ElectionResponse>) responseObserver);
+          break;
+        case METHODID_ELECTED:
+          serviceImpl.elected((proto.Welcome.ElectedMessage) request,
+              (io.grpc.stub.StreamObserver<proto.Welcome.ElectedResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -285,6 +431,8 @@ public final class ManagerGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new ManagerFileDescriptorSupplier())
               .addMethod(getWelcomeMethod())
+              .addMethod(getElectionMethod())
+              .addMethod(getElectedMethod())
               .build();
         }
       }
