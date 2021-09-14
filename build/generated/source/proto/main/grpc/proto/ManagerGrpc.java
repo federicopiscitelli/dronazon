@@ -16,9 +16,6 @@ import static io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall;
 import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 
 /**
- * <pre>
- *Service used when a drone enters the network
- * </pre>
  */
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.25.0)",
@@ -123,6 +120,37 @@ public final class ManagerGrpc {
     return getElectedMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<proto.Welcome.AliveMessage,
+      proto.Welcome.AliveResponse> getAliveMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "Alive",
+      requestType = proto.Welcome.AliveMessage.class,
+      responseType = proto.Welcome.AliveResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<proto.Welcome.AliveMessage,
+      proto.Welcome.AliveResponse> getAliveMethod() {
+    io.grpc.MethodDescriptor<proto.Welcome.AliveMessage, proto.Welcome.AliveResponse> getAliveMethod;
+    if ((getAliveMethod = ManagerGrpc.getAliveMethod) == null) {
+      synchronized (ManagerGrpc.class) {
+        if ((getAliveMethod = ManagerGrpc.getAliveMethod) == null) {
+          ManagerGrpc.getAliveMethod = getAliveMethod =
+              io.grpc.MethodDescriptor.<proto.Welcome.AliveMessage, proto.Welcome.AliveResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "Alive"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  proto.Welcome.AliveMessage.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  proto.Welcome.AliveResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new ManagerMethodDescriptorSupplier("Alive"))
+              .build();
+        }
+      }
+    }
+    return getAliveMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -147,13 +175,13 @@ public final class ManagerGrpc {
   }
 
   /**
-   * <pre>
-   *Service used when a drone enters the network
-   * </pre>
    */
   public static abstract class ManagerImplBase implements io.grpc.BindableService {
 
     /**
+     * <pre>
+     *Service used when a drone enters the network
+     * </pre>
      */
     public void welcome(proto.Welcome.WelcomeMessage request,
         io.grpc.stub.StreamObserver<proto.Welcome.WelcomeResponse> responseObserver) {
@@ -161,6 +189,9 @@ public final class ManagerGrpc {
     }
 
     /**
+     * <pre>
+     *Service used for the election
+     * </pre>
      */
     public void election(proto.Welcome.ElectionMessage request,
         io.grpc.stub.StreamObserver<proto.Welcome.ElectionResponse> responseObserver) {
@@ -168,10 +199,23 @@ public final class ManagerGrpc {
     }
 
     /**
+     * <pre>
+     *Service used after the election
+     * </pre>
      */
     public void elected(proto.Welcome.ElectedMessage request,
         io.grpc.stub.StreamObserver<proto.Welcome.ElectedResponse> responseObserver) {
       asyncUnimplementedUnaryCall(getElectedMethod(), responseObserver);
+    }
+
+    /**
+     * <pre>
+     *Service used to check if master is alive
+     * </pre>
+     */
+    public void alive(proto.Welcome.AliveMessage request,
+        io.grpc.stub.StreamObserver<proto.Welcome.AliveResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getAliveMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
@@ -197,14 +241,18 @@ public final class ManagerGrpc {
                 proto.Welcome.ElectedMessage,
                 proto.Welcome.ElectedResponse>(
                   this, METHODID_ELECTED)))
+          .addMethod(
+            getAliveMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                proto.Welcome.AliveMessage,
+                proto.Welcome.AliveResponse>(
+                  this, METHODID_ALIVE)))
           .build();
     }
   }
 
   /**
-   * <pre>
-   *Service used when a drone enters the network
-   * </pre>
    */
   public static final class ManagerStub extends io.grpc.stub.AbstractStub<ManagerStub> {
     private ManagerStub(io.grpc.Channel channel) {
@@ -223,6 +271,9 @@ public final class ManagerGrpc {
     }
 
     /**
+     * <pre>
+     *Service used when a drone enters the network
+     * </pre>
      */
     public void welcome(proto.Welcome.WelcomeMessage request,
         io.grpc.stub.StreamObserver<proto.Welcome.WelcomeResponse> responseObserver) {
@@ -231,6 +282,9 @@ public final class ManagerGrpc {
     }
 
     /**
+     * <pre>
+     *Service used for the election
+     * </pre>
      */
     public void election(proto.Welcome.ElectionMessage request,
         io.grpc.stub.StreamObserver<proto.Welcome.ElectionResponse> responseObserver) {
@@ -239,18 +293,29 @@ public final class ManagerGrpc {
     }
 
     /**
+     * <pre>
+     *Service used after the election
+     * </pre>
      */
     public void elected(proto.Welcome.ElectedMessage request,
         io.grpc.stub.StreamObserver<proto.Welcome.ElectedResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getElectedMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     * <pre>
+     *Service used to check if master is alive
+     * </pre>
+     */
+    public void alive(proto.Welcome.AliveMessage request,
+        io.grpc.stub.StreamObserver<proto.Welcome.AliveResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getAliveMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
-   * <pre>
-   *Service used when a drone enters the network
-   * </pre>
    */
   public static final class ManagerBlockingStub extends io.grpc.stub.AbstractStub<ManagerBlockingStub> {
     private ManagerBlockingStub(io.grpc.Channel channel) {
@@ -269,6 +334,9 @@ public final class ManagerGrpc {
     }
 
     /**
+     * <pre>
+     *Service used when a drone enters the network
+     * </pre>
      */
     public proto.Welcome.WelcomeResponse welcome(proto.Welcome.WelcomeMessage request) {
       return blockingUnaryCall(
@@ -276,6 +344,9 @@ public final class ManagerGrpc {
     }
 
     /**
+     * <pre>
+     *Service used for the election
+     * </pre>
      */
     public proto.Welcome.ElectionResponse election(proto.Welcome.ElectionMessage request) {
       return blockingUnaryCall(
@@ -283,17 +354,27 @@ public final class ManagerGrpc {
     }
 
     /**
+     * <pre>
+     *Service used after the election
+     * </pre>
      */
     public proto.Welcome.ElectedResponse elected(proto.Welcome.ElectedMessage request) {
       return blockingUnaryCall(
           getChannel(), getElectedMethod(), getCallOptions(), request);
     }
+
+    /**
+     * <pre>
+     *Service used to check if master is alive
+     * </pre>
+     */
+    public proto.Welcome.AliveResponse alive(proto.Welcome.AliveMessage request) {
+      return blockingUnaryCall(
+          getChannel(), getAliveMethod(), getCallOptions(), request);
+    }
   }
 
   /**
-   * <pre>
-   *Service used when a drone enters the network
-   * </pre>
    */
   public static final class ManagerFutureStub extends io.grpc.stub.AbstractStub<ManagerFutureStub> {
     private ManagerFutureStub(io.grpc.Channel channel) {
@@ -312,6 +393,9 @@ public final class ManagerGrpc {
     }
 
     /**
+     * <pre>
+     *Service used when a drone enters the network
+     * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<proto.Welcome.WelcomeResponse> welcome(
         proto.Welcome.WelcomeMessage request) {
@@ -320,6 +404,9 @@ public final class ManagerGrpc {
     }
 
     /**
+     * <pre>
+     *Service used for the election
+     * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<proto.Welcome.ElectionResponse> election(
         proto.Welcome.ElectionMessage request) {
@@ -328,17 +415,32 @@ public final class ManagerGrpc {
     }
 
     /**
+     * <pre>
+     *Service used after the election
+     * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<proto.Welcome.ElectedResponse> elected(
         proto.Welcome.ElectedMessage request) {
       return futureUnaryCall(
           getChannel().newCall(getElectedMethod(), getCallOptions()), request);
     }
+
+    /**
+     * <pre>
+     *Service used to check if master is alive
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<proto.Welcome.AliveResponse> alive(
+        proto.Welcome.AliveMessage request) {
+      return futureUnaryCall(
+          getChannel().newCall(getAliveMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_WELCOME = 0;
   private static final int METHODID_ELECTION = 1;
   private static final int METHODID_ELECTED = 2;
+  private static final int METHODID_ALIVE = 3;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -368,6 +470,10 @@ public final class ManagerGrpc {
         case METHODID_ELECTED:
           serviceImpl.elected((proto.Welcome.ElectedMessage) request,
               (io.grpc.stub.StreamObserver<proto.Welcome.ElectedResponse>) responseObserver);
+          break;
+        case METHODID_ALIVE:
+          serviceImpl.alive((proto.Welcome.AliveMessage) request,
+              (io.grpc.stub.StreamObserver<proto.Welcome.AliveResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -433,6 +539,7 @@ public final class ManagerGrpc {
               .addMethod(getWelcomeMethod())
               .addMethod(getElectionMethod())
               .addMethod(getElectedMethod())
+              .addMethod(getAliveMethod())
               .build();
         }
       }

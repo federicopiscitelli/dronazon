@@ -9,7 +9,7 @@ import java.util.List;
 @XmlRootElement
 public class Drone {
 
-    private String id;
+    private int id;
     private String ip;
     private int port;
     @JsonIgnore
@@ -23,13 +23,13 @@ public class Drone {
     @JsonIgnore
     private Drone next;
     @JsonIgnore
-    private String masterID;
+    private int masterID;
     @JsonIgnore
     private boolean inElection;
 
     public Drone(){}
 
-    public Drone(String id, String ip, int port) {
+    public Drone(int id, String ip, int port) {
         this.id = id;
         this.ip = ip;
         this.port = port;
@@ -54,11 +54,11 @@ public class Drone {
         this.next = next;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -102,11 +102,11 @@ public class Drone {
         this.batteryLevel = batteryLevel;
     }
 
-    public String getMasterID() {
+    public int getMasterID() {
         return masterID;
     }
 
-    public void setMasterID(String masterID) {
+    public void setMasterID(int masterID) {
         this.masterID = masterID;
     }
 

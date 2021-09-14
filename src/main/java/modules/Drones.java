@@ -48,15 +48,15 @@ public class Drones {
     }
 
 
-    public synchronized Drone getById(String id){
+    public synchronized Drone getById(int id){
         List<Drone> dronesCopy = getDronesList();
         for(Drone d: dronesCopy)
-            if(d.getId().toLowerCase().equals(id.toLowerCase()))
+            if(d.getId() == id)
                 return d;
         return null;
     }
 
-    public synchronized boolean deleteById(String id){
+    public synchronized boolean deleteById(int id){
         Drone d = this.getById(id);
         if(d!=null) {
             dronesList.remove(d);

@@ -40,7 +40,7 @@ public class DronesService {
     @Path("/{id}")
     @GET
     @Produces({"application/json", "application/xml"})
-    public Response getById(@PathParam("id") String id){
+    public Response getById(@PathParam("id") int id){
         Drone d = Drones.getInstance().getById(id);
         if(d!=null)
             return Response.ok(d).build();
@@ -52,7 +52,7 @@ public class DronesService {
     @Path("/{id}")
     @DELETE
     @Produces({"application/json", "application/xml"})
-    public Response deleteById(@PathParam("id") String id){
+    public Response deleteById(@PathParam("id") int id){
         if(Drones.getInstance().deleteById(id)) {
             return Response.ok().build();
         } else {

@@ -1,25 +1,57 @@
 DroneProcess.java
  DroneProcess
  DroneProcess$1
-simulators/Simulator.java
- simulators.Simulator
 simulators/Buffer.java
  simulators.Buffer
-modules/Position.java
- modules.Position
 REST/server/Administrator.java
  REST.server.Administrator
+modules/Stat.java
+ modules.Stat
+REST/client/Administrator.java
+ REST.client.Administrator
+modules/Drone.java
+ modules.Drone
+proto/ManagerGrpc.java
+ proto.ManagerGrpc
+ proto.ManagerGrpc$1
+ proto.ManagerGrpc$ManagerBaseDescriptorSupplier
+ proto.ManagerGrpc$ManagerBlockingStub
+ proto.ManagerGrpc$ManagerFileDescriptorSupplier
+ proto.ManagerGrpc$ManagerFutureStub
+ proto.ManagerGrpc$ManagerImplBase
+ proto.ManagerGrpc$ManagerMethodDescriptorSupplier
+ proto.ManagerGrpc$ManagerStub
+ proto.ManagerGrpc$MethodHandlers
+threads/DronesInput.java
+ threads.DronesInput
+simulators/Simulator.java
+ simulators.Simulator
+modules/Position.java
+ modules.Position
+threads/MasterLifeChecker.java
+ threads.MasterLifeChecker
+ threads.MasterLifeChecker$1
+ threads.MasterLifeChecker$2
 modules/Drones.java
  modules.Drones
 GRPC/ManagerServiceImpl.java
  GRPC.ManagerServiceImpl
+ GRPC.ManagerServiceImpl$1
+ GRPC.ManagerServiceImpl$2
+ GRPC.ManagerServiceImpl$3
 modules/Order.java
  modules.Order
-modules/Stat.java
- modules.Stat
 proto/Welcome.java
  proto.Welcome
  proto.Welcome$1
+ proto.Welcome$AliveMessage
+ proto.Welcome$AliveMessage$1
+ proto.Welcome$AliveMessage$Builder
+ proto.Welcome$AliveMessageOrBuilder
+ proto.Welcome$AliveResponse
+ proto.Welcome$AliveResponse$1
+ proto.Welcome$AliveResponse$Builder
+ proto.Welcome$AliveResponseOrBuilder
  proto.Welcome$ElectedMessage
  proto.Welcome$ElectedMessage$1
  proto.Welcome$ElectedMessage$Builder
@@ -44,14 +76,10 @@ proto/Welcome.java
  proto.Welcome$WelcomeResponse$1
  proto.Welcome$WelcomeResponse$Builder
  proto.Welcome$WelcomeResponseOrBuilder
-REST/client/Administrator.java
- REST.client.Administrator
 REST/services/DronesService.java
  REST.services.DronesService
 REST/services/StatService.java
  REST.services.StatService
-modules/Drone.java
- modules.Drone
 proto/ElectionerGrpc.java
  proto.ElectionerGrpc
  proto.ElectionerGrpc$1
@@ -76,18 +104,5 @@ MQTT/DroneSubscriber.java
  MQTT.DroneSubscriber$1
 GRPC/GRPCDroneServer.java
  GRPC.GRPCDroneServer
-proto/ManagerGrpc.java
- proto.ManagerGrpc
- proto.ManagerGrpc$1
- proto.ManagerGrpc$ManagerBaseDescriptorSupplier
- proto.ManagerGrpc$ManagerBlockingStub
- proto.ManagerGrpc$ManagerFileDescriptorSupplier
- proto.ManagerGrpc$ManagerFutureStub
- proto.ManagerGrpc$ManagerImplBase
- proto.ManagerGrpc$ManagerMethodDescriptorSupplier
- proto.ManagerGrpc$ManagerStub
- proto.ManagerGrpc$MethodHandlers
-threads/DronesInput.java
- threads.DronesInput
 simulators/Measurement.java
  simulators.Measurement

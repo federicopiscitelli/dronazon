@@ -1,10 +1,15 @@
 package proto;
 
-//Service used when a drone enters the network
+
 service Manager{
+  //Service used when a drone enters the network
   rpc Welcome(WelcomeMessage) returns (WelcomeResponse);
+  //Service used for the election
   rpc Election(ElectionMessage) returns (ElectionResponse);
+  //Service used after the election
   rpc Elected(ElectedMessage) returns (ElectedResponse);
+  //Service used to check if master is alive
+  rpc Alive(AliveMessage) returns (AliveResponse);
 }
 
 //Message of welcome
@@ -20,20 +25,33 @@ message WelcomeResponse {
   required bool master = 2;
 }
 
+//Message sent for the election
 message ElectionMessage{
   required int32 battery = 1;
   required int32 id = 2;
 }
 
+//Message of ack
 message ElectionResponse{
-  required int32 battery = 1;
-  required int32 id = 2;
+  required bool received = 1;
 }
 
+//Message sent after the network find the master
 message ElectedMessage{
   required int32 id = 1;
 }
 
+//Message of ack
 message ElectedResponse{
-  required int32 id = 1;
+  required bool received = 1;
+}
+
+//Message to find if master is alive
+message AliveMessage{
+   required int32 id = 1;
+}
+
+//Message to find if master is alive
+message AliveResponse{
+  required bool isAlive = 1;
 }

@@ -15,6 +15,8 @@ import threads.DronesInput;
 import GRPC.GRPCDroneServer;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -35,7 +37,7 @@ public class DroneProcess {
         ClientResponse clientResponse = null;
 
         // Create a drone
-        Drone drone = new Drone(String.valueOf(id), ip, port);
+        Drone drone = new Drone(id, ip, port);
 
         //Adding a drone to the REST Server
         String postPath = "/drones/add";
@@ -57,15 +59,12 @@ public class DroneProcess {
         //The response of the REST server is the list of the drones in the network
         AddResponse response = clientResponse.getEntity(AddResponse.class);
 
-        List<Drone> tempList = drone.getDronesList();
-        tempList.add(drone);
-        drone.setDronesList(tempList);
+
+        drone.setDronesList(response.getDrones());
         drone.setPosition(response.getPosition());
 
         GRPCDroneServer threadServerGRPC = new GRPCDroneServer(drone);
         threadServerGRPC.start();
-
-        System.out.println(response.getDrones().size()>1);
 
         //if there is more than one drone
         if(response.getDrones().size()>1) {
@@ -73,7 +72,7 @@ public class DroneProcess {
             //welcome to all drones in the network
             for (Drone d : response.getDrones()) {
 
-                if(!d.getId().equals(drone.getId())) {
+                if(!(d.getId()==drone.getId())){
                     //plaintext channel on the address of the drone
                     final ManagedChannel channel = ManagedChannelBuilder.forTarget(d.getIp()).usePlaintext(true).build();
                     //creating an asynchronous stub on the channel
@@ -82,7 +81,7 @@ public class DroneProcess {
                     //creating the HelloResponse object which will be provided as input to the RPC method
                     Welcome.WelcomeMessage request = Welcome.WelcomeMessage
                             .newBuilder()
-                            .setId(Integer.parseInt(drone.getId()))
+                            .setId(drone.getId())
                             .setIp(drone.getIp())
                             .setPort(drone.getPort())
                             .build();
@@ -93,18 +92,21 @@ public class DroneProcess {
 
                         //this hanlder takes care of each item received in the stream
                         public void onNext(Welcome.WelcomeResponse welcomeResponse) {
-                            //each item is just printed
+
                             if(welcomeResponse.getMaster()){
-                                drone.setMasterID(String.valueOf(welcomeResponse.getId()));
+                                drone.setMasterID(welcomeResponse.getId());
                             }
+
                             System.out.println("> Hello from drone: " + welcomeResponse.getId() + " master:" + welcomeResponse.getMaster());
                         }
 
                         //if there are some errors, this method will be called
                         public void onError(Throwable throwable) {
-
-                            System.out.println("> Error! " + throwable.getMessage());
-
+                            channel.shutdownNow();
+                            List<Drone> listToUpdate = drone.getDronesList();
+                            listToUpdate.remove(d);
+                            drone.setDronesList(listToUpdate);
+                            System.out.println("> Drone with the id " + d.getId() + " is unavailable and was removed from the topology");
                         }
 
                         //when the stream is completed (the server called "onCompleted") just close the channel
@@ -126,6 +128,10 @@ public class DroneProcess {
             DroneSubscriber droneSubscriber = new DroneSubscriber(drone);
             droneSubscriber.run();
         }
+
+
     }
+
+
 
 }

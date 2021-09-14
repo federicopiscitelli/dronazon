@@ -1500,6 +1500,10 @@ public final class Welcome {
     int getId();
   }
   /**
+   * <pre>
+   *Message sent for the election
+   * </pre>
+   *
    * Protobuf type {@code proto.ElectionMessage}
    */
   public  static final class ElectionMessage extends
@@ -1807,6 +1811,10 @@ public final class Welcome {
       return builder;
     }
     /**
+     * <pre>
+     *Message sent for the election
+     * </pre>
+     *
      * Protobuf type {@code proto.ElectionMessage}
      */
     public static final class Builder extends
@@ -2106,28 +2114,21 @@ public final class Welcome {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>required int32 battery = 1;</code>
-     * @return Whether the battery field is set.
+     * <code>required bool received = 1;</code>
+     * @return Whether the received field is set.
      */
-    boolean hasBattery();
+    boolean hasReceived();
     /**
-     * <code>required int32 battery = 1;</code>
-     * @return The battery.
+     * <code>required bool received = 1;</code>
+     * @return The received.
      */
-    int getBattery();
-
-    /**
-     * <code>required int32 id = 2;</code>
-     * @return Whether the id field is set.
-     */
-    boolean hasId();
-    /**
-     * <code>required int32 id = 2;</code>
-     * @return The id.
-     */
-    int getId();
+    boolean getReceived();
   }
   /**
+   * <pre>
+   *Message of ack
+   * </pre>
+   *
    * Protobuf type {@code proto.ElectionResponse}
    */
   public  static final class ElectionResponse extends
@@ -2175,12 +2176,7 @@ public final class Welcome {
               break;
             case 8: {
               bitField0_ |= 0x00000001;
-              battery_ = input.readInt32();
-              break;
-            }
-            case 16: {
-              bitField0_ |= 0x00000002;
-              id_ = input.readInt32();
+              received_ = input.readBool();
               break;
             }
             default: {
@@ -2216,38 +2212,21 @@ public final class Welcome {
     }
 
     private int bitField0_;
-    public static final int BATTERY_FIELD_NUMBER = 1;
-    private int battery_;
+    public static final int RECEIVED_FIELD_NUMBER = 1;
+    private boolean received_;
     /**
-     * <code>required int32 battery = 1;</code>
-     * @return Whether the battery field is set.
+     * <code>required bool received = 1;</code>
+     * @return Whether the received field is set.
      */
-    public boolean hasBattery() {
+    public boolean hasReceived() {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>required int32 battery = 1;</code>
-     * @return The battery.
+     * <code>required bool received = 1;</code>
+     * @return The received.
      */
-    public int getBattery() {
-      return battery_;
-    }
-
-    public static final int ID_FIELD_NUMBER = 2;
-    private int id_;
-    /**
-     * <code>required int32 id = 2;</code>
-     * @return Whether the id field is set.
-     */
-    public boolean hasId() {
-      return ((bitField0_ & 0x00000002) != 0);
-    }
-    /**
-     * <code>required int32 id = 2;</code>
-     * @return The id.
-     */
-    public int getId() {
-      return id_;
+    public boolean getReceived() {
+      return received_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -2257,11 +2236,7 @@ public final class Welcome {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
-      if (!hasBattery()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasId()) {
+      if (!hasReceived()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -2273,10 +2248,7 @@ public final class Welcome {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeInt32(1, battery_);
-      }
-      if (((bitField0_ & 0x00000002) != 0)) {
-        output.writeInt32(2, id_);
+        output.writeBool(1, received_);
       }
       unknownFields.writeTo(output);
     }
@@ -2289,11 +2261,7 @@ public final class Welcome {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, battery_);
-      }
-      if (((bitField0_ & 0x00000002) != 0)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, id_);
+          .computeBoolSize(1, received_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2310,15 +2278,10 @@ public final class Welcome {
       }
       proto.Welcome.ElectionResponse other = (proto.Welcome.ElectionResponse) obj;
 
-      if (hasBattery() != other.hasBattery()) return false;
-      if (hasBattery()) {
-        if (getBattery()
-            != other.getBattery()) return false;
-      }
-      if (hasId() != other.hasId()) return false;
-      if (hasId()) {
-        if (getId()
-            != other.getId()) return false;
+      if (hasReceived() != other.hasReceived()) return false;
+      if (hasReceived()) {
+        if (getReceived()
+            != other.getReceived()) return false;
       }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
@@ -2331,13 +2294,10 @@ public final class Welcome {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasBattery()) {
-        hash = (37 * hash) + BATTERY_FIELD_NUMBER;
-        hash = (53 * hash) + getBattery();
-      }
-      if (hasId()) {
-        hash = (37 * hash) + ID_FIELD_NUMBER;
-        hash = (53 * hash) + getId();
+      if (hasReceived()) {
+        hash = (37 * hash) + RECEIVED_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getReceived());
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -2435,6 +2395,10 @@ public final class Welcome {
       return builder;
     }
     /**
+     * <pre>
+     *Message of ack
+     * </pre>
+     *
      * Protobuf type {@code proto.ElectionResponse}
      */
     public static final class Builder extends
@@ -2472,10 +2436,8 @@ public final class Welcome {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        battery_ = 0;
+        received_ = false;
         bitField0_ = (bitField0_ & ~0x00000001);
-        id_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -2505,12 +2467,8 @@ public final class Welcome {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.battery_ = battery_;
+          result.received_ = received_;
           to_bitField0_ |= 0x00000001;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.id_ = id_;
-          to_bitField0_ |= 0x00000002;
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -2561,11 +2519,8 @@ public final class Welcome {
 
       public Builder mergeFrom(proto.Welcome.ElectionResponse other) {
         if (other == proto.Welcome.ElectionResponse.getDefaultInstance()) return this;
-        if (other.hasBattery()) {
-          setBattery(other.getBattery());
-        }
-        if (other.hasId()) {
-          setId(other.getId());
+        if (other.hasReceived()) {
+          setReceived(other.getReceived());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -2574,10 +2529,7 @@ public final class Welcome {
 
       @java.lang.Override
       public final boolean isInitialized() {
-        if (!hasBattery()) {
-          return false;
-        }
-        if (!hasId()) {
+        if (!hasReceived()) {
           return false;
         }
         return true;
@@ -2603,76 +2555,39 @@ public final class Welcome {
       }
       private int bitField0_;
 
-      private int battery_ ;
+      private boolean received_ ;
       /**
-       * <code>required int32 battery = 1;</code>
-       * @return Whether the battery field is set.
+       * <code>required bool received = 1;</code>
+       * @return Whether the received field is set.
        */
-      public boolean hasBattery() {
+      public boolean hasReceived() {
         return ((bitField0_ & 0x00000001) != 0);
       }
       /**
-       * <code>required int32 battery = 1;</code>
-       * @return The battery.
+       * <code>required bool received = 1;</code>
+       * @return The received.
        */
-      public int getBattery() {
-        return battery_;
+      public boolean getReceived() {
+        return received_;
       }
       /**
-       * <code>required int32 battery = 1;</code>
-       * @param value The battery to set.
+       * <code>required bool received = 1;</code>
+       * @param value The received to set.
        * @return This builder for chaining.
        */
-      public Builder setBattery(int value) {
+      public Builder setReceived(boolean value) {
         bitField0_ |= 0x00000001;
-        battery_ = value;
+        received_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required int32 battery = 1;</code>
+       * <code>required bool received = 1;</code>
        * @return This builder for chaining.
        */
-      public Builder clearBattery() {
+      public Builder clearReceived() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        battery_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private int id_ ;
-      /**
-       * <code>required int32 id = 2;</code>
-       * @return Whether the id field is set.
-       */
-      public boolean hasId() {
-        return ((bitField0_ & 0x00000002) != 0);
-      }
-      /**
-       * <code>required int32 id = 2;</code>
-       * @return The id.
-       */
-      public int getId() {
-        return id_;
-      }
-      /**
-       * <code>required int32 id = 2;</code>
-       * @param value The id to set.
-       * @return This builder for chaining.
-       */
-      public Builder setId(int value) {
-        bitField0_ |= 0x00000002;
-        id_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required int32 id = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearId() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        id_ = 0;
+        received_ = false;
         onChanged();
         return this;
       }
@@ -2745,6 +2660,10 @@ public final class Welcome {
     int getId();
   }
   /**
+   * <pre>
+   *Message sent after the network find the master
+   * </pre>
+   *
    * Protobuf type {@code proto.ElectedMessage}
    */
   public  static final class ElectedMessage extends
@@ -3010,6 +2929,10 @@ public final class Welcome {
       return builder;
     }
     /**
+     * <pre>
+     *Message sent after the network find the master
+     * </pre>
+     *
      * Protobuf type {@code proto.ElectedMessage}
      */
     public static final class Builder extends
@@ -3260,17 +3183,21 @@ public final class Welcome {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>required int32 id = 1;</code>
-     * @return Whether the id field is set.
+     * <code>required bool received = 1;</code>
+     * @return Whether the received field is set.
      */
-    boolean hasId();
+    boolean hasReceived();
     /**
-     * <code>required int32 id = 1;</code>
-     * @return The id.
+     * <code>required bool received = 1;</code>
+     * @return The received.
      */
-    int getId();
+    boolean getReceived();
   }
   /**
+   * <pre>
+   *Message of ack
+   * </pre>
+   *
    * Protobuf type {@code proto.ElectedResponse}
    */
   public  static final class ElectedResponse extends
@@ -3318,7 +3245,7 @@ public final class Welcome {
               break;
             case 8: {
               bitField0_ |= 0x00000001;
-              id_ = input.readInt32();
+              received_ = input.readBool();
               break;
             }
             default: {
@@ -3354,21 +3281,21 @@ public final class Welcome {
     }
 
     private int bitField0_;
-    public static final int ID_FIELD_NUMBER = 1;
-    private int id_;
+    public static final int RECEIVED_FIELD_NUMBER = 1;
+    private boolean received_;
     /**
-     * <code>required int32 id = 1;</code>
-     * @return Whether the id field is set.
+     * <code>required bool received = 1;</code>
+     * @return Whether the received field is set.
      */
-    public boolean hasId() {
+    public boolean hasReceived() {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>required int32 id = 1;</code>
-     * @return The id.
+     * <code>required bool received = 1;</code>
+     * @return The received.
      */
-    public int getId() {
-      return id_;
+    public boolean getReceived() {
+      return received_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -3378,7 +3305,7 @@ public final class Welcome {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
-      if (!hasId()) {
+      if (!hasReceived()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -3390,7 +3317,7 @@ public final class Welcome {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeInt32(1, id_);
+        output.writeBool(1, received_);
       }
       unknownFields.writeTo(output);
     }
@@ -3403,7 +3330,7 @@ public final class Welcome {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, id_);
+          .computeBoolSize(1, received_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -3420,10 +3347,10 @@ public final class Welcome {
       }
       proto.Welcome.ElectedResponse other = (proto.Welcome.ElectedResponse) obj;
 
-      if (hasId() != other.hasId()) return false;
-      if (hasId()) {
-        if (getId()
-            != other.getId()) return false;
+      if (hasReceived() != other.hasReceived()) return false;
+      if (hasReceived()) {
+        if (getReceived()
+            != other.getReceived()) return false;
       }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
@@ -3436,9 +3363,10 @@ public final class Welcome {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasId()) {
-        hash = (37 * hash) + ID_FIELD_NUMBER;
-        hash = (53 * hash) + getId();
+      if (hasReceived()) {
+        hash = (37 * hash) + RECEIVED_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getReceived());
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -3536,6 +3464,10 @@ public final class Welcome {
       return builder;
     }
     /**
+     * <pre>
+     *Message of ack
+     * </pre>
+     *
      * Protobuf type {@code proto.ElectedResponse}
      */
     public static final class Builder extends
@@ -3573,7 +3505,7 @@ public final class Welcome {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        id_ = 0;
+        received_ = false;
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
@@ -3604,7 +3536,7 @@ public final class Welcome {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.id_ = id_;
+          result.received_ = received_;
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ = to_bitField0_;
@@ -3656,6 +3588,540 @@ public final class Welcome {
 
       public Builder mergeFrom(proto.Welcome.ElectedResponse other) {
         if (other == proto.Welcome.ElectedResponse.getDefaultInstance()) return this;
+        if (other.hasReceived()) {
+          setReceived(other.getReceived());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        if (!hasReceived()) {
+          return false;
+        }
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        proto.Welcome.ElectedResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (proto.Welcome.ElectedResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private boolean received_ ;
+      /**
+       * <code>required bool received = 1;</code>
+       * @return Whether the received field is set.
+       */
+      public boolean hasReceived() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <code>required bool received = 1;</code>
+       * @return The received.
+       */
+      public boolean getReceived() {
+        return received_;
+      }
+      /**
+       * <code>required bool received = 1;</code>
+       * @param value The received to set.
+       * @return This builder for chaining.
+       */
+      public Builder setReceived(boolean value) {
+        bitField0_ |= 0x00000001;
+        received_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required bool received = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearReceived() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        received_ = false;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:proto.ElectedResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:proto.ElectedResponse)
+    private static final proto.Welcome.ElectedResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new proto.Welcome.ElectedResponse();
+    }
+
+    public static proto.Welcome.ElectedResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<ElectedResponse>
+        PARSER = new com.google.protobuf.AbstractParser<ElectedResponse>() {
+      @java.lang.Override
+      public ElectedResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ElectedResponse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ElectedResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ElectedResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public proto.Welcome.ElectedResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface AliveMessageOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:proto.AliveMessage)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required int32 id = 1;</code>
+     * @return Whether the id field is set.
+     */
+    boolean hasId();
+    /**
+     * <code>required int32 id = 1;</code>
+     * @return The id.
+     */
+    int getId();
+  }
+  /**
+   * <pre>
+   *Message to find if master is alive
+   * </pre>
+   *
+   * Protobuf type {@code proto.AliveMessage}
+   */
+  public  static final class AliveMessage extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:proto.AliveMessage)
+      AliveMessageOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use AliveMessage.newBuilder() to construct.
+    private AliveMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private AliveMessage() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new AliveMessage();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private AliveMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              bitField0_ |= 0x00000001;
+              id_ = input.readInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return proto.Welcome.internal_static_proto_AliveMessage_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return proto.Welcome.internal_static_proto_AliveMessage_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              proto.Welcome.AliveMessage.class, proto.Welcome.AliveMessage.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int ID_FIELD_NUMBER = 1;
+    private int id_;
+    /**
+     * <code>required int32 id = 1;</code>
+     * @return Whether the id field is set.
+     */
+    public boolean hasId() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>required int32 id = 1;</code>
+     * @return The id.
+     */
+    public int getId() {
+      return id_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) != 0)) {
+        output.writeInt32(1, id_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, id_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof proto.Welcome.AliveMessage)) {
+        return super.equals(obj);
+      }
+      proto.Welcome.AliveMessage other = (proto.Welcome.AliveMessage) obj;
+
+      if (hasId() != other.hasId()) return false;
+      if (hasId()) {
+        if (getId()
+            != other.getId()) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasId()) {
+        hash = (37 * hash) + ID_FIELD_NUMBER;
+        hash = (53 * hash) + getId();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static proto.Welcome.AliveMessage parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static proto.Welcome.AliveMessage parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static proto.Welcome.AliveMessage parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static proto.Welcome.AliveMessage parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static proto.Welcome.AliveMessage parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static proto.Welcome.AliveMessage parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static proto.Welcome.AliveMessage parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static proto.Welcome.AliveMessage parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static proto.Welcome.AliveMessage parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static proto.Welcome.AliveMessage parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static proto.Welcome.AliveMessage parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static proto.Welcome.AliveMessage parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(proto.Welcome.AliveMessage prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     *Message to find if master is alive
+     * </pre>
+     *
+     * Protobuf type {@code proto.AliveMessage}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:proto.AliveMessage)
+        proto.Welcome.AliveMessageOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return proto.Welcome.internal_static_proto_AliveMessage_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return proto.Welcome.internal_static_proto_AliveMessage_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                proto.Welcome.AliveMessage.class, proto.Welcome.AliveMessage.Builder.class);
+      }
+
+      // Construct using proto.Welcome.AliveMessage.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        id_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return proto.Welcome.internal_static_proto_AliveMessage_descriptor;
+      }
+
+      @java.lang.Override
+      public proto.Welcome.AliveMessage getDefaultInstanceForType() {
+        return proto.Welcome.AliveMessage.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public proto.Welcome.AliveMessage build() {
+        proto.Welcome.AliveMessage result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public proto.Welcome.AliveMessage buildPartial() {
+        proto.Welcome.AliveMessage result = new proto.Welcome.AliveMessage(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.id_ = id_;
+          to_bitField0_ |= 0x00000001;
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof proto.Welcome.AliveMessage) {
+          return mergeFrom((proto.Welcome.AliveMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(proto.Welcome.AliveMessage other) {
+        if (other == proto.Welcome.AliveMessage.getDefaultInstance()) return this;
         if (other.hasId()) {
           setId(other.getId());
         }
@@ -3677,11 +4143,11 @@ public final class Welcome {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        proto.Welcome.ElectedResponse parsedMessage = null;
+        proto.Welcome.AliveMessage parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (proto.Welcome.ElectedResponse) e.getUnfinishedMessage();
+          parsedMessage = (proto.Welcome.AliveMessage) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -3741,41 +4207,576 @@ public final class Welcome {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:proto.ElectedResponse)
+      // @@protoc_insertion_point(builder_scope:proto.AliveMessage)
     }
 
-    // @@protoc_insertion_point(class_scope:proto.ElectedResponse)
-    private static final proto.Welcome.ElectedResponse DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:proto.AliveMessage)
+    private static final proto.Welcome.AliveMessage DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new proto.Welcome.ElectedResponse();
+      DEFAULT_INSTANCE = new proto.Welcome.AliveMessage();
     }
 
-    public static proto.Welcome.ElectedResponse getDefaultInstance() {
+    public static proto.Welcome.AliveMessage getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<ElectedResponse>
-        PARSER = new com.google.protobuf.AbstractParser<ElectedResponse>() {
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<AliveMessage>
+        PARSER = new com.google.protobuf.AbstractParser<AliveMessage>() {
       @java.lang.Override
-      public ElectedResponse parsePartialFrom(
+      public AliveMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ElectedResponse(input, extensionRegistry);
+        return new AliveMessage(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<ElectedResponse> parser() {
+    public static com.google.protobuf.Parser<AliveMessage> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<ElectedResponse> getParserForType() {
+    public com.google.protobuf.Parser<AliveMessage> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public proto.Welcome.ElectedResponse getDefaultInstanceForType() {
+    public proto.Welcome.AliveMessage getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface AliveResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:proto.AliveResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required bool isAlive = 1;</code>
+     * @return Whether the isAlive field is set.
+     */
+    boolean hasIsAlive();
+    /**
+     * <code>required bool isAlive = 1;</code>
+     * @return The isAlive.
+     */
+    boolean getIsAlive();
+  }
+  /**
+   * <pre>
+   *Message to find if master is alive
+   * </pre>
+   *
+   * Protobuf type {@code proto.AliveResponse}
+   */
+  public  static final class AliveResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:proto.AliveResponse)
+      AliveResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use AliveResponse.newBuilder() to construct.
+    private AliveResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private AliveResponse() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new AliveResponse();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private AliveResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              bitField0_ |= 0x00000001;
+              isAlive_ = input.readBool();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return proto.Welcome.internal_static_proto_AliveResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return proto.Welcome.internal_static_proto_AliveResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              proto.Welcome.AliveResponse.class, proto.Welcome.AliveResponse.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int ISALIVE_FIELD_NUMBER = 1;
+    private boolean isAlive_;
+    /**
+     * <code>required bool isAlive = 1;</code>
+     * @return Whether the isAlive field is set.
+     */
+    public boolean hasIsAlive() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>required bool isAlive = 1;</code>
+     * @return The isAlive.
+     */
+    public boolean getIsAlive() {
+      return isAlive_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasIsAlive()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) != 0)) {
+        output.writeBool(1, isAlive_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(1, isAlive_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof proto.Welcome.AliveResponse)) {
+        return super.equals(obj);
+      }
+      proto.Welcome.AliveResponse other = (proto.Welcome.AliveResponse) obj;
+
+      if (hasIsAlive() != other.hasIsAlive()) return false;
+      if (hasIsAlive()) {
+        if (getIsAlive()
+            != other.getIsAlive()) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasIsAlive()) {
+        hash = (37 * hash) + ISALIVE_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getIsAlive());
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static proto.Welcome.AliveResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static proto.Welcome.AliveResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static proto.Welcome.AliveResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static proto.Welcome.AliveResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static proto.Welcome.AliveResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static proto.Welcome.AliveResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static proto.Welcome.AliveResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static proto.Welcome.AliveResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static proto.Welcome.AliveResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static proto.Welcome.AliveResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static proto.Welcome.AliveResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static proto.Welcome.AliveResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(proto.Welcome.AliveResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     *Message to find if master is alive
+     * </pre>
+     *
+     * Protobuf type {@code proto.AliveResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:proto.AliveResponse)
+        proto.Welcome.AliveResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return proto.Welcome.internal_static_proto_AliveResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return proto.Welcome.internal_static_proto_AliveResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                proto.Welcome.AliveResponse.class, proto.Welcome.AliveResponse.Builder.class);
+      }
+
+      // Construct using proto.Welcome.AliveResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        isAlive_ = false;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return proto.Welcome.internal_static_proto_AliveResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public proto.Welcome.AliveResponse getDefaultInstanceForType() {
+        return proto.Welcome.AliveResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public proto.Welcome.AliveResponse build() {
+        proto.Welcome.AliveResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public proto.Welcome.AliveResponse buildPartial() {
+        proto.Welcome.AliveResponse result = new proto.Welcome.AliveResponse(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.isAlive_ = isAlive_;
+          to_bitField0_ |= 0x00000001;
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof proto.Welcome.AliveResponse) {
+          return mergeFrom((proto.Welcome.AliveResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(proto.Welcome.AliveResponse other) {
+        if (other == proto.Welcome.AliveResponse.getDefaultInstance()) return this;
+        if (other.hasIsAlive()) {
+          setIsAlive(other.getIsAlive());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        if (!hasIsAlive()) {
+          return false;
+        }
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        proto.Welcome.AliveResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (proto.Welcome.AliveResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private boolean isAlive_ ;
+      /**
+       * <code>required bool isAlive = 1;</code>
+       * @return Whether the isAlive field is set.
+       */
+      public boolean hasIsAlive() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <code>required bool isAlive = 1;</code>
+       * @return The isAlive.
+       */
+      public boolean getIsAlive() {
+        return isAlive_;
+      }
+      /**
+       * <code>required bool isAlive = 1;</code>
+       * @param value The isAlive to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIsAlive(boolean value) {
+        bitField0_ |= 0x00000001;
+        isAlive_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required bool isAlive = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearIsAlive() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        isAlive_ = false;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:proto.AliveResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:proto.AliveResponse)
+    private static final proto.Welcome.AliveResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new proto.Welcome.AliveResponse();
+    }
+
+    public static proto.Welcome.AliveResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<AliveResponse>
+        PARSER = new com.google.protobuf.AbstractParser<AliveResponse>() {
+      @java.lang.Override
+      public AliveResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new AliveResponse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<AliveResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<AliveResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public proto.Welcome.AliveResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -3811,6 +4812,16 @@ public final class Welcome {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_proto_ElectedResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_proto_AliveMessage_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_proto_AliveMessage_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_proto_AliveResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_proto_AliveResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -3824,14 +4835,17 @@ public final class Welcome {
       "\022\014\n\004port\030\001 \002(\005\022\n\n\002id\030\002 \002(\005\022\n\n\002ip\030\003 \002(\t\"-" +
       "\n\017WelcomeResponse\022\n\n\002id\030\001 \002(\005\022\016\n\006master\030" +
       "\002 \002(\010\".\n\017ElectionMessage\022\017\n\007battery\030\001 \002(" +
-      "\005\022\n\n\002id\030\002 \002(\005\"/\n\020ElectionResponse\022\017\n\007bat" +
-      "tery\030\001 \002(\005\022\n\n\002id\030\002 \002(\005\"\034\n\016ElectedMessage" +
-      "\022\n\n\002id\030\001 \002(\005\"\035\n\017ElectedResponse\022\n\n\002id\030\001 " +
-      "\002(\0052\272\001\n\007Manager\0228\n\007Welcome\022\025.proto.Welco" +
-      "meMessage\032\026.proto.WelcomeResponse\022;\n\010Ele" +
-      "ction\022\026.proto.ElectionMessage\032\027.proto.El" +
-      "ectionResponse\0228\n\007Elected\022\025.proto.Electe" +
-      "dMessage\032\026.proto.ElectedResponse"
+      "\005\022\n\n\002id\030\002 \002(\005\"$\n\020ElectionResponse\022\020\n\010rec" +
+      "eived\030\001 \002(\010\"\034\n\016ElectedMessage\022\n\n\002id\030\001 \002(" +
+      "\005\"#\n\017ElectedResponse\022\020\n\010received\030\001 \002(\010\"\032" +
+      "\n\014AliveMessage\022\n\n\002id\030\001 \002(\005\" \n\rAliveRespo" +
+      "nse\022\017\n\007isAlive\030\001 \002(\0102\356\001\n\007Manager\0228\n\007Welc" +
+      "ome\022\025.proto.WelcomeMessage\032\026.proto.Welco" +
+      "meResponse\022;\n\010Election\022\026.proto.ElectionM" +
+      "essage\032\027.proto.ElectionResponse\0228\n\007Elect" +
+      "ed\022\025.proto.ElectedMessage\032\026.proto.Electe" +
+      "dResponse\0222\n\005Alive\022\023.proto.AliveMessage\032" +
+      "\024.proto.AliveResponse"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -3860,7 +4874,7 @@ public final class Welcome {
     internal_static_proto_ElectionResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proto_ElectionResponse_descriptor,
-        new java.lang.String[] { "Battery", "Id", });
+        new java.lang.String[] { "Received", });
     internal_static_proto_ElectedMessage_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_proto_ElectedMessage_fieldAccessorTable = new
@@ -3872,7 +4886,19 @@ public final class Welcome {
     internal_static_proto_ElectedResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proto_ElectedResponse_descriptor,
+        new java.lang.String[] { "Received", });
+    internal_static_proto_AliveMessage_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_proto_AliveMessage_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_proto_AliveMessage_descriptor,
         new java.lang.String[] { "Id", });
+    internal_static_proto_AliveResponse_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_proto_AliveResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_proto_AliveResponse_descriptor,
+        new java.lang.String[] { "IsAlive", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
