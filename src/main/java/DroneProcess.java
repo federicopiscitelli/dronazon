@@ -13,6 +13,8 @@ import proto.ManagerGrpc;
 import proto.Welcome;
 import threads.DronesInput;
 import GRPC.GRPCDroneServer;
+import threads.MasterLifeChecker;
+import threads.WelcomeThread;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -59,79 +61,33 @@ public class DroneProcess {
         //The response of the REST server is the list of the drones in the network
         AddResponse response = clientResponse.getEntity(AddResponse.class);
 
-
+        //Adding the drone list to my drone and setting the position
         drone.setDronesList(response.getDrones());
         drone.setPosition(response.getPosition());
+        drone.updateDroneInList(drone);
+        System.out.println(drone.toString());
 
+        //Starting GRPC Server
         GRPCDroneServer threadServerGRPC = new GRPCDroneServer(drone);
         threadServerGRPC.start();
 
         //if there is more than one drone
         if(response.getDrones().size()>1) {
-
             //welcome to all drones in the network
             for (Drone d : response.getDrones()) {
-
                 if(!(d.getId()==drone.getId())){
-                    //plaintext channel on the address of the drone
-                    final ManagedChannel channel = ManagedChannelBuilder.forTarget(d.getIp()).usePlaintext(true).build();
-                    //creating an asynchronous stub on the channel
-                    ManagerGrpc.ManagerStub stub = ManagerGrpc.newStub(channel);
-
-                    //creating the HelloResponse object which will be provided as input to the RPC method
-                    Welcome.WelcomeMessage request = Welcome.WelcomeMessage
-                            .newBuilder()
-                            .setId(drone.getId())
-                            .setIp(drone.getIp())
-                            .setPort(drone.getPort())
-                            .build();
-
-
-                    //calling the RPC method. since it is asynchronous, we need to define handlers
-                    stub.welcome(request, new StreamObserver<Welcome.WelcomeResponse>() {
-
-                        //this hanlder takes care of each item received in the stream
-                        public void onNext(Welcome.WelcomeResponse welcomeResponse) {
-
-                            if(welcomeResponse.getMaster()){
-                                drone.setMasterID(welcomeResponse.getId());
-                            }
-
-                            System.out.println("> Hello from drone: " + welcomeResponse.getId() + " master:" + welcomeResponse.getMaster());
-                        }
-
-                        //if there are some errors, this method will be called
-                        public void onError(Throwable throwable) {
-                            channel.shutdownNow();
-                            List<Drone> listToUpdate = drone.getDronesList();
-                            listToUpdate.remove(d);
-                            drone.setDronesList(listToUpdate);
-                            System.out.println("> Drone with the id " + d.getId() + " is unavailable and was removed from the topology");
-                        }
-
-                        //when the stream is completed (the server called "onCompleted") just close the channel
-                        public void onCompleted() {
-                            channel.shutdownNow();
-                        }
-                    });
-
-                    //you need this. otherwise the method will terminate before that answers from the server are received
-                    try {
-                        channel.awaitTermination(10, TimeUnit.SECONDS);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+                    WelcomeThread welcomeThread = new WelcomeThread(drone,d.getIp());
+                    welcomeThread.run();
                 }
             }
+            //If i'm not the master start the thread to check if master is still alive
+            drone.startMasterLifeChecker();
         } else {
+            //if there is only one drone, setting to master and start the MQTT subscriber
             drone.setMaster(true);
-            DroneSubscriber droneSubscriber = new DroneSubscriber(drone);
-            droneSubscriber.run();
+            drone.startSubscriberMQTT();
         }
 
-
     }
-
-
 
 }

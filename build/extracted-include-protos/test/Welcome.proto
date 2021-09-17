@@ -12,11 +12,18 @@ service Manager{
   rpc Alive(AliveMessage) returns (AliveResponse);
 }
 
+//Message position
+message Position{
+  required int32 x = 1;
+  required int32 y = 2;
+}
+
 //Message of welcome
 message WelcomeMessage {
   required int32 port = 1;
   required int32 id = 2;
   required string ip = 3;
+  required Position position = 4;
 }
 
 //Message of response to the welcome

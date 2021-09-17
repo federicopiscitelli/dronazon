@@ -14,6 +14,642 @@ public final class Welcome {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
+  public interface PositionOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:proto.Position)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required int32 x = 1;</code>
+     * @return Whether the x field is set.
+     */
+    boolean hasX();
+    /**
+     * <code>required int32 x = 1;</code>
+     * @return The x.
+     */
+    int getX();
+
+    /**
+     * <code>required int32 y = 2;</code>
+     * @return Whether the y field is set.
+     */
+    boolean hasY();
+    /**
+     * <code>required int32 y = 2;</code>
+     * @return The y.
+     */
+    int getY();
+  }
+  /**
+   * <pre>
+   *Message position
+   * </pre>
+   *
+   * Protobuf type {@code proto.Position}
+   */
+  public  static final class Position extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:proto.Position)
+      PositionOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Position.newBuilder() to construct.
+    private Position(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Position() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Position();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Position(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              bitField0_ |= 0x00000001;
+              x_ = input.readInt32();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              y_ = input.readInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return proto.Welcome.internal_static_proto_Position_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return proto.Welcome.internal_static_proto_Position_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              proto.Welcome.Position.class, proto.Welcome.Position.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int X_FIELD_NUMBER = 1;
+    private int x_;
+    /**
+     * <code>required int32 x = 1;</code>
+     * @return Whether the x field is set.
+     */
+    public boolean hasX() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>required int32 x = 1;</code>
+     * @return The x.
+     */
+    public int getX() {
+      return x_;
+    }
+
+    public static final int Y_FIELD_NUMBER = 2;
+    private int y_;
+    /**
+     * <code>required int32 y = 2;</code>
+     * @return Whether the y field is set.
+     */
+    public boolean hasY() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>required int32 y = 2;</code>
+     * @return The y.
+     */
+    public int getY() {
+      return y_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasX()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasY()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) != 0)) {
+        output.writeInt32(1, x_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        output.writeInt32(2, y_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, x_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, y_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof proto.Welcome.Position)) {
+        return super.equals(obj);
+      }
+      proto.Welcome.Position other = (proto.Welcome.Position) obj;
+
+      if (hasX() != other.hasX()) return false;
+      if (hasX()) {
+        if (getX()
+            != other.getX()) return false;
+      }
+      if (hasY() != other.hasY()) return false;
+      if (hasY()) {
+        if (getY()
+            != other.getY()) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasX()) {
+        hash = (37 * hash) + X_FIELD_NUMBER;
+        hash = (53 * hash) + getX();
+      }
+      if (hasY()) {
+        hash = (37 * hash) + Y_FIELD_NUMBER;
+        hash = (53 * hash) + getY();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static proto.Welcome.Position parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static proto.Welcome.Position parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static proto.Welcome.Position parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static proto.Welcome.Position parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static proto.Welcome.Position parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static proto.Welcome.Position parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static proto.Welcome.Position parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static proto.Welcome.Position parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static proto.Welcome.Position parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static proto.Welcome.Position parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static proto.Welcome.Position parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static proto.Welcome.Position parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(proto.Welcome.Position prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     *Message position
+     * </pre>
+     *
+     * Protobuf type {@code proto.Position}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:proto.Position)
+        proto.Welcome.PositionOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return proto.Welcome.internal_static_proto_Position_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return proto.Welcome.internal_static_proto_Position_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                proto.Welcome.Position.class, proto.Welcome.Position.Builder.class);
+      }
+
+      // Construct using proto.Welcome.Position.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        x_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        y_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return proto.Welcome.internal_static_proto_Position_descriptor;
+      }
+
+      @java.lang.Override
+      public proto.Welcome.Position getDefaultInstanceForType() {
+        return proto.Welcome.Position.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public proto.Welcome.Position build() {
+        proto.Welcome.Position result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public proto.Welcome.Position buildPartial() {
+        proto.Welcome.Position result = new proto.Welcome.Position(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.x_ = x_;
+          to_bitField0_ |= 0x00000001;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.y_ = y_;
+          to_bitField0_ |= 0x00000002;
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof proto.Welcome.Position) {
+          return mergeFrom((proto.Welcome.Position)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(proto.Welcome.Position other) {
+        if (other == proto.Welcome.Position.getDefaultInstance()) return this;
+        if (other.hasX()) {
+          setX(other.getX());
+        }
+        if (other.hasY()) {
+          setY(other.getY());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        if (!hasX()) {
+          return false;
+        }
+        if (!hasY()) {
+          return false;
+        }
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        proto.Welcome.Position parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (proto.Welcome.Position) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private int x_ ;
+      /**
+       * <code>required int32 x = 1;</code>
+       * @return Whether the x field is set.
+       */
+      public boolean hasX() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <code>required int32 x = 1;</code>
+       * @return The x.
+       */
+      public int getX() {
+        return x_;
+      }
+      /**
+       * <code>required int32 x = 1;</code>
+       * @param value The x to set.
+       * @return This builder for chaining.
+       */
+      public Builder setX(int value) {
+        bitField0_ |= 0x00000001;
+        x_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 x = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearX() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        x_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int y_ ;
+      /**
+       * <code>required int32 y = 2;</code>
+       * @return Whether the y field is set.
+       */
+      public boolean hasY() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <code>required int32 y = 2;</code>
+       * @return The y.
+       */
+      public int getY() {
+        return y_;
+      }
+      /**
+       * <code>required int32 y = 2;</code>
+       * @param value The y to set.
+       * @return This builder for chaining.
+       */
+      public Builder setY(int value) {
+        bitField0_ |= 0x00000002;
+        y_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 y = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearY() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        y_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:proto.Position)
+    }
+
+    // @@protoc_insertion_point(class_scope:proto.Position)
+    private static final proto.Welcome.Position DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new proto.Welcome.Position();
+    }
+
+    public static proto.Welcome.Position getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<Position>
+        PARSER = new com.google.protobuf.AbstractParser<Position>() {
+      @java.lang.Override
+      public Position parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Position(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Position> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Position> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public proto.Welcome.Position getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface WelcomeMessageOrBuilder extends
       // @@protoc_insertion_point(interface_extends:proto.WelcomeMessage)
       com.google.protobuf.MessageOrBuilder {
@@ -56,6 +692,21 @@ public final class Welcome {
      */
     com.google.protobuf.ByteString
         getIpBytes();
+
+    /**
+     * <code>required .proto.Position position = 4;</code>
+     * @return Whether the position field is set.
+     */
+    boolean hasPosition();
+    /**
+     * <code>required .proto.Position position = 4;</code>
+     * @return The position.
+     */
+    proto.Welcome.Position getPosition();
+    /**
+     * <code>required .proto.Position position = 4;</code>
+     */
+    proto.Welcome.PositionOrBuilder getPositionOrBuilder();
   }
   /**
    * <pre>
@@ -122,6 +773,19 @@ public final class Welcome {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000004;
               ip_ = bs;
+              break;
+            }
+            case 34: {
+              proto.Welcome.Position.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000008) != 0)) {
+                subBuilder = position_.toBuilder();
+              }
+              position_ = input.readMessage(proto.Welcome.Position.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(position_);
+                position_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000008;
               break;
             }
             default: {
@@ -236,6 +900,29 @@ public final class Welcome {
       }
     }
 
+    public static final int POSITION_FIELD_NUMBER = 4;
+    private proto.Welcome.Position position_;
+    /**
+     * <code>required .proto.Position position = 4;</code>
+     * @return Whether the position field is set.
+     */
+    public boolean hasPosition() {
+      return ((bitField0_ & 0x00000008) != 0);
+    }
+    /**
+     * <code>required .proto.Position position = 4;</code>
+     * @return The position.
+     */
+    public proto.Welcome.Position getPosition() {
+      return position_ == null ? proto.Welcome.Position.getDefaultInstance() : position_;
+    }
+    /**
+     * <code>required .proto.Position position = 4;</code>
+     */
+    public proto.Welcome.PositionOrBuilder getPositionOrBuilder() {
+      return position_ == null ? proto.Welcome.Position.getDefaultInstance() : position_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -255,6 +942,14 @@ public final class Welcome {
         memoizedIsInitialized = 0;
         return false;
       }
+      if (!hasPosition()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!getPosition().isInitialized()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -270,6 +965,9 @@ public final class Welcome {
       }
       if (((bitField0_ & 0x00000004) != 0)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, ip_);
+      }
+      if (((bitField0_ & 0x00000008) != 0)) {
+        output.writeMessage(4, getPosition());
       }
       unknownFields.writeTo(output);
     }
@@ -290,6 +988,10 @@ public final class Welcome {
       }
       if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, ip_);
+      }
+      if (((bitField0_ & 0x00000008) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, getPosition());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -321,6 +1023,11 @@ public final class Welcome {
         if (!getIp()
             .equals(other.getIp())) return false;
       }
+      if (hasPosition() != other.hasPosition()) return false;
+      if (hasPosition()) {
+        if (!getPosition()
+            .equals(other.getPosition())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -343,6 +1050,10 @@ public final class Welcome {
       if (hasIp()) {
         hash = (37 * hash) + IP_FIELD_NUMBER;
         hash = (53 * hash) + getIp().hashCode();
+      }
+      if (hasPosition()) {
+        hash = (37 * hash) + POSITION_FIELD_NUMBER;
+        hash = (53 * hash) + getPosition().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -476,6 +1187,7 @@ public final class Welcome {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getPositionFieldBuilder();
         }
       }
       @java.lang.Override
@@ -487,6 +1199,12 @@ public final class Welcome {
         bitField0_ = (bitField0_ & ~0x00000002);
         ip_ = "";
         bitField0_ = (bitField0_ & ~0x00000004);
+        if (positionBuilder_ == null) {
+          position_ = null;
+        } else {
+          positionBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -527,6 +1245,14 @@ public final class Welcome {
           to_bitField0_ |= 0x00000004;
         }
         result.ip_ = ip_;
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          if (positionBuilder_ == null) {
+            result.position_ = position_;
+          } else {
+            result.position_ = positionBuilder_.build();
+          }
+          to_bitField0_ |= 0x00000008;
+        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -587,6 +1313,9 @@ public final class Welcome {
           ip_ = other.ip_;
           onChanged();
         }
+        if (other.hasPosition()) {
+          mergePosition(other.getPosition());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -601,6 +1330,12 @@ public final class Welcome {
           return false;
         }
         if (!hasIp()) {
+          return false;
+        }
+        if (!hasPosition()) {
+          return false;
+        }
+        if (!getPosition().isInitialized()) {
           return false;
         }
         return true;
@@ -782,6 +1517,126 @@ public final class Welcome {
         ip_ = value;
         onChanged();
         return this;
+      }
+
+      private proto.Welcome.Position position_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          proto.Welcome.Position, proto.Welcome.Position.Builder, proto.Welcome.PositionOrBuilder> positionBuilder_;
+      /**
+       * <code>required .proto.Position position = 4;</code>
+       * @return Whether the position field is set.
+       */
+      public boolean hasPosition() {
+        return ((bitField0_ & 0x00000008) != 0);
+      }
+      /**
+       * <code>required .proto.Position position = 4;</code>
+       * @return The position.
+       */
+      public proto.Welcome.Position getPosition() {
+        if (positionBuilder_ == null) {
+          return position_ == null ? proto.Welcome.Position.getDefaultInstance() : position_;
+        } else {
+          return positionBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>required .proto.Position position = 4;</code>
+       */
+      public Builder setPosition(proto.Welcome.Position value) {
+        if (positionBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          position_ = value;
+          onChanged();
+        } else {
+          positionBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       * <code>required .proto.Position position = 4;</code>
+       */
+      public Builder setPosition(
+          proto.Welcome.Position.Builder builderForValue) {
+        if (positionBuilder_ == null) {
+          position_ = builderForValue.build();
+          onChanged();
+        } else {
+          positionBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       * <code>required .proto.Position position = 4;</code>
+       */
+      public Builder mergePosition(proto.Welcome.Position value) {
+        if (positionBuilder_ == null) {
+          if (((bitField0_ & 0x00000008) != 0) &&
+              position_ != null &&
+              position_ != proto.Welcome.Position.getDefaultInstance()) {
+            position_ =
+              proto.Welcome.Position.newBuilder(position_).mergeFrom(value).buildPartial();
+          } else {
+            position_ = value;
+          }
+          onChanged();
+        } else {
+          positionBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       * <code>required .proto.Position position = 4;</code>
+       */
+      public Builder clearPosition() {
+        if (positionBuilder_ == null) {
+          position_ = null;
+          onChanged();
+        } else {
+          positionBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000008);
+        return this;
+      }
+      /**
+       * <code>required .proto.Position position = 4;</code>
+       */
+      public proto.Welcome.Position.Builder getPositionBuilder() {
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return getPositionFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>required .proto.Position position = 4;</code>
+       */
+      public proto.Welcome.PositionOrBuilder getPositionOrBuilder() {
+        if (positionBuilder_ != null) {
+          return positionBuilder_.getMessageOrBuilder();
+        } else {
+          return position_ == null ?
+              proto.Welcome.Position.getDefaultInstance() : position_;
+        }
+      }
+      /**
+       * <code>required .proto.Position position = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          proto.Welcome.Position, proto.Welcome.Position.Builder, proto.Welcome.PositionOrBuilder> 
+          getPositionFieldBuilder() {
+        if (positionBuilder_ == null) {
+          positionBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              proto.Welcome.Position, proto.Welcome.Position.Builder, proto.Welcome.PositionOrBuilder>(
+                  getPosition(),
+                  getParentForChildren(),
+                  isClean());
+          position_ = null;
+        }
+        return positionBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -4783,6 +5638,11 @@ public final class Welcome {
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_proto_Position_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_proto_Position_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_proto_WelcomeMessage_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -4831,70 +5691,78 @@ public final class Welcome {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\rWelcome.proto\022\005proto\"6\n\016WelcomeMessage" +
-      "\022\014\n\004port\030\001 \002(\005\022\n\n\002id\030\002 \002(\005\022\n\n\002ip\030\003 \002(\t\"-" +
-      "\n\017WelcomeResponse\022\n\n\002id\030\001 \002(\005\022\016\n\006master\030" +
-      "\002 \002(\010\".\n\017ElectionMessage\022\017\n\007battery\030\001 \002(" +
-      "\005\022\n\n\002id\030\002 \002(\005\"$\n\020ElectionResponse\022\020\n\010rec" +
-      "eived\030\001 \002(\010\"\034\n\016ElectedMessage\022\n\n\002id\030\001 \002(" +
-      "\005\"#\n\017ElectedResponse\022\020\n\010received\030\001 \002(\010\"\032" +
-      "\n\014AliveMessage\022\n\n\002id\030\001 \002(\005\" \n\rAliveRespo" +
-      "nse\022\017\n\007isAlive\030\001 \002(\0102\356\001\n\007Manager\0228\n\007Welc" +
-      "ome\022\025.proto.WelcomeMessage\032\026.proto.Welco" +
-      "meResponse\022;\n\010Election\022\026.proto.ElectionM" +
-      "essage\032\027.proto.ElectionResponse\0228\n\007Elect" +
-      "ed\022\025.proto.ElectedMessage\032\026.proto.Electe" +
-      "dResponse\0222\n\005Alive\022\023.proto.AliveMessage\032" +
-      "\024.proto.AliveResponse"
+      "\n\rWelcome.proto\022\005proto\" \n\010Position\022\t\n\001x\030" +
+      "\001 \002(\005\022\t\n\001y\030\002 \002(\005\"Y\n\016WelcomeMessage\022\014\n\004po" +
+      "rt\030\001 \002(\005\022\n\n\002id\030\002 \002(\005\022\n\n\002ip\030\003 \002(\t\022!\n\010posi" +
+      "tion\030\004 \002(\0132\017.proto.Position\"-\n\017WelcomeRe" +
+      "sponse\022\n\n\002id\030\001 \002(\005\022\016\n\006master\030\002 \002(\010\".\n\017El" +
+      "ectionMessage\022\017\n\007battery\030\001 \002(\005\022\n\n\002id\030\002 \002" +
+      "(\005\"$\n\020ElectionResponse\022\020\n\010received\030\001 \002(\010" +
+      "\"\034\n\016ElectedMessage\022\n\n\002id\030\001 \002(\005\"#\n\017Electe" +
+      "dResponse\022\020\n\010received\030\001 \002(\010\"\032\n\014AliveMess" +
+      "age\022\n\n\002id\030\001 \002(\005\" \n\rAliveResponse\022\017\n\007isAl" +
+      "ive\030\001 \002(\0102\356\001\n\007Manager\0228\n\007Welcome\022\025.proto" +
+      ".WelcomeMessage\032\026.proto.WelcomeResponse\022" +
+      ";\n\010Election\022\026.proto.ElectionMessage\032\027.pr" +
+      "oto.ElectionResponse\0228\n\007Elected\022\025.proto." +
+      "ElectedMessage\032\026.proto.ElectedResponse\0222" +
+      "\n\005Alive\022\023.proto.AliveMessage\032\024.proto.Ali" +
+      "veResponse"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         });
-    internal_static_proto_WelcomeMessage_descriptor =
+    internal_static_proto_Position_descriptor =
       getDescriptor().getMessageTypes().get(0);
+    internal_static_proto_Position_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_proto_Position_descriptor,
+        new java.lang.String[] { "X", "Y", });
+    internal_static_proto_WelcomeMessage_descriptor =
+      getDescriptor().getMessageTypes().get(1);
     internal_static_proto_WelcomeMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proto_WelcomeMessage_descriptor,
-        new java.lang.String[] { "Port", "Id", "Ip", });
+        new java.lang.String[] { "Port", "Id", "Ip", "Position", });
     internal_static_proto_WelcomeResponse_descriptor =
-      getDescriptor().getMessageTypes().get(1);
+      getDescriptor().getMessageTypes().get(2);
     internal_static_proto_WelcomeResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proto_WelcomeResponse_descriptor,
         new java.lang.String[] { "Id", "Master", });
     internal_static_proto_ElectionMessage_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_proto_ElectionMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proto_ElectionMessage_descriptor,
         new java.lang.String[] { "Battery", "Id", });
     internal_static_proto_ElectionResponse_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_proto_ElectionResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proto_ElectionResponse_descriptor,
         new java.lang.String[] { "Received", });
     internal_static_proto_ElectedMessage_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_proto_ElectedMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proto_ElectedMessage_descriptor,
         new java.lang.String[] { "Id", });
     internal_static_proto_ElectedResponse_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_proto_ElectedResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proto_ElectedResponse_descriptor,
         new java.lang.String[] { "Received", });
     internal_static_proto_AliveMessage_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_proto_AliveMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proto_AliveMessage_descriptor,
         new java.lang.String[] { "Id", });
     internal_static_proto_AliveResponse_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_proto_AliveResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proto_AliveResponse_descriptor,

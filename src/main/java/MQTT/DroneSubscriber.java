@@ -1,12 +1,14 @@
 package MQTT;
 
+import com.google.gson.Gson;
 import modules.Drone;
+import modules.Order;
 import org.eclipse.paho.client.mqttv3.*;
 
 import java.sql.Timestamp;
 
 
-public class DroneSubscriber extends Thread{
+public class DroneSubscriber implements Runnable{
 
     public static final String BROKER = "tcp://localhost:1883";
     public static final String TOPIC = "dronazon/smartcity/orders";
@@ -34,6 +36,8 @@ public class DroneSubscriber extends Thread{
             client.connect(connOpts);
             System.out.println(clientId + " Connected - Thread PID: " + Thread.currentThread().getId());
 
+            Gson gson = new Gson();
+
             // Callback
             client.setCallback(new MqttCallback() {
 
@@ -41,19 +45,19 @@ public class DroneSubscriber extends Thread{
                     // Called when a message arrives from the server that matches any subscription made by the client
                     String time = new Timestamp(System.currentTimeMillis()).toString();
                     String receivedMessage = new String(message.getPayload());
-                    System.out.println("> "+ clientId + " received a order! - Callback - Thread PID: " + Thread.currentThread().getId() +
-                            "\n\tTime:    " + time +
-                            "\n\tMessage: " + receivedMessage + "\n");
+                    Order newOrder = gson.fromJson(receivedMessage,Order.class);
+
+                    System.out.println("> Time: " + time + " Message: " + receivedMessage );
+
+                    drone.assignDelivery(newOrder);
 
                 }
 
                 public void connectionLost(Throwable cause) {
-                    System.out.println(">" + clientId + " Connection lost! cause:" + cause.getMessage() + "-  Thread PID: " + Thread.currentThread().getId());
+                    System.out.println(">" + clientId + " Connection lost! cause:" + cause.getMessage() + " " + cause.getCause().toString()+ " -  Thread PID: " + Thread.currentThread().getId());
                 }
 
-                public void deliveryComplete(IMqttDeliveryToken token) {
-                    // Not used here
-                }
+                public void deliveryComplete(IMqttDeliveryToken token) { }
 
             });
             System.out.println(">" + clientId + " Subscribing ... - Thread PID: " + Thread.currentThread().getId());
@@ -69,6 +73,16 @@ public class DroneSubscriber extends Thread{
             System.out.println("> Cause: " + me.getCause());
             System.out.println("> Excep: " + me);
             me.printStackTrace();
+        }
+    }
+
+    public void stop(){
+        if(client.isConnected()){
+            try {
+                client.disconnectForcibly();
+            } catch (MqttException e) {
+                e.printStackTrace();
+            }
         }
     }
 

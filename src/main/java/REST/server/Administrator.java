@@ -14,12 +14,12 @@ public class Administrator {
         HttpServer server = HttpServerFactory.create("http://"+HOST+":"+PORT+"/");
         server.start();
 
-        System.out.println("> Server running!");
-        System.out.println("> Server started on: http://"+HOST+":"+PORT);
+        System.out.println("> REST server running!");
+        System.out.println("> REST server started on: http://"+HOST+":"+PORT);
         System.out.println("> Hit return to stop...");
         System.in.read();
         System.out.println("> Stopping REST server");
         server.stop(0);
-        System.out.println("> Server stopped");
+        System.out.println("> REST server stopped");
     }
 }

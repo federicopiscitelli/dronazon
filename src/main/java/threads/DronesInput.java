@@ -1,15 +1,11 @@
 package threads;
 
-import com.google.gson.Gson;
+
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientHandlerException;
-import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 import modules.Drone;
-
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 
 /*
  *
@@ -27,7 +23,7 @@ public class DronesInput extends Thread{
     }
 
     public void run() {
-        BufferedReader inFromUser = new BufferedReader(new InputStreamReader(System.in));
+
         System.out.println("> Hit return to stop...");
 
         try {
