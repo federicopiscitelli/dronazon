@@ -81,11 +81,10 @@ public class DroneProcess {
                 }
             }
             //If i'm not the master start the thread to check if master is still alive
-            drone.startMasterLifeChecker();
+            drone.setMaster(false);
         } else {
-            //if there is only one drone, setting to master and start the MQTT subscriber
+            //if there is only one drone, setting to master
             drone.setMaster(true);
-            drone.startSubscriberMQTT();
         }
 
     }

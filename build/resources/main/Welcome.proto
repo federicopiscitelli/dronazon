@@ -1,6 +1,5 @@
 package proto;
 
-
 service Manager{
   //Service used when a drone enters the network
   rpc Welcome(WelcomeMessage) returns (WelcomeResponse);
@@ -10,6 +9,11 @@ service Manager{
   rpc Elected(ElectedMessage) returns (ElectedResponse);
   //Service used to check if master is alive
   rpc Alive(AliveMessage) returns (AliveResponse);
+  //Service used to assign the delivery
+  rpc Delivery(DeliveryMessage) returns (DeliveryResponse);
+  //Service used to comunicate the success on the delivery
+  rpc Delivered(DeliveredMessage) returns (DeliveredResponse);
+
 }
 
 //Message position
@@ -23,9 +27,6 @@ message WelcomeMessage {
   required int32 port = 1;
   required int32 id = 2;
   required string ip = 3;
-
-
-
   required Position position = 4;
 }
 
@@ -64,4 +65,25 @@ message AliveMessage{
 //Message to find if master is alive
 message AliveResponse{
   required bool isAlive = 1;
+}
+
+message DeliveryMessage{
+ required Position retire = 1;
+ required Position delivery = 2;
+}
+
+message DeliveryResponse{
+  required bool received = 1;
+}
+
+message DeliveredMessage{
+  required string timestamp = 1;
+  required Position newPosition = 2;
+  required double km = 3;
+  required double avgPollution = 4;
+  required int32 battery = 5;
+}
+
+message DeliveredResponse{
+  required bool received = 1;
 }

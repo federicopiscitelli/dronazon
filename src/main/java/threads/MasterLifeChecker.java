@@ -68,7 +68,7 @@ public class MasterLifeChecker implements Runnable{
 
                 //you need this. otherwise the method will terminate before that answers from the server are received
                 try {
-                    channel.awaitTermination(10, TimeUnit.SECONDS);
+                    channel.awaitTermination(5, TimeUnit.SECONDS);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

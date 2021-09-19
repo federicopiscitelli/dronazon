@@ -64,6 +64,14 @@ public class Drone {
 
     public synchronized void setMaster(boolean master) {
         this.master = master;
+        //start or stop the correct thread
+        if(!this.inElection && this.master){
+            this.startSubscriberMQTT();
+        } else if(!this.inElection && !this.master){
+            this.startMasterLifeChecker();
+        } else if(this.inElection) {
+            this.stopMasterLifeChecker();
+        }
     }
 
     public Drone getNext() {
@@ -145,14 +153,6 @@ public class Drone {
 
     public synchronized void setInElection(boolean inElection) {
         this.inElection = inElection;
-        //start or stop the correct thread
-        if(!this.inElection && this.master){
-            this.subscriberMQTT.run();
-        } else if(!this.inElection && !this.master){
-            this.masterLifeChecker.run();
-        } else if(this.inElection) {
-            this.masterLifeChecker.stop();
-        }
     }
 
     public synchronized boolean isInDelivery() {
@@ -411,10 +411,67 @@ public class Drone {
         }
 
         System.out.println("> Assigned to: "+selected.getId());
+
+        sendAssignedDeliveryMessage(selected.getIp(), order.getRetire(),order.getDelivery());
     }
 
-    public void doDelivery(){
+    public void sendAssignedDeliveryMessage(String ip, Position retire, Position delivery){
 
+        final ManagedChannel channel = ManagedChannelBuilder.forTarget(ip).usePlaintext(true).build();
+        //creating an asynchronous stub on the channel
+
+        ManagerGrpc.ManagerStub stub = ManagerGrpc.newStub(channel);
+
+        //creating the HelloResponse object which will be provided as input to the RPC method
+        Welcome.DeliveryMessage request = Welcome.DeliveryMessage
+                .newBuilder()
+                .setRetire(Welcome.Position
+                        .newBuilder()
+                        .setX(retire.getX())
+                        .setY(retire.getY())
+                        .build())
+                .setDelivery(Welcome.Position
+                        .newBuilder()
+                        .setX(delivery.getX())
+                        .setY(delivery.getY())
+                        .build())
+                .build();
+
+
+        //calling the RPC method. since it is asynchronous, we need to define handlers
+        stub.delivery(request, new StreamObserver<Welcome.DeliveryResponse>() {
+            //this hanlder takes care of each item received in the stream
+            public void onNext(Welcome.DeliveryResponse deliveryResponse) {
+                //each item is just printed
+                if(deliveryResponse.getReceived()) {
+                    System.out.println("> Ack received");
+                }
+            }
+
+            //if there are some errors, this method will be called
+            public void onError(Throwable throwable) {
+                channel.shutdownNow();
+                //removeDroneFromList(next.getId());
+                //TODO: if next drone is disconnected?
+                System.err.println("> Error: " + throwable.getMessage()); //Error: CANCELLED: io.grpc.Context was cancelled without error
+            }
+
+            //when the stream is completed (the server called "onCompleted") just close the channel
+            public void onCompleted() {
+                channel.shutdownNow();
+            }
+        });
+
+        //you need this. otherwise the method will terminate before that answers from the server are received
+        try {
+            channel.awaitTermination(10, TimeUnit.SECONDS);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void doDelivery(Position retire, Position delivery){
+        System.out.println("> Doing the delivery .... ");
     }
 
 }

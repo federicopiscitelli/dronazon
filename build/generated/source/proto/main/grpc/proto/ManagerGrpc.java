@@ -151,6 +151,68 @@ public final class ManagerGrpc {
     return getAliveMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<proto.Welcome.DeliveryMessage,
+      proto.Welcome.DeliveryResponse> getDeliveryMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "Delivery",
+      requestType = proto.Welcome.DeliveryMessage.class,
+      responseType = proto.Welcome.DeliveryResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<proto.Welcome.DeliveryMessage,
+      proto.Welcome.DeliveryResponse> getDeliveryMethod() {
+    io.grpc.MethodDescriptor<proto.Welcome.DeliveryMessage, proto.Welcome.DeliveryResponse> getDeliveryMethod;
+    if ((getDeliveryMethod = ManagerGrpc.getDeliveryMethod) == null) {
+      synchronized (ManagerGrpc.class) {
+        if ((getDeliveryMethod = ManagerGrpc.getDeliveryMethod) == null) {
+          ManagerGrpc.getDeliveryMethod = getDeliveryMethod =
+              io.grpc.MethodDescriptor.<proto.Welcome.DeliveryMessage, proto.Welcome.DeliveryResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "Delivery"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  proto.Welcome.DeliveryMessage.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  proto.Welcome.DeliveryResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new ManagerMethodDescriptorSupplier("Delivery"))
+              .build();
+        }
+      }
+    }
+    return getDeliveryMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<proto.Welcome.DeliveredMessage,
+      proto.Welcome.DeliveredResponse> getDeliveredMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "Delivered",
+      requestType = proto.Welcome.DeliveredMessage.class,
+      responseType = proto.Welcome.DeliveredResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<proto.Welcome.DeliveredMessage,
+      proto.Welcome.DeliveredResponse> getDeliveredMethod() {
+    io.grpc.MethodDescriptor<proto.Welcome.DeliveredMessage, proto.Welcome.DeliveredResponse> getDeliveredMethod;
+    if ((getDeliveredMethod = ManagerGrpc.getDeliveredMethod) == null) {
+      synchronized (ManagerGrpc.class) {
+        if ((getDeliveredMethod = ManagerGrpc.getDeliveredMethod) == null) {
+          ManagerGrpc.getDeliveredMethod = getDeliveredMethod =
+              io.grpc.MethodDescriptor.<proto.Welcome.DeliveredMessage, proto.Welcome.DeliveredResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "Delivered"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  proto.Welcome.DeliveredMessage.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  proto.Welcome.DeliveredResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new ManagerMethodDescriptorSupplier("Delivered"))
+              .build();
+        }
+      }
+    }
+    return getDeliveredMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -218,6 +280,26 @@ public final class ManagerGrpc {
       asyncUnimplementedUnaryCall(getAliveMethod(), responseObserver);
     }
 
+    /**
+     * <pre>
+     *Service used to assign the delivery
+     * </pre>
+     */
+    public void delivery(proto.Welcome.DeliveryMessage request,
+        io.grpc.stub.StreamObserver<proto.Welcome.DeliveryResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getDeliveryMethod(), responseObserver);
+    }
+
+    /**
+     * <pre>
+     *Service used to comunicate the success on the delivery
+     * </pre>
+     */
+    public void delivered(proto.Welcome.DeliveredMessage request,
+        io.grpc.stub.StreamObserver<proto.Welcome.DeliveredResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getDeliveredMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -248,6 +330,20 @@ public final class ManagerGrpc {
                 proto.Welcome.AliveMessage,
                 proto.Welcome.AliveResponse>(
                   this, METHODID_ALIVE)))
+          .addMethod(
+            getDeliveryMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                proto.Welcome.DeliveryMessage,
+                proto.Welcome.DeliveryResponse>(
+                  this, METHODID_DELIVERY)))
+          .addMethod(
+            getDeliveredMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                proto.Welcome.DeliveredMessage,
+                proto.Welcome.DeliveredResponse>(
+                  this, METHODID_DELIVERED)))
           .build();
     }
   }
@@ -313,6 +409,28 @@ public final class ManagerGrpc {
       asyncUnaryCall(
           getChannel().newCall(getAliveMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     * <pre>
+     *Service used to assign the delivery
+     * </pre>
+     */
+    public void delivery(proto.Welcome.DeliveryMessage request,
+        io.grpc.stub.StreamObserver<proto.Welcome.DeliveryResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getDeliveryMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     * <pre>
+     *Service used to comunicate the success on the delivery
+     * </pre>
+     */
+    public void delivered(proto.Welcome.DeliveredMessage request,
+        io.grpc.stub.StreamObserver<proto.Welcome.DeliveredResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getDeliveredMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -371,6 +489,26 @@ public final class ManagerGrpc {
     public proto.Welcome.AliveResponse alive(proto.Welcome.AliveMessage request) {
       return blockingUnaryCall(
           getChannel(), getAliveMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     *Service used to assign the delivery
+     * </pre>
+     */
+    public proto.Welcome.DeliveryResponse delivery(proto.Welcome.DeliveryMessage request) {
+      return blockingUnaryCall(
+          getChannel(), getDeliveryMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     *Service used to comunicate the success on the delivery
+     * </pre>
+     */
+    public proto.Welcome.DeliveredResponse delivered(proto.Welcome.DeliveredMessage request) {
+      return blockingUnaryCall(
+          getChannel(), getDeliveredMethod(), getCallOptions(), request);
     }
   }
 
@@ -435,12 +573,36 @@ public final class ManagerGrpc {
       return futureUnaryCall(
           getChannel().newCall(getAliveMethod(), getCallOptions()), request);
     }
+
+    /**
+     * <pre>
+     *Service used to assign the delivery
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<proto.Welcome.DeliveryResponse> delivery(
+        proto.Welcome.DeliveryMessage request) {
+      return futureUnaryCall(
+          getChannel().newCall(getDeliveryMethod(), getCallOptions()), request);
+    }
+
+    /**
+     * <pre>
+     *Service used to comunicate the success on the delivery
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<proto.Welcome.DeliveredResponse> delivered(
+        proto.Welcome.DeliveredMessage request) {
+      return futureUnaryCall(
+          getChannel().newCall(getDeliveredMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_WELCOME = 0;
   private static final int METHODID_ELECTION = 1;
   private static final int METHODID_ELECTED = 2;
   private static final int METHODID_ALIVE = 3;
+  private static final int METHODID_DELIVERY = 4;
+  private static final int METHODID_DELIVERED = 5;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -474,6 +636,14 @@ public final class ManagerGrpc {
         case METHODID_ALIVE:
           serviceImpl.alive((proto.Welcome.AliveMessage) request,
               (io.grpc.stub.StreamObserver<proto.Welcome.AliveResponse>) responseObserver);
+          break;
+        case METHODID_DELIVERY:
+          serviceImpl.delivery((proto.Welcome.DeliveryMessage) request,
+              (io.grpc.stub.StreamObserver<proto.Welcome.DeliveryResponse>) responseObserver);
+          break;
+        case METHODID_DELIVERED:
+          serviceImpl.delivered((proto.Welcome.DeliveredMessage) request,
+              (io.grpc.stub.StreamObserver<proto.Welcome.DeliveredResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -540,6 +710,8 @@ public final class ManagerGrpc {
               .addMethod(getElectionMethod())
               .addMethod(getElectedMethod())
               .addMethod(getAliveMethod())
+              .addMethod(getDeliveryMethod())
+              .addMethod(getDeliveredMethod())
               .build();
         }
       }
