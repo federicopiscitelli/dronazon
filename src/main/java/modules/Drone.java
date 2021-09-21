@@ -7,6 +7,7 @@ import io.grpc.stub.StreamObserver;
 import org.codehaus.jackson.annotate.JsonIgnore;
 import proto.ManagerGrpc;
 import proto.Welcome;
+import threads.DeliveryThread;
 import threads.MasterLifeChecker;
 
 import javax.xml.bind.annotation.XmlRootElement;
@@ -111,7 +112,6 @@ public class Drone {
     }
 
     public void setPosition(Position position) {
-        System.out.println(position.toString());
         this.position = position;
     }
 
@@ -471,7 +471,8 @@ public class Drone {
     }
 
     public void doDelivery(Position retire, Position delivery){
-        System.out.println("> Doing the delivery .... ");
+        DeliveryThread deliveryThread = new DeliveryThread(this, retire, delivery);
+        deliveryThread.start();
     }
 
 }

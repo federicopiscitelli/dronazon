@@ -65,7 +65,6 @@ public class DroneProcess {
         drone.setDronesList(response.getDrones());
         drone.setPosition(response.getPosition());
         drone.updateDroneInList(drone);
-        System.out.println(drone.toString());
 
         //Starting GRPC Server
         GRPCDroneServer threadServerGRPC = new GRPCDroneServer(drone);
@@ -85,6 +84,7 @@ public class DroneProcess {
         } else {
             //if there is only one drone, setting to master
             drone.setMaster(true);
+            drone.setMasterID(drone.getId());
         }
 
     }

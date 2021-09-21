@@ -57,6 +57,7 @@ public class MasterLifeChecker implements Runnable{
                         drone.stopMasterLifeChecker();
                         drone.removeDroneFromList(drone.getMasterID());
                         System.err.println("> Master is not responding -> " + throwable.getMessage());
+                        drone.setMasterID(-1);
                         drone.sendElectionMessageToNext(drone.getId(), drone.getBatteryLevel());
                     }
 
@@ -68,7 +69,7 @@ public class MasterLifeChecker implements Runnable{
 
                 //you need this. otherwise the method will terminate before that answers from the server are received
                 try {
-                    channel.awaitTermination(5, TimeUnit.SECONDS);
+                    channel.awaitTermination(2, TimeUnit.SECONDS);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

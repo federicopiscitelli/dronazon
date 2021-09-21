@@ -1,5 +1,5 @@
-DroneProcess.java
- DroneProcess
+simulators/PM10Simulator.java
+ simulators.PM10Simulator
 simulators/Buffer.java
  simulators.Buffer
 REST/server/Administrator.java
@@ -8,53 +8,8 @@ modules/Stat.java
  modules.Stat
 REST/client/Administrator.java
  REST.client.Administrator
-proto/ManagerOuterClass.java
- proto.ManagerOuterClass
- proto.ManagerOuterClass$1
- proto.ManagerOuterClass$AliveMessage
- proto.ManagerOuterClass$AliveMessage$1
- proto.ManagerOuterClass$AliveMessage$Builder
- proto.ManagerOuterClass$AliveMessageOrBuilder
- proto.ManagerOuterClass$AliveResponse
- proto.ManagerOuterClass$AliveResponse$1
- proto.ManagerOuterClass$AliveResponse$Builder
- proto.ManagerOuterClass$AliveResponseOrBuilder
- proto.ManagerOuterClass$DeliveryMessage
- proto.ManagerOuterClass$DeliveryMessage$1
- proto.ManagerOuterClass$DeliveryMessage$Builder
- proto.ManagerOuterClass$DeliveryMessageOrBuilder
- proto.ManagerOuterClass$DeliveryResponse
- proto.ManagerOuterClass$DeliveryResponse$1
- proto.ManagerOuterClass$DeliveryResponse$Builder
- proto.ManagerOuterClass$DeliveryResponseOrBuilder
- proto.ManagerOuterClass$ElectedMessage
- proto.ManagerOuterClass$ElectedMessage$1
- proto.ManagerOuterClass$ElectedMessage$Builder
- proto.ManagerOuterClass$ElectedMessageOrBuilder
- proto.ManagerOuterClass$ElectedResponse
- proto.ManagerOuterClass$ElectedResponse$1
- proto.ManagerOuterClass$ElectedResponse$Builder
- proto.ManagerOuterClass$ElectedResponseOrBuilder
- proto.ManagerOuterClass$ElectionMessage
- proto.ManagerOuterClass$ElectionMessage$1
- proto.ManagerOuterClass$ElectionMessage$Builder
- proto.ManagerOuterClass$ElectionMessageOrBuilder
- proto.ManagerOuterClass$ElectionResponse
- proto.ManagerOuterClass$ElectionResponse$1
- proto.ManagerOuterClass$ElectionResponse$Builder
- proto.ManagerOuterClass$ElectionResponseOrBuilder
- proto.ManagerOuterClass$Position
- proto.ManagerOuterClass$Position$1
- proto.ManagerOuterClass$Position$Builder
- proto.ManagerOuterClass$PositionOrBuilder
- proto.ManagerOuterClass$WelcomeMessage
- proto.ManagerOuterClass$WelcomeMessage$1
- proto.ManagerOuterClass$WelcomeMessage$Builder
- proto.ManagerOuterClass$WelcomeMessageOrBuilder
- proto.ManagerOuterClass$WelcomeResponse
- proto.ManagerOuterClass$WelcomeResponse$1
- proto.ManagerOuterClass$WelcomeResponse$Builder
- proto.ManagerOuterClass$WelcomeResponseOrBuilder
+simulators/Measurement.java
+ simulators.Measurement
 proto/ManagerGrpc.java
  proto.ManagerGrpc
  proto.ManagerGrpc$1
@@ -66,25 +21,10 @@ proto/ManagerGrpc.java
  proto.ManagerGrpc$ManagerMethodDescriptorSupplier
  proto.ManagerGrpc$ManagerStub
  proto.ManagerGrpc$MethodHandlers
-threads/DronesInput.java
- threads.DronesInput
+MQTT/Dronazon.java
+ MQTT.Dronazon
 modules/OrdersQueue.java
  modules.OrdersQueue
-threads/WelcomeThread.java
- threads.WelcomeThread
- threads.WelcomeThread$1
-simulators/Simulator.java
- simulators.Simulator
-modules/Position.java
- modules.Position
-simulators/Measurement.java
- simulators.Measurement
-modules/Drones.java
- modules.Drones
-GRPC/ManagerServiceImpl.java
- GRPC.ManagerServiceImpl
-modules/Order.java
- modules.Order
 proto/Welcome.java
  proto.Welcome
  proto.Welcome$1
@@ -140,34 +80,22 @@ proto/Welcome.java
  proto.Welcome$WelcomeResponse$1
  proto.Welcome$WelcomeResponse$Builder
  proto.Welcome$WelcomeResponseOrBuilder
-REST/services/DronesService.java
- REST.services.DronesService
-REST/services/StatService.java
- REST.services.StatService
-proto/ElectionerGrpc.java
- proto.ElectionerGrpc
- proto.ElectionerGrpc$1
- proto.ElectionerGrpc$ElectionerBaseDescriptorSupplier
- proto.ElectionerGrpc$ElectionerBlockingStub
- proto.ElectionerGrpc$ElectionerFileDescriptorSupplier
- proto.ElectionerGrpc$ElectionerFutureStub
- proto.ElectionerGrpc$ElectionerImplBase
- proto.ElectionerGrpc$ElectionerMethodDescriptorSupplier
- proto.ElectionerGrpc$ElectionerStub
- proto.ElectionerGrpc$MethodHandlers
+simulators/Simulator.java
+ simulators.Simulator
+modules/Position.java
+ modules.Position
 modules/AddResponse.java
  modules.AddResponse
-MQTT/Dronazon.java
- MQTT.Dronazon
 modules/Stats.java
  modules.Stats
-simulators/PM10Simulator.java
- simulators.PM10Simulator
-MQTT/DroneSubscriber.java
- MQTT.DroneSubscriber
- MQTT.DroneSubscriber$1
-GRPC/GRPCDroneServer.java
- GRPC.GRPCDroneServer
+modules/Order.java
+ modules.Order
+REST/services/StatService.java
+ REST.services.StatService
+DroneProcess.java
+ DroneProcess
+REST/services/DronesService.java
+ REST.services.DronesService
 modules/Drone.java
  modules.Drone
  modules.Drone$1
@@ -177,3 +105,19 @@ modules/Drone.java
 threads/MasterLifeChecker.java
  threads.MasterLifeChecker
  threads.MasterLifeChecker$1
+modules/Drones.java
+ modules.Drones
+MQTT/DroneSubscriber.java
+ MQTT.DroneSubscriber
+ MQTT.DroneSubscriber$1
+threads/DeliveryThread.java
+ threads.DeliveryThread
+GRPC/GRPCDroneServer.java
+ GRPC.GRPCDroneServer
+GRPC/ManagerServiceImpl.java
+ GRPC.ManagerServiceImpl
+threads/DronesInput.java
+ threads.DronesInput
+threads/WelcomeThread.java
+ threads.WelcomeThread
+ threads.WelcomeThread$1

@@ -42,10 +42,11 @@ public class ManagerServiceImpl extends ManagerGrpc.ManagerImplBase {
 
     @Override
     public synchronized void election(Welcome.ElectionMessage request, StreamObserver<Welcome.ElectionResponse> responseObserver){
-        drone.stopMasterLifeChecker();
 
-        if(!drone.isInElection()) {
+            drone.stopMasterLifeChecker();
+
             drone.removeDroneFromList(drone.getMasterID());
+
             //set my drone in election
             drone.setInElection(true);
 
@@ -104,7 +105,6 @@ public class ManagerServiceImpl extends ManagerGrpc.ManagerImplBase {
                 }
 
             }
-        }
     }
 
     @Override
@@ -113,7 +113,7 @@ public class ManagerServiceImpl extends ManagerGrpc.ManagerImplBase {
 
         drone.setInElection(false);
 
-        if(drone.getId()!=request.getId()) {
+        if(drone.getId()!=request.getId()) { //if i'm not the master
             drone.setMasterID(request.getId());
             drone.setMaster(false);
 
