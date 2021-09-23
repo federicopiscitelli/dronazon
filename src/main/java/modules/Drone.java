@@ -143,23 +143,23 @@ public class Drone {
         return masterID;
     }
 
-    public synchronized void setMasterID(int masterID) {
+    public void setMasterID(int masterID) {
         this.masterID = masterID;
     }
 
-    public synchronized boolean isInElection() {
+    public boolean isInElection() {
         return inElection;
     }
 
-    public synchronized void setInElection(boolean inElection) {
+    public void setInElection(boolean inElection) {
         this.inElection = inElection;
     }
 
-    public synchronized boolean isInDelivery() {
+    public boolean isInDelivery() {
         return inDelivery;
     }
 
-    public synchronized void setInDelivery(boolean inDelivery) {
+    public void setInDelivery(boolean inDelivery) {
         this.inDelivery = inDelivery;
     }
 
@@ -180,7 +180,7 @@ public class Drone {
         return result;
     }
 
-    public synchronized Drone findNextDrone(){
+    public Drone findNextDrone(){
         int id = this.getId();
 
         List<Drone> myDronesList = this.getDronesList();
@@ -228,7 +228,9 @@ public class Drone {
     }
 
     public void sendElectionMessageToNext(int id, int levelBattery){
+        System.out.println("> sendElectionMessageToNext called");
         Drone next = this.findNextDrone();
+        System.out.println("> Next is "+next.getId());
         if(next != null) {
             final ManagedChannel channel = ManagedChannelBuilder.forTarget(next.getIp()).usePlaintext(true).build();
             //creating an asynchronous stub on the channel

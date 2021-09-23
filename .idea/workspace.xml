@@ -13,14 +13,15 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/GRPC/ManagerServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/GRPC/ManagerServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/modules/Drone$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/modules/Drone$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/modules/Drone$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/modules/Drone$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/modules/Drone$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/modules/Drone$4.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/modules/Drone.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/modules/Drone.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/threads/MasterLifeChecker$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/threads/MasterLifeChecker$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/threads/MasterLifeChecker.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/threads/MasterLifeChecker.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/war/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/war/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GRPC/ManagerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GRPC/ManagerServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/modules/Drone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modules/Drone.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/threads/MasterLifeChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/threads/MasterLifeChecker.java" afterDir="false" />
@@ -122,6 +123,17 @@
     <configuration name="DroneProcess" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="DroneProcess" />
       <module name="testProgetto.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>

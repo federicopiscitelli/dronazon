@@ -42,78 +42,56 @@ public class ManagerServiceImpl extends ManagerGrpc.ManagerImplBase {
 
     @Override
     public void election(Welcome.ElectionMessage request, StreamObserver<Welcome.ElectionResponse> responseObserver){
+        System.out.println("Entry");
 
-            drone.stopMasterLifeChecker();
+        Welcome.ElectionResponse response = Welcome.ElectionResponse
+                .newBuilder()
+                .setReceived(true)
+                .build();
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
 
-            drone.removeDroneFromList(drone.getMasterID());
+        //set my drone in election
+        drone.setInElection(true);
 
-            //set my drone in election
-            drone.setInElection(true);
+        drone.stopMasterLifeChecker();
 
-            int droneBatteryLevel = drone.getBatteryLevel();
-            if(drone.isInDelivery()){
-                droneBatteryLevel -= 10;
-            }
+        drone.removeDroneFromList(drone.getMasterID());
 
-            if (request.getBattery() < droneBatteryLevel) { //if my drone has major battery level
+        int droneBatteryLevel = drone.getBatteryLevel();
+        if(drone.isInDelivery()){
+            droneBatteryLevel -= 10;
+        }
 
-                Welcome.ElectionResponse response = Welcome.ElectionResponse
-                        .newBuilder()
-                        .setReceived(true)
-                        .build();
-                responseObserver.onNext(response);
-                responseObserver.onCompleted();
-
+        if (request.getBattery() < droneBatteryLevel) { //if my drone has major battery level
+            drone.sendElectionMessageToNext(drone.getId(), droneBatteryLevel);
+        } else if (request.getBattery() > droneBatteryLevel) { //if the request has major battery level
+            drone.sendElectionMessageToNext(request.getId(), request.getBattery());
+        } else if (request.getBattery() == droneBatteryLevel) { //same battery level compare the IDs
+            if (request.getId() < drone.getId()) {
                 drone.sendElectionMessageToNext(drone.getId(), droneBatteryLevel);
-
-            } else if (request.getBattery() > droneBatteryLevel) { //if the request has major battery level
-
-                Welcome.ElectionResponse response = Welcome.ElectionResponse
-                        .newBuilder()
-                        .setReceived(true)
-                        .build();
-                responseObserver.onNext(response);
-                responseObserver.onCompleted();
-
+            } else if (request.getId() > drone.getId()) {
                 drone.sendElectionMessageToNext(request.getId(), request.getBattery());
-
-            } else if (request.getBattery() == droneBatteryLevel) { //same battery level compare the IDs
-
-                if (request.getId() < drone.getId()) {
-                    
-                    Welcome.ElectionResponse response = Welcome.ElectionResponse
-                            .newBuilder()
-                            .setReceived(true)
-                            .build();
-                    responseObserver.onNext(response);
-                    responseObserver.onCompleted();
-
-                    drone.sendElectionMessageToNext(drone.getId(), droneBatteryLevel);
-
-                } else if (request.getId() > drone.getId()) {
-
-                    Welcome.ElectionResponse response = Welcome.ElectionResponse
-                            .newBuilder()
-                            .setReceived(true)
-                            .build();
-                    responseObserver.onNext(response);
-                    responseObserver.onCompleted();
-
-                    drone.sendElectionMessageToNext(request.getId(), request.getBattery());
-
-                } else if (request.getId() == drone.getId()) {
-                    System.out.println("> New master found");
-
-                    drone.setMaster(true);
-                    drone.setInElection(false);
-                    drone.sendElectedMessageToNext(drone.getId());
-                }
-
+            } else if (request.getId() == drone.getId()) {
+                System.out.println("> New master found");
+                drone.setMaster(true);
+                drone.setInElection(false);
+                drone.sendElectedMessageToNext(drone.getId());
             }
+
+        }
     }
 
     @Override
     public void elected(Welcome.ElectedMessage request, StreamObserver<Welcome.ElectedResponse> responseObserver){
+
+        Welcome.ElectedResponse response = Welcome.ElectedResponse
+                .newBuilder()
+                .setReceived(true)
+                .build();
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+
         System.out.println("> Master now is drone "+request.getId());
 
         drone.setInElection(false);
@@ -121,17 +99,8 @@ public class ManagerServiceImpl extends ManagerGrpc.ManagerImplBase {
         if(drone.getId()!=request.getId()) { //if i'm not the master
             drone.setMasterID(request.getId());
             drone.setMaster(false);
-
-            Welcome.ElectedResponse response = Welcome.ElectedResponse
-                    .newBuilder()
-                    .setReceived(true)
-                    .build();
-            responseObserver.onNext(response);
-            responseObserver.onCompleted();
             drone.startMasterLifeChecker();
-
-            Context context = Context.current().fork();
-            context.run(() -> drone.sendElectedMessageToNext(request.getId()));
+            drone.sendElectedMessageToNext(request.getId());
         } else {
             drone.setMasterID(request.getId());
             drone.setMaster(true);

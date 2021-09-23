@@ -1,5 +1,5 @@
-simulators/Measurement.java
- simulators.Measurement
+REST/services/StatService.java
+ REST.services.StatService
 simulators/Buffer.java
  simulators.Buffer
 REST/server/Administrator.java
@@ -80,8 +80,8 @@ proto/Welcome.java
  proto.Welcome$WelcomeResponseOrBuilder
 modules/OrdersQueue.java
  modules.OrdersQueue
-REST/services/StatService.java
- REST.services.StatService
+modules/Order.java
+ modules.Order
 simulators/Simulator.java
  simulators.Simulator
 modules/Position.java
@@ -90,17 +90,21 @@ simulators/PM10Simulator.java
  simulators.PM10Simulator
 modules/Stats.java
  modules.Stats
-modules/Order.java
- modules.Order
+simulators/Measurement.java
+ simulators.Measurement
 DroneProcess.java
  DroneProcess
 REST/services/DronesService.java
  REST.services.DronesService
-threads/WelcomeThread.java
- threads.WelcomeThread
- threads.WelcomeThread$1
-threads/DronesInput.java
- threads.DronesInput
+modules/Drone.java
+ modules.Drone
+ modules.Drone$1
+ modules.Drone$2
+ modules.Drone$3
+ modules.Drone$4
+threads/MasterLifeChecker.java
+ threads.MasterLifeChecker
+ threads.MasterLifeChecker$1
 modules/Drones.java
  modules.Drones
 MQTT/DroneSubscriber.java
@@ -112,12 +116,8 @@ GRPC/GRPCDroneServer.java
  GRPC.GRPCDroneServer
 GRPC/ManagerServiceImpl.java
  GRPC.ManagerServiceImpl
-modules/Drone.java
- modules.Drone
- modules.Drone$1
- modules.Drone$2
- modules.Drone$3
- modules.Drone$4
-threads/MasterLifeChecker.java
- threads.MasterLifeChecker
- threads.MasterLifeChecker$1
+threads/DronesInput.java
+ threads.DronesInput
+threads/WelcomeThread.java
+ threads.WelcomeThread
+ threads.WelcomeThread$1

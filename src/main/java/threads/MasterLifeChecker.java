@@ -78,8 +78,8 @@ public class MasterLifeChecker implements Runnable{
                 stop();
             }
             try {
-                int timeout = (int) (0 + Math.random() * 20);
-                Thread.sleep(timeout*1000);
+                //int timeout = (int) (0 + Math.random() * 20);
+                Thread.sleep(5000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -89,6 +89,7 @@ public class MasterLifeChecker implements Runnable{
 
     public void stop(){
         exit = true;
+        System.out.println("> Stopping master life checker ...");
     }
 
 
