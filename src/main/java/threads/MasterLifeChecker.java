@@ -1,6 +1,7 @@
 package threads;
 
 import MQTT.DroneSubscriber;
+import io.grpc.Context;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.stub.StreamObserver;
@@ -46,7 +47,6 @@ public class MasterLifeChecker implements Runnable{
 
                     //this hanlder takes care of each item received in the stream
                     public void onNext(Welcome.AliveResponse aliveResponse) {
-                        //each item is just printed
                         if (aliveResponse.getIsAlive())
                             System.out.println("> Master is alive");
                     }
@@ -57,8 +57,9 @@ public class MasterLifeChecker implements Runnable{
                         drone.stopMasterLifeChecker();
                         drone.removeDroneFromList(drone.getMasterID());
                         System.err.println("> Master is not responding -> " + throwable.getMessage());
-                        drone.setMasterID(-1);
-                        drone.sendElectionMessageToNext(drone.getId(), drone.getBatteryLevel());
+                        if(!drone.isInElection()) {
+                            drone.sendElectionMessageToNext(drone.getId(), drone.getBatteryLevel());
+                        }
                     }
 
                     //when the stream is completed (the server called "onCompleted") just close the channel

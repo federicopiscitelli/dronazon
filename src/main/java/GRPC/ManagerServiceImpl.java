@@ -41,7 +41,7 @@ public class ManagerServiceImpl extends ManagerGrpc.ManagerImplBase {
 
 
     @Override
-    public synchronized void election(Welcome.ElectionMessage request, StreamObserver<Welcome.ElectionResponse> responseObserver){
+    public void election(Welcome.ElectionMessage request, StreamObserver<Welcome.ElectionResponse> responseObserver){
 
             drone.stopMasterLifeChecker();
 
@@ -50,7 +50,12 @@ public class ManagerServiceImpl extends ManagerGrpc.ManagerImplBase {
             //set my drone in election
             drone.setInElection(true);
 
-            if (request.getBattery() < drone.getBatteryLevel()) { //if my drone has major battery level
+            int droneBatteryLevel = drone.getBatteryLevel();
+            if(drone.isInDelivery()){
+                droneBatteryLevel -= 10;
+            }
+
+            if (request.getBattery() < droneBatteryLevel) { //if my drone has major battery level
 
                 Welcome.ElectionResponse response = Welcome.ElectionResponse
                         .newBuilder()
@@ -59,9 +64,9 @@ public class ManagerServiceImpl extends ManagerGrpc.ManagerImplBase {
                 responseObserver.onNext(response);
                 responseObserver.onCompleted();
 
-                drone.sendElectionMessageToNext(drone.getId(), drone.getBatteryLevel());
+                drone.sendElectionMessageToNext(drone.getId(), droneBatteryLevel);
 
-            } else if (request.getBattery() > drone.getBatteryLevel()) { //if the request has major battery level
+            } else if (request.getBattery() > droneBatteryLevel) { //if the request has major battery level
 
                 Welcome.ElectionResponse response = Welcome.ElectionResponse
                         .newBuilder()
@@ -72,7 +77,7 @@ public class ManagerServiceImpl extends ManagerGrpc.ManagerImplBase {
 
                 drone.sendElectionMessageToNext(request.getId(), request.getBattery());
 
-            } else if (request.getBattery() == drone.getBatteryLevel()) { //same battery level compare the IDs
+            } else if (request.getBattery() == droneBatteryLevel) { //same battery level compare the IDs
 
                 if (request.getId() < drone.getId()) {
                     
@@ -83,7 +88,7 @@ public class ManagerServiceImpl extends ManagerGrpc.ManagerImplBase {
                     responseObserver.onNext(response);
                     responseObserver.onCompleted();
 
-                    drone.sendElectionMessageToNext(drone.getId(), drone.getBatteryLevel());
+                    drone.sendElectionMessageToNext(drone.getId(), droneBatteryLevel);
 
                 } else if (request.getId() > drone.getId()) {
 
@@ -108,7 +113,7 @@ public class ManagerServiceImpl extends ManagerGrpc.ManagerImplBase {
     }
 
     @Override
-    public synchronized void elected(Welcome.ElectedMessage request, StreamObserver<Welcome.ElectedResponse> responseObserver){
+    public void elected(Welcome.ElectedMessage request, StreamObserver<Welcome.ElectedResponse> responseObserver){
         System.out.println("> Master now is drone "+request.getId());
 
         drone.setInElection(false);
@@ -124,6 +129,7 @@ public class ManagerServiceImpl extends ManagerGrpc.ManagerImplBase {
             responseObserver.onNext(response);
             responseObserver.onCompleted();
             drone.startMasterLifeChecker();
+
             Context context = Context.current().fork();
             context.run(() -> drone.sendElectedMessageToNext(request.getId()));
         } else {

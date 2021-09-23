@@ -227,7 +227,7 @@ public class Drone {
                 '}';
     }
 
-    public synchronized void sendElectionMessageToNext(int id, int levelBattery){
+    public void sendElectionMessageToNext(int id, int levelBattery){
         Drone next = this.findNextDrone();
         if(next != null) {
             final ManagedChannel channel = ManagedChannelBuilder.forTarget(next.getIp()).usePlaintext(true).build();
@@ -252,16 +252,13 @@ public class Drone {
                     if(electionResponse.getReceived())
                         System.out.println("> Ack received");
                 }
-
-                //if there are some errors, this method will be called
                 public void onError(Throwable throwable) {
                     channel.shutdownNow();
-                    //removeDroneFromList(next.getId());
-                    //TODO: if next drone is disconnected?
+                    removeDroneFromList(next.getId());
+                    //sendElectionMessageToNext(id,levelBattery);
                     System.err.println("> Error: " + throwable.getMessage()); //Error: CANCELLED: io.grpc.Context was cancelled without error
                 }
 
-                //when the stream is completed (the server called "onCompleted") just close the channel
                 public void onCompleted() {
                     channel.shutdownNow();
                 }
@@ -269,7 +266,7 @@ public class Drone {
 
             //you need this. otherwise the method will terminate before that answers from the server are received
             try {
-                channel.awaitTermination(10, TimeUnit.SECONDS);
+                channel.awaitTermination(2, TimeUnit.SECONDS);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

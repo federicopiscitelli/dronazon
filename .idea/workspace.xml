@@ -5,285 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1cea5345-8023-44b2-b8c7-efda0cc3016e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/threads/DeliveryThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/DroneProcess.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/GRPC/GRPCDroneServer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/GRPC/ManagerServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/MQTT/Dronazon.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/MQTT/DroneSubscriber$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/MQTT/DroneSubscriber.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/REST/client/Administrator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/REST/server/Administrator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/REST/services/DronesService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/REST/services/StatService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/modules/AddResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/modules/Drone$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/modules/Drone$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/modules/Drone$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/modules/Drone$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/modules/Drone.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/modules/Drones.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/modules/Order.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/modules/OrdersQueue.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/modules/Position.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/modules/Stat.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/modules/Stats.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ElectionerGrpc$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ElectionerGrpc$ElectionerBaseDescriptorSupplier.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ElectionerGrpc$ElectionerBlockingStub.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ElectionerGrpc$ElectionerFileDescriptorSupplier.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ElectionerGrpc$ElectionerFutureStub.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ElectionerGrpc$ElectionerImplBase.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ElectionerGrpc$ElectionerMethodDescriptorSupplier.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ElectionerGrpc$ElectionerStub.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ElectionerGrpc$MethodHandlers.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ElectionerGrpc.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerGrpc$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerGrpc$ManagerBaseDescriptorSupplier.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerGrpc$ManagerBlockingStub.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerGrpc$ManagerFileDescriptorSupplier.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerGrpc$ManagerFutureStub.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerGrpc$ManagerImplBase.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerGrpc$ManagerMethodDescriptorSupplier.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerGrpc$ManagerStub.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerGrpc$MethodHandlers.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerGrpc.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerOuterClass$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerOuterClass$AliveMessage$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerOuterClass$AliveMessage$Builder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerOuterClass$AliveMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerOuterClass$AliveMessageOrBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerOuterClass$AliveResponse$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerOuterClass$AliveResponse$Builder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerOuterClass$AliveResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerOuterClass$AliveResponseOrBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerOuterClass$DeliveryMessage$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerOuterClass$DeliveryMessage$Builder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerOuterClass$DeliveryMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerOuterClass$DeliveryMessageOrBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerOuterClass$DeliveryResponse$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerOuterClass$DeliveryResponse$Builder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerOuterClass$DeliveryResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerOuterClass$DeliveryResponseOrBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerOuterClass$ElectedMessage$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerOuterClass$ElectedMessage$Builder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerOuterClass$ElectedMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerOuterClass$ElectedMessageOrBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerOuterClass$ElectedResponse$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerOuterClass$ElectedResponse$Builder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerOuterClass$ElectedResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerOuterClass$ElectedResponseOrBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerOuterClass$ElectionMessage$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerOuterClass$ElectionMessage$Builder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerOuterClass$ElectionMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerOuterClass$ElectionMessageOrBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerOuterClass$ElectionResponse$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerOuterClass$ElectionResponse$Builder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerOuterClass$ElectionResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerOuterClass$ElectionResponseOrBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerOuterClass$Position$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerOuterClass$Position$Builder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerOuterClass$Position.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerOuterClass$PositionOrBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerOuterClass$WelcomeMessage$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerOuterClass$WelcomeMessage$Builder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerOuterClass$WelcomeMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerOuterClass$WelcomeMessageOrBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerOuterClass$WelcomeResponse$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerOuterClass$WelcomeResponse$Builder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerOuterClass$WelcomeResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerOuterClass$WelcomeResponseOrBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerOuterClass.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$AliveMessage$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$AliveMessage$Builder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$AliveMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$AliveMessageOrBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$AliveResponse$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$AliveResponse$Builder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$AliveResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$AliveResponseOrBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$DeliveredMessage$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$DeliveredMessage$Builder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$DeliveredMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$DeliveredMessageOrBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$DeliveredResponse$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$DeliveredResponse$Builder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$DeliveredResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$DeliveredResponseOrBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$DeliveryMessage$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$DeliveryMessage$Builder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$DeliveryMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$DeliveryMessageOrBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$DeliveryResponse$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$DeliveryResponse$Builder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$DeliveryResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$DeliveryResponseOrBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$ElectedMessage$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$ElectedMessage$Builder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$ElectedMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$ElectedMessageOrBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$ElectedResponse$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$ElectedResponse$Builder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$ElectedResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$ElectedResponseOrBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$ElectionMessage$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$ElectionMessage$Builder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$ElectionMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$ElectionMessageOrBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$ElectionResponse$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$ElectionResponse$Builder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$ElectionResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$ElectionResponseOrBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$Position$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$Position$Builder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$Position.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$PositionOrBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$WelcomeMessage$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$WelcomeMessage$Builder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$WelcomeMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$WelcomeMessageOrBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$WelcomeResponse$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$WelcomeResponse$Builder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$WelcomeResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$WelcomeResponseOrBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/simulators/Buffer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/simulators/Measurement.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/simulators/PM10Simulator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/simulators/Simulator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/threads/DronesInput.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/threads/MasterLifeChecker$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/threads/MasterLifeChecker.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/threads/WelcomeThread$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/threads/WelcomeThread.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/api/annotations.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/api/auth.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/api/backend.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/api/billing.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/api/config_change.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/api/consumer.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/api/context.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/api/control.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/api/distribution.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/api/documentation.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/api/endpoint.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/api/experimental/authorization_config.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/api/experimental/experimental.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/api/http.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/api/httpbody.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/api/label.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/api/log.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/api/logging.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/api/metric.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/api/monitored_resource.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/api/monitoring.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/api/quota.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/api/service.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/api/source_info.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/api/system_parameter.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/api/usage.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/cloud/audit/audit_log.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/logging/type/http_request.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/logging/type/log_severity.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/longrunning/operations.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/protobuf/any.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/protobuf/api.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/protobuf/compiler/plugin.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/protobuf/descriptor.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/protobuf/duration.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/protobuf/empty.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/protobuf/field_mask.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/protobuf/source_context.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/protobuf/struct.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/protobuf/timestamp.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/protobuf/type.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/protobuf/wrappers.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/rpc/code.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/rpc/error_details.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/rpc/status.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/type/color.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/type/date.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/type/dayofweek.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/type/latlng.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/type/money.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/type/postal_address.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/main/google/type/timeofday.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/Welcome.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/api/annotations.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/api/auth.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/api/backend.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/api/billing.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/api/config_change.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/api/consumer.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/api/context.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/api/control.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/api/distribution.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/api/documentation.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/api/endpoint.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/api/experimental/authorization_config.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/api/experimental/experimental.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/api/http.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/api/httpbody.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/api/label.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/api/log.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/api/logging.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/api/metric.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/api/monitored_resource.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/api/monitoring.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/api/quota.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/api/service.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/api/source_info.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/api/system_parameter.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/api/usage.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/cloud/audit/audit_log.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/logging/type/http_request.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/logging/type/log_severity.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/longrunning/operations.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/protobuf/any.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/protobuf/api.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/protobuf/compiler/plugin.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/protobuf/descriptor.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/protobuf/duration.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/protobuf/empty.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/protobuf/field_mask.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/protobuf/source_context.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/protobuf/struct.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/protobuf/timestamp.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/protobuf/type.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/protobuf/wrappers.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/rpc/code.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/rpc/error_details.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/rpc/status.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/type/color.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/type/date.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/type/dayofweek.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/type/latlng.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/type/money.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/type/postal_address.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/google/type/timeofday.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/generated/source/proto/main/grpc/proto/ElectionerGrpc.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/generated/source/proto/main/grpc/proto/ManagerGrpc.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/generated/source/proto/main/java/proto/ManagerOuterClass.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/generated/source/proto/main/java/proto/Welcome.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/Welcome.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DroneProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DroneProcess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/GRPC/ManagerServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/GRPC/ManagerServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/modules/Drone$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/modules/Drone$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/modules/Drone$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/modules/Drone$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/modules/Drone$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/modules/Drone$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/modules/Drone.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/modules/Drone.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/threads/MasterLifeChecker$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/threads/MasterLifeChecker$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/threads/MasterLifeChecker.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/threads/MasterLifeChecker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GRPC/ManagerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GRPC/ManagerServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/modules/Drone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modules/Drone.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/threads/MasterLifeChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/threads/MasterLifeChecker.java" afterDir="false" />
@@ -389,19 +126,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="dronazon" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -462,7 +186,9 @@
       <workItem from="1632138470893" duration="906000" />
       <workItem from="1632139426076" duration="433000" />
       <workItem from="1632139916924" duration="2364000" />
-      <workItem from="1632233322110" duration="3723000" />
+      <workItem from="1632233322110" duration="3794000" />
+      <workItem from="1632312251659" duration="7992000" />
+      <workItem from="1632403527485" duration="43000" />
     </task>
     <servers />
   </component>
