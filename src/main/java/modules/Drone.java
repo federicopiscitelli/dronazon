@@ -63,15 +63,15 @@ public class Drone {
         return master;
     }
 
-    public synchronized void setMaster(boolean master) {
-        this.master = master;
+    public void setMaster(boolean isMaster) {
+        master = isMaster;
         //start or stop the correct thread
-        if(!this.inElection && this.master){
+        if(master){
+            System.err.println("A) "+master+" "+isMaster);
             this.startSubscriberMQTT();
-        } else if(!this.inElection && !this.master){
+        } else {
+            System.err.println("B) "+master+" "+isMaster);
             this.startMasterLifeChecker();
-        } else if(this.inElection) {
-            this.stopMasterLifeChecker();
         }
     }
 
@@ -121,6 +121,12 @@ public class Drone {
 
     public void setDronesList(List<Drone> dronesList) {
         this.dronesList = dronesList;
+        this.next = findNextDrone();
+    }
+
+    public synchronized void addDroneToList(Drone d){
+        this.dronesList.add(d);
+        next = findNextDrone();
     }
 
     public void updateDroneInList(Drone toUpdate){
@@ -163,21 +169,13 @@ public class Drone {
         this.inDelivery = inDelivery;
     }
 
-    public synchronized boolean removeDroneFromList(int id){
-        boolean result = false;
+    public void removeDroneFromList(int id){
         if(id != this.getId()) {
-            List<Drone> newList = new ArrayList<>();
-            for (Drone d : this.dronesList) {
-                if (d.getId() == id) {
-                    result = true;
-                } else {
-                    newList.add(d);
-                }
-            }
-            setDronesList(newList);
+            dronesList.removeIf(d -> (d.getId() == id));
         }
-
-        return result;
+        synchronized (next) {
+            next = findNextDrone();
+        }
     }
 
     public Drone findNextDrone(){
@@ -228,9 +226,9 @@ public class Drone {
     }
 
     public void sendElectionMessageToNext(int id, int levelBattery){
-        System.out.println("> sendElectionMessageToNext called");
-        Drone next = this.findNextDrone();
-        System.out.println("> Next is "+next.getId());
+        System.out.println("> sendElectionMessageToNext called. Network is: "+dronesList.toString());
+        removeDroneFromList(masterID);
+
         if(next != null) {
             final ManagedChannel channel = ManagedChannelBuilder.forTarget(next.getIp()).usePlaintext(true).build();
             //creating an asynchronous stub on the channel
@@ -245,7 +243,6 @@ public class Drone {
                     .setBattery(levelBattery)
                     .build();
 
-
             //calling the RPC method. since it is asynchronous, we need to define handlers
             stub.election(request, new StreamObserver<Welcome.ElectionResponse>() {
                 //this hanlder takes care of each item received in the stream
@@ -256,9 +253,9 @@ public class Drone {
                 }
                 public void onError(Throwable throwable) {
                     channel.shutdownNow();
-                    removeDroneFromList(next.getId());
+                    //removeDroneFromList(next.getId());
                     //sendElectionMessageToNext(id,levelBattery);
-                    System.err.println("> Error: " + throwable.getMessage()); //Error: CANCELLED: io.grpc.Context was cancelled without error
+                    System.err.println("> Error: " + throwable.getMessage());
                 }
 
                 public void onCompleted() {
@@ -276,7 +273,8 @@ public class Drone {
     }
 
     public void sendElectedMessageToNext(int id){
-        Drone next = this.findNextDrone();
+        System.out.println("> Network "+dronesList.toString());
+        System.out.println("> sendElectedMessageToNext called. My ID: "+this.id+" Next ID: "+this.next.getId()+" New Master: "+id);
         if(next != null) {
             final ManagedChannel channel = ManagedChannelBuilder.forTarget(next.getIp()).usePlaintext(true).build();
             //creating an asynchronous stub on the channel
@@ -284,33 +282,28 @@ public class Drone {
 
             ManagerGrpc.ManagerStub stub = ManagerGrpc.newStub(channel);
 
-            //creating the HelloResponse object which will be provided as input to the RPC method
+            //creating the ElectedMessage object which will be provided as input to the RPC method
             Welcome.ElectedMessage request = Welcome.ElectedMessage
                     .newBuilder()
                     .setId(id)
                     .build();
 
-
             //calling the RPC method. since it is asynchronous, we need to define handlers
             stub.elected(request, new StreamObserver<Welcome.ElectedResponse>() {
-                //this hanlder takes care of each item received in the stream
                 public void onNext(Welcome.ElectedResponse electedResponse) { }
-
-                //if there are some errors, this method will be called
+                //if there are some errors
                 public void onError(Throwable throwable) {
                     channel.shutdownNow();
                     System.out.println("> Error: " + throwable.getMessage());
                 }
-
-                //when the stream is completed (the server called "onCompleted") just close the channel
+                //when the stream is completed
                 public void onCompleted() {
                     channel.shutdownNow();
                 }
             });
-
-            //you need this. otherwise the method will terminate before that answers from the server are received
+            //wait for the response
             try {
-                channel.awaitTermination(10, TimeUnit.SECONDS);
+                channel.awaitTermination(2, TimeUnit.SECONDS);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -452,7 +445,7 @@ public class Drone {
                 channel.shutdownNow();
                 //removeDroneFromList(next.getId());
                 //TODO: if next drone is disconnected?
-                System.err.println("> Error: " + throwable.getMessage()); //Error: CANCELLED: io.grpc.Context was cancelled without error
+                System.err.println("> Error: " + throwable.getMessage());
             }
 
             //when the stream is completed (the server called "onCompleted") just close the channel
@@ -463,7 +456,7 @@ public class Drone {
 
         //you need this. otherwise the method will terminate before that answers from the server are received
         try {
-            channel.awaitTermination(10, TimeUnit.SECONDS);
+            channel.awaitTermination(2, TimeUnit.SECONDS);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

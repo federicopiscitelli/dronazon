@@ -1,5 +1,5 @@
-REST/services/StatService.java
- REST.services.StatService
+simulators/Measurement.java
+ simulators.Measurement
 simulators/Buffer.java
  simulators.Buffer
 REST/server/Administrator.java
@@ -80,8 +80,8 @@ proto/Welcome.java
  proto.Welcome$WelcomeResponseOrBuilder
 modules/OrdersQueue.java
  modules.OrdersQueue
-modules/Order.java
- modules.Order
+REST/services/StatService.java
+ REST.services.StatService
 simulators/Simulator.java
  simulators.Simulator
 modules/Position.java
@@ -90,8 +90,8 @@ simulators/PM10Simulator.java
  simulators.PM10Simulator
 modules/Stats.java
  modules.Stats
-simulators/Measurement.java
- simulators.Measurement
+modules/Order.java
+ modules.Order
 DroneProcess.java
  DroneProcess
 REST/services/DronesService.java

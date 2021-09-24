@@ -29,33 +29,27 @@ public class MasterLifeChecker implements Runnable{
             if (!drone.isMaster()) {
                 //plaintext channel on the address of the drone
                 final ManagedChannel channel = ManagedChannelBuilder.forTarget("127.0.0.1:" + (3000 + drone.getMasterID())).usePlaintext(true).build();
-
-                System.out.println("> Drone " + drone.getId() + " is sending alive message to the drone master ...");
-
+                //System.out.println("> Drone " + drone.getId() + " is sending alive message to the drone master ...");
                 //creating an asynchronous stub on the channel
                 ManagerGrpc.ManagerStub stub = ManagerGrpc.newStub(channel);
-
                 //creating the HelloResponse object which will be provided as input to the RPC method
                 Welcome.AliveMessage request = Welcome.AliveMessage
                         .newBuilder()
                         .setId(drone.getId())
                         .build();
 
-
                 //calling the RPC method. since it is asynchronous, we need to define handlers
                 stub.alive(request, new StreamObserver<Welcome.AliveResponse>() {
-
                     //this hanlder takes care of each item received in the stream
                     public void onNext(Welcome.AliveResponse aliveResponse) {
-                        if (aliveResponse.getIsAlive())
-                            System.out.println("> Master is alive");
+                        System.out.println("> Master is alive");
                     }
 
                     //if there are some errors, this method will be called
                     public void onError(Throwable throwable) {
                         channel.shutdownNow();
-                        drone.stopMasterLifeChecker();
-                        drone.removeDroneFromList(drone.getMasterID());
+                        stop();
+                        //drone.removeDroneFromList(drone.getMasterID());
                         System.err.println("> Master is not responding -> " + throwable.getMessage());
                         if(!drone.isInElection()) {
                             drone.sendElectionMessageToNext(drone.getId(), drone.getBatteryLevel());
@@ -77,11 +71,14 @@ public class MasterLifeChecker implements Runnable{
             }else {
                 stop();
             }
-            try {
-                //int timeout = (int) (0 + Math.random() * 20);
-                Thread.sleep(5000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+
+            if(!exit) {
+                try {
+                    //int timeout = (int) (0 + Math.random() * 20);
+                    Thread.sleep(5000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         }
 

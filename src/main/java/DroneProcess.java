@@ -74,7 +74,7 @@ public class DroneProcess {
         if(response.getDrones().size()>1) {
             //welcome to all drones in the network
             for (Drone d : response.getDrones()) {
-                if(!(d.getId()==drone.getId())){
+                if(!(d.getId() == drone.getId())){
                     WelcomeThread welcomeThread = new WelcomeThread(drone,d.getIp());
                     welcomeThread.run();
                 }
