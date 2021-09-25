@@ -8,6 +8,8 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 import proto.ManagerGrpc;
 import proto.Welcome;
 import threads.DeliveryThread;
+import threads.ElectedThread;
+import threads.ElectionThread;
 import threads.MasterLifeChecker;
 
 import javax.xml.bind.annotation.XmlRootElement;
@@ -226,88 +228,13 @@ public class Drone {
     }
 
     public void sendElectionMessageToNext(int id, int levelBattery){
-        System.out.println("> sendElectionMessageToNext called. Network is: "+dronesList.toString());
-        removeDroneFromList(masterID);
-
-        if(next != null) {
-            final ManagedChannel channel = ManagedChannelBuilder.forTarget(next.getIp()).usePlaintext(true).build();
-            //creating an asynchronous stub on the channel
-            System.out.println("> Drone "+this.getId() +" is sending election REQUEST to the drone "+next.getId()+" ...");
-
-            ManagerGrpc.ManagerStub stub = ManagerGrpc.newStub(channel);
-
-            //creating the HelloResponse object which will be provided as input to the RPC method
-            Welcome.ElectionMessage request = Welcome.ElectionMessage
-                    .newBuilder()
-                    .setId(id)
-                    .setBattery(levelBattery)
-                    .build();
-
-            //calling the RPC method. since it is asynchronous, we need to define handlers
-            stub.election(request, new StreamObserver<Welcome.ElectionResponse>() {
-                //this hanlder takes care of each item received in the stream
-                public void onNext(Welcome.ElectionResponse electionResponse) {
-                    //each item is just printed
-                    if(electionResponse.getReceived())
-                        System.out.println("> Ack received");
-                }
-                public void onError(Throwable throwable) {
-                    channel.shutdownNow();
-                    //removeDroneFromList(next.getId());
-                    //sendElectionMessageToNext(id,levelBattery);
-                    System.err.println("> Error: " + throwable.getMessage());
-                }
-
-                public void onCompleted() {
-                    channel.shutdownNow();
-                }
-            });
-
-            //you need this. otherwise the method will terminate before that answers from the server are received
-            try {
-                channel.awaitTermination(2, TimeUnit.SECONDS);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
+        ElectionThread electionThread = new ElectionThread(this,id,levelBattery);
+        electionThread.start();
     }
 
     public void sendElectedMessageToNext(int id){
-        System.out.println("> Network "+dronesList.toString());
-        System.out.println("> sendElectedMessageToNext called. My ID: "+this.id+" Next ID: "+this.next.getId()+" New Master: "+id);
-        if(next != null) {
-            final ManagedChannel channel = ManagedChannelBuilder.forTarget(next.getIp()).usePlaintext(true).build();
-            //creating an asynchronous stub on the channel
-            System.out.println("> Drone "+this.getId() +" is sending elected MESSAGE to the drone "+next.getId()+" ... Master is now "+id);
-
-            ManagerGrpc.ManagerStub stub = ManagerGrpc.newStub(channel);
-
-            //creating the ElectedMessage object which will be provided as input to the RPC method
-            Welcome.ElectedMessage request = Welcome.ElectedMessage
-                    .newBuilder()
-                    .setId(id)
-                    .build();
-
-            //calling the RPC method. since it is asynchronous, we need to define handlers
-            stub.elected(request, new StreamObserver<Welcome.ElectedResponse>() {
-                public void onNext(Welcome.ElectedResponse electedResponse) { }
-                //if there are some errors
-                public void onError(Throwable throwable) {
-                    channel.shutdownNow();
-                    System.out.println("> Error: " + throwable.getMessage());
-                }
-                //when the stream is completed
-                public void onCompleted() {
-                    channel.shutdownNow();
-                }
-            });
-            //wait for the response
-            try {
-                channel.awaitTermination(2, TimeUnit.SECONDS);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
+        ElectedThread electedThread = new ElectedThread(this, id);
+        electedThread.start();
     }
 
     public void startMasterLifeChecker(){

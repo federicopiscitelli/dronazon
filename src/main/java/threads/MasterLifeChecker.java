@@ -19,6 +19,7 @@ public class MasterLifeChecker implements Runnable{
     private boolean exit;
 
     public MasterLifeChecker(Drone drone){
+        System.out.println("> Constructor MasterLifeChecker");
         this.drone = drone;
         exit = false;
     }
@@ -26,6 +27,7 @@ public class MasterLifeChecker implements Runnable{
     @Override
     public void run() {
         while(!exit) {
+            System.out.println("EEEEENTRY");
             if (!drone.isMaster()) {
                 //plaintext channel on the address of the drone
                 final ManagedChannel channel = ManagedChannelBuilder.forTarget("127.0.0.1:" + (3000 + drone.getMasterID())).usePlaintext(true).build();
@@ -74,7 +76,6 @@ public class MasterLifeChecker implements Runnable{
 
             if(!exit) {
                 try {
-                    //int timeout = (int) (0 + Math.random() * 20);
                     Thread.sleep(5000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();

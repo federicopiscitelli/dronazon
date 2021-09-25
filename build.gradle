@@ -71,14 +71,14 @@ sourceSets {
 
 protobuf {
     protoc {
-        artifact = 'com.google.protobuf:protoc:3.10.1' //windows
-        //artifact = 'com.google.protobuf:protoc:3.10.1:osx-x86_64' //mac
+        //artifact = 'com.google.protobuf:protoc:3.10.1' //windows
+        artifact = 'com.google.protobuf:protoc:3.10.1:osx-x86_64' //mac
     }
 
     plugins {
         grpc {
-            artifact = 'io.grpc:protoc-gen-grpc-java:1.25.0' //windows
-            //artifact = 'io.grpc:protoc-gen-grpc-java:1.25.0:osx-x86_64' //mac
+            //artifact = 'io.grpc:protoc-gen-grpc-java:1.25.0' //windows
+            artifact = 'io.grpc:protoc-gen-grpc-java:1.25.0:osx-x86_64' //mac
         }
     }
 
