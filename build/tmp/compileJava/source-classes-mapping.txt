@@ -94,34 +94,34 @@ MQTT/Dronazon.java
  MQTT.Dronazon
 DroneProcess.java
  DroneProcess
-threads/DronesInput.java
- threads.DronesInput
+threads/WelcomeThread.java
+ threads.WelcomeThread
+ threads.WelcomeThread$1
 modules/Drones.java
  modules.Drones
 threads/DeliveryThread.java
  threads.DeliveryThread
-GRPC/ManagerServiceImpl.java
- GRPC.ManagerServiceImpl
+threads/DronesInput.java
+ threads.DronesInput
 REST/services/DronesService.java
  REST.services.DronesService
-threads/WelcomeThread.java
- threads.WelcomeThread
- threads.WelcomeThread$1
-threads/ElectionThread.java
- threads.ElectionThread
- threads.ElectionThread$1
 threads/ElectedThread.java
  threads.ElectedThread
  threads.ElectedThread$1
 MQTT/DroneSubscriber.java
  MQTT.DroneSubscriber
  MQTT.DroneSubscriber$1
-GRPC/GRPCDroneServer.java
- GRPC.GRPCDroneServer
 modules/Drone.java
  modules.Drone
  modules.Drone$1
  modules.Drone$2
+threads/ElectionThread.java
+ threads.ElectionThread
+ threads.ElectionThread$1
 threads/MasterLifeChecker.java
  threads.MasterLifeChecker
  threads.MasterLifeChecker$1
+GRPC/GRPCDroneServer.java
+ GRPC.GRPCDroneServer
+GRPC/ManagerServiceImpl.java
+ GRPC.ManagerServiceImpl

@@ -21,49 +21,35 @@ public class ElectionThread extends Thread{
     }
 
     public void run(){
-        System.out.println("> sendElectionMessageToNext called. Network is: "+drone.getDronesList().toString());
+
         drone.removeDroneFromList(drone.getMasterID());
 
-        if(drone.getNext() != null) {
-            final ManagedChannel channel = ManagedChannelBuilder.forTarget(drone.getNext().getIp()).usePlaintext(true).build();
-            //creating an asynchronous stub on the channel
-            System.out.println("> Drone "+this.getId() +" is sending election REQUEST to the drone "+drone.getNext().getId()+" ...");
+        System.out.println("> Received election message. Sending to "+drone.getNext().getId());
 
-            ManagerGrpc.ManagerStub stub = ManagerGrpc.newStub(channel);
+        final ManagedChannel channel = ManagedChannelBuilder.forTarget(drone.getNext().getIp()).usePlaintext(true).build();
 
-            //creating the HelloResponse object which will be provided as input to the RPC method
-            Welcome.ElectionMessage request = Welcome.ElectionMessage
-                    .newBuilder()
-                    .setId(id)
-                    .setBattery(batteryLevel)
-                    .build();
+        ManagerGrpc.ManagerStub stub = ManagerGrpc.newStub(channel);
+        Welcome.ElectionMessage request = Welcome.ElectionMessage
+                .newBuilder()
+                .setId(id)
+                .setBattery(batteryLevel)
+                .build();
 
-            //calling the RPC method. since it is asynchronous, we need to define handlers
-            stub.election(request, new StreamObserver<Welcome.ElectionResponse>() {
-                //this hanlder takes care of each item received in the stream
-                public void onNext(Welcome.ElectionResponse electionResponse) {
-                    //each item is just printed
-                    if(electionResponse.getReceived())
-                        System.out.println("> Ack received");
-                }
-                public void onError(Throwable throwable) {
-                    channel.shutdownNow();
-                    //removeDroneFromList(next.getId());
-                    //sendElectionMessageToNext(id,levelBattery);
-                    System.err.println("> Error: " + throwable.getMessage());
-                }
-
-                public void onCompleted() {
-                    channel.shutdownNow();
-                }
-            });
-
-            //you need this. otherwise the method will terminate before that answers from the server are received
-            try {
-                channel.awaitTermination(2, TimeUnit.SECONDS);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+        stub.election(request, new StreamObserver<Welcome.ElectionResponse>() {
+            public void onNext(Welcome.ElectionResponse aliveResponse) {}
+            public void onError(Throwable throwable) {
+                channel.shutdownNow();
+                stop();
+                System.err.println("> Next is not responding -> " + throwable.getMessage());
             }
+            public void onCompleted() {
+                channel.shutdownNow();
+            }
+        });
+        try {
+            channel.awaitTermination(2, TimeUnit.SECONDS);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 }

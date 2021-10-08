@@ -6,6 +6,8 @@ import modules.Position;
 import proto.Welcome;
 import proto.ManagerGrpc;
 import io.grpc.stub.StreamObserver;
+import threads.ElectedThread;
+import threads.ElectionThread;
 
 import java.util.List;
 
@@ -35,14 +37,11 @@ public class ManagerServiceImpl extends ManagerGrpc.ManagerImplBase {
 
         //adding the drone to my list is equivalent to adding the drone to my topology of the network
         drone.addDroneToList(droneToInsert);
-
-        System.out.println("> New network is: "+drone.getDronesList().toString());
     }
 
 
     @Override
     public void election(Welcome.ElectionMessage request, StreamObserver<Welcome.ElectionResponse> responseObserver){
-
 
         Welcome.ElectionResponse response = Welcome.ElectionResponse
                 .newBuilder()
@@ -51,48 +50,45 @@ public class ManagerServiceImpl extends ManagerGrpc.ManagerImplBase {
         responseObserver.onNext(response);
         responseObserver.onCompleted();
 
-        //drone.stopMasterLifeChecker();
-
-        //drone.removeDroneFromList(drone.getMasterID());
+        drone.stopMasterLifeChecker();
 
         int droneBatteryLevel = drone.getBatteryLevel();
         if(drone.isInDelivery()){
             droneBatteryLevel -= 10;
         }
 
-
-
-        if (request.getBattery() < droneBatteryLevel && !drone.isInElection()) { //if my drone has major battery level
-            System.err.println("1) " + request.getBattery() + " " + droneBatteryLevel);
-            //set my drone in election
-            drone.setInElection(true);
-            drone.sendElectionMessageToNext(drone.getId(), droneBatteryLevel);
-        } else if (request.getBattery() > droneBatteryLevel) { //if the request has major battery level
-            System.err.println("2) " + request.getBattery() + " " + droneBatteryLevel);
-            //set my drone in election
-            drone.setInElection(true);
-            drone.sendElectionMessageToNext(request.getId(), request.getBattery());
+        if (request.getBattery() > droneBatteryLevel) {  //if request has major battery level
+                drone.setInElection(true);
+                System.err.println("1) " + request.getBattery() + " > " + droneBatteryLevel);
+                ElectionThread electionThread = new ElectionThread(drone, request.getId(), request.getBattery());
+                electionThread.run();
+        } else if (request.getBattery() < droneBatteryLevel && !drone.isInElection()) { //if drone has major battery level
+                drone.setInElection(true);
+                System.err.println("2) " + request.getBattery() + " < " + droneBatteryLevel);
+                ElectionThread electionThread = new ElectionThread(drone, drone.getId(), droneBatteryLevel);
+                electionThread.run();
         } else if (request.getBattery() == droneBatteryLevel) { //same battery level compare the IDs
-            System.err.println("3) " + request.getBattery() + " " + droneBatteryLevel);
-            if (request.getId() < drone.getId() && !drone.isInElection()) {
-                System.err.println("4) " + request.getId() + " " + drone.getId());
-                //set my drone in election
-                drone.setInElection(true);
-                drone.sendElectionMessageToNext(drone.getId(), droneBatteryLevel);
-            } else if (request.getId() > drone.getId()) {
-                System.err.println("5) " + request.getId() + " " + drone.getId());
-                //set my drone in election
-                drone.setInElection(true);
-                drone.sendElectionMessageToNext(request.getId(), request.getBattery());
-            } else if (request.getId() == drone.getId()) {
-                System.err.println("6) " + request.getId() + " " + drone.getId());
-                System.out.println("> New master found");
-                //set my drone in election
-                drone.setInElection(true);
-                drone.sendElectedMessageToNext(drone.getId());
-            }
-
+                System.err.println("3) " + request.getBattery() + " == " + droneBatteryLevel);
+                if (request.getId() > drone.getId()) {
+                        drone.setInElection(true);
+                        System.err.println("4) " + request.getId() + " " + drone.getId());
+                        ElectionThread electionThread = new ElectionThread(drone, request.getId(), request.getBattery());
+                        electionThread.run();
+                } else if (request.getId() < drone.getId() && !drone.isInElection()) {
+                        drone.setInElection(true);
+                        System.err.println("5) " + request.getId() + " " + drone.getId());
+                        ElectionThread electionThread = new ElectionThread(drone, drone.getId(), droneBatteryLevel);
+                        electionThread.run();
+                } else if (request.getId() == drone.getId() && drone.isInElection()) { //test drone.isInElection()
+                        drone.setInElection(false);
+                        drone.setMaster(true);
+                        System.err.println("6) " + request.getId() + " " + drone.getId());
+                        System.out.println("Mi sto proclamando master");
+                        ElectedThread electedThread = new ElectedThread(drone,drone.getId());
+                        electedThread.run();
+                }
         }
+
     }
 
     @Override
@@ -106,16 +102,18 @@ public class ManagerServiceImpl extends ManagerGrpc.ManagerImplBase {
         responseObserver.onCompleted();
 
         System.out.println("> Master now is drone "+request.getId());
-        drone.setInElection(false);
 
-        if(drone.getId() != request.getId()) { //if i'm not the master
+
+        if(drone.getId() != request.getId() && drone.isInElection()) { //if i'm not the master
+            drone.setInElection(false);
             drone.setMasterID(request.getId());
+            System.err.println("> Master id in the request is: "+request.getId());
             drone.setMaster(false);
-            drone.sendElectedMessageToNext(request.getId());
-        } else {
-            drone.setMasterID(request.getId());
-            drone.setMaster(true);
+            ElectedThread electedThread = new ElectedThread(drone,drone.getId());
+            electedThread.run();
         }
+
+
     }
 
     @Override

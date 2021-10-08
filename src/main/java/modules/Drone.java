@@ -66,11 +66,12 @@ public class Drone {
     }
 
     public void setMaster(boolean isMaster) {
+
         master = isMaster;
         //start or stop the correct thread
         if(master){
             System.err.println("A) "+master+" "+isMaster);
-            this.startSubscriberMQTT();
+            //this.startSubscriberMQTT();
         } else {
             System.err.println("B) "+master+" "+isMaster);
             this.startMasterLifeChecker();
@@ -172,10 +173,13 @@ public class Drone {
     }
 
     public void removeDroneFromList(int id){
-        if(id != this.getId()) {
-            dronesList.removeIf(d -> (d.getId() == id));
-        }
         synchronized (next) {
+
+            System.out.println("> Removing "+id+" from list");
+            if(id != this.getId()) {
+                dronesList.removeIf(d -> (d.getId() == id));
+            }
+
             next = findNextDrone();
         }
     }
@@ -203,7 +207,7 @@ public class Drone {
             idList.add(currentDrone.getId());
         }
 
-        Drone next = null;
+        Drone next = this;
         for(int i = 0; i < idList.size(); i++){
             if(idList.get(i) == id){
                 if((i+1)<idList.size()){

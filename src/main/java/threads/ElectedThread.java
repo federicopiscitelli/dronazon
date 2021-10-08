@@ -19,40 +19,32 @@ public class ElectedThread extends Thread{
     }
 
     public void run(){
-        System.out.println("> Network "+drone.getDronesList().toString());
-        System.out.println("> sendElectedMessageToNext called. My ID: "+this.id+" Next ID: "+this.drone.getNext().getId()+" New Master: "+id);
-        if(drone.getNext() != null) {
-            final ManagedChannel channel = ManagedChannelBuilder.forTarget(drone.getNext().getIp()).usePlaintext(true).build();
-            //creating an asynchronous stub on the channel
-            System.out.println("> Drone "+this.getId() +" is sending elected MESSAGE to the drone "+drone.getNext().getId()+" ... Master is now "+id);
+        System.out.println("> "+ System.currentTimeMillis() +": received elected message. Sending to"+drone.getNext().getId());
+        System.err.println(drone.getMasterID());
 
-            ManagerGrpc.ManagerStub stub = ManagerGrpc.newStub(channel);
+        final ManagedChannel channel = ManagedChannelBuilder.forTarget(drone.getNext().getIp()).usePlaintext(true).build();
 
-            //creating the ElectedMessage object which will be provided as input to the RPC method
-            Welcome.ElectedMessage request = Welcome.ElectedMessage
-                    .newBuilder()
-                    .setId(id)
-                    .build();
+        ManagerGrpc.ManagerStub stub = ManagerGrpc.newStub(channel);
+        Welcome.ElectedMessage request = Welcome.ElectedMessage
+                .newBuilder()
+                .setId(id)
+                .build();
 
-            //calling the RPC method. since it is asynchronous, we need to define handlers
-            stub.elected(request, new StreamObserver<Welcome.ElectedResponse>() {
-                public void onNext(Welcome.ElectedResponse electedResponse) { }
-                //if there are some errors
-                public void onError(Throwable throwable) {
-                    channel.shutdownNow();
-                    System.out.println("> Error: " + throwable.getMessage());
-                }
-                //when the stream is completed
-                public void onCompleted() {
-                    channel.shutdownNow();
-                }
-            });
-            //wait for the response
-            try {
-                channel.awaitTermination(2, TimeUnit.SECONDS);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+        stub.elected(request, new StreamObserver<Welcome.ElectedResponse>() {
+            public void onNext(Welcome.ElectedResponse aliveResponse) {}
+            public void onError(Throwable throwable) {
+                channel.shutdownNow();
+                stop();
+                System.err.println("> Next is not responding -> " + throwable.getMessage());
             }
+            public void onCompleted() {
+                channel.shutdownNow();
+            }
+        });
+        try {
+            channel.awaitTermination(2, TimeUnit.SECONDS);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 

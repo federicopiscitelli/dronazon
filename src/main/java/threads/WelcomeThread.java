@@ -56,7 +56,7 @@ public class WelcomeThread extends Thread{
             public void onError(Throwable throwable) {
                 channel.shutdownNow();
                 //remove the drone from my network topology
-                int id = 3000 - Integer.parseInt(ip);
+                int id = 3000 - Integer.parseInt(ip.split(":")[1]);
                 drone.removeDroneFromList(id);
                 System.out.println("> Drone with the id " + id + " is unavailable and was removed from the topology");
             }
