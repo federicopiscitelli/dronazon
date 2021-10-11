@@ -19,8 +19,7 @@ public class ElectedThread extends Thread{
     }
 
     public void run(){
-        System.out.println("> "+ System.currentTimeMillis() +": received elected message. Sending to"+drone.getNext().getId());
-        System.err.println(drone.getMasterID());
+        System.out.println("> Elected message to "+drone.getNext().getId());
 
         final ManagedChannel channel = ManagedChannelBuilder.forTarget(drone.getNext().getIp()).usePlaintext(true).build();
 

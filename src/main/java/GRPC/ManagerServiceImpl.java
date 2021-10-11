@@ -79,9 +79,9 @@ public class ManagerServiceImpl extends ManagerGrpc.ManagerImplBase {
                         System.err.println("5) " + request.getId() + " " + drone.getId());
                         ElectionThread electionThread = new ElectionThread(drone, drone.getId(), droneBatteryLevel);
                         electionThread.run();
-                } else if (request.getId() == drone.getId() && drone.isInElection()) { //test drone.isInElection()
-                        drone.setInElection(false);
+                } else if (request.getId() == drone.getId()) { //test drone.isInElection()
                         drone.setMaster(true);
+                        drone.setInElection(false);
                         System.err.println("6) " + request.getId() + " " + drone.getId());
                         System.out.println("Mi sto proclamando master");
                         ElectedThread electedThread = new ElectedThread(drone,drone.getId());
@@ -101,16 +101,16 @@ public class ManagerServiceImpl extends ManagerGrpc.ManagerImplBase {
         responseObserver.onNext(response);
         responseObserver.onCompleted();
 
-        System.out.println("> Master now is drone "+request.getId());
-
 
         if(drone.getId() != request.getId() && drone.isInElection()) { //if i'm not the master
             drone.setInElection(false);
             drone.setMasterID(request.getId());
             System.err.println("> Master id in the request is: "+request.getId());
             drone.setMaster(false);
-            ElectedThread electedThread = new ElectedThread(drone,drone.getId());
+            ElectedThread electedThread = new ElectedThread(drone,request.getId());
             electedThread.run();
+        } else {
+            System.out.println("> Election ended");
         }
 
 

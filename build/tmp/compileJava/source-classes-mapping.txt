@@ -105,22 +105,22 @@ threads/DronesInput.java
  threads.DronesInput
 REST/services/DronesService.java
  REST.services.DronesService
-threads/ElectedThread.java
- threads.ElectedThread
- threads.ElectedThread$1
+threads/MasterLifeChecker.java
+ threads.MasterLifeChecker
+ threads.MasterLifeChecker$1
 MQTT/DroneSubscriber.java
  MQTT.DroneSubscriber
  MQTT.DroneSubscriber$1
+threads/ElectionThread.java
+ threads.ElectionThread
+ threads.ElectionThread$1
 modules/Drone.java
  modules.Drone
  modules.Drone$1
  modules.Drone$2
-threads/ElectionThread.java
- threads.ElectionThread
- threads.ElectionThread$1
-threads/MasterLifeChecker.java
- threads.MasterLifeChecker
- threads.MasterLifeChecker$1
+threads/ElectedThread.java
+ threads.ElectedThread
+ threads.ElectedThread$1
 GRPC/GRPCDroneServer.java
  GRPC.GRPCDroneServer
 GRPC/ManagerServiceImpl.java
