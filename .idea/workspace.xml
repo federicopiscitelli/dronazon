@@ -16,9 +16,12 @@
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/GRPC/ManagerServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/GRPC/ManagerServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/threads/ElectedThread$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/threads/ElectedThread$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/threads/ElectedThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/threads/ElectedThread.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/threads/ElectionThread$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/threads/ElectionThread$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/threads/ElectionThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/threads/ElectionThread.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GRPC/ManagerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GRPC/ManagerServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modules/Drone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modules/Drone.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/threads/ElectedThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/threads/ElectedThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/threads/ElectionThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/threads/ElectionThread.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,15 +124,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -212,7 +213,8 @@
       <workItem from="1633713955194" duration="1197000" />
       <workItem from="1633786544834" duration="604000" />
       <workItem from="1633875435573" duration="1157000" />
-      <workItem from="1633930874936" duration="2259000" />
+      <workItem from="1633930874936" duration="11659000" />
+      <workItem from="1634131292921" duration="4862000" />
     </task>
     <servers />
   </component>

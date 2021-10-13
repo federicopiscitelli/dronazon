@@ -172,16 +172,16 @@ public class Drone {
         this.inDelivery = inDelivery;
     }
 
-    public void removeDroneFromList(int id){
+    public boolean removeDroneFromList(int id){
         synchronized (next) {
-
             System.out.println("> Removing "+id+" from list");
             if(id != this.getId()) {
                 dronesList.removeIf(d -> (d.getId() == id));
             }
-
             next = findNextDrone();
         }
+
+        return true;
     }
 
     public Drone findNextDrone(){

@@ -23,6 +23,8 @@ public class ElectedThread extends Thread{
 
         final ManagedChannel channel = ManagedChannelBuilder.forTarget(drone.getNext().getIp()).usePlaintext(true).build();
 
+        boolean[] nextNotResponding = {false};
+
         ManagerGrpc.ManagerStub stub = ManagerGrpc.newStub(channel);
         Welcome.ElectedMessage request = Welcome.ElectedMessage
                 .newBuilder()
@@ -33,15 +35,38 @@ public class ElectedThread extends Thread{
             public void onNext(Welcome.ElectedResponse aliveResponse) {}
             public void onError(Throwable throwable) {
                 channel.shutdownNow();
-                stop();
-                System.err.println("> Next is not responding -> " + throwable.getMessage());
+                if(throwable.getMessage().equals("UNAVAILABLE: io exception")) {
+                    System.err.println("> Next is not responding");
+                    nextNotResponding[0] = true;
+                    synchronized (nextNotResponding){
+                        nextNotResponding.notify();
+                    }
+                } else {
+                    System.err.println(throwable.getMessage());
+                }
             }
             public void onCompleted() {
                 channel.shutdownNow();
             }
         });
+
         try {
-            channel.awaitTermination(2, TimeUnit.SECONDS);
+            synchronized (nextNotResponding){
+                nextNotResponding.wait();
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        if(nextNotResponding[0]){
+            if(drone.removeDroneFromList(drone.getNext().getId())) {
+                System.out.println("> Retring with drone: "+drone.getNext().getId());
+                run();
+            }
+        }
+
+        try {
+            channel.awaitTermination(4, TimeUnit.SECONDS);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
