@@ -13,11 +13,13 @@ public class ElectionThread extends Thread{
     Drone drone;
     int id;
     int batteryLevel;
+    int oldMasterId;
 
     public ElectionThread(Drone drone, int id, int batteryLevel){
         this.drone = drone;
         this.id = id;
         this.batteryLevel = batteryLevel;
+        this.oldMasterId = drone.getMasterID();
     }
 
     public synchronized void run(){
@@ -67,7 +69,7 @@ public class ElectionThread extends Thread{
 
         if(nextNotResponding[0]){
             if(drone.removeDroneFromList(drone.getNext().getId())) {
-                System.out.println("> Retring with drone: "+drone.getNext().getId());
+                System.out.println("> Retrying with drone "+drone.getNext().getId());
                 run();
             }
         }
@@ -77,5 +79,21 @@ public class ElectionThread extends Thread{
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        new java.util.Timer().schedule(
+                new java.util.TimerTask() {
+                    @Override
+                    public void run() {
+                        //if after ten seconds drone is still in election and master is the old master
+                        if(!drone.isInElection() && drone.getMasterID() != oldMasterId){
+                            //start new election
+                            System.err.println("> Election is stuck. Restarting a new election ...");
+                            ElectionThread electionThread = new ElectionThread(drone, drone.getId(), drone.getBatteryLevel());
+                            electionThread.run();
+                        }
+                    }
+                },
+                10000
+        );
     }
 }

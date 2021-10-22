@@ -83,7 +83,7 @@ public class ManagerServiceImpl extends ManagerGrpc.ManagerImplBase {
                         drone.setMaster(true);
                         drone.setInElection(false);
                         System.err.println("6) " + request.getId() + " " + drone.getId());
-                        System.out.println("Mi sto proclamando master");
+                        System.out.println("> I'M THE NEW MASTER");
                         ElectedThread electedThread = new ElectedThread(drone,drone.getId());
                         electedThread.run();
                 }
@@ -141,6 +141,16 @@ public class ManagerServiceImpl extends ManagerGrpc.ManagerImplBase {
         Position delivery = new Position(request.getDelivery().getX(), request.getDelivery().getY());
 
         drone.doDelivery(retire, delivery);
+    }
 
+    public void recharge(Welcome.RechargeRequest request, StreamObserver<Welcome.RechargeResponse> responseObserver){
+        if(!drone.isRecharging()){
+            Welcome.RechargeResponse response = Welcome.RechargeResponse
+                    .newBuilder()
+                    .setFree(true)
+                    .build();
+            responseObserver.onNext(response);
+            responseObserver.onCompleted();
+        }
     }
 }

@@ -14,7 +14,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class MasterLifeChecker implements Runnable{
+public class MasterLifeChecker extends Thread{
     private Drone drone;
     private boolean exit;
 
@@ -75,7 +75,7 @@ public class MasterLifeChecker implements Runnable{
 
     }
 
-    public void stop(){
+    public void stopExecution(){
         exit = true;
     }
 

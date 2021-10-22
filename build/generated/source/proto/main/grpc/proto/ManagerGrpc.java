@@ -213,6 +213,37 @@ public final class ManagerGrpc {
     return getDeliveredMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<proto.Welcome.RechargeRequest,
+      proto.Welcome.RechargeResponse> getRechargeMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "Recharge",
+      requestType = proto.Welcome.RechargeRequest.class,
+      responseType = proto.Welcome.RechargeResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<proto.Welcome.RechargeRequest,
+      proto.Welcome.RechargeResponse> getRechargeMethod() {
+    io.grpc.MethodDescriptor<proto.Welcome.RechargeRequest, proto.Welcome.RechargeResponse> getRechargeMethod;
+    if ((getRechargeMethod = ManagerGrpc.getRechargeMethod) == null) {
+      synchronized (ManagerGrpc.class) {
+        if ((getRechargeMethod = ManagerGrpc.getRechargeMethod) == null) {
+          ManagerGrpc.getRechargeMethod = getRechargeMethod =
+              io.grpc.MethodDescriptor.<proto.Welcome.RechargeRequest, proto.Welcome.RechargeResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "Recharge"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  proto.Welcome.RechargeRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  proto.Welcome.RechargeResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new ManagerMethodDescriptorSupplier("Recharge"))
+              .build();
+        }
+      }
+    }
+    return getRechargeMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -300,6 +331,16 @@ public final class ManagerGrpc {
       asyncUnimplementedUnaryCall(getDeliveredMethod(), responseObserver);
     }
 
+    /**
+     * <pre>
+     *Service used to request the availability of the recharge station
+     * </pre>
+     */
+    public void recharge(proto.Welcome.RechargeRequest request,
+        io.grpc.stub.StreamObserver<proto.Welcome.RechargeResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getRechargeMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -344,6 +385,13 @@ public final class ManagerGrpc {
                 proto.Welcome.DeliveredMessage,
                 proto.Welcome.DeliveredResponse>(
                   this, METHODID_DELIVERED)))
+          .addMethod(
+            getRechargeMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                proto.Welcome.RechargeRequest,
+                proto.Welcome.RechargeResponse>(
+                  this, METHODID_RECHARGE)))
           .build();
     }
   }
@@ -431,6 +479,17 @@ public final class ManagerGrpc {
       asyncUnaryCall(
           getChannel().newCall(getDeliveredMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     * <pre>
+     *Service used to request the availability of the recharge station
+     * </pre>
+     */
+    public void recharge(proto.Welcome.RechargeRequest request,
+        io.grpc.stub.StreamObserver<proto.Welcome.RechargeResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getRechargeMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -509,6 +568,16 @@ public final class ManagerGrpc {
     public proto.Welcome.DeliveredResponse delivered(proto.Welcome.DeliveredMessage request) {
       return blockingUnaryCall(
           getChannel(), getDeliveredMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     *Service used to request the availability of the recharge station
+     * </pre>
+     */
+    public proto.Welcome.RechargeResponse recharge(proto.Welcome.RechargeRequest request) {
+      return blockingUnaryCall(
+          getChannel(), getRechargeMethod(), getCallOptions(), request);
     }
   }
 
@@ -595,6 +664,17 @@ public final class ManagerGrpc {
       return futureUnaryCall(
           getChannel().newCall(getDeliveredMethod(), getCallOptions()), request);
     }
+
+    /**
+     * <pre>
+     *Service used to request the availability of the recharge station
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<proto.Welcome.RechargeResponse> recharge(
+        proto.Welcome.RechargeRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(getRechargeMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_WELCOME = 0;
@@ -603,6 +683,7 @@ public final class ManagerGrpc {
   private static final int METHODID_ALIVE = 3;
   private static final int METHODID_DELIVERY = 4;
   private static final int METHODID_DELIVERED = 5;
+  private static final int METHODID_RECHARGE = 6;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -644,6 +725,10 @@ public final class ManagerGrpc {
         case METHODID_DELIVERED:
           serviceImpl.delivered((proto.Welcome.DeliveredMessage) request,
               (io.grpc.stub.StreamObserver<proto.Welcome.DeliveredResponse>) responseObserver);
+          break;
+        case METHODID_RECHARGE:
+          serviceImpl.recharge((proto.Welcome.RechargeRequest) request,
+              (io.grpc.stub.StreamObserver<proto.Welcome.RechargeResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -712,6 +797,7 @@ public final class ManagerGrpc {
               .addMethod(getAliveMethod())
               .addMethod(getDeliveryMethod())
               .addMethod(getDeliveredMethod())
+              .addMethod(getRechargeMethod())
               .build();
         }
       }

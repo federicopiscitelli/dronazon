@@ -8,7 +8,7 @@ import org.eclipse.paho.client.mqttv3.*;
 import java.sql.Timestamp;
 
 
-public class DroneSubscriber implements Runnable{
+public class DroneSubscriber extends Thread{
 
     public static final String BROKER = "tcp://localhost:1883";
     public static final String TOPIC = "dronazon/smartcity/orders";
@@ -76,7 +76,7 @@ public class DroneSubscriber implements Runnable{
         }
     }
 
-    public void stop(){
+    public void stopExecution(){
         if(client.isConnected()){
             try {
                 client.disconnectForcibly();

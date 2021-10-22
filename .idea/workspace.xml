@@ -5,6 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1cea5345-8023-44b2-b8c7-efda0cc3016e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/modules/MyBuffer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/threads/ComputeStatistics.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/threads/RechargingThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.bin" afterDir="false" />
@@ -13,15 +16,40 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/DroneProcess.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/DroneProcess.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/GRPC/ManagerServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/GRPC/ManagerServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/modules/Drone$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/modules/Drone$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/modules/Drone$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/modules/Drone$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/modules/Drone.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/modules/Drone.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerGrpc$ManagerBaseDescriptorSupplier.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerGrpc$ManagerBaseDescriptorSupplier.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerGrpc$ManagerBlockingStub.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerGrpc$ManagerBlockingStub.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerGrpc$ManagerFileDescriptorSupplier.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerGrpc$ManagerFileDescriptorSupplier.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerGrpc$ManagerFutureStub.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerGrpc$ManagerFutureStub.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerGrpc$ManagerImplBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerGrpc$ManagerImplBase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerGrpc$ManagerMethodDescriptorSupplier.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerGrpc$ManagerMethodDescriptorSupplier.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerGrpc$ManagerStub.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerGrpc$ManagerStub.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerGrpc$MethodHandlers.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerGrpc$MethodHandlers.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerGrpc.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/ManagerGrpc.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/threads/DronesInput.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/threads/DronesInput.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/threads/ElectedThread$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/threads/ElectedThread$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/threads/ElectedThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/threads/ElectedThread.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/threads/ElectionThread$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/threads/ElectionThread$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/threads/ElectionThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/threads/ElectionThread.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/Welcome.proto" beforeDir="false" afterPath="$PROJECT_DIR$/build/extracted-include-protos/test/Welcome.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/generated/source/proto/main/grpc/proto/ManagerGrpc.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/generated/source/proto/main/grpc/proto/ManagerGrpc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/generated/source/proto/main/java/proto/Welcome.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/generated/source/proto/main/java/proto/Welcome.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/Welcome.proto" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/Welcome.proto" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DroneProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DroneProcess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GRPC/ManagerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GRPC/ManagerServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MQTT/DroneSubscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MQTT/DroneSubscriber.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/modules/Drone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modules/Drone.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/threads/DronesInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/threads/DronesInput.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/threads/ElectedThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/threads/ElectedThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/threads/ElectionThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/threads/ElectionThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/threads/MasterLifeChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/threads/MasterLifeChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/proto/Welcome.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/proto/Welcome.proto" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -214,7 +242,12 @@
       <workItem from="1633786544834" duration="604000" />
       <workItem from="1633875435573" duration="1157000" />
       <workItem from="1633930874936" duration="11659000" />
-      <workItem from="1634131292921" duration="4862000" />
+      <workItem from="1634131292921" duration="5371000" />
+      <workItem from="1634211014783" duration="6360000" />
+      <workItem from="1634303187938" duration="1449000" />
+      <workItem from="1634557563188" duration="9639000" />
+      <workItem from="1634731988990" duration="12627000" />
+      <workItem from="1634902971865" duration="6242000" />
     </task>
     <servers />
   </component>

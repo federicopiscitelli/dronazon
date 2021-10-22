@@ -1,26 +1,15 @@
-import MQTT.DroneSubscriber;
 import com.google.gson.Gson;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientHandlerException;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
-import io.grpc.ManagedChannel;
-import io.grpc.ManagedChannelBuilder;
-import io.grpc.stub.StreamObserver;
 import modules.AddResponse;
 import modules.Drone;
-import proto.ManagerGrpc;
-import proto.Welcome;
 import threads.DronesInput;
 import GRPC.GRPCDroneServer;
-import threads.MasterLifeChecker;
 import threads.WelcomeThread;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 public class DroneProcess {
 

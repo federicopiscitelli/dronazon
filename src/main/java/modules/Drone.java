@@ -7,6 +7,7 @@ import io.grpc.stub.StreamObserver;
 import org.codehaus.jackson.annotate.JsonIgnore;
 import proto.ManagerGrpc;
 import proto.Welcome;
+import simulators.PM10Simulator;
 import threads.DeliveryThread;
 import threads.ElectedThread;
 import threads.ElectionThread;
@@ -41,11 +42,19 @@ public class Drone {
     @JsonIgnore
     private transient boolean inDelivery;
     @JsonIgnore
+    private transient boolean recharging;
+    @JsonIgnore
     private transient MasterLifeChecker masterLifeChecker;
     @JsonIgnore
     private transient DroneSubscriber subscriberMQTT;
     @JsonIgnore
     private transient OrdersQueue ordersQueue;
+    @JsonIgnore
+    private transient MyBuffer myPM10Buffer;
+    @JsonIgnore
+    private transient PM10Simulator pm10Simulator;
+    @JsonIgnore
+    private transient List<Double> averagesPM10;
 
 
     public Drone(){}
@@ -59,6 +68,7 @@ public class Drone {
         this.inElection = false;
         this.inDelivery = false;
         ordersQueue = OrdersQueue.getInstance();
+        averagesPM10 = new ArrayList<>();
     }
 
     public boolean isMaster() {
@@ -70,10 +80,11 @@ public class Drone {
         master = isMaster;
         //start or stop the correct thread
         if(master){
-            System.err.println("A) "+master+" "+isMaster);
+            System.out.println("> I'm the master");
             //this.startSubscriberMQTT();
         } else {
-            System.err.println("B) "+master+" "+isMaster);
+            System.err.println(">I'm not the master");
+            this.startPM10Sensor();
             this.startMasterLifeChecker();
         }
     }
@@ -243,20 +254,20 @@ public class Drone {
 
     public void startMasterLifeChecker(){
         masterLifeChecker = new MasterLifeChecker(this);
-        masterLifeChecker.run();
+        masterLifeChecker.start();
     }
 
     public void stopMasterLifeChecker(){
-        masterLifeChecker.stop();
+        masterLifeChecker.stopExecution();
     }
 
     public void startSubscriberMQTT(){
         subscriberMQTT = new DroneSubscriber(this);
-        subscriberMQTT.run();
+        subscriberMQTT.start();
     }
 
     public void stopSubscriberMQTT(){
-        subscriberMQTT.stop();
+        subscriberMQTT.stopExecution();
     }
 
     public synchronized void assignDelivery(Order order){
@@ -396,6 +407,38 @@ public class Drone {
     public void doDelivery(Position retire, Position delivery){
         DeliveryThread deliveryThread = new DeliveryThread(this, retire, delivery);
         deliveryThread.start();
+    }
+
+    public boolean isRecharging(){
+        return this.recharging;
+    }
+
+    public void setInCharge(boolean inCharge){
+        this.recharging = inCharge;
+    }
+
+    public void recharge(){
+        recharging = true;
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        recharging = false;
+    }
+
+    public synchronized void addAverageToAverages(double avg){
+        this.averagesPM10.add(avg);
+    }
+
+    public List<Double> getAveragesPM10(){
+        return this.averagesPM10;
+    }
+
+    public void startPM10Sensor(){
+        myPM10Buffer = new MyBuffer(this);
+        pm10Simulator = new PM10Simulator(myPM10Buffer);
+        pm10Simulator.start();
     }
 
 }

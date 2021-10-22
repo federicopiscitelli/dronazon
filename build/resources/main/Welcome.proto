@@ -1,5 +1,7 @@
 package proto;
 
+import "google/protobuf/timestamp.proto";
+
 service Manager{
   //Service used when a drone enters the network
   rpc Welcome(WelcomeMessage) returns (WelcomeResponse);
@@ -13,7 +15,8 @@ service Manager{
   rpc Delivery(DeliveryMessage) returns (DeliveryResponse);
   //Service used to comunicate the success on the delivery
   rpc Delivered(DeliveredMessage) returns (DeliveredResponse);
-
+  //Service used to request the availability of the recharge station
+  rpc Recharge(RechargeRequest) returns (RechargeResponse);
 }
 
 //Message position
@@ -86,4 +89,13 @@ message DeliveredMessage{
 
 message DeliveredResponse{
   required bool received = 1;
+}
+
+message RechargeRequest{
+  required int32 id = 1;
+  required google.protobuf.Timestamp timestamp = 2;
+}
+
+message RechargeResponse{
+  required bool free = 1;
 }

@@ -52,16 +52,19 @@ public class ElectedThread extends Thread{
 
         try {
             synchronized (nextNotResponding){
-                nextNotResponding.wait();
+                nextNotResponding.wait(); //wait until the lock is released
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
         if(nextNotResponding[0]){
-            if(drone.removeDroneFromList(drone.getNext().getId())) {
-                System.out.println("> Retring with drone: "+drone.getNext().getId());
+            if(drone.getNext().getId() != id && drone.removeDroneFromList(drone.getNext().getId())) {
+                System.out.println("> Retrying with drone: "+drone.getNext().getId());
                 run();
+            } else if(drone.getNext().getId() == id && drone.removeDroneFromList(drone.getNext().getId())){
+                ElectionThread electionThread = new ElectionThread(drone,drone.getId(), drone.getBatteryLevel());
+                electionThread.run();
             }
         }
 
