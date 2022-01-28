@@ -50,7 +50,7 @@ public class Dronazon {
                client.publish(topic, newOrderMessage);
                orderId++;
 
-               Thread.sleep(5000);
+               Thread.sleep(10000);
            }
 
         } catch (MqttException me) {

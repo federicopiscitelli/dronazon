@@ -19,10 +19,10 @@ import java.io.InputStreamReader;
 public class DronesInput extends Thread{
     private static final String RESTServerAddress = "http://localhost:1337";
 
-    private Drone d;
+    private Drone drone;
 
-    public DronesInput(Drone d){
-        this.d = d;
+    public DronesInput(Drone drone){
+        this.drone = drone;
     }
 
     public void run() {
@@ -36,10 +36,18 @@ public class DronesInput extends Thread{
                 String choice = reader.readLine();
 
                 if (choice.equals("exit")) {
+
+                    if(drone.isMaster()){
+                        drone.stopSubscriberMQTT();
+                        while(drone.ordersQueue.size()>1) {
+                            System.out.println("> Assigning pending orders...");
+                        }
+                    }
+
                     Client client = Client.create();
                     System.out.println("> Removing the drone from the network...");
                     //Remove a drone to the REST Server
-                    String deletePath = "/drones/" + d.getId();
+                    String deletePath = "/drones/" + drone.getId();
                     WebResource webResource = client.resource(RESTServerAddress + deletePath);
                     try {
                         webResource.type("application/json").delete();
@@ -49,9 +57,10 @@ public class DronesInput extends Thread{
                     }
                     System.out.println("> Drone removed...");
                     System.exit(0);
+
                 } else if (choice.equals("recharge")) {
-                    RechargingThread rechargingThread = new RechargingThread(d);
-                    rechargingThread.run();
+                    RechargingThread rechargingThread = new RechargingThread(drone);
+                    rechargingThread.start();
                 } else {
                     System.out.println("> Unknown command");
                 }

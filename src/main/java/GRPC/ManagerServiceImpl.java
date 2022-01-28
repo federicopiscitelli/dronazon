@@ -1,15 +1,13 @@
 package GRPC;
 
-import io.grpc.Context;
 import modules.Drone;
 import modules.Position;
 import proto.Welcome;
 import proto.ManagerGrpc;
 import io.grpc.stub.StreamObserver;
+import threads.DroneUnavailable;
 import threads.ElectedThread;
 import threads.ElectionThread;
-
-import java.util.List;
 
 public class ManagerServiceImpl extends ManagerGrpc.ManagerImplBase {
 
@@ -143,6 +141,7 @@ public class ManagerServiceImpl extends ManagerGrpc.ManagerImplBase {
         drone.doDelivery(retire, delivery);
     }
 
+    @Override
     public void recharge(Welcome.RechargeRequest request, StreamObserver<Welcome.RechargeResponse> responseObserver){
         if(!drone.isRecharging()){
             Welcome.RechargeResponse response = Welcome.RechargeResponse
@@ -151,6 +150,41 @@ public class ManagerServiceImpl extends ManagerGrpc.ManagerImplBase {
                     .build();
             responseObserver.onNext(response);
             responseObserver.onCompleted();
+        }
+    }
+
+    @Override
+    public void rechargeCompleted(Welcome.RechargeComplete request, StreamObserver<Welcome.RechargeCompleteResponse> responseObserver){
+        if(drone.isMaster()){
+            drone.updateDroneInListAfterRecharge(request.getId(),
+                                                    request.getBatteryLevel(),
+                                                    new Position(request.getNewPosition().getX(), request.getNewPosition().getY()));
+
+            System.out.println("> Drone "+request.getId()+" ended recharging and I updated its position");
+            Welcome.RechargeCompleteResponse response  = Welcome.RechargeCompleteResponse
+                    .newBuilder()
+                    .setReceived(true)
+                    .build();
+            responseObserver.onNext(response);
+            responseObserver.onCompleted();
+        }
+    }
+
+    @Override
+    public void unavailableDrone(Welcome.UnavailableDroneMessage request, StreamObserver<Welcome.UnavailableDroneResponse> responseObserver){
+        Welcome.UnavailableDroneResponse response = Welcome.UnavailableDroneResponse
+                .newBuilder()
+                .setReceived(true)
+                .build();
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+
+        if(drone.getId()!=request.getStartingDroneID()) {
+            drone.removeDroneFromList(request.getId());
+            DroneUnavailable du = new DroneUnavailable(drone, request.getId(), request.getStartingDroneID());
+            du.run();
+        } else {
+            System.out.println("> All drones have deleted "+request.getId()+" from their local network");
         }
     }
 }

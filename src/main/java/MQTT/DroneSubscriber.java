@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import modules.Drone;
 import modules.Order;
 import org.eclipse.paho.client.mqttv3.*;
+import threads.AssignDelivery;
 
 import java.sql.Timestamp;
 
@@ -17,6 +18,7 @@ public class DroneSubscriber extends Thread{
     private Drone drone;
     private MqttClient client;
     private String clientId ;
+
 
 
     public DroneSubscriber(Drone drone){
@@ -49,7 +51,8 @@ public class DroneSubscriber extends Thread{
 
                     System.out.println("> Time: " + time + " Message: " + receivedMessage );
 
-                    drone.assignDelivery(newOrder);
+                    AssignDelivery assignDelivery = new AssignDelivery(drone,newOrder);
+                    assignDelivery.start();
 
                 }
 

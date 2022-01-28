@@ -38,7 +38,7 @@ public class MasterLifeChecker extends Thread{
 
                 stub.alive(request, new StreamObserver<Welcome.AliveResponse>() {
                     public void onNext(Welcome.AliveResponse aliveResponse) {
-                        System.out.println("> Master is alive");
+                       // System.out.println("> Master is alive");
                     }
 
                     public void onError(Throwable throwable) {

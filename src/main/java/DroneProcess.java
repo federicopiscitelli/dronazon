@@ -10,6 +10,7 @@ import GRPC.GRPCDroneServer;
 import threads.WelcomeThread;
 
 import java.io.IOException;
+import java.util.Iterator;
 
 public class DroneProcess {
 
@@ -51,9 +52,10 @@ public class DroneProcess {
         AddResponse response = clientResponse.getEntity(AddResponse.class);
 
         //Adding the drone list to my drone and setting the position
-        drone.setDronesList(response.getDrones());
+
         drone.setPosition(response.getPosition());
-        drone.updateDroneInList(drone);
+        drone.addDroneToList(drone);
+        //drone.updateDroneInList(drone);
 
         //Starting GRPC Server
         GRPCDroneServer threadServerGRPC = new GRPCDroneServer(drone);
@@ -62,12 +64,16 @@ public class DroneProcess {
         //if there is more than one drone
         if(response.getDrones().size()>1) {
             //welcome to all drones in the network
-            for (Drone d : response.getDrones()) {
+            Iterator<Drone> iterator = response.getDrones().iterator();
+
+            while (iterator.hasNext()){
+                Drone d = iterator.next();
                 if(!(d.getId() == drone.getId())){
-                    WelcomeThread welcomeThread = new WelcomeThread(drone,d.getIp());
+                    WelcomeThread welcomeThread = new WelcomeThread(drone,d);
                     welcomeThread.run();
                 }
             }
+
             //If i'm not the master start the thread to check if master is still alive
             drone.setMaster(false);
         } else {

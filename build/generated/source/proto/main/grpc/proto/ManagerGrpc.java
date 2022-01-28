@@ -244,6 +244,68 @@ public final class ManagerGrpc {
     return getRechargeMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<proto.Welcome.RechargeComplete,
+      proto.Welcome.RechargeCompleteResponse> getRechargeCompletedMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "RechargeCompleted",
+      requestType = proto.Welcome.RechargeComplete.class,
+      responseType = proto.Welcome.RechargeCompleteResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<proto.Welcome.RechargeComplete,
+      proto.Welcome.RechargeCompleteResponse> getRechargeCompletedMethod() {
+    io.grpc.MethodDescriptor<proto.Welcome.RechargeComplete, proto.Welcome.RechargeCompleteResponse> getRechargeCompletedMethod;
+    if ((getRechargeCompletedMethod = ManagerGrpc.getRechargeCompletedMethod) == null) {
+      synchronized (ManagerGrpc.class) {
+        if ((getRechargeCompletedMethod = ManagerGrpc.getRechargeCompletedMethod) == null) {
+          ManagerGrpc.getRechargeCompletedMethod = getRechargeCompletedMethod =
+              io.grpc.MethodDescriptor.<proto.Welcome.RechargeComplete, proto.Welcome.RechargeCompleteResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "RechargeCompleted"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  proto.Welcome.RechargeComplete.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  proto.Welcome.RechargeCompleteResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new ManagerMethodDescriptorSupplier("RechargeCompleted"))
+              .build();
+        }
+      }
+    }
+    return getRechargeCompletedMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<proto.Welcome.UnavailableDroneMessage,
+      proto.Welcome.UnavailableDroneResponse> getUnavailableDroneMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "UnavailableDrone",
+      requestType = proto.Welcome.UnavailableDroneMessage.class,
+      responseType = proto.Welcome.UnavailableDroneResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<proto.Welcome.UnavailableDroneMessage,
+      proto.Welcome.UnavailableDroneResponse> getUnavailableDroneMethod() {
+    io.grpc.MethodDescriptor<proto.Welcome.UnavailableDroneMessage, proto.Welcome.UnavailableDroneResponse> getUnavailableDroneMethod;
+    if ((getUnavailableDroneMethod = ManagerGrpc.getUnavailableDroneMethod) == null) {
+      synchronized (ManagerGrpc.class) {
+        if ((getUnavailableDroneMethod = ManagerGrpc.getUnavailableDroneMethod) == null) {
+          ManagerGrpc.getUnavailableDroneMethod = getUnavailableDroneMethod =
+              io.grpc.MethodDescriptor.<proto.Welcome.UnavailableDroneMessage, proto.Welcome.UnavailableDroneResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "UnavailableDrone"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  proto.Welcome.UnavailableDroneMessage.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  proto.Welcome.UnavailableDroneResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new ManagerMethodDescriptorSupplier("UnavailableDrone"))
+              .build();
+        }
+      }
+    }
+    return getUnavailableDroneMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -341,6 +403,26 @@ public final class ManagerGrpc {
       asyncUnimplementedUnaryCall(getRechargeMethod(), responseObserver);
     }
 
+    /**
+     * <pre>
+     *Service used to comunicate the master new position after recharge
+     * </pre>
+     */
+    public void rechargeCompleted(proto.Welcome.RechargeComplete request,
+        io.grpc.stub.StreamObserver<proto.Welcome.RechargeCompleteResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getRechargeCompletedMethod(), responseObserver);
+    }
+
+    /**
+     * <pre>
+     *Service used to comunicate the uncontrolled exit of a drone from the network
+     * </pre>
+     */
+    public void unavailableDrone(proto.Welcome.UnavailableDroneMessage request,
+        io.grpc.stub.StreamObserver<proto.Welcome.UnavailableDroneResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getUnavailableDroneMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -392,6 +474,20 @@ public final class ManagerGrpc {
                 proto.Welcome.RechargeRequest,
                 proto.Welcome.RechargeResponse>(
                   this, METHODID_RECHARGE)))
+          .addMethod(
+            getRechargeCompletedMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                proto.Welcome.RechargeComplete,
+                proto.Welcome.RechargeCompleteResponse>(
+                  this, METHODID_RECHARGE_COMPLETED)))
+          .addMethod(
+            getUnavailableDroneMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                proto.Welcome.UnavailableDroneMessage,
+                proto.Welcome.UnavailableDroneResponse>(
+                  this, METHODID_UNAVAILABLE_DRONE)))
           .build();
     }
   }
@@ -490,6 +586,28 @@ public final class ManagerGrpc {
       asyncUnaryCall(
           getChannel().newCall(getRechargeMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     * <pre>
+     *Service used to comunicate the master new position after recharge
+     * </pre>
+     */
+    public void rechargeCompleted(proto.Welcome.RechargeComplete request,
+        io.grpc.stub.StreamObserver<proto.Welcome.RechargeCompleteResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getRechargeCompletedMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     * <pre>
+     *Service used to comunicate the uncontrolled exit of a drone from the network
+     * </pre>
+     */
+    public void unavailableDrone(proto.Welcome.UnavailableDroneMessage request,
+        io.grpc.stub.StreamObserver<proto.Welcome.UnavailableDroneResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getUnavailableDroneMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -578,6 +696,26 @@ public final class ManagerGrpc {
     public proto.Welcome.RechargeResponse recharge(proto.Welcome.RechargeRequest request) {
       return blockingUnaryCall(
           getChannel(), getRechargeMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     *Service used to comunicate the master new position after recharge
+     * </pre>
+     */
+    public proto.Welcome.RechargeCompleteResponse rechargeCompleted(proto.Welcome.RechargeComplete request) {
+      return blockingUnaryCall(
+          getChannel(), getRechargeCompletedMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     *Service used to comunicate the uncontrolled exit of a drone from the network
+     * </pre>
+     */
+    public proto.Welcome.UnavailableDroneResponse unavailableDrone(proto.Welcome.UnavailableDroneMessage request) {
+      return blockingUnaryCall(
+          getChannel(), getUnavailableDroneMethod(), getCallOptions(), request);
     }
   }
 
@@ -675,6 +813,28 @@ public final class ManagerGrpc {
       return futureUnaryCall(
           getChannel().newCall(getRechargeMethod(), getCallOptions()), request);
     }
+
+    /**
+     * <pre>
+     *Service used to comunicate the master new position after recharge
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<proto.Welcome.RechargeCompleteResponse> rechargeCompleted(
+        proto.Welcome.RechargeComplete request) {
+      return futureUnaryCall(
+          getChannel().newCall(getRechargeCompletedMethod(), getCallOptions()), request);
+    }
+
+    /**
+     * <pre>
+     *Service used to comunicate the uncontrolled exit of a drone from the network
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<proto.Welcome.UnavailableDroneResponse> unavailableDrone(
+        proto.Welcome.UnavailableDroneMessage request) {
+      return futureUnaryCall(
+          getChannel().newCall(getUnavailableDroneMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_WELCOME = 0;
@@ -684,6 +844,8 @@ public final class ManagerGrpc {
   private static final int METHODID_DELIVERY = 4;
   private static final int METHODID_DELIVERED = 5;
   private static final int METHODID_RECHARGE = 6;
+  private static final int METHODID_RECHARGE_COMPLETED = 7;
+  private static final int METHODID_UNAVAILABLE_DRONE = 8;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -729,6 +891,14 @@ public final class ManagerGrpc {
         case METHODID_RECHARGE:
           serviceImpl.recharge((proto.Welcome.RechargeRequest) request,
               (io.grpc.stub.StreamObserver<proto.Welcome.RechargeResponse>) responseObserver);
+          break;
+        case METHODID_RECHARGE_COMPLETED:
+          serviceImpl.rechargeCompleted((proto.Welcome.RechargeComplete) request,
+              (io.grpc.stub.StreamObserver<proto.Welcome.RechargeCompleteResponse>) responseObserver);
+          break;
+        case METHODID_UNAVAILABLE_DRONE:
+          serviceImpl.unavailableDrone((proto.Welcome.UnavailableDroneMessage) request,
+              (io.grpc.stub.StreamObserver<proto.Welcome.UnavailableDroneResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -798,6 +968,8 @@ public final class ManagerGrpc {
               .addMethod(getDeliveryMethod())
               .addMethod(getDeliveredMethod())
               .addMethod(getRechargeMethod())
+              .addMethod(getRechargeCompletedMethod())
+              .addMethod(getUnavailableDroneMethod())
               .build();
         }
       }

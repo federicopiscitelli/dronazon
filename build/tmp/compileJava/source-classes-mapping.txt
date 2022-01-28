@@ -1,56 +1,21 @@
-DroneProcess.java
- DroneProcess
+modules/AddResponse.java
+ modules.AddResponse
 simulators/Buffer.java
  simulators.Buffer
 REST/server/Administrator.java
  REST.server.Administrator
-threads/DeliveryThread.java
- threads.DeliveryThread
-modules/Stat.java
- modules.Stat
-REST/client/Administrator.java
- REST.client.Administrator
-modules/Drone.java
- modules.Drone
- modules.Drone$1
- modules.Drone$2
-modules/MyBuffer.java
- modules.MyBuffer
-proto/ManagerGrpc.java
- proto.ManagerGrpc
- proto.ManagerGrpc$1
- proto.ManagerGrpc$ManagerBaseDescriptorSupplier
- proto.ManagerGrpc$ManagerBlockingStub
- proto.ManagerGrpc$ManagerFileDescriptorSupplier
- proto.ManagerGrpc$ManagerFutureStub
- proto.ManagerGrpc$ManagerImplBase
- proto.ManagerGrpc$ManagerMethodDescriptorSupplier
- proto.ManagerGrpc$ManagerStub
- proto.ManagerGrpc$MethodHandlers
-threads/DronesInput.java
- threads.DronesInput
-modules/OrdersQueue.java
- modules.OrdersQueue
-threads/WelcomeThread.java
- threads.WelcomeThread
- threads.WelcomeThread$1
-simulators/Simulator.java
- simulators.Simulator
-modules/Position.java
- modules.Position
-threads/MasterLifeChecker.java
- threads.MasterLifeChecker
- threads.MasterLifeChecker$1
-modules/Drones.java
- modules.Drones
-threads/RechargingThread.java
- threads.RechargeLock
- threads.RechargingThread
- threads.RechargingThread$1
-GRPC/ManagerServiceImpl.java
- GRPC.ManagerServiceImpl
+modules/DeliveryStatistics.java
+ modules.DeliveryStatistics
 modules/Order.java
  modules.Order
+modules/Stat.java
+ modules.Stat
+simulators/PM10Simulator.java
+ simulators.PM10Simulator
+REST/client/Administrator.java
+ REST.client.Administrator
+modules/Stats.java
+ modules.Stats
 proto/Welcome.java
  proto.Welcome
  proto.Welcome$1
@@ -98,6 +63,14 @@ proto/Welcome.java
  proto.Welcome$Position$1
  proto.Welcome$Position$Builder
  proto.Welcome$PositionOrBuilder
+ proto.Welcome$RechargeComplete
+ proto.Welcome$RechargeComplete$1
+ proto.Welcome$RechargeComplete$Builder
+ proto.Welcome$RechargeCompleteOrBuilder
+ proto.Welcome$RechargeCompleteResponse
+ proto.Welcome$RechargeCompleteResponse$1
+ proto.Welcome$RechargeCompleteResponse$Builder
+ proto.Welcome$RechargeCompleteResponseOrBuilder
  proto.Welcome$RechargeRequest
  proto.Welcome$RechargeRequest$1
  proto.Welcome$RechargeRequest$Builder
@@ -106,6 +79,14 @@ proto/Welcome.java
  proto.Welcome$RechargeResponse$1
  proto.Welcome$RechargeResponse$Builder
  proto.Welcome$RechargeResponseOrBuilder
+ proto.Welcome$UnavailableDroneMessage
+ proto.Welcome$UnavailableDroneMessage$1
+ proto.Welcome$UnavailableDroneMessage$Builder
+ proto.Welcome$UnavailableDroneMessageOrBuilder
+ proto.Welcome$UnavailableDroneResponse
+ proto.Welcome$UnavailableDroneResponse$1
+ proto.Welcome$UnavailableDroneResponse$Builder
+ proto.Welcome$UnavailableDroneResponseOrBuilder
  proto.Welcome$WelcomeMessage
  proto.Welcome$WelcomeMessage$1
  proto.Welcome$WelcomeMessage$Builder
@@ -114,31 +95,73 @@ proto/Welcome.java
  proto.Welcome$WelcomeResponse$1
  proto.Welcome$WelcomeResponse$Builder
  proto.Welcome$WelcomeResponseOrBuilder
-REST/services/DronesService.java
- REST.services.DronesService
+proto/ManagerGrpc.java
+ proto.ManagerGrpc
+ proto.ManagerGrpc$1
+ proto.ManagerGrpc$ManagerBaseDescriptorSupplier
+ proto.ManagerGrpc$ManagerBlockingStub
+ proto.ManagerGrpc$ManagerFileDescriptorSupplier
+ proto.ManagerGrpc$ManagerFutureStub
+ proto.ManagerGrpc$ManagerImplBase
+ proto.ManagerGrpc$ManagerMethodDescriptorSupplier
+ proto.ManagerGrpc$ManagerStub
+ proto.ManagerGrpc$MethodHandlers
+simulators/Measurement.java
+ simulators.Measurement
+modules/OrdersQueue.java
+ modules.OrdersQueue
 REST/services/StatService.java
  REST.services.StatService
+simulators/Simulator.java
+ simulators.Simulator
+modules/Position.java
+ modules.Position
+MQTT/Dronazon.java
+ MQTT.Dronazon
+threads/DroneUnavailable.java
+ threads.DroneUnavailable
+threads/MasterLifeChecker.java
+ threads.MasterLifeChecker
+ threads.MasterLifeChecker$1
+modules/Drones.java
+ modules.Drones
+threads/DeliveryThread.java
+ threads.DeliveryThread
+threads/RechargingThread.java
+ threads.RechargeLock
+ threads.RechargeLock$1
+ threads.RechargingThread
+ threads.RechargingThread$1
+GRPC/ManagerServiceImpl.java
+ GRPC.ManagerServiceImpl
+threads/AssignDelivery.java
+ threads.AssignDelivery
+ threads.AssignDelivery$1
+REST/services/DronesService.java
+ REST.services.DronesService
+modules/Drone.java
+ modules.Drone
+ modules.Drone$1
 threads/ComputeStatistics.java
  threads.ComputeStatistics
 threads/ElectionThread.java
  threads.ElectionThread
  threads.ElectionThread$1
  threads.ElectionThread$2
-modules/AddResponse.java
- modules.AddResponse
-MQTT/Dronazon.java
- MQTT.Dronazon
 threads/ElectedThread.java
  threads.ElectedThread
  threads.ElectedThread$1
-modules/Stats.java
- modules.Stats
-simulators/PM10Simulator.java
- simulators.PM10Simulator
 MQTT/DroneSubscriber.java
  MQTT.DroneSubscriber
  MQTT.DroneSubscriber$1
+modules/MyBuffer.java
+ modules.MyBuffer
 GRPC/GRPCDroneServer.java
  GRPC.GRPCDroneServer
-simulators/Measurement.java
- simulators.Measurement
+threads/DronesInput.java
+ threads.DronesInput
+threads/WelcomeThread.java
+ threads.WelcomeThread
+ threads.WelcomeThread$1
+DroneProcess.java
+ DroneProcess

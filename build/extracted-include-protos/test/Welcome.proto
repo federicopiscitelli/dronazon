@@ -17,6 +17,10 @@ service Manager{
   rpc Delivered(DeliveredMessage) returns (DeliveredResponse);
   //Service used to request the availability of the recharge station
   rpc Recharge(RechargeRequest) returns (RechargeResponse);
+  //Service used to comunicate the master new position after recharge
+  rpc RechargeCompleted(RechargeComplete) returns (RechargeCompleteResponse);
+  //Service used to comunicate the uncontrolled exit of a drone from the network
+  rpc UnavailableDrone(UnavailableDroneMessage) returns (UnavailableDroneResponse);
 }
 
 //Message position
@@ -98,4 +102,23 @@ message RechargeRequest{
 
 message RechargeResponse{
   required bool free = 1;
+}
+
+message RechargeComplete{
+  required int32 id = 1;
+  required Position newPosition = 2;
+  required int32  batteryLevel = 3;
+}
+
+message RechargeCompleteResponse{
+  required bool received = 1;
+}
+
+message UnavailableDroneMessage{
+  required int32 id = 1;
+  required int32 startingDroneID = 2;
+}
+
+message UnavailableDroneResponse{
+  required bool received = 1;
 }

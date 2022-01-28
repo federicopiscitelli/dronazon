@@ -7,21 +7,23 @@ import modules.Drone;
 import proto.ManagerGrpc;
 import proto.Welcome;
 
+import java.util.Iterator;
 import java.util.concurrent.TimeUnit;
 
 public class WelcomeThread extends Thread{
     Drone drone;
+    Drone toWelcome;
     String ip;
 
-    public WelcomeThread(Drone drone, String ip) {
+    public WelcomeThread(Drone drone, Drone toWelcome) {
         this.drone = drone;
-        this.ip = ip;
+        this.toWelcome = toWelcome;
     }
 
     public void run(){
 
         //plaintext channel on the address of the drone
-        final ManagedChannel channel = ManagedChannelBuilder.forTarget(ip).usePlaintext(true).build();
+        final ManagedChannel channel = ManagedChannelBuilder.forTarget(toWelcome.getIp()).usePlaintext(true).build();
         //creating an asynchronous stub on the channel
         ManagerGrpc.ManagerStub stub = ManagerGrpc.newStub(channel);
 
@@ -49,16 +51,19 @@ public class WelcomeThread extends Thread{
                     drone.setMasterID(welcomeResponse.getId());
                 }
 
+                drone.addDroneToList(toWelcome);
                 System.out.println("> Hello from drone: " + welcomeResponse.getId() + " master:" + welcomeResponse.getMaster());
+                //System.out.println("> Next is " + drone.getNext().getId() +" "+drone.getDronesList());
             }
 
             //if there are some errors, such as drone is not available
             public void onError(Throwable throwable) {
                 channel.shutdownNow();
                 //remove the drone from my network topology
-                int id = 3000 - Integer.parseInt(ip.split(":")[1]);
-                drone.removeDroneFromList(id);
-                System.out.println("> Drone with the id " + id + " is unavailable and was removed from the topology");
+                if(throwable.getMessage().equals("UNAVAILABLE: io exception")) {
+                    DroneUnavailable du = new DroneUnavailable(drone, toWelcome.getId(), drone.getId());
+                    du.run();
+                }
             }
 
             //when the stream is completed (the server called "onCompleted")

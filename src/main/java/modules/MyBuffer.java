@@ -26,7 +26,7 @@ public class MyBuffer implements Buffer {
         //otherwise reset the buffer with sliding windows method
         if(measurements.size()<WINDOW_DIMENSION) {
             measurements.add(m);
-            System.out.println("> Measurement added: "+m.toString()+". Now size is: "+measurements.size());
+            //System.out.println("> Measurement added: "+m.toString()+". Now size is: "+measurements.size());
         } else {
             readAllAndClean();
         }
@@ -42,7 +42,7 @@ public class MyBuffer implements Buffer {
         drone.addAverageToAverages(avg);
         int overlappingElement = (int)(WINDOW_DIMENSION*OVERLAP);
         for(int i=0;i<overlappingElement;i++){
-            System.out.println("> Removing the"+i+" element");
+            //System.out.println("> Removing the"+i+" element");
             measurements.remove(i);
         }
         return null;

@@ -30,6 +30,7 @@ public class DronesService {
             int x = rand.nextInt(10);
             int y = rand.nextInt(10);
             AddResponse response = new AddResponse(Drones.getInstance().getDronesList(), new Position(x,y));
+            System.out.println(Drones.getInstance().getDronesList());
             return Response.ok(response).build();
         } else {
             return Response.status(Response.Status.CONFLICT).build();
@@ -54,6 +55,7 @@ public class DronesService {
     @Produces({"application/json", "application/xml"})
     public Response deleteById(@PathParam("id") int id){
         if(Drones.getInstance().deleteById(id)) {
+            System.out.println(Drones.getInstance().getDronesList());
             return Response.ok().build();
         } else {
             return Response.status(Response.Status.NOT_FOUND).build();

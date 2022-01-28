@@ -1,11 +1,15 @@
 package threads;
 
+import com.sun.jersey.api.client.Client;
+import com.sun.jersey.api.client.ClientHandlerException;
+import com.sun.jersey.api.client.WebResource;
 import modules.Drone;
 import modules.Position;
 
 import java.sql.Timestamp;
 
 public class DeliveryThread extends Thread{
+    private static final String RESTServerAddress = "http://localhost:1337";
     Drone drone;
     Position retire;
     Position delivery;
@@ -46,6 +50,21 @@ public class DeliveryThread extends Thread{
                     "\n\t Battery: "+drone.getBatteryLevel()+
                     "\n\t Total KM: "+totalKm);
             //AVG of pollution measured
+
+            if(newBatteryLevel < 15){
+                Client client = Client.create();
+                System.out.println("> Battery is under 15%. Removing the drone from the network...");
+                //Remove a drone to the REST Server
+                String deletePath = "/drones/" + drone.getId();
+                WebResource webResource = client.resource(RESTServerAddress + deletePath);
+                try {
+                    webResource.type("application/json").delete();
+                } catch (ClientHandlerException e) {
+                    System.out.println("> Server not reachable");
+                }
+                System.out.println("> Drone removed...");
+                System.exit(0);
+            }
 
         } catch (InterruptedException e) {
             e.printStackTrace();
