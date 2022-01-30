@@ -306,6 +306,37 @@ public final class ManagerGrpc {
     return getUnavailableDroneMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<proto.Welcome.PositionMessage,
+      proto.Welcome.PositionResponse> getSendPositionMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "SendPosition",
+      requestType = proto.Welcome.PositionMessage.class,
+      responseType = proto.Welcome.PositionResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<proto.Welcome.PositionMessage,
+      proto.Welcome.PositionResponse> getSendPositionMethod() {
+    io.grpc.MethodDescriptor<proto.Welcome.PositionMessage, proto.Welcome.PositionResponse> getSendPositionMethod;
+    if ((getSendPositionMethod = ManagerGrpc.getSendPositionMethod) == null) {
+      synchronized (ManagerGrpc.class) {
+        if ((getSendPositionMethod = ManagerGrpc.getSendPositionMethod) == null) {
+          ManagerGrpc.getSendPositionMethod = getSendPositionMethod =
+              io.grpc.MethodDescriptor.<proto.Welcome.PositionMessage, proto.Welcome.PositionResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "SendPosition"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  proto.Welcome.PositionMessage.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  proto.Welcome.PositionResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new ManagerMethodDescriptorSupplier("SendPosition"))
+              .build();
+        }
+      }
+    }
+    return getSendPositionMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -423,6 +454,16 @@ public final class ManagerGrpc {
       asyncUnimplementedUnaryCall(getUnavailableDroneMethod(), responseObserver);
     }
 
+    /**
+     * <pre>
+     *Service used to comunicate the new master the position of the drone
+     * </pre>
+     */
+    public void sendPosition(proto.Welcome.PositionMessage request,
+        io.grpc.stub.StreamObserver<proto.Welcome.PositionResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getSendPositionMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -488,6 +529,13 @@ public final class ManagerGrpc {
                 proto.Welcome.UnavailableDroneMessage,
                 proto.Welcome.UnavailableDroneResponse>(
                   this, METHODID_UNAVAILABLE_DRONE)))
+          .addMethod(
+            getSendPositionMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                proto.Welcome.PositionMessage,
+                proto.Welcome.PositionResponse>(
+                  this, METHODID_SEND_POSITION)))
           .build();
     }
   }
@@ -608,6 +656,17 @@ public final class ManagerGrpc {
       asyncUnaryCall(
           getChannel().newCall(getUnavailableDroneMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     * <pre>
+     *Service used to comunicate the new master the position of the drone
+     * </pre>
+     */
+    public void sendPosition(proto.Welcome.PositionMessage request,
+        io.grpc.stub.StreamObserver<proto.Welcome.PositionResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getSendPositionMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -716,6 +775,16 @@ public final class ManagerGrpc {
     public proto.Welcome.UnavailableDroneResponse unavailableDrone(proto.Welcome.UnavailableDroneMessage request) {
       return blockingUnaryCall(
           getChannel(), getUnavailableDroneMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     *Service used to comunicate the new master the position of the drone
+     * </pre>
+     */
+    public proto.Welcome.PositionResponse sendPosition(proto.Welcome.PositionMessage request) {
+      return blockingUnaryCall(
+          getChannel(), getSendPositionMethod(), getCallOptions(), request);
     }
   }
 
@@ -835,6 +904,17 @@ public final class ManagerGrpc {
       return futureUnaryCall(
           getChannel().newCall(getUnavailableDroneMethod(), getCallOptions()), request);
     }
+
+    /**
+     * <pre>
+     *Service used to comunicate the new master the position of the drone
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<proto.Welcome.PositionResponse> sendPosition(
+        proto.Welcome.PositionMessage request) {
+      return futureUnaryCall(
+          getChannel().newCall(getSendPositionMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_WELCOME = 0;
@@ -846,6 +926,7 @@ public final class ManagerGrpc {
   private static final int METHODID_RECHARGE = 6;
   private static final int METHODID_RECHARGE_COMPLETED = 7;
   private static final int METHODID_UNAVAILABLE_DRONE = 8;
+  private static final int METHODID_SEND_POSITION = 9;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -899,6 +980,10 @@ public final class ManagerGrpc {
         case METHODID_UNAVAILABLE_DRONE:
           serviceImpl.unavailableDrone((proto.Welcome.UnavailableDroneMessage) request,
               (io.grpc.stub.StreamObserver<proto.Welcome.UnavailableDroneResponse>) responseObserver);
+          break;
+        case METHODID_SEND_POSITION:
+          serviceImpl.sendPosition((proto.Welcome.PositionMessage) request,
+              (io.grpc.stub.StreamObserver<proto.Welcome.PositionResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -970,6 +1055,7 @@ public final class ManagerGrpc {
               .addMethod(getRechargeMethod())
               .addMethod(getRechargeCompletedMethod())
               .addMethod(getUnavailableDroneMethod())
+              .addMethod(getSendPositionMethod())
               .build();
         }
       }

@@ -170,6 +170,18 @@ public class Drone {
         }
     }
 
+    public void updateDroneInListAfterElection(int id, Position position){
+        synchronized (dronesList) {
+            for (int i = 0; i < this.dronesList.size(); i++) {
+                if (id == this.dronesList.get(i).getId()) {
+                    this.dronesList.get(i).setPosition(position);
+                    System.out.println("> Updated position of drone " + id + ". New: " + position.toString());
+                    break;
+                }
+            }
+        }
+    }
+
     public int getBatteryLevel() {
         return batteryLevel;
     }

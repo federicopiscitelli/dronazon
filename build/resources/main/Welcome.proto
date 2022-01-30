@@ -21,6 +21,8 @@ service Manager{
   rpc RechargeCompleted(RechargeComplete) returns (RechargeCompleteResponse);
   //Service used to comunicate the uncontrolled exit of a drone from the network
   rpc UnavailableDrone(UnavailableDroneMessage) returns (UnavailableDroneResponse);
+  //Service used to comunicate the new master the position of the drone
+  rpc SendPosition(PositionMessage) returns (PositionResponse);
 }
 
 //Message position
@@ -120,5 +122,14 @@ message UnavailableDroneMessage{
 }
 
 message UnavailableDroneResponse{
+  required bool received = 1;
+}
+
+message PositionMessage{
+  required Position position = 1;
+  required int32 id = 2;
+}
+
+message PositionResponse{
   required bool received = 1;
 }

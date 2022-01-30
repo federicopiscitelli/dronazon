@@ -33,6 +33,7 @@ public class ElectedThread extends Thread{
 
         stub.elected(request, new StreamObserver<Welcome.ElectedResponse>() {
             public void onNext(Welcome.ElectedResponse aliveResponse) {}
+
             public void onError(Throwable throwable) {
                 channel.shutdownNow();
                 if(throwable.getMessage().equals("UNAVAILABLE: io exception")) {
@@ -49,6 +50,8 @@ public class ElectedThread extends Thread{
                 channel.shutdownNow();
             }
         });
+
+
 
         try {
             synchronized (nextNotResponding){
@@ -67,6 +70,7 @@ public class ElectedThread extends Thread{
                 electionThread.run();
             }
         }
+
 
         try {
             channel.awaitTermination(4, TimeUnit.SECONDS);

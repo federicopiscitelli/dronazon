@@ -8,6 +8,7 @@ import io.grpc.stub.StreamObserver;
 import threads.DroneUnavailable;
 import threads.ElectedThread;
 import threads.ElectionThread;
+import threads.UpdatePosition;
 
 public class ManagerServiceImpl extends ManagerGrpc.ManagerImplBase {
 
@@ -59,31 +60,31 @@ public class ManagerServiceImpl extends ManagerGrpc.ManagerImplBase {
                 drone.setInElection(true);
                 System.err.println("1) " + request.getBattery() + " > " + droneBatteryLevel);
                 ElectionThread electionThread = new ElectionThread(drone, request.getId(), request.getBattery());
-                electionThread.run();
+                electionThread.start();
         } else if (request.getBattery() < droneBatteryLevel && !drone.isInElection()) { //if drone has major battery level
                 drone.setInElection(true);
                 System.err.println("2) " + request.getBattery() + " < " + droneBatteryLevel);
                 ElectionThread electionThread = new ElectionThread(drone, drone.getId(), droneBatteryLevel);
-                electionThread.run();
+                electionThread.start();
         } else if (request.getBattery() == droneBatteryLevel) { //same battery level compare the IDs
                 System.err.println("3) " + request.getBattery() + " == " + droneBatteryLevel);
                 if (request.getId() > drone.getId()) {
                         drone.setInElection(true);
                         System.err.println("4) " + request.getId() + " " + drone.getId());
                         ElectionThread electionThread = new ElectionThread(drone, request.getId(), request.getBattery());
-                        electionThread.run();
+                        electionThread.start();
                 } else if (request.getId() < drone.getId() && !drone.isInElection()) {
                         drone.setInElection(true);
                         System.err.println("5) " + request.getId() + " " + drone.getId());
                         ElectionThread electionThread = new ElectionThread(drone, drone.getId(), droneBatteryLevel);
-                        electionThread.run();
+                        electionThread.start();
                 } else if (request.getId() == drone.getId()) { //test drone.isInElection()
                         drone.setMaster(true);
                         drone.setInElection(false);
                         System.err.println("6) " + request.getId() + " " + drone.getId());
                         System.out.println("> I'M THE NEW MASTER");
                         ElectedThread electedThread = new ElectedThread(drone,drone.getId());
-                        electedThread.run();
+                        electedThread.start();
                 }
         }
 
@@ -106,7 +107,9 @@ public class ManagerServiceImpl extends ManagerGrpc.ManagerImplBase {
             System.err.println("> Master id in the request is: "+request.getId());
             drone.setMaster(false);
             ElectedThread electedThread = new ElectedThread(drone,request.getId());
-            electedThread.run();
+            electedThread.start();
+            UpdatePosition up = new UpdatePosition(drone);
+            up.start();
         } else {
             System.out.println("> Election ended");
         }
@@ -182,9 +185,26 @@ public class ManagerServiceImpl extends ManagerGrpc.ManagerImplBase {
         if(drone.getId()!=request.getStartingDroneID()) {
             drone.removeDroneFromList(request.getId());
             DroneUnavailable du = new DroneUnavailable(drone, request.getId(), request.getStartingDroneID());
-            du.run();
+            du.start();
         } else {
             System.out.println("> All drones have deleted "+request.getId()+" from their local network");
         }
     }
+
+    @Override
+    public void sendPosition(Welcome.PositionMessage request, StreamObserver<Welcome.PositionResponse> responseObserver){
+        if(drone.isMaster()){
+            Position p = new Position(request.getPosition().getX(), request.getPosition().getY());
+            drone.updateDroneInListAfterElection(request.getId(), p);
+            System.out.println("> Updating position of "+request.getId());
+        }
+
+        Welcome.PositionResponse response = Welcome.PositionResponse
+                .newBuilder()
+                .setReceived(true)
+                .build();
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+    }
+
 }
