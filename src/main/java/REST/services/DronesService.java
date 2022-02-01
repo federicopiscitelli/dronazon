@@ -54,11 +54,8 @@ public class DronesService {
     @DELETE
     @Produces({"application/json", "application/xml"})
     public Response deleteById(@PathParam("id") int id){
-        if(Drones.getInstance().deleteById(id)) {
-            System.out.println(Drones.getInstance().getDronesList());
-            return Response.ok().build();
-        } else {
-            return Response.status(Response.Status.NOT_FOUND).build();
-        }
+        Drones.getInstance().deleteById(id);
+        System.out.println(Drones.getInstance().getDronesList());
+        return Response.ok().build();
     }
 }

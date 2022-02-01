@@ -1,5 +1,6 @@
 package GRPC;
 
+import modules.DeliveryStatistics;
 import modules.Drone;
 import modules.Position;
 import proto.Welcome;
@@ -142,6 +143,29 @@ public class ManagerServiceImpl extends ManagerGrpc.ManagerImplBase {
         Position delivery = new Position(request.getDelivery().getX(), request.getDelivery().getY());
 
         drone.doDelivery(retire, delivery);
+    }
+
+    @Override
+    public void delivered(Welcome.DeliveredMessage request, StreamObserver<Welcome.DeliveredResponse> responseObserver){
+        if(drone.isMaster()){
+
+            Welcome.DeliveredResponse response = Welcome.DeliveredResponse
+                    .newBuilder()
+                    .setReceived(true)
+                    .build();
+            responseObserver.onNext(response);
+            responseObserver.onCompleted();
+
+            DeliveryStatistics ds = new DeliveryStatistics(request.getId(),request.getKm(),
+                                            request.getAvgPollution(), request.getBattery());
+            drone.addDeliveryStatistic(ds);
+            drone.updateDroneInListAfterDelivery(request.getId(),
+                                                    new Position(request.getNewPosition().getX(),
+                                                                     request.getNewPosition().getY()),
+                                                    request.getBattery());
+
+            System.out.println(drone.getDeliveryStatistics().toString());
+        }
     }
 
     @Override

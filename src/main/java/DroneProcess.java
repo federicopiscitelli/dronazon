@@ -7,6 +7,7 @@ import modules.AddResponse;
 import modules.Drone;
 import threads.DronesInput;
 import GRPC.GRPCDroneServer;
+import threads.PrintInfos;
 import threads.WelcomeThread;
 
 import java.io.IOException;
@@ -82,6 +83,9 @@ public class DroneProcess {
             drone.setMasterID(drone.getId());
         }
 
+        PrintInfos pi = new PrintInfos(drone);
+        pi.start();
+        
     }
 
 }

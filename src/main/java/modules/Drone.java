@@ -8,10 +8,7 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 import proto.ManagerGrpc;
 import proto.Welcome;
 import simulators.PM10Simulator;
-import threads.DeliveryThread;
-import threads.ElectedThread;
-import threads.ElectionThread;
-import threads.MasterLifeChecker;
+import threads.*;
 
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
@@ -56,7 +53,13 @@ public class Drone {
     @JsonIgnore
     private transient List<Double> averagesPM10;
     @JsonIgnore
+    private transient ComputeStatistics computeStatistics;
+    @JsonIgnore
     private transient List<DeliveryStatistics> deliveryStatistics;
+    @JsonIgnore
+    private int nDelivery;
+    @JsonIgnore
+    private double totKm;
 
 
     public Drone(){}
@@ -73,7 +76,8 @@ public class Drone {
         deliveryStatistics = new ArrayList<>();
         ordersQueue = new OrdersQueue();
         next = this;
-        //dronesList.add(this);
+        nDelivery = 0;
+        totKm = 0.0d;
     }
 
     public boolean isMaster() {
@@ -87,6 +91,7 @@ public class Drone {
         if(master){
             this.startPM10Sensor();
             this.startSubscriberMQTT();
+            this.startComputeStatistics();
         } else {
             this.startPM10Sensor();
             this.startMasterLifeChecker();
@@ -175,7 +180,20 @@ public class Drone {
             for (int i = 0; i < this.dronesList.size(); i++) {
                 if (id == this.dronesList.get(i).getId()) {
                     this.dronesList.get(i).setPosition(position);
-                    System.out.println("> Updated position of drone " + id + ". New: " + position.toString());
+                    //System.out.println("> Updated position of drone " + id + ". New: " + position.toString());
+                    break;
+                }
+            }
+        }
+    }
+
+    public void updateDroneInListAfterDelivery(int id, Position position, int batteryLevel){
+        synchronized (dronesList) {
+            for (int i = 0; i < this.dronesList.size(); i++) {
+                if (id == this.dronesList.get(i).getId()) {
+                    this.dronesList.get(i).setPosition(position);
+                    this.dronesList.get(i).setBatteryLevel(batteryLevel);
+                    //System.out.println("> Updated position of drone " + id + ". New: " + position.toString());
                     break;
                 }
             }
@@ -327,6 +345,10 @@ public class Drone {
         return this.averagesPM10;
     }
 
+    public void emptyAveragesAfterDelivery(){
+        this.averagesPM10 = new ArrayList<>();
+    }
+
     public void startPM10Sensor(){
         myPM10Buffer = new MyBuffer(this);
         pm10Simulator = new PM10Simulator(myPM10Buffer);
@@ -341,4 +363,28 @@ public class Drone {
         this.deliveryStatistics.add(deliveryStatistic);
     }
 
+    public int getnDelivery(){
+        return this.nDelivery;
+    }
+
+    public double getTotKm(){
+        return this.totKm;
+    }
+
+    public void incrementDelivery(){
+        this.nDelivery++;
+    }
+
+    public void addKms(double kms){
+        this.totKm += kms;
+    }
+
+    public void startComputeStatistics(){
+        this.computeStatistics = new ComputeStatistics(this);
+        this.computeStatistics.start();
+    }
+
+    public void emptyGlobalStatistic(){
+        deliveryStatistics = new ArrayList<>();
+    }
 }

@@ -70,7 +70,7 @@ public class Administrator {
                             clientResponse = webResource.type("application/json").get(ClientResponse.class);
                             String json = clientResponse.getEntity(String.class);
                             Object o = gson.fromJson(json, Object.class);
-                            System.out.println(o.toString());
+                            System.out.println(o);
 
                         } catch (ClientHandlerException e) {
                             System.out.println("> Error during the request: "+e.getMessage());

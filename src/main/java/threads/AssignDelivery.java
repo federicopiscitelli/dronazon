@@ -30,6 +30,7 @@ public class AssignDelivery extends Thread{
             Drone selected = this.drone;
             List<Drone> availableDrones = new ArrayList<>();
 
+            System.out.println("> From queue: "+fromQueue);
             if(fromQueue){
                 this.order = this.drone.ordersQueue.getOrder();
                 System.out.println("> Retrieving orders from queue ..");
@@ -44,6 +45,7 @@ public class AssignDelivery extends Thread{
             if(availableDrones.size() == 0){
                 drone.ordersQueue.putOrder(order);
                 System.out.println("> No drones available. Putting order in the queue...");
+                assigned = false;
             } else if (availableDrones.size() == 1){
                 selected = availableDrones.get(0);
                 assigned = true;
@@ -113,7 +115,7 @@ public class AssignDelivery extends Thread{
 
             if(drone.ordersQueue.size() > 1){
                 this.fromQueue = true;
-                run();
+                this.start();
             }
     }
 
@@ -152,7 +154,7 @@ public class AssignDelivery extends Thread{
                     System.err.println("! Drone with ip "+ip+" is not responding...Putting order "+order.getId()+" in queue");
                     drone.ordersQueue.putOrder(order);
                     DroneUnavailable du = new DroneUnavailable(drone, ip, drone.getId());
-                    du.run();
+                    du.start();
                 }
             }
             public void onCompleted() {

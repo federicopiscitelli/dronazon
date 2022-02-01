@@ -7094,6 +7094,17 @@ public final class Welcome {
      * @return The battery.
      */
     int getBattery();
+
+    /**
+     * <code>required int32 id = 6;</code>
+     * @return Whether the id field is set.
+     */
+    boolean hasId();
+    /**
+     * <code>required int32 id = 6;</code>
+     * @return The id.
+     */
+    int getId();
   }
   /**
    * Protobuf type {@code proto.DeliveredMessage}
@@ -7174,6 +7185,11 @@ public final class Welcome {
             case 40: {
               bitField0_ |= 0x00000010;
               battery_ = input.readInt32();
+              break;
+            }
+            case 48: {
+              bitField0_ |= 0x00000020;
+              id_ = input.readInt32();
               break;
             }
             default: {
@@ -7328,6 +7344,23 @@ public final class Welcome {
       return battery_;
     }
 
+    public static final int ID_FIELD_NUMBER = 6;
+    private int id_;
+    /**
+     * <code>required int32 id = 6;</code>
+     * @return Whether the id field is set.
+     */
+    public boolean hasId() {
+      return ((bitField0_ & 0x00000020) != 0);
+    }
+    /**
+     * <code>required int32 id = 6;</code>
+     * @return The id.
+     */
+    public int getId() {
+      return id_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -7352,6 +7385,10 @@ public final class Welcome {
         return false;
       }
       if (!hasBattery()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasId()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -7381,6 +7418,9 @@ public final class Welcome {
       if (((bitField0_ & 0x00000010) != 0)) {
         output.writeInt32(5, battery_);
       }
+      if (((bitField0_ & 0x00000020) != 0)) {
+        output.writeInt32(6, id_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -7408,6 +7448,10 @@ public final class Welcome {
       if (((bitField0_ & 0x00000010) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(5, battery_);
+      }
+      if (((bitField0_ & 0x00000020) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(6, id_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -7451,6 +7495,11 @@ public final class Welcome {
         if (getBattery()
             != other.getBattery()) return false;
       }
+      if (hasId() != other.hasId()) return false;
+      if (hasId()) {
+        if (getId()
+            != other.getId()) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -7483,6 +7532,10 @@ public final class Welcome {
       if (hasBattery()) {
         hash = (37 * hash) + BATTERY_FIELD_NUMBER;
         hash = (53 * hash) + getBattery();
+      }
+      if (hasId()) {
+        hash = (37 * hash) + ID_FIELD_NUMBER;
+        hash = (53 * hash) + getId();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -7632,6 +7685,8 @@ public final class Welcome {
         bitField0_ = (bitField0_ & ~0x00000008);
         battery_ = 0;
         bitField0_ = (bitField0_ & ~0x00000010);
+        id_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
 
@@ -7683,6 +7738,10 @@ public final class Welcome {
         if (((from_bitField0_ & 0x00000010) != 0)) {
           result.battery_ = battery_;
           to_bitField0_ |= 0x00000010;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.id_ = id_;
+          to_bitField0_ |= 0x00000020;
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -7750,6 +7809,9 @@ public final class Welcome {
         if (other.hasBattery()) {
           setBattery(other.getBattery());
         }
+        if (other.hasId()) {
+          setId(other.getId());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -7770,6 +7832,9 @@ public final class Welcome {
           return false;
         }
         if (!hasBattery()) {
+          return false;
+        }
+        if (!hasId()) {
           return false;
         }
         if (!getNewPosition().isInitialized()) {
@@ -8109,6 +8174,43 @@ public final class Welcome {
       public Builder clearBattery() {
         bitField0_ = (bitField0_ & ~0x00000010);
         battery_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int id_ ;
+      /**
+       * <code>required int32 id = 6;</code>
+       * @return Whether the id field is set.
+       */
+      public boolean hasId() {
+        return ((bitField0_ & 0x00000020) != 0);
+      }
+      /**
+       * <code>required int32 id = 6;</code>
+       * @return The id.
+       */
+      public int getId() {
+        return id_;
+      }
+      /**
+       * <code>required int32 id = 6;</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setId(int value) {
+        bitField0_ |= 0x00000020;
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 id = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearId() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        id_ = 0;
         onChanged();
         return this;
       }
@@ -13886,39 +13988,39 @@ public final class Welcome {
       "(\010\"U\n\017DeliveryMessage\022\037\n\006retire\030\001 \002(\0132\017." +
       "proto.Position\022!\n\010delivery\030\002 \002(\0132\017.proto" +
       ".Position\"$\n\020DeliveryResponse\022\020\n\010receive" +
-      "d\030\001 \002(\010\"~\n\020DeliveredMessage\022\021\n\ttimestamp" +
-      "\030\001 \002(\t\022$\n\013newPosition\030\002 \002(\0132\017.proto.Posi" +
-      "tion\022\n\n\002km\030\003 \002(\001\022\024\n\014avgPollution\030\004 \002(\001\022\017" +
-      "\n\007battery\030\005 \002(\005\"%\n\021DeliveredResponse\022\020\n\010" +
-      "received\030\001 \002(\010\"L\n\017RechargeRequest\022\n\n\002id\030" +
-      "\001 \002(\005\022-\n\ttimestamp\030\002 \002(\0132\032.google.protob" +
-      "uf.Timestamp\" \n\020RechargeResponse\022\014\n\004free" +
-      "\030\001 \002(\010\"Z\n\020RechargeComplete\022\n\n\002id\030\001 \002(\005\022$" +
-      "\n\013newPosition\030\002 \002(\0132\017.proto.Position\022\024\n\014" +
-      "batteryLevel\030\003 \002(\005\",\n\030RechargeCompleteRe" +
-      "sponse\022\020\n\010received\030\001 \002(\010\">\n\027UnavailableD" +
-      "roneMessage\022\n\n\002id\030\001 \002(\005\022\027\n\017startingDrone" +
-      "ID\030\002 \002(\005\",\n\030UnavailableDroneResponse\022\020\n\010" +
-      "received\030\001 \002(\010\"@\n\017PositionMessage\022!\n\010pos" +
-      "ition\030\001 \002(\0132\017.proto.Position\022\n\n\002id\030\002 \002(\005" +
-      "\"$\n\020PositionResponse\022\020\n\010received\030\001 \002(\0102\215" +
-      "\005\n\007Manager\0228\n\007Welcome\022\025.proto.WelcomeMes" +
-      "sage\032\026.proto.WelcomeResponse\022;\n\010Election" +
-      "\022\026.proto.ElectionMessage\032\027.proto.Electio" +
-      "nResponse\0228\n\007Elected\022\025.proto.ElectedMess" +
-      "age\032\026.proto.ElectedResponse\0222\n\005Alive\022\023.p" +
-      "roto.AliveMessage\032\024.proto.AliveResponse\022" +
-      ";\n\010Delivery\022\026.proto.DeliveryMessage\032\027.pr" +
-      "oto.DeliveryResponse\022>\n\tDelivered\022\027.prot" +
-      "o.DeliveredMessage\032\030.proto.DeliveredResp" +
-      "onse\022;\n\010Recharge\022\026.proto.RechargeRequest" +
-      "\032\027.proto.RechargeResponse\022M\n\021RechargeCom" +
-      "pleted\022\027.proto.RechargeComplete\032\037.proto." +
-      "RechargeCompleteResponse\022S\n\020UnavailableD" +
-      "rone\022\036.proto.UnavailableDroneMessage\032\037.p" +
-      "roto.UnavailableDroneResponse\022?\n\014SendPos" +
-      "ition\022\026.proto.PositionMessage\032\027.proto.Po" +
-      "sitionResponse"
+      "d\030\001 \002(\010\"\212\001\n\020DeliveredMessage\022\021\n\ttimestam" +
+      "p\030\001 \002(\t\022$\n\013newPosition\030\002 \002(\0132\017.proto.Pos" +
+      "ition\022\n\n\002km\030\003 \002(\001\022\024\n\014avgPollution\030\004 \002(\001\022" +
+      "\017\n\007battery\030\005 \002(\005\022\n\n\002id\030\006 \002(\005\"%\n\021Delivere" +
+      "dResponse\022\020\n\010received\030\001 \002(\010\"L\n\017RechargeR" +
+      "equest\022\n\n\002id\030\001 \002(\005\022-\n\ttimestamp\030\002 \002(\0132\032." +
+      "google.protobuf.Timestamp\" \n\020RechargeRes" +
+      "ponse\022\014\n\004free\030\001 \002(\010\"Z\n\020RechargeComplete\022" +
+      "\n\n\002id\030\001 \002(\005\022$\n\013newPosition\030\002 \002(\0132\017.proto" +
+      ".Position\022\024\n\014batteryLevel\030\003 \002(\005\",\n\030Recha" +
+      "rgeCompleteResponse\022\020\n\010received\030\001 \002(\010\">\n" +
+      "\027UnavailableDroneMessage\022\n\n\002id\030\001 \002(\005\022\027\n\017" +
+      "startingDroneID\030\002 \002(\005\",\n\030UnavailableDron" +
+      "eResponse\022\020\n\010received\030\001 \002(\010\"@\n\017PositionM" +
+      "essage\022!\n\010position\030\001 \002(\0132\017.proto.Positio" +
+      "n\022\n\n\002id\030\002 \002(\005\"$\n\020PositionResponse\022\020\n\010rec" +
+      "eived\030\001 \002(\0102\215\005\n\007Manager\0228\n\007Welcome\022\025.pro" +
+      "to.WelcomeMessage\032\026.proto.WelcomeRespons" +
+      "e\022;\n\010Election\022\026.proto.ElectionMessage\032\027." +
+      "proto.ElectionResponse\0228\n\007Elected\022\025.prot" +
+      "o.ElectedMessage\032\026.proto.ElectedResponse" +
+      "\0222\n\005Alive\022\023.proto.AliveMessage\032\024.proto.A" +
+      "liveResponse\022;\n\010Delivery\022\026.proto.Deliver" +
+      "yMessage\032\027.proto.DeliveryResponse\022>\n\tDel" +
+      "ivered\022\027.proto.DeliveredMessage\032\030.proto." +
+      "DeliveredResponse\022;\n\010Recharge\022\026.proto.Re" +
+      "chargeRequest\032\027.proto.RechargeResponse\022M" +
+      "\n\021RechargeCompleted\022\027.proto.RechargeComp" +
+      "lete\032\037.proto.RechargeCompleteResponse\022S\n" +
+      "\020UnavailableDrone\022\036.proto.UnavailableDro" +
+      "neMessage\032\037.proto.UnavailableDroneRespon" +
+      "se\022?\n\014SendPosition\022\026.proto.PositionMessa" +
+      "ge\032\027.proto.PositionResponse"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -13996,7 +14098,7 @@ public final class Welcome {
     internal_static_proto_DeliveredMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proto_DeliveredMessage_descriptor,
-        new java.lang.String[] { "Timestamp", "NewPosition", "Km", "AvgPollution", "Battery", });
+        new java.lang.String[] { "Timestamp", "NewPosition", "Km", "AvgPollution", "Battery", "Id", });
     internal_static_proto_DeliveredResponse_descriptor =
       getDescriptor().getMessageTypes().get(12);
     internal_static_proto_DeliveredResponse_fieldAccessorTable = new

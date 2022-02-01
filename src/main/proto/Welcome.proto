@@ -91,6 +91,7 @@ message DeliveredMessage{
   required double km = 3;
   required double avgPollution = 4;
   required int32 battery = 5;
+  required int32 id = 6;
 }
 
 message DeliveredResponse{

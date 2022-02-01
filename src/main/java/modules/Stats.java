@@ -33,7 +33,10 @@ public class Stats {
     }
 
     public synchronized List<Stat> getLastN(int n){
-        return statsList.subList(statsList.size()-n, statsList.size()-1);
+        if(statsList.size()>=n+1)
+            return statsList.subList(statsList.size()-n, statsList.size());
+        else
+            return statsList;
     }
 
     public float getAvgDelivery(Timestamp t1, Timestamp t2){
