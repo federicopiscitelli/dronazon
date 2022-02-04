@@ -85,7 +85,7 @@ public class ElectionThread extends Thread{
                     @Override
                     public void run() {
                         //if after ten seconds drone is still in election and master is the old master
-                        if(!drone.isInElection() && drone.getMasterID() != oldMasterId){
+                        if(!drone.isInElection() && drone.getMasterID() != oldMasterId && oldMasterId != drone.getId()){
                             //start new election
                             System.err.println("> Election is stuck. Restarting a new election ...");
                             ElectionThread electionThread = new ElectionThread(drone, drone.getId(), drone.getBatteryLevel());

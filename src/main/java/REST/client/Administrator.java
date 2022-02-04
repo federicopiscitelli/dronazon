@@ -3,6 +3,7 @@ package REST.client;
 import com.google.gson.Gson;
 import com.sun.jersey.api.client.*;
 import modules.Drone;
+import modules.Stat;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -69,7 +70,7 @@ public class Administrator {
                             WebResource webResource = client.resource(RESTServerAddress + path);
                             clientResponse = webResource.type("application/json").get(ClientResponse.class);
                             String json = clientResponse.getEntity(String.class);
-                            Object o = gson.fromJson(json, Object.class);
+                            ArrayList<Stat> o = gson.fromJson(json, ArrayList.class);
                             System.out.println(o);
 
                         } catch (ClientHandlerException e) {

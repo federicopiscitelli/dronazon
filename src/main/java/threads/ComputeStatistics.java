@@ -34,38 +34,34 @@ public class ComputeStatistics extends Thread{
 
             System.out.println("> Computing global statistics ...");
 
-            //int networkSize = drone.getDronesList().size();
+            int networkSize = drone.getDronesList().size();
             double deliveryAvg = 0.0d;
             double kmAvg = 0.0d;
             double pollutionAvg = 0.0d;
             double batteryAvg = 0.0d;
 
             List<DeliveryStatistics> deliveryStatistics = drone.getDeliveryStatistics();
-            Map<Integer,Integer> deliveryCounter = new HashMap<>();
 
             if(deliveryStatistics.size()>0) {
                 //foreach statistic in statistic's list
                 for (DeliveryStatistics statistic : deliveryStatistics) {
-                    //counting the deliveris for each drone
-                    if (deliveryCounter.containsKey(statistic.getIdDrone())) {
-                        deliveryCounter.put(statistic.getIdDrone(), (deliveryCounter.get(statistic.getIdDrone()) + 1));
-                    } else {
-                        deliveryCounter.put(statistic.getIdDrone(), 1);
-                    }
                     kmAvg += statistic.getKm();
                     pollutionAvg += statistic.getPollutionAvg();
                     batteryAvg += statistic.getBattery();
                 }
 
-                int totDeliveries = 0;
+                //System.out.println(networkSize+" "+kmAvg+" "+pollutionAvg+" "+batteryAvg);
+                /*int totDeliveries = 0;
                 for (Map.Entry<Integer, Integer> entry : deliveryCounter.entrySet()) {
                     totDeliveries += entry.getValue();
-                }
+                }*/
 
-                deliveryAvg = totDeliveries / deliveryCounter.size();
-                kmAvg /= deliveryCounter.size();
-                pollutionAvg /= deliveryCounter.size();
-                batteryAvg /= deliveryCounter.size();
+                deliveryAvg = deliveryStatistics.size() / networkSize;
+                kmAvg /= networkSize;
+                pollutionAvg /= deliveryStatistics.size();
+                batteryAvg /= networkSize;
+
+                //System.out.println(deliveryAvg+" "+kmAvg+" "+pollutionAvg+" "+batteryAvg);
 
                 Timestamp timestamp = new Timestamp(System.currentTimeMillis());
                 Stat stat = new Stat(timestamp, deliveryAvg, kmAvg, pollutionAvg, batteryAvg);

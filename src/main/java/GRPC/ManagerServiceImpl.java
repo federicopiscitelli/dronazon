@@ -6,10 +6,7 @@ import modules.Position;
 import proto.Welcome;
 import proto.ManagerGrpc;
 import io.grpc.stub.StreamObserver;
-import threads.DroneUnavailable;
-import threads.ElectedThread;
-import threads.ElectionThread;
-import threads.UpdatePosition;
+import threads.*;
 
 public class ManagerServiceImpl extends ManagerGrpc.ManagerImplBase {
 
@@ -142,7 +139,9 @@ public class ManagerServiceImpl extends ManagerGrpc.ManagerImplBase {
         Position retire = new Position(request.getRetire().getX(), request.getRetire().getY());
         Position delivery = new Position(request.getDelivery().getX(), request.getDelivery().getY());
 
-        drone.doDelivery(retire, delivery);
+        //drone.doDelivery(retire, delivery);
+        DeliveryThread dt = new DeliveryThread(drone,retire,delivery);
+        dt.start();
     }
 
     @Override
@@ -164,7 +163,7 @@ public class ManagerServiceImpl extends ManagerGrpc.ManagerImplBase {
                                                                      request.getNewPosition().getY()),
                                                     request.getBattery());
 
-            System.out.println(drone.getDeliveryStatistics().toString());
+            //System.out.println(drone.getDeliveryStatistics().toString());
         }
     }
 

@@ -67,7 +67,7 @@ public class ElectedThread extends Thread{
                 run();
             } else if(drone.getNext().getId() == id && drone.removeDroneFromList(drone.getNext().getId())){
                 ElectionThread electionThread = new ElectionThread(drone,drone.getId(), drone.getBatteryLevel());
-                electionThread.run();
+                electionThread.start();
             }
         }
 

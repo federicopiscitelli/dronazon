@@ -7,6 +7,7 @@ import com.sun.jersey.api.client.WebResource;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.stub.StreamObserver;
+import modules.DeliveryStatistics;
 import modules.Drone;
 import modules.Position;
 import proto.ManagerGrpc;
@@ -72,7 +73,12 @@ public class DeliveryThread extends Thread{
             drone.emptyAveragesAfterDelivery();
 
             //send to master delivery data
-            sendDeliveryDataToMaster(arriveTime, delivery, totalKm, avg, newBatteryLevel);
+            if(drone.isMaster() || drone.getMasterID()==drone.getId()){
+                DeliveryStatistics ds = new DeliveryStatistics(drone.getId(), totalKm, avg, newBatteryLevel);
+                drone.addDeliveryStatistic(ds);
+            } else {
+                sendDeliveryDataToMaster(arriveTime, delivery, totalKm, avg, newBatteryLevel);
+            }
 
             if(newBatteryLevel < 15){
                 Client client = Client.create();
