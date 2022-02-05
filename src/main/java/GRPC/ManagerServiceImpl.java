@@ -8,6 +8,9 @@ import proto.ManagerGrpc;
 import io.grpc.stub.StreamObserver;
 import threads.*;
 
+import java.sql.Timestamp;
+import java.time.Instant;
+
 public class ManagerServiceImpl extends ManagerGrpc.ManagerImplBase {
 
     Drone drone;
@@ -169,13 +172,43 @@ public class ManagerServiceImpl extends ManagerGrpc.ManagerImplBase {
 
     @Override
     public void recharge(Welcome.RechargeRequest request, StreamObserver<Welcome.RechargeResponse> responseObserver){
-        if(!drone.isRecharging()){
+
+        if(!drone.isRecharging() && drone.getWantRecharge() == null || drone.getId() == request.getId()){
             Welcome.RechargeResponse response = Welcome.RechargeResponse
                     .newBuilder()
                     .setFree(true)
                     .build();
             responseObserver.onNext(response);
             responseObserver.onCompleted();
+        } else if(drone.isRecharging()){
+            //mi metto in wait
+            drone.rechargeLockServer.block();
+            //rispondi che è libero
+            Welcome.RechargeResponse response = Welcome.RechargeResponse
+                    .newBuilder()
+                    .setFree(true)
+                    .build();
+            responseObserver.onNext(response);
+            responseObserver.onCompleted();
+        } else if(!drone.isRecharging() && drone.getWantRecharge() != null){
+            Instant requestInstant =  Instant.ofEpochSecond( request.getTimestamp().getSeconds() , request.getTimestamp().getNanos());
+            Instant myRequestInstant = Instant.ofEpochMilli(new Timestamp(Long.valueOf(drone.getWantRecharge())).getTime());
+            if(requestInstant.isBefore(myRequestInstant)){
+                Welcome.RechargeResponse response = Welcome.RechargeResponse
+                        .newBuilder()
+                        .setFree(true)
+                        .build();
+                responseObserver.onNext(response);
+                responseObserver.onCompleted();
+            } else {
+                drone.rechargeLockServer.block();
+                Welcome.RechargeResponse response = Welcome.RechargeResponse
+                        .newBuilder()
+                        .setFree(true)
+                        .build();
+                responseObserver.onNext(response);
+                responseObserver.onCompleted();
+            }
         }
     }
 

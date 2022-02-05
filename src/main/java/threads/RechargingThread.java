@@ -9,9 +9,6 @@ import modules.Position;
 import proto.ManagerGrpc;
 import proto.Welcome;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class RechargingThread extends Thread{
 
     private Drone drone;
@@ -23,34 +20,12 @@ public class RechargingThread extends Thread{
     public void run(){
 
         RechargeLock rechargeLock = new RechargeLock(drone.getDronesList().size(), drone);
+
         for(Drone d: drone.getDronesList()){
             //send message to check if someone is recharging
-            final ManagedChannel channel = ManagedChannelBuilder.forTarget(d.getIp()).usePlaintext(true).build();
-
-            ManagerGrpc.ManagerStub stub = ManagerGrpc.newStub(channel);
-            Welcome.RechargeRequest request = Welcome.RechargeRequest
-                    .newBuilder()
-                    .setId(this.drone.getId())
-                    .setTimestamp(
-                            Timestamp.newBuilder()
-                                    .setSeconds(System.currentTimeMillis())
-                                    .build())
-                    .build();
-
-            stub.recharge(request, new StreamObserver<Welcome.RechargeResponse>() {
-                public void onNext(Welcome.RechargeResponse aliveResponse) {
-                    System.out.println("> Drone "+d.getId()+" is not recharging");
-                    rechargeLock.wakeUp();
-                }
-                public void onError(Throwable throwable) {
-                    channel.shutdownNow();
-                }
-                public void onCompleted() {
-                    channel.shutdownNow();
-                }
-            });
+            RechargeRequest rq = new RechargeRequest(drone, d.getIp(), rechargeLock);
+            rq.start();
         }
-
         rechargeLock.block();
     }
 }
@@ -82,9 +57,7 @@ class RechargeLock{
                 }
             }
         }
-        synchronized (lock) {
-            lock.notifyAll();
-        }
+
         System.out.println("> Recharging ...");
         drone.setInCharge(true);
         try {
@@ -96,6 +69,9 @@ class RechargeLock{
         drone.setBatteryLevel(100);
         drone.setInCharge(false);
         System.out.println("> Battery is now fully charged");
+        drone.setWantRecharge(null);
+        drone.rechargeLockServer.wakeUp();
+
 
         //send message to master for updating the position
         String masterIp = "127.0.0.1:"+String.valueOf(3000+drone.getMasterID());
@@ -123,6 +99,7 @@ class RechargeLock{
 
     public void wakeUp(){
         responses++;
+        System.out.println("> Responses: "+responses);
         synchronized (lock) {
             lock.notifyAll();
         }

@@ -11,8 +11,10 @@ import simulators.PM10Simulator;
 import threads.*;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -60,6 +62,10 @@ public class Drone {
     private int nDelivery;
     @JsonIgnore
     private double totKm;
+    @JsonIgnore
+    public RechargeLockServer rechargeLockServer = new RechargeLockServer();
+    @JsonIgnore
+    private transient String wantRecharge;
 
 
     public Drone(){}
@@ -78,6 +84,8 @@ public class Drone {
         next = this;
         nDelivery = 0;
         totKm = 0.0d;
+
+        wantRecharge = null;
     }
 
     public boolean isMaster() {
@@ -386,5 +394,13 @@ public class Drone {
 
     public void emptyGlobalStatistic(){
         deliveryStatistics = new ArrayList<>();
+    }
+
+    public String getWantRecharge() {
+        return wantRecharge;
+    }
+
+    public void setWantRecharge(String wantRecharge) {
+        this.wantRecharge = wantRecharge;
     }
 }

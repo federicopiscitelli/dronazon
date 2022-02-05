@@ -49,7 +49,7 @@ public class DroneSubscriber extends Thread{
                     String receivedMessage = new String(message.getPayload());
                     Order newOrder = gson.fromJson(receivedMessage,Order.class);
 
-                    System.out.println("> Time: " + time + " Message: " + receivedMessage );
+                    //System.out.println("> Time: " + time + " Message: " + receivedMessage );
 
                     AssignDelivery assignDelivery = new AssignDelivery(drone,newOrder);
                     assignDelivery.start();

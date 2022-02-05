@@ -9,6 +9,7 @@ import modules.Drone;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.sql.Timestamp;
 
 /*
  *
@@ -59,6 +60,8 @@ public class DronesInput extends Thread{
                     System.exit(0);
 
                 } else if (choice.equals("recharge")) {
+                    Timestamp now = new Timestamp(System.currentTimeMillis());
+                    drone.setWantRecharge(String.valueOf(now.getTime()));
                     RechargingThread rechargingThread = new RechargingThread(drone);
                     rechargingThread.start();
                 } else {
