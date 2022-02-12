@@ -1,9 +1,13 @@
 package REST.client;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.internal.LinkedTreeMap;
+import com.google.gson.reflect.TypeToken;
 import com.sun.jersey.api.client.*;
 import modules.Drone;
 import modules.Stat;
+import modules.Timestamps;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -54,8 +58,7 @@ public class Administrator {
                             WebResource webResource = client.resource(RESTServerAddress + path);
                             clientResponse = webResource.type("application/json").get(ClientResponse.class);
                             String json = clientResponse.getEntity(String.class);
-                            ArrayList<Drone> drones = gson.fromJson(json, ArrayList.class);
-                            System.out.println(drones.toString());
+                            System.out.println(json);
 
                         } catch (ClientHandlerException e) {
                             System.out.println("> Error during the request: "+e.getMessage());
@@ -70,8 +73,7 @@ public class Administrator {
                             WebResource webResource = client.resource(RESTServerAddress + path);
                             clientResponse = webResource.type("application/json").get(ClientResponse.class);
                             String json = clientResponse.getEntity(String.class);
-                            ArrayList<Stat> o = gson.fromJson(json, ArrayList.class);
-                            System.out.println(o);
+                            System.out.println(json);
 
                         } catch (ClientHandlerException e) {
                             System.out.println("> Error during the request: "+e.getMessage());
@@ -83,19 +85,17 @@ public class Administrator {
                         System.out.print("> Write the second timestamp: ");
                         String t2 = inFromUser.readLine();
 
-
-                        Date firstParsedDate = DATE_FORMAT.parse(t1);
-                        Timestamp firstTimestamp = new java.sql.Timestamp(firstParsedDate.getTime());
-                        Date secondParsedDate = DATE_FORMAT.parse(t2);
-                        Timestamp secondTimestamp = new java.sql.Timestamp(secondParsedDate.getTime());
-
-                        String path = "/stats/avg/delivery/"+firstTimestamp+"/"+secondTimestamp;
+                        Timestamps ts = new Timestamps(t1,t2);
+                        String path = "/stats/avg/delivery";
                         try {
                             WebResource webResource = client.resource(RESTServerAddress + path);
-                            clientResponse = webResource.type("application/json").get(ClientResponse.class);
+                            String input = new GsonBuilder()
+                                                .setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")
+                                                .create()
+                                                .toJson(ts);
+                            clientResponse = webResource.type("application/json").post(ClientResponse.class,input);
                             String json = clientResponse.getEntity(String.class);
-                            Object o = gson.fromJson(json, Object.class);
-                            System.out.println(o.toString());
+                            System.out.println("Delivery AVG: "+json);
 
                         } catch (ClientHandlerException e) {
                             System.out.println("> Error during the request: "+e.getMessage());
@@ -107,18 +107,17 @@ public class Administrator {
                         System.out.print("> Write the second timestamp: ");
                         String t2 = inFromUser.readLine();
 
-                        Date firstParsedDate = DATE_FORMAT.parse(t1);
-                        Timestamp firstTimestamp = new java.sql.Timestamp(firstParsedDate.getTime());
-                        Date secondParsedDate = DATE_FORMAT.parse(t2);
-                        Timestamp secondTimestamp = new java.sql.Timestamp(secondParsedDate.getTime());
-
-                        String path = "/stats/avg/distance/"+firstTimestamp+"/"+secondTimestamp;
+                        Timestamps ts = new Timestamps(t1,t2);
+                        String path = "/stats/avg/distance";
                         try {
                             WebResource webResource = client.resource(RESTServerAddress + path);
-                            clientResponse = webResource.type("application/json").get(ClientResponse.class);
+                            String input = new GsonBuilder()
+                                    .setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")
+                                    .create()
+                                    .toJson(ts);
+                            clientResponse = webResource.type("application/json").post(ClientResponse.class,input);
                             String json = clientResponse.getEntity(String.class);
-                            Object o = gson.fromJson(json, Object.class);
-                            System.out.println(o.toString());
+                            System.out.println("Distance AVG: "+json+"km");
 
                         } catch (ClientHandlerException e) {
                             System.out.println("> Error during the request: "+e.getMessage());
@@ -127,8 +126,6 @@ public class Administrator {
                 }
 
             } catch (IOException e) {
-                e.printStackTrace();
-            } catch (ParseException e) {
                 e.printStackTrace();
             }
 

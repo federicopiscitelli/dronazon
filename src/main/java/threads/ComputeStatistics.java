@@ -61,7 +61,7 @@ public class ComputeStatistics extends Thread{
                 pollutionAvg /= deliveryStatistics.size();
                 batteryAvg /= networkSize;
 
-                //System.out.println(deliveryAvg+" "+kmAvg+" "+pollutionAvg+" "+batteryAvg);
+                System.out.println(deliveryAvg+" "+kmAvg+" "+pollutionAvg+" "+batteryAvg);
 
                 Timestamp timestamp = new Timestamp(System.currentTimeMillis());
                 Stat stat = new Stat(timestamp, deliveryAvg, kmAvg, pollutionAvg, batteryAvg);

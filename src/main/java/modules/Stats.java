@@ -51,6 +51,7 @@ public class Stats {
         if(n>0){
             avg /= n;
         }
+        System.out.println(avg);
         return avg;
     }
 
@@ -66,6 +67,7 @@ public class Stats {
         if(n>0){
             avg /= n;
         }
+        System.out.println(avg);
         return avg;
     }
 

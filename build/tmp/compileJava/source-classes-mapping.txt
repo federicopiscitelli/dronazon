@@ -95,14 +95,15 @@ proto/Welcome.java
  proto.Welcome$WelcomeResponseOrBuilder
 modules/Stat.java
  modules.Stat
-REST/services/StatService.java
- REST.services.StatService
-REST/client/Administrator.java
- REST.client.Administrator
+threads/WelcomeThread.java
+ threads.WelcomeThread
+ threads.WelcomeThread$1
+modules/AddResponse.java
+ modules.AddResponse
 threads/RechargeLockServer.java
  threads.RechargeLockServer
-modules/Stats.java
- modules.Stats
+threads/DronesInput.java
+ threads.DronesInput
 proto/ManagerGrpc.java
  proto.ManagerGrpc
  proto.ManagerGrpc$1
@@ -140,15 +141,16 @@ threads/RechargingThread.java
  threads.RechargeLock
  threads.RechargeLock$1
  threads.RechargingThread
-threads/WelcomeThread.java
- threads.WelcomeThread
- threads.WelcomeThread$1
+GRPC/ManagerServiceImpl.java
+ GRPC.ManagerServiceImpl
 threads/RechargeRequest.java
  threads.RechargeRequest
  threads.RechargeRequest$1
 threads/AssignDelivery.java
  threads.AssignDelivery
  threads.AssignDelivery$1
+threads/DroneUnavailable.java
+ threads.DroneUnavailable
 REST/services/DronesService.java
  REST.services.DronesService
 modules/Drone.java
@@ -160,8 +162,6 @@ threads/ElectionThread.java
  threads.ElectionThread
  threads.ElectionThread$1
  threads.ElectionThread$2
-modules/AddResponse.java
- modules.AddResponse
 threads/ElectedThread.java
  threads.ElectedThread
  threads.ElectedThread$1
@@ -175,11 +175,13 @@ MQTT/DroneSubscriber.java
  MQTT.DroneSubscriber$1
 modules/MyBuffer.java
  modules.MyBuffer
-threads/DroneUnavailable.java
- threads.DroneUnavailable
-threads/DronesInput.java
- threads.DronesInput
 GRPC/GRPCDroneServer.java
  GRPC.GRPCDroneServer
-GRPC/ManagerServiceImpl.java
- GRPC.ManagerServiceImpl
+REST/client/Administrator.java
+ REST.client.Administrator
+REST/services/StatService.java
+ REST.services.StatService
+modules/Stats.java
+ modules.Stats
+modules/Timestamps.java
+ modules.Timestamps

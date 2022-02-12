@@ -98,6 +98,7 @@ public class Drone {
         //start or stop the correct thread
         if(master){
             this.startPM10Sensor();
+            //TODO: start after receving all positions
             this.startSubscriberMQTT();
             this.startComputeStatistics();
         } else {
