@@ -1,22 +1,13 @@
 package modules;
 
 import MQTT.DroneSubscriber;
-import io.grpc.ManagedChannel;
-import io.grpc.ManagedChannelBuilder;
-import io.grpc.stub.StreamObserver;
 import org.codehaus.jackson.annotate.JsonIgnore;
-import proto.ManagerGrpc;
-import proto.Welcome;
 import simulators.PM10Simulator;
 import threads.*;
-
 import javax.xml.bind.annotation.XmlRootElement;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 @XmlRootElement
 public class Drone {
@@ -66,6 +57,8 @@ public class Drone {
     public RechargeLockServer rechargeLockServer = new RechargeLockServer();
     @JsonIgnore
     private transient String wantRecharge;
+    @JsonIgnore
+    private transient int assignedDeliveries;
 
 
     public Drone(){}
@@ -84,8 +77,8 @@ public class Drone {
         next = this;
         nDelivery = 0;
         totKm = 0.0d;
-
         wantRecharge = null;
+        assignedDeliveries = 0;
     }
 
     public boolean isMaster() {
@@ -403,5 +396,17 @@ public class Drone {
 
     public void setWantRecharge(String wantRecharge) {
         this.wantRecharge = wantRecharge;
+    }
+
+    public void incrementAssignedDeliveries(){
+        this.assignedDeliveries++;
+    }
+
+    public void resetAssignedDeliveries(){
+        this.assignedDeliveries = 0;
+    }
+
+    public int getAssignedDeliveries(){
+        return this.assignedDeliveries;
     }
 }

@@ -51,7 +51,7 @@ public class DroneSubscriber extends Thread{
 
                     //System.out.println("> Time: " + time + " Message: " + receivedMessage );
 
-                    AssignDelivery assignDelivery = new AssignDelivery(drone,newOrder);
+                    AssignDelivery assignDelivery = new AssignDelivery(drone,newOrder,false);
                     assignDelivery.start();
 
                 }

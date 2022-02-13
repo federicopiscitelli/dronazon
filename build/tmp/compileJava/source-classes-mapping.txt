@@ -1,5 +1,5 @@
-modules/Order.java
- modules.Order
+DroneProcess.java
+ DroneProcess
 simulators/Buffer.java
  simulators.Buffer
 REST/server/Administrator.java
@@ -95,15 +95,16 @@ proto/Welcome.java
  proto.Welcome$WelcomeResponseOrBuilder
 modules/Stat.java
  modules.Stat
-threads/WelcomeThread.java
- threads.WelcomeThread
- threads.WelcomeThread$1
-modules/AddResponse.java
- modules.AddResponse
 threads/RechargeLockServer.java
  threads.RechargeLockServer
-threads/DronesInput.java
- threads.DronesInput
+REST/client/Administrator.java
+ REST.client.Administrator
+MQTT/Dronazon.java
+ MQTT.Dronazon
+modules/Timestamps.java
+ modules.Timestamps
+modules/AddResponse.java
+ modules.AddResponse
 proto/ManagerGrpc.java
  proto.ManagerGrpc
  proto.ManagerGrpc$1
@@ -117,18 +118,18 @@ proto/ManagerGrpc.java
  proto.ManagerGrpc$MethodHandlers
 simulators/PM10Simulator.java
  simulators.PM10Simulator
-modules/OrdersQueue.java
- modules.OrdersQueue
-MQTT/Dronazon.java
- MQTT.Dronazon
+modules/Order.java
+ modules.Order
+simulators/Measurement.java
+ simulators.Measurement
 simulators/Simulator.java
  simulators.Simulator
 modules/Position.java
  modules.Position
-simulators/Measurement.java
- simulators.Measurement
-DroneProcess.java
- DroneProcess
+REST/services/StatService.java
+ REST.services.StatService
+modules/Stats.java
+ modules.Stats
 threads/MasterLifeChecker.java
  threads.MasterLifeChecker
  threads.MasterLifeChecker$1
@@ -146,9 +147,6 @@ GRPC/ManagerServiceImpl.java
 threads/RechargeRequest.java
  threads.RechargeRequest
  threads.RechargeRequest$1
-threads/AssignDelivery.java
- threads.AssignDelivery
- threads.AssignDelivery$1
 threads/DroneUnavailable.java
  threads.DroneUnavailable
 REST/services/DronesService.java
@@ -170,18 +168,20 @@ threads/PrintInfos.java
 threads/UpdatePosition.java
  threads.UpdatePosition
  threads.UpdatePosition$1
-MQTT/DroneSubscriber.java
- MQTT.DroneSubscriber
- MQTT.DroneSubscriber$1
+threads/WelcomeThread.java
+ threads.WelcomeThread
+ threads.WelcomeThread$1
 modules/MyBuffer.java
  modules.MyBuffer
 GRPC/GRPCDroneServer.java
  GRPC.GRPCDroneServer
-REST/client/Administrator.java
- REST.client.Administrator
-REST/services/StatService.java
- REST.services.StatService
-modules/Stats.java
- modules.Stats
-modules/Timestamps.java
- modules.Timestamps
+threads/DronesInput.java
+ threads.DronesInput
+modules/OrdersQueue.java
+ modules.OrdersQueue
+threads/AssignDelivery.java
+ threads.AssignDelivery
+ threads.AssignDelivery$1
+MQTT/DroneSubscriber.java
+ MQTT.DroneSubscriber
+ MQTT.DroneSubscriber$1

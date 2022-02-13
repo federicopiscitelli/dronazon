@@ -19,10 +19,10 @@ public class AssignDelivery extends Thread{
     private Order order;
     private boolean fromQueue;
 
-    public AssignDelivery(Drone drone, Order order){
+    public AssignDelivery(Drone drone, Order order,boolean fromQueue){
         this.drone = drone;
         this.order = order;
-        this.fromQueue = false;
+        this.fromQueue = fromQueue;
     }
 
     public void run(){
@@ -30,7 +30,6 @@ public class AssignDelivery extends Thread{
             Drone selected = this.drone;
             List<Drone> availableDrones = new ArrayList<>();
 
-            System.out.println("> From queue: "+fromQueue);
             if(fromQueue){
                 this.order = this.drone.ordersQueue.getOrder();
                 System.out.println("> Retrieving orders from queue ..");
@@ -50,7 +49,6 @@ public class AssignDelivery extends Thread{
                 selected = availableDrones.get(0);
                 assigned = true;
             } else {
-
                 //Compare distances
                 double distance = 100.0;
                 List<Drone> nearest = new ArrayList<>();
@@ -109,13 +107,14 @@ public class AssignDelivery extends Thread{
             }
 
             if(assigned) {
-                System.out.println("> Assigned to: " + selected.getId());
+                System.out.println("> Assigned order "+order.getId()+" to: " + selected.getId());
+                drone.incrementAssignedDeliveries();
                 sendAssignedDeliveryMessage(selected.getIp(), order.getRetire(), order.getDelivery());
             }
 
             if(drone.ordersQueue.size() > 1){
-                this.fromQueue = true;
-                this.start();
+                AssignDelivery ad = new AssignDelivery(drone,drone.ordersQueue.getOrder(),true);
+                ad.start();
             }
     }
 

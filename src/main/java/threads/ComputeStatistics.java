@@ -32,7 +32,7 @@ public class ComputeStatistics extends Thread{
                 e.printStackTrace();
             }
 
-            System.out.println("> Computing global statistics ...");
+            //System.out.println("> Computing global statistics ...");
 
             int networkSize = drone.getDronesList().size();
             double deliveryAvg = 0.0d;
@@ -56,12 +56,14 @@ public class ComputeStatistics extends Thread{
                     totDeliveries += entry.getValue();
                 }*/
 
-                deliveryAvg = deliveryStatistics.size() / networkSize;
+                //System.out.println(deliveryStatistics.size()+" "+networkSize);
+
+                deliveryAvg = (double) drone.getAssignedDeliveries() / networkSize;
                 kmAvg /= networkSize;
                 pollutionAvg /= deliveryStatistics.size();
                 batteryAvg /= networkSize;
 
-                System.out.println(deliveryAvg+" "+kmAvg+" "+pollutionAvg+" "+batteryAvg);
+                //System.out.println(deliveryAvg+" "+kmAvg+" "+pollutionAvg+" "+batteryAvg);
 
                 Timestamp timestamp = new Timestamp(System.currentTimeMillis());
                 Stat stat = new Stat(timestamp, deliveryAvg, kmAvg, pollutionAvg, batteryAvg);
@@ -78,7 +80,7 @@ public class ComputeStatistics extends Thread{
                                     .create()
                                     .toJson(stat);
 
-                System.out.println(input);
+                //System.out.println(input);
                 try {
                     webResource.type("application/json").post(ClientResponse.class, input);
                 } catch (ClientHandlerException e) {
@@ -87,6 +89,7 @@ public class ComputeStatistics extends Thread{
             }
 
             drone.emptyGlobalStatistic();
+            drone.resetAssignedDeliveries();
 
         }
 

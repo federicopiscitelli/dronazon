@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1cea5345-8023-44b2-b8c7-efda0cc3016e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/modules/Timestamps.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.bin" afterDir="false" />
@@ -18,10 +17,11 @@
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/modules/Drone$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/modules/Drone$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/modules/Drone.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/modules/Drone.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/REST/client/Administrator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/REST/client/Administrator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/REST/services/StatService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/REST/services/StatService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MQTT/Dronazon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MQTT/Dronazon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MQTT/DroneSubscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MQTT/DroneSubscriber.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/modules/Drone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modules/Drone.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modules/Stats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modules/Stats.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modules/OrdersQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modules/OrdersQueue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/threads/AssignDelivery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/threads/AssignDelivery.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/threads/ComputeStatistics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/threads/ComputeStatistics.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -65,7 +65,7 @@
     <property name="project.structure.side.proportion" value="0.68443805" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
-  <component name="RunManager" selected="Application.Administrator (1)">
+  <component name="RunManager" selected="Application.DroneProcess">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -237,7 +237,7 @@
       <workItem from="1643484040288" duration="3649000" />
       <workItem from="1643638366605" duration="19635000" />
       <workItem from="1643987013079" duration="16901000" />
-      <workItem from="1644594342331" duration="11266000" />
+      <workItem from="1644594342331" duration="18962000" />
     </task>
     <servers />
   </component>
