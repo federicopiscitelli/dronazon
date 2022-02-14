@@ -34,4 +34,13 @@ public class Order {
     public void setDelivery(Position delivery) {
         this.delivery = delivery;
     }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", retire=" + retire.toString() +
+                ", delivery=" + delivery.toString() +
+                '}';
+    }
 }

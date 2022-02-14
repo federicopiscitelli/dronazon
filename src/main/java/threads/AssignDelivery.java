@@ -60,18 +60,19 @@ public class AssignDelivery extends Thread{
                     List<Drone> nearest = new ArrayList<>();
                     for (Drone drone : availableDrones) {
                         //System.out.println(drone.toString());
-
-                        double newDistance = Math.sqrt(
-                                Math.pow(drone.getPosition().getX() - order.getRetire().getX(), 2) +
-                                        Math.pow(drone.getPosition().getY() - order.getRetire().getY(), 2)
-                        );
-                        //System.out.println("entry-2");
-                        if (newDistance < distance) {
-                            nearest = new ArrayList<>();
-                            nearest.add(drone);
-                            distance = newDistance;
-                        } else if (newDistance == distance) {
-                            nearest.add(drone);
+                        if(drone.getPosition()!=null){
+                            double newDistance = Math.sqrt(
+                                    Math.pow(drone.getPosition().getX() - order.getRetire().getX(), 2) +
+                                            Math.pow(drone.getPosition().getY() - order.getRetire().getY(), 2)
+                            );
+                            //System.out.println("entry-2");
+                            if (newDistance < distance) {
+                                nearest = new ArrayList<>();
+                                nearest.add(drone);
+                                distance = newDistance;
+                            } else if (newDistance == distance) {
+                                nearest.add(drone);
+                            }
                         }
                     }
 

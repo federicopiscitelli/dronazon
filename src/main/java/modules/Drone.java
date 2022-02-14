@@ -326,7 +326,6 @@ public class Drone {
     }
 
 
-
     public void doDelivery(Position retire, Position delivery){
         DeliveryThread deliveryThread = new DeliveryThread(this, retire, delivery);
         deliveryThread.start();

@@ -11,12 +11,10 @@ import proto.Welcome;
 public class AssignPendingDeliveries extends Thread{
 
     private Drone drone;
-    private String toIp;
     private ManagedChannel channel;
 
     public AssignPendingDeliveries(Drone drone, String toIp){
         this.drone = drone;
-        this.toIp = toIp;
         channel = ManagedChannelBuilder.forTarget(toIp).usePlaintext().build();
     }
 
@@ -47,10 +45,7 @@ public class AssignPendingDeliveries extends Thread{
 
             newStub.assignPendingDeliveries(orderMessage, new StreamObserver<Welcome.PendingOrdersResponse>() {
                 public void onNext(Welcome.PendingOrdersResponse pendingOrdersResponse) { }
-
-                public void onError(Throwable throwable) {
-                    stop();
-                }
+                public void onError(Throwable throwable) { stop(); }
                 public void onCompleted() {
                     channel.shutdownNow();
                 }

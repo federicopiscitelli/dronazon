@@ -144,9 +144,9 @@ message Order{
 }
 
 message PendingOrdersMessage{
-  repeated Order orders = 1;
+  required Order order = 1;
 }
 
 message PendingOrdersResponse{
-  repeated bool received = 1;
+  required bool received = 1;
 }

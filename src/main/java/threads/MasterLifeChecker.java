@@ -49,6 +49,8 @@ public class MasterLifeChecker extends Thread{
                             ElectionThread electionThread = new ElectionThread(drone,drone.getId(),drone.getBatteryLevel());
                             electionThread.start();
                         } else if(!drone.isInElection() && drone.getDronesList().size()<=2){
+                            drone.updateDroneInListAfterElection(drone.getId(),drone.getPosition());
+                            System.out.println(drone.getDronesList().toString());
                             drone.setMaster(true);
                         }
                     }

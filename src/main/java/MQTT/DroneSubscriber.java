@@ -48,12 +48,8 @@ public class DroneSubscriber extends Thread{
                     String time = new Timestamp(System.currentTimeMillis()).toString();
                     String receivedMessage = new String(message.getPayload());
                     Order newOrder = gson.fromJson(receivedMessage,Order.class);
-
-                    //System.out.println("> Time: " + time + " Message: " + receivedMessage );
-
                     AssignDelivery assignDelivery = new AssignDelivery(drone,newOrder,false);
                     assignDelivery.start();
-
                 }
 
                 public void connectionLost(Throwable cause) {
