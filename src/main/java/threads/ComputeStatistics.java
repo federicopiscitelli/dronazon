@@ -68,7 +68,7 @@ public class ComputeStatistics extends Thread{
                 Timestamp timestamp = new Timestamp(System.currentTimeMillis());
                 Stat stat = new Stat(timestamp, deliveryAvg, kmAvg, pollutionAvg, batteryAvg);
 
-                System.out.println(timestamp);
+                //System.out.println(timestamp);
                 //REST call to the server
                 Client client = Client.create();
 
@@ -77,6 +77,7 @@ public class ComputeStatistics extends Thread{
                 WebResource webResource = client.resource(RESTServerAddress + postPath);
                 String input = new GsonBuilder()
                                     .setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")
+                                    .serializeSpecialFloatingPointValues()
                                     .create()
                                     .toJson(stat);
 

@@ -40,8 +40,14 @@ public class DronesInput extends Thread{
 
                     if(drone.isMaster()){
                         drone.stopSubscriberMQTT();
-                        while(drone.ordersQueue.size()>1) {
+                        if(drone.ordersQueue.size()>0) {
                             System.out.println("> Assigning pending orders...");
+                            for (Drone d : drone.getDronesList()) {
+                                if(drone.getId() != d.getId()) {
+                                    AssignPendingDeliveries apd = new AssignPendingDeliveries(drone, d.getIp());
+                                    apd.start();
+                                }
+                            }
                         }
                     }
 

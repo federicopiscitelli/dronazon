@@ -337,6 +337,37 @@ public final class ManagerGrpc {
     return getSendPositionMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<proto.Welcome.PendingOrdersMessage,
+      proto.Welcome.PendingOrdersResponse> getAssignPendingDeliveriesMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "AssignPendingDeliveries",
+      requestType = proto.Welcome.PendingOrdersMessage.class,
+      responseType = proto.Welcome.PendingOrdersResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<proto.Welcome.PendingOrdersMessage,
+      proto.Welcome.PendingOrdersResponse> getAssignPendingDeliveriesMethod() {
+    io.grpc.MethodDescriptor<proto.Welcome.PendingOrdersMessage, proto.Welcome.PendingOrdersResponse> getAssignPendingDeliveriesMethod;
+    if ((getAssignPendingDeliveriesMethod = ManagerGrpc.getAssignPendingDeliveriesMethod) == null) {
+      synchronized (ManagerGrpc.class) {
+        if ((getAssignPendingDeliveriesMethod = ManagerGrpc.getAssignPendingDeliveriesMethod) == null) {
+          ManagerGrpc.getAssignPendingDeliveriesMethod = getAssignPendingDeliveriesMethod =
+              io.grpc.MethodDescriptor.<proto.Welcome.PendingOrdersMessage, proto.Welcome.PendingOrdersResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "AssignPendingDeliveries"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  proto.Welcome.PendingOrdersMessage.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  proto.Welcome.PendingOrdersResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new ManagerMethodDescriptorSupplier("AssignPendingDeliveries"))
+              .build();
+        }
+      }
+    }
+    return getAssignPendingDeliveriesMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -464,6 +495,16 @@ public final class ManagerGrpc {
       asyncUnimplementedUnaryCall(getSendPositionMethod(), responseObserver);
     }
 
+    /**
+     * <pre>
+     *Service used to assign to other drones the pending deliveries
+     * </pre>
+     */
+    public void assignPendingDeliveries(proto.Welcome.PendingOrdersMessage request,
+        io.grpc.stub.StreamObserver<proto.Welcome.PendingOrdersResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getAssignPendingDeliveriesMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -536,6 +577,13 @@ public final class ManagerGrpc {
                 proto.Welcome.PositionMessage,
                 proto.Welcome.PositionResponse>(
                   this, METHODID_SEND_POSITION)))
+          .addMethod(
+            getAssignPendingDeliveriesMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                proto.Welcome.PendingOrdersMessage,
+                proto.Welcome.PendingOrdersResponse>(
+                  this, METHODID_ASSIGN_PENDING_DELIVERIES)))
           .build();
     }
   }
@@ -667,6 +715,17 @@ public final class ManagerGrpc {
       asyncUnaryCall(
           getChannel().newCall(getSendPositionMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     * <pre>
+     *Service used to assign to other drones the pending deliveries
+     * </pre>
+     */
+    public void assignPendingDeliveries(proto.Welcome.PendingOrdersMessage request,
+        io.grpc.stub.StreamObserver<proto.Welcome.PendingOrdersResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getAssignPendingDeliveriesMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -785,6 +844,16 @@ public final class ManagerGrpc {
     public proto.Welcome.PositionResponse sendPosition(proto.Welcome.PositionMessage request) {
       return blockingUnaryCall(
           getChannel(), getSendPositionMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     *Service used to assign to other drones the pending deliveries
+     * </pre>
+     */
+    public proto.Welcome.PendingOrdersResponse assignPendingDeliveries(proto.Welcome.PendingOrdersMessage request) {
+      return blockingUnaryCall(
+          getChannel(), getAssignPendingDeliveriesMethod(), getCallOptions(), request);
     }
   }
 
@@ -915,6 +984,17 @@ public final class ManagerGrpc {
       return futureUnaryCall(
           getChannel().newCall(getSendPositionMethod(), getCallOptions()), request);
     }
+
+    /**
+     * <pre>
+     *Service used to assign to other drones the pending deliveries
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<proto.Welcome.PendingOrdersResponse> assignPendingDeliveries(
+        proto.Welcome.PendingOrdersMessage request) {
+      return futureUnaryCall(
+          getChannel().newCall(getAssignPendingDeliveriesMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_WELCOME = 0;
@@ -927,6 +1007,7 @@ public final class ManagerGrpc {
   private static final int METHODID_RECHARGE_COMPLETED = 7;
   private static final int METHODID_UNAVAILABLE_DRONE = 8;
   private static final int METHODID_SEND_POSITION = 9;
+  private static final int METHODID_ASSIGN_PENDING_DELIVERIES = 10;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -984,6 +1065,10 @@ public final class ManagerGrpc {
         case METHODID_SEND_POSITION:
           serviceImpl.sendPosition((proto.Welcome.PositionMessage) request,
               (io.grpc.stub.StreamObserver<proto.Welcome.PositionResponse>) responseObserver);
+          break;
+        case METHODID_ASSIGN_PENDING_DELIVERIES:
+          serviceImpl.assignPendingDeliveries((proto.Welcome.PendingOrdersMessage) request,
+              (io.grpc.stub.StreamObserver<proto.Welcome.PendingOrdersResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -1056,6 +1141,7 @@ public final class ManagerGrpc {
               .addMethod(getRechargeCompletedMethod())
               .addMethod(getUnavailableDroneMethod())
               .addMethod(getSendPositionMethod())
+              .addMethod(getAssignPendingDeliveriesMethod())
               .build();
         }
       }

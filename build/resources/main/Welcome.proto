@@ -23,6 +23,8 @@ service Manager{
   rpc UnavailableDrone(UnavailableDroneMessage) returns (UnavailableDroneResponse);
   //Service used to comunicate the new master the position of the drone
   rpc SendPosition(PositionMessage) returns (PositionResponse);
+  //Service used to assign to other drones the pending deliveries
+  rpc AssignPendingDeliveries(PendingOrdersMessage) returns (PendingOrdersResponse);
 }
 
 //Message position
@@ -132,5 +134,19 @@ message PositionMessage{
 }
 
 message PositionResponse{
+  required bool received = 1;
+}
+
+message Order{
+  required int32 id = 1;
+  required Position retire = 2;
+  required Position delivery = 3;
+}
+
+message PendingOrdersMessage{
+  required Order order = 1;
+}
+
+message PendingOrdersResponse{
   required bool received = 1;
 }

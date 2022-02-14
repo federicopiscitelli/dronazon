@@ -13860,6 +13860,2140 @@ public final class Welcome {
 
   }
 
+  public interface OrderOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:proto.Order)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required int32 id = 1;</code>
+     * @return Whether the id field is set.
+     */
+    boolean hasId();
+    /**
+     * <code>required int32 id = 1;</code>
+     * @return The id.
+     */
+    int getId();
+
+    /**
+     * <code>required .proto.Position retire = 2;</code>
+     * @return Whether the retire field is set.
+     */
+    boolean hasRetire();
+    /**
+     * <code>required .proto.Position retire = 2;</code>
+     * @return The retire.
+     */
+    proto.Welcome.Position getRetire();
+    /**
+     * <code>required .proto.Position retire = 2;</code>
+     */
+    proto.Welcome.PositionOrBuilder getRetireOrBuilder();
+
+    /**
+     * <code>required .proto.Position delivery = 3;</code>
+     * @return Whether the delivery field is set.
+     */
+    boolean hasDelivery();
+    /**
+     * <code>required .proto.Position delivery = 3;</code>
+     * @return The delivery.
+     */
+    proto.Welcome.Position getDelivery();
+    /**
+     * <code>required .proto.Position delivery = 3;</code>
+     */
+    proto.Welcome.PositionOrBuilder getDeliveryOrBuilder();
+  }
+  /**
+   * Protobuf type {@code proto.Order}
+   */
+  public  static final class Order extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:proto.Order)
+      OrderOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Order.newBuilder() to construct.
+    private Order(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Order() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Order();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Order(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              bitField0_ |= 0x00000001;
+              id_ = input.readInt32();
+              break;
+            }
+            case 18: {
+              proto.Welcome.Position.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000002) != 0)) {
+                subBuilder = retire_.toBuilder();
+              }
+              retire_ = input.readMessage(proto.Welcome.Position.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(retire_);
+                retire_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000002;
+              break;
+            }
+            case 26: {
+              proto.Welcome.Position.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000004) != 0)) {
+                subBuilder = delivery_.toBuilder();
+              }
+              delivery_ = input.readMessage(proto.Welcome.Position.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(delivery_);
+                delivery_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000004;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return proto.Welcome.internal_static_proto_Order_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return proto.Welcome.internal_static_proto_Order_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              proto.Welcome.Order.class, proto.Welcome.Order.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int ID_FIELD_NUMBER = 1;
+    private int id_;
+    /**
+     * <code>required int32 id = 1;</code>
+     * @return Whether the id field is set.
+     */
+    public boolean hasId() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>required int32 id = 1;</code>
+     * @return The id.
+     */
+    public int getId() {
+      return id_;
+    }
+
+    public static final int RETIRE_FIELD_NUMBER = 2;
+    private proto.Welcome.Position retire_;
+    /**
+     * <code>required .proto.Position retire = 2;</code>
+     * @return Whether the retire field is set.
+     */
+    public boolean hasRetire() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>required .proto.Position retire = 2;</code>
+     * @return The retire.
+     */
+    public proto.Welcome.Position getRetire() {
+      return retire_ == null ? proto.Welcome.Position.getDefaultInstance() : retire_;
+    }
+    /**
+     * <code>required .proto.Position retire = 2;</code>
+     */
+    public proto.Welcome.PositionOrBuilder getRetireOrBuilder() {
+      return retire_ == null ? proto.Welcome.Position.getDefaultInstance() : retire_;
+    }
+
+    public static final int DELIVERY_FIELD_NUMBER = 3;
+    private proto.Welcome.Position delivery_;
+    /**
+     * <code>required .proto.Position delivery = 3;</code>
+     * @return Whether the delivery field is set.
+     */
+    public boolean hasDelivery() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>required .proto.Position delivery = 3;</code>
+     * @return The delivery.
+     */
+    public proto.Welcome.Position getDelivery() {
+      return delivery_ == null ? proto.Welcome.Position.getDefaultInstance() : delivery_;
+    }
+    /**
+     * <code>required .proto.Position delivery = 3;</code>
+     */
+    public proto.Welcome.PositionOrBuilder getDeliveryOrBuilder() {
+      return delivery_ == null ? proto.Welcome.Position.getDefaultInstance() : delivery_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasRetire()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasDelivery()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!getRetire().isInitialized()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!getDelivery().isInitialized()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) != 0)) {
+        output.writeInt32(1, id_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        output.writeMessage(2, getRetire());
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        output.writeMessage(3, getDelivery());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, id_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getRetire());
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, getDelivery());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof proto.Welcome.Order)) {
+        return super.equals(obj);
+      }
+      proto.Welcome.Order other = (proto.Welcome.Order) obj;
+
+      if (hasId() != other.hasId()) return false;
+      if (hasId()) {
+        if (getId()
+            != other.getId()) return false;
+      }
+      if (hasRetire() != other.hasRetire()) return false;
+      if (hasRetire()) {
+        if (!getRetire()
+            .equals(other.getRetire())) return false;
+      }
+      if (hasDelivery() != other.hasDelivery()) return false;
+      if (hasDelivery()) {
+        if (!getDelivery()
+            .equals(other.getDelivery())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasId()) {
+        hash = (37 * hash) + ID_FIELD_NUMBER;
+        hash = (53 * hash) + getId();
+      }
+      if (hasRetire()) {
+        hash = (37 * hash) + RETIRE_FIELD_NUMBER;
+        hash = (53 * hash) + getRetire().hashCode();
+      }
+      if (hasDelivery()) {
+        hash = (37 * hash) + DELIVERY_FIELD_NUMBER;
+        hash = (53 * hash) + getDelivery().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static proto.Welcome.Order parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static proto.Welcome.Order parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static proto.Welcome.Order parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static proto.Welcome.Order parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static proto.Welcome.Order parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static proto.Welcome.Order parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static proto.Welcome.Order parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static proto.Welcome.Order parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static proto.Welcome.Order parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static proto.Welcome.Order parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static proto.Welcome.Order parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static proto.Welcome.Order parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(proto.Welcome.Order prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code proto.Order}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:proto.Order)
+        proto.Welcome.OrderOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return proto.Welcome.internal_static_proto_Order_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return proto.Welcome.internal_static_proto_Order_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                proto.Welcome.Order.class, proto.Welcome.Order.Builder.class);
+      }
+
+      // Construct using proto.Welcome.Order.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getRetireFieldBuilder();
+          getDeliveryFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        id_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        if (retireBuilder_ == null) {
+          retire_ = null;
+        } else {
+          retireBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        if (deliveryBuilder_ == null) {
+          delivery_ = null;
+        } else {
+          deliveryBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return proto.Welcome.internal_static_proto_Order_descriptor;
+      }
+
+      @java.lang.Override
+      public proto.Welcome.Order getDefaultInstanceForType() {
+        return proto.Welcome.Order.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public proto.Welcome.Order build() {
+        proto.Welcome.Order result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public proto.Welcome.Order buildPartial() {
+        proto.Welcome.Order result = new proto.Welcome.Order(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.id_ = id_;
+          to_bitField0_ |= 0x00000001;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          if (retireBuilder_ == null) {
+            result.retire_ = retire_;
+          } else {
+            result.retire_ = retireBuilder_.build();
+          }
+          to_bitField0_ |= 0x00000002;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          if (deliveryBuilder_ == null) {
+            result.delivery_ = delivery_;
+          } else {
+            result.delivery_ = deliveryBuilder_.build();
+          }
+          to_bitField0_ |= 0x00000004;
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof proto.Welcome.Order) {
+          return mergeFrom((proto.Welcome.Order)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(proto.Welcome.Order other) {
+        if (other == proto.Welcome.Order.getDefaultInstance()) return this;
+        if (other.hasId()) {
+          setId(other.getId());
+        }
+        if (other.hasRetire()) {
+          mergeRetire(other.getRetire());
+        }
+        if (other.hasDelivery()) {
+          mergeDelivery(other.getDelivery());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        if (!hasId()) {
+          return false;
+        }
+        if (!hasRetire()) {
+          return false;
+        }
+        if (!hasDelivery()) {
+          return false;
+        }
+        if (!getRetire().isInitialized()) {
+          return false;
+        }
+        if (!getDelivery().isInitialized()) {
+          return false;
+        }
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        proto.Welcome.Order parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (proto.Welcome.Order) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private int id_ ;
+      /**
+       * <code>required int32 id = 1;</code>
+       * @return Whether the id field is set.
+       */
+      public boolean hasId() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <code>required int32 id = 1;</code>
+       * @return The id.
+       */
+      public int getId() {
+        return id_;
+      }
+      /**
+       * <code>required int32 id = 1;</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setId(int value) {
+        bitField0_ |= 0x00000001;
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        id_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private proto.Welcome.Position retire_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          proto.Welcome.Position, proto.Welcome.Position.Builder, proto.Welcome.PositionOrBuilder> retireBuilder_;
+      /**
+       * <code>required .proto.Position retire = 2;</code>
+       * @return Whether the retire field is set.
+       */
+      public boolean hasRetire() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <code>required .proto.Position retire = 2;</code>
+       * @return The retire.
+       */
+      public proto.Welcome.Position getRetire() {
+        if (retireBuilder_ == null) {
+          return retire_ == null ? proto.Welcome.Position.getDefaultInstance() : retire_;
+        } else {
+          return retireBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>required .proto.Position retire = 2;</code>
+       */
+      public Builder setRetire(proto.Welcome.Position value) {
+        if (retireBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          retire_ = value;
+          onChanged();
+        } else {
+          retireBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <code>required .proto.Position retire = 2;</code>
+       */
+      public Builder setRetire(
+          proto.Welcome.Position.Builder builderForValue) {
+        if (retireBuilder_ == null) {
+          retire_ = builderForValue.build();
+          onChanged();
+        } else {
+          retireBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <code>required .proto.Position retire = 2;</code>
+       */
+      public Builder mergeRetire(proto.Welcome.Position value) {
+        if (retireBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) != 0) &&
+              retire_ != null &&
+              retire_ != proto.Welcome.Position.getDefaultInstance()) {
+            retire_ =
+              proto.Welcome.Position.newBuilder(retire_).mergeFrom(value).buildPartial();
+          } else {
+            retire_ = value;
+          }
+          onChanged();
+        } else {
+          retireBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <code>required .proto.Position retire = 2;</code>
+       */
+      public Builder clearRetire() {
+        if (retireBuilder_ == null) {
+          retire_ = null;
+          onChanged();
+        } else {
+          retireBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+      /**
+       * <code>required .proto.Position retire = 2;</code>
+       */
+      public proto.Welcome.Position.Builder getRetireBuilder() {
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return getRetireFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>required .proto.Position retire = 2;</code>
+       */
+      public proto.Welcome.PositionOrBuilder getRetireOrBuilder() {
+        if (retireBuilder_ != null) {
+          return retireBuilder_.getMessageOrBuilder();
+        } else {
+          return retire_ == null ?
+              proto.Welcome.Position.getDefaultInstance() : retire_;
+        }
+      }
+      /**
+       * <code>required .proto.Position retire = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          proto.Welcome.Position, proto.Welcome.Position.Builder, proto.Welcome.PositionOrBuilder> 
+          getRetireFieldBuilder() {
+        if (retireBuilder_ == null) {
+          retireBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              proto.Welcome.Position, proto.Welcome.Position.Builder, proto.Welcome.PositionOrBuilder>(
+                  getRetire(),
+                  getParentForChildren(),
+                  isClean());
+          retire_ = null;
+        }
+        return retireBuilder_;
+      }
+
+      private proto.Welcome.Position delivery_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          proto.Welcome.Position, proto.Welcome.Position.Builder, proto.Welcome.PositionOrBuilder> deliveryBuilder_;
+      /**
+       * <code>required .proto.Position delivery = 3;</code>
+       * @return Whether the delivery field is set.
+       */
+      public boolean hasDelivery() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <code>required .proto.Position delivery = 3;</code>
+       * @return The delivery.
+       */
+      public proto.Welcome.Position getDelivery() {
+        if (deliveryBuilder_ == null) {
+          return delivery_ == null ? proto.Welcome.Position.getDefaultInstance() : delivery_;
+        } else {
+          return deliveryBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>required .proto.Position delivery = 3;</code>
+       */
+      public Builder setDelivery(proto.Welcome.Position value) {
+        if (deliveryBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          delivery_ = value;
+          onChanged();
+        } else {
+          deliveryBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>required .proto.Position delivery = 3;</code>
+       */
+      public Builder setDelivery(
+          proto.Welcome.Position.Builder builderForValue) {
+        if (deliveryBuilder_ == null) {
+          delivery_ = builderForValue.build();
+          onChanged();
+        } else {
+          deliveryBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>required .proto.Position delivery = 3;</code>
+       */
+      public Builder mergeDelivery(proto.Welcome.Position value) {
+        if (deliveryBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) != 0) &&
+              delivery_ != null &&
+              delivery_ != proto.Welcome.Position.getDefaultInstance()) {
+            delivery_ =
+              proto.Welcome.Position.newBuilder(delivery_).mergeFrom(value).buildPartial();
+          } else {
+            delivery_ = value;
+          }
+          onChanged();
+        } else {
+          deliveryBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>required .proto.Position delivery = 3;</code>
+       */
+      public Builder clearDelivery() {
+        if (deliveryBuilder_ == null) {
+          delivery_ = null;
+          onChanged();
+        } else {
+          deliveryBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+      /**
+       * <code>required .proto.Position delivery = 3;</code>
+       */
+      public proto.Welcome.Position.Builder getDeliveryBuilder() {
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return getDeliveryFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>required .proto.Position delivery = 3;</code>
+       */
+      public proto.Welcome.PositionOrBuilder getDeliveryOrBuilder() {
+        if (deliveryBuilder_ != null) {
+          return deliveryBuilder_.getMessageOrBuilder();
+        } else {
+          return delivery_ == null ?
+              proto.Welcome.Position.getDefaultInstance() : delivery_;
+        }
+      }
+      /**
+       * <code>required .proto.Position delivery = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          proto.Welcome.Position, proto.Welcome.Position.Builder, proto.Welcome.PositionOrBuilder> 
+          getDeliveryFieldBuilder() {
+        if (deliveryBuilder_ == null) {
+          deliveryBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              proto.Welcome.Position, proto.Welcome.Position.Builder, proto.Welcome.PositionOrBuilder>(
+                  getDelivery(),
+                  getParentForChildren(),
+                  isClean());
+          delivery_ = null;
+        }
+        return deliveryBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:proto.Order)
+    }
+
+    // @@protoc_insertion_point(class_scope:proto.Order)
+    private static final proto.Welcome.Order DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new proto.Welcome.Order();
+    }
+
+    public static proto.Welcome.Order getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<Order>
+        PARSER = new com.google.protobuf.AbstractParser<Order>() {
+      @java.lang.Override
+      public Order parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Order(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Order> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Order> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public proto.Welcome.Order getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface PendingOrdersMessageOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:proto.PendingOrdersMessage)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required .proto.Order order = 1;</code>
+     * @return Whether the order field is set.
+     */
+    boolean hasOrder();
+    /**
+     * <code>required .proto.Order order = 1;</code>
+     * @return The order.
+     */
+    proto.Welcome.Order getOrder();
+    /**
+     * <code>required .proto.Order order = 1;</code>
+     */
+    proto.Welcome.OrderOrBuilder getOrderOrBuilder();
+  }
+  /**
+   * Protobuf type {@code proto.PendingOrdersMessage}
+   */
+  public  static final class PendingOrdersMessage extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:proto.PendingOrdersMessage)
+      PendingOrdersMessageOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use PendingOrdersMessage.newBuilder() to construct.
+    private PendingOrdersMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private PendingOrdersMessage() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new PendingOrdersMessage();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private PendingOrdersMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              proto.Welcome.Order.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000001) != 0)) {
+                subBuilder = order_.toBuilder();
+              }
+              order_ = input.readMessage(proto.Welcome.Order.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(order_);
+                order_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000001;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return proto.Welcome.internal_static_proto_PendingOrdersMessage_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return proto.Welcome.internal_static_proto_PendingOrdersMessage_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              proto.Welcome.PendingOrdersMessage.class, proto.Welcome.PendingOrdersMessage.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int ORDER_FIELD_NUMBER = 1;
+    private proto.Welcome.Order order_;
+    /**
+     * <code>required .proto.Order order = 1;</code>
+     * @return Whether the order field is set.
+     */
+    public boolean hasOrder() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>required .proto.Order order = 1;</code>
+     * @return The order.
+     */
+    public proto.Welcome.Order getOrder() {
+      return order_ == null ? proto.Welcome.Order.getDefaultInstance() : order_;
+    }
+    /**
+     * <code>required .proto.Order order = 1;</code>
+     */
+    public proto.Welcome.OrderOrBuilder getOrderOrBuilder() {
+      return order_ == null ? proto.Welcome.Order.getDefaultInstance() : order_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasOrder()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!getOrder().isInitialized()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) != 0)) {
+        output.writeMessage(1, getOrder());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getOrder());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof proto.Welcome.PendingOrdersMessage)) {
+        return super.equals(obj);
+      }
+      proto.Welcome.PendingOrdersMessage other = (proto.Welcome.PendingOrdersMessage) obj;
+
+      if (hasOrder() != other.hasOrder()) return false;
+      if (hasOrder()) {
+        if (!getOrder()
+            .equals(other.getOrder())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasOrder()) {
+        hash = (37 * hash) + ORDER_FIELD_NUMBER;
+        hash = (53 * hash) + getOrder().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static proto.Welcome.PendingOrdersMessage parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static proto.Welcome.PendingOrdersMessage parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static proto.Welcome.PendingOrdersMessage parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static proto.Welcome.PendingOrdersMessage parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static proto.Welcome.PendingOrdersMessage parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static proto.Welcome.PendingOrdersMessage parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static proto.Welcome.PendingOrdersMessage parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static proto.Welcome.PendingOrdersMessage parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static proto.Welcome.PendingOrdersMessage parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static proto.Welcome.PendingOrdersMessage parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static proto.Welcome.PendingOrdersMessage parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static proto.Welcome.PendingOrdersMessage parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(proto.Welcome.PendingOrdersMessage prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code proto.PendingOrdersMessage}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:proto.PendingOrdersMessage)
+        proto.Welcome.PendingOrdersMessageOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return proto.Welcome.internal_static_proto_PendingOrdersMessage_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return proto.Welcome.internal_static_proto_PendingOrdersMessage_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                proto.Welcome.PendingOrdersMessage.class, proto.Welcome.PendingOrdersMessage.Builder.class);
+      }
+
+      // Construct using proto.Welcome.PendingOrdersMessage.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getOrderFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (orderBuilder_ == null) {
+          order_ = null;
+        } else {
+          orderBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return proto.Welcome.internal_static_proto_PendingOrdersMessage_descriptor;
+      }
+
+      @java.lang.Override
+      public proto.Welcome.PendingOrdersMessage getDefaultInstanceForType() {
+        return proto.Welcome.PendingOrdersMessage.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public proto.Welcome.PendingOrdersMessage build() {
+        proto.Welcome.PendingOrdersMessage result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public proto.Welcome.PendingOrdersMessage buildPartial() {
+        proto.Welcome.PendingOrdersMessage result = new proto.Welcome.PendingOrdersMessage(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          if (orderBuilder_ == null) {
+            result.order_ = order_;
+          } else {
+            result.order_ = orderBuilder_.build();
+          }
+          to_bitField0_ |= 0x00000001;
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof proto.Welcome.PendingOrdersMessage) {
+          return mergeFrom((proto.Welcome.PendingOrdersMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(proto.Welcome.PendingOrdersMessage other) {
+        if (other == proto.Welcome.PendingOrdersMessage.getDefaultInstance()) return this;
+        if (other.hasOrder()) {
+          mergeOrder(other.getOrder());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        if (!hasOrder()) {
+          return false;
+        }
+        if (!getOrder().isInitialized()) {
+          return false;
+        }
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        proto.Welcome.PendingOrdersMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (proto.Welcome.PendingOrdersMessage) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private proto.Welcome.Order order_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          proto.Welcome.Order, proto.Welcome.Order.Builder, proto.Welcome.OrderOrBuilder> orderBuilder_;
+      /**
+       * <code>required .proto.Order order = 1;</code>
+       * @return Whether the order field is set.
+       */
+      public boolean hasOrder() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <code>required .proto.Order order = 1;</code>
+       * @return The order.
+       */
+      public proto.Welcome.Order getOrder() {
+        if (orderBuilder_ == null) {
+          return order_ == null ? proto.Welcome.Order.getDefaultInstance() : order_;
+        } else {
+          return orderBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>required .proto.Order order = 1;</code>
+       */
+      public Builder setOrder(proto.Welcome.Order value) {
+        if (orderBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          order_ = value;
+          onChanged();
+        } else {
+          orderBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <code>required .proto.Order order = 1;</code>
+       */
+      public Builder setOrder(
+          proto.Welcome.Order.Builder builderForValue) {
+        if (orderBuilder_ == null) {
+          order_ = builderForValue.build();
+          onChanged();
+        } else {
+          orderBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <code>required .proto.Order order = 1;</code>
+       */
+      public Builder mergeOrder(proto.Welcome.Order value) {
+        if (orderBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0) &&
+              order_ != null &&
+              order_ != proto.Welcome.Order.getDefaultInstance()) {
+            order_ =
+              proto.Welcome.Order.newBuilder(order_).mergeFrom(value).buildPartial();
+          } else {
+            order_ = value;
+          }
+          onChanged();
+        } else {
+          orderBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <code>required .proto.Order order = 1;</code>
+       */
+      public Builder clearOrder() {
+        if (orderBuilder_ == null) {
+          order_ = null;
+          onChanged();
+        } else {
+          orderBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+      /**
+       * <code>required .proto.Order order = 1;</code>
+       */
+      public proto.Welcome.Order.Builder getOrderBuilder() {
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return getOrderFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>required .proto.Order order = 1;</code>
+       */
+      public proto.Welcome.OrderOrBuilder getOrderOrBuilder() {
+        if (orderBuilder_ != null) {
+          return orderBuilder_.getMessageOrBuilder();
+        } else {
+          return order_ == null ?
+              proto.Welcome.Order.getDefaultInstance() : order_;
+        }
+      }
+      /**
+       * <code>required .proto.Order order = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          proto.Welcome.Order, proto.Welcome.Order.Builder, proto.Welcome.OrderOrBuilder> 
+          getOrderFieldBuilder() {
+        if (orderBuilder_ == null) {
+          orderBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              proto.Welcome.Order, proto.Welcome.Order.Builder, proto.Welcome.OrderOrBuilder>(
+                  getOrder(),
+                  getParentForChildren(),
+                  isClean());
+          order_ = null;
+        }
+        return orderBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:proto.PendingOrdersMessage)
+    }
+
+    // @@protoc_insertion_point(class_scope:proto.PendingOrdersMessage)
+    private static final proto.Welcome.PendingOrdersMessage DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new proto.Welcome.PendingOrdersMessage();
+    }
+
+    public static proto.Welcome.PendingOrdersMessage getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<PendingOrdersMessage>
+        PARSER = new com.google.protobuf.AbstractParser<PendingOrdersMessage>() {
+      @java.lang.Override
+      public PendingOrdersMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new PendingOrdersMessage(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<PendingOrdersMessage> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<PendingOrdersMessage> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public proto.Welcome.PendingOrdersMessage getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface PendingOrdersResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:proto.PendingOrdersResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required bool received = 1;</code>
+     * @return Whether the received field is set.
+     */
+    boolean hasReceived();
+    /**
+     * <code>required bool received = 1;</code>
+     * @return The received.
+     */
+    boolean getReceived();
+  }
+  /**
+   * Protobuf type {@code proto.PendingOrdersResponse}
+   */
+  public  static final class PendingOrdersResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:proto.PendingOrdersResponse)
+      PendingOrdersResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use PendingOrdersResponse.newBuilder() to construct.
+    private PendingOrdersResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private PendingOrdersResponse() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new PendingOrdersResponse();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private PendingOrdersResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              bitField0_ |= 0x00000001;
+              received_ = input.readBool();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return proto.Welcome.internal_static_proto_PendingOrdersResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return proto.Welcome.internal_static_proto_PendingOrdersResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              proto.Welcome.PendingOrdersResponse.class, proto.Welcome.PendingOrdersResponse.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int RECEIVED_FIELD_NUMBER = 1;
+    private boolean received_;
+    /**
+     * <code>required bool received = 1;</code>
+     * @return Whether the received field is set.
+     */
+    public boolean hasReceived() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>required bool received = 1;</code>
+     * @return The received.
+     */
+    public boolean getReceived() {
+      return received_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasReceived()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) != 0)) {
+        output.writeBool(1, received_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(1, received_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof proto.Welcome.PendingOrdersResponse)) {
+        return super.equals(obj);
+      }
+      proto.Welcome.PendingOrdersResponse other = (proto.Welcome.PendingOrdersResponse) obj;
+
+      if (hasReceived() != other.hasReceived()) return false;
+      if (hasReceived()) {
+        if (getReceived()
+            != other.getReceived()) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasReceived()) {
+        hash = (37 * hash) + RECEIVED_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getReceived());
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static proto.Welcome.PendingOrdersResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static proto.Welcome.PendingOrdersResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static proto.Welcome.PendingOrdersResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static proto.Welcome.PendingOrdersResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static proto.Welcome.PendingOrdersResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static proto.Welcome.PendingOrdersResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static proto.Welcome.PendingOrdersResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static proto.Welcome.PendingOrdersResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static proto.Welcome.PendingOrdersResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static proto.Welcome.PendingOrdersResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static proto.Welcome.PendingOrdersResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static proto.Welcome.PendingOrdersResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(proto.Welcome.PendingOrdersResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code proto.PendingOrdersResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:proto.PendingOrdersResponse)
+        proto.Welcome.PendingOrdersResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return proto.Welcome.internal_static_proto_PendingOrdersResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return proto.Welcome.internal_static_proto_PendingOrdersResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                proto.Welcome.PendingOrdersResponse.class, proto.Welcome.PendingOrdersResponse.Builder.class);
+      }
+
+      // Construct using proto.Welcome.PendingOrdersResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        received_ = false;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return proto.Welcome.internal_static_proto_PendingOrdersResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public proto.Welcome.PendingOrdersResponse getDefaultInstanceForType() {
+        return proto.Welcome.PendingOrdersResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public proto.Welcome.PendingOrdersResponse build() {
+        proto.Welcome.PendingOrdersResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public proto.Welcome.PendingOrdersResponse buildPartial() {
+        proto.Welcome.PendingOrdersResponse result = new proto.Welcome.PendingOrdersResponse(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.received_ = received_;
+          to_bitField0_ |= 0x00000001;
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof proto.Welcome.PendingOrdersResponse) {
+          return mergeFrom((proto.Welcome.PendingOrdersResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(proto.Welcome.PendingOrdersResponse other) {
+        if (other == proto.Welcome.PendingOrdersResponse.getDefaultInstance()) return this;
+        if (other.hasReceived()) {
+          setReceived(other.getReceived());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        if (!hasReceived()) {
+          return false;
+        }
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        proto.Welcome.PendingOrdersResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (proto.Welcome.PendingOrdersResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private boolean received_ ;
+      /**
+       * <code>required bool received = 1;</code>
+       * @return Whether the received field is set.
+       */
+      public boolean hasReceived() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <code>required bool received = 1;</code>
+       * @return The received.
+       */
+      public boolean getReceived() {
+        return received_;
+      }
+      /**
+       * <code>required bool received = 1;</code>
+       * @param value The received to set.
+       * @return This builder for chaining.
+       */
+      public Builder setReceived(boolean value) {
+        bitField0_ |= 0x00000001;
+        received_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required bool received = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearReceived() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        received_ = false;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:proto.PendingOrdersResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:proto.PendingOrdersResponse)
+    private static final proto.Welcome.PendingOrdersResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new proto.Welcome.PendingOrdersResponse();
+    }
+
+    public static proto.Welcome.PendingOrdersResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<PendingOrdersResponse>
+        PARSER = new com.google.protobuf.AbstractParser<PendingOrdersResponse>() {
+      @java.lang.Override
+      public PendingOrdersResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new PendingOrdersResponse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<PendingOrdersResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<PendingOrdersResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public proto.Welcome.PendingOrdersResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_proto_Position_descriptor;
   private static final 
@@ -13965,6 +16099,21 @@ public final class Welcome {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_proto_PositionResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_proto_Order_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_proto_Order_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_proto_PendingOrdersMessage_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_proto_PendingOrdersMessage_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_proto_PendingOrdersResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_proto_PendingOrdersResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -14004,23 +16153,30 @@ public final class Welcome {
       "eResponse\022\020\n\010received\030\001 \002(\010\"@\n\017PositionM" +
       "essage\022!\n\010position\030\001 \002(\0132\017.proto.Positio" +
       "n\022\n\n\002id\030\002 \002(\005\"$\n\020PositionResponse\022\020\n\010rec" +
-      "eived\030\001 \002(\0102\215\005\n\007Manager\0228\n\007Welcome\022\025.pro" +
-      "to.WelcomeMessage\032\026.proto.WelcomeRespons" +
-      "e\022;\n\010Election\022\026.proto.ElectionMessage\032\027." +
-      "proto.ElectionResponse\0228\n\007Elected\022\025.prot" +
-      "o.ElectedMessage\032\026.proto.ElectedResponse" +
-      "\0222\n\005Alive\022\023.proto.AliveMessage\032\024.proto.A" +
-      "liveResponse\022;\n\010Delivery\022\026.proto.Deliver" +
-      "yMessage\032\027.proto.DeliveryResponse\022>\n\tDel" +
-      "ivered\022\027.proto.DeliveredMessage\032\030.proto." +
-      "DeliveredResponse\022;\n\010Recharge\022\026.proto.Re" +
-      "chargeRequest\032\027.proto.RechargeResponse\022M" +
-      "\n\021RechargeCompleted\022\027.proto.RechargeComp" +
-      "lete\032\037.proto.RechargeCompleteResponse\022S\n" +
-      "\020UnavailableDrone\022\036.proto.UnavailableDro" +
-      "neMessage\032\037.proto.UnavailableDroneRespon" +
-      "se\022?\n\014SendPosition\022\026.proto.PositionMessa" +
-      "ge\032\027.proto.PositionResponse"
+      "eived\030\001 \002(\010\"W\n\005Order\022\n\n\002id\030\001 \002(\005\022\037\n\006reti" +
+      "re\030\002 \002(\0132\017.proto.Position\022!\n\010delivery\030\003 " +
+      "\002(\0132\017.proto.Position\"3\n\024PendingOrdersMes" +
+      "sage\022\033\n\005order\030\001 \002(\0132\014.proto.Order\")\n\025Pen" +
+      "dingOrdersResponse\022\020\n\010received\030\001 \002(\0102\343\005\n" +
+      "\007Manager\0228\n\007Welcome\022\025.proto.WelcomeMessa" +
+      "ge\032\026.proto.WelcomeResponse\022;\n\010Election\022\026" +
+      ".proto.ElectionMessage\032\027.proto.ElectionR" +
+      "esponse\0228\n\007Elected\022\025.proto.ElectedMessag" +
+      "e\032\026.proto.ElectedResponse\0222\n\005Alive\022\023.pro" +
+      "to.AliveMessage\032\024.proto.AliveResponse\022;\n" +
+      "\010Delivery\022\026.proto.DeliveryMessage\032\027.prot" +
+      "o.DeliveryResponse\022>\n\tDelivered\022\027.proto." +
+      "DeliveredMessage\032\030.proto.DeliveredRespon" +
+      "se\022;\n\010Recharge\022\026.proto.RechargeRequest\032\027" +
+      ".proto.RechargeResponse\022M\n\021RechargeCompl" +
+      "eted\022\027.proto.RechargeComplete\032\037.proto.Re" +
+      "chargeCompleteResponse\022S\n\020UnavailableDro" +
+      "ne\022\036.proto.UnavailableDroneMessage\032\037.pro" +
+      "to.UnavailableDroneResponse\022?\n\014SendPosit" +
+      "ion\022\026.proto.PositionMessage\032\027.proto.Posi" +
+      "tionResponse\022T\n\027AssignPendingDeliveries\022" +
+      "\033.proto.PendingOrdersMessage\032\034.proto.Pen" +
+      "dingOrdersResponse"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -14152,6 +16308,24 @@ public final class Welcome {
     internal_static_proto_PositionResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proto_PositionResponse_descriptor,
+        new java.lang.String[] { "Received", });
+    internal_static_proto_Order_descriptor =
+      getDescriptor().getMessageTypes().get(21);
+    internal_static_proto_Order_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_proto_Order_descriptor,
+        new java.lang.String[] { "Id", "Retire", "Delivery", });
+    internal_static_proto_PendingOrdersMessage_descriptor =
+      getDescriptor().getMessageTypes().get(22);
+    internal_static_proto_PendingOrdersMessage_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_proto_PendingOrdersMessage_descriptor,
+        new java.lang.String[] { "Order", });
+    internal_static_proto_PendingOrdersResponse_descriptor =
+      getDescriptor().getMessageTypes().get(23);
+    internal_static_proto_PendingOrdersResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_proto_PendingOrdersResponse_descriptor,
         new java.lang.String[] { "Received", });
     com.google.protobuf.TimestampProto.getDescriptor();
   }

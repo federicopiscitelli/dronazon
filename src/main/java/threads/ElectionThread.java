@@ -26,7 +26,7 @@ public class ElectionThread extends Thread{
 
         drone.removeDroneFromList(drone.getMasterID());
 
-        System.out.println("> Received election message. Sending to "+drone.getNext().getId());
+        //System.out.println("> Received election message. Sending to "+drone.getNext().getId());
 
         final ManagedChannel channel = ManagedChannelBuilder.forTarget(drone.getNext().getIp()).usePlaintext(true).build();
 
@@ -45,7 +45,7 @@ public class ElectionThread extends Thread{
             public void onError(Throwable throwable) {
                 channel.shutdownNow();
                 if(throwable.getMessage().equals("UNAVAILABLE: io exception")) {
-                    System.err.println("> Next is not responding");
+                    System.err.println("! Next is not responding");
                     nextNotResponding[0] = true;
                     synchronized (nextNotResponding){
                         nextNotResponding.notify();
@@ -87,7 +87,7 @@ public class ElectionThread extends Thread{
                         //if after ten seconds drone is still in election and master is the old master
                         if(!drone.isInElection() && drone.getMasterID() != oldMasterId && oldMasterId != drone.getId()){
                             //start new election
-                            System.err.println("> Election is stuck. Restarting a new election ...");
+                            System.err.println("! Election is stuck. Restarting a new election ...");
                             ElectionThread electionThread = new ElectionThread(drone, drone.getId(), drone.getBatteryLevel());
                             electionThread.run();
                         }

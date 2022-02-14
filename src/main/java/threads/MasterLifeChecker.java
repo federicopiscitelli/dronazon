@@ -44,10 +44,12 @@ public class MasterLifeChecker extends Thread{
                     public void onError(Throwable throwable) {
                         channel.shutdownNow();
                         stop();
-                        System.err.println("> Master is not responding -> " + throwable.getMessage());
-                        if(!drone.isInElection()) {
+                        System.err.println("! Master is not responding -> " + throwable.getMessage());
+                        if(!drone.isInElection() && drone.getDronesList().size()>2) {
                             ElectionThread electionThread = new ElectionThread(drone,drone.getId(),drone.getBatteryLevel());
                             electionThread.start();
+                        } else if(!drone.isInElection() && drone.getDronesList().size()<=2){
+                            drone.setMaster(true);
                         }
                     }
 

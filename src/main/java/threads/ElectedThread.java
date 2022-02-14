@@ -19,7 +19,7 @@ public class ElectedThread extends Thread{
     }
 
     public void run(){
-        System.out.println("> Elected message to "+drone.getNext().getId());
+        //System.out.println("> Elected message to "+drone.getNext().getId());
 
         final ManagedChannel channel = ManagedChannelBuilder.forTarget(drone.getNext().getIp()).usePlaintext(true).build();
 
@@ -37,7 +37,7 @@ public class ElectedThread extends Thread{
             public void onError(Throwable throwable) {
                 channel.shutdownNow();
                 if(throwable.getMessage().equals("UNAVAILABLE: io exception")) {
-                    System.err.println("> Next is not responding");
+                    System.err.println("! Next is not responding");
                     nextNotResponding[0] = true;
                     synchronized (nextNotResponding){
                         nextNotResponding.notify();

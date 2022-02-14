@@ -30,7 +30,7 @@ public class DeliveryThread extends Thread{
     }
 
     public void run(){
-        System.out.println("> Doing the delivery ...");
+        System.out.println("> Doing the delivery of the order");
 
         drone.setInDelivery(true);
 

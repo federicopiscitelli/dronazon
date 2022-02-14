@@ -2,6 +2,7 @@ package GRPC;
 
 import modules.DeliveryStatistics;
 import modules.Drone;
+import modules.Order;
 import modules.Position;
 import proto.Welcome;
 import proto.ManagerGrpc;
@@ -151,6 +152,11 @@ public class ManagerServiceImpl extends ManagerGrpc.ManagerImplBase {
     public void delivered(Welcome.DeliveredMessage request, StreamObserver<Welcome.DeliveredResponse> responseObserver){
         if(drone.isMaster()){
 
+            if(drone.ordersQueue.size()>0){
+                AssignDelivery ad = new AssignDelivery(drone);
+                ad.start();
+            }
+
             Welcome.DeliveredResponse response = Welcome.DeliveredResponse
                     .newBuilder()
                     .setReceived(true)
@@ -256,6 +262,20 @@ public class ManagerServiceImpl extends ManagerGrpc.ManagerImplBase {
         }
 
         Welcome.PositionResponse response = Welcome.PositionResponse
+                .newBuilder()
+                .setReceived(true)
+                .build();
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+    }
+
+    public void assignPendingDeliveries(Welcome.PendingOrdersMessage request, StreamObserver<Welcome.PendingOrdersResponse> responseObserver){
+        int id = request.getOrder().getId();
+        Position retire = new Position(request.getOrder().getRetire().getX(),request.getOrder().getRetire().getY());
+        Position delivery = new Position(request.getOrder().getDelivery().getX(),request.getOrder().getDelivery().getY());
+        this.drone.ordersQueue.putOrder(new Order(id, retire,delivery));
+
+        Welcome.PendingOrdersResponse response = Welcome.PendingOrdersResponse
                 .newBuilder()
                 .setReceived(true)
                 .build();

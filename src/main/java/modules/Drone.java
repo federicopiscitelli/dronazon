@@ -97,6 +97,7 @@ public class Drone {
         } else {
             this.startPM10Sensor();
             this.startMasterLifeChecker();
+            this.ordersQueue = new OrdersQueue();
         }
     }
 
