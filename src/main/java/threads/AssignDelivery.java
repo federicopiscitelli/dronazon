@@ -10,6 +10,8 @@ import modules.Position;
 import proto.ManagerGrpc;
 import proto.Welcome;
 
+import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -116,7 +118,8 @@ public class AssignDelivery extends Thread{
                 if (assigned) {
                     System.out.println("> Assigned order " + order.getId() + " to: " + selected.getId());
                     drone.incrementAssignedDeliveries();
-                    sendAssignedDeliveryMessage(selected.getIp(), order.getRetire(), order.getDelivery());
+                    drone.addOrderInDelivery(order, System.currentTimeMillis());
+                    sendAssignedDeliveryMessage(selected.getIp(), order.getRetire(), order.getDelivery(), order.getId());
                 }
             }
 
@@ -127,7 +130,7 @@ public class AssignDelivery extends Thread{
 
     }
 
-    private void sendAssignedDeliveryMessage(String ip, Position retire, Position delivery){
+    private void sendAssignedDeliveryMessage(String ip, Position retire, Position delivery, int orderId){
 
         final ManagedChannel channel = ManagedChannelBuilder.forTarget(ip).usePlaintext(true).build();
         //creating an asynchronous stub on the channel
@@ -147,6 +150,7 @@ public class AssignDelivery extends Thread{
                         .setX(delivery.getX())
                         .setY(delivery.getY())
                         .build())
+                .setOrderId(orderId)
                 .build();
 
         stub.delivery(request, new StreamObserver<Welcome.DeliveryResponse>() {

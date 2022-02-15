@@ -45,7 +45,7 @@ class RechargeLock{
     }
 
     public void block() {
-        System.out.println("> Responses :"+responses + " Max el: " +maxEl);
+        //System.out.println("> Responses :"+responses + " Max el: " +maxEl);
 
         synchronized (lock) {
             while(responses < maxEl){
@@ -99,7 +99,7 @@ class RechargeLock{
 
     public void wakeUp(){
         responses++;
-        System.out.println("> Responses: "+responses);
+        //System.out.println("> Responses: "+responses);
         synchronized (lock) {
             lock.notifyAll();
         }

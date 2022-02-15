@@ -38,7 +38,7 @@ public class RechargeRequest extends Thread{
         stub.recharge(request, new StreamObserver<Welcome.RechargeResponse>() {
             public void onNext(Welcome.RechargeResponse rechargeResponse) {
                 if(rechargeResponse.getFree()) {
-                    System.out.println("> Drone " + ip + " is not recharging");
+                    //System.out.println("> Drone " + ip + " is not recharging");
                     lock.wakeUp();
                 }
             }
@@ -50,8 +50,9 @@ public class RechargeRequest extends Thread{
                 channel.shutdownNow();
             }
         });
+
         try {
-            channel.awaitTermination(15, TimeUnit.SECONDS);
+            channel.awaitTermination((drone.getDronesList().size()-1)*1000L+1000, TimeUnit.SECONDS);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

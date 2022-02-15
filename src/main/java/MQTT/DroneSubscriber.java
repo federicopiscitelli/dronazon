@@ -20,7 +20,6 @@ public class DroneSubscriber extends Thread{
     private String clientId ;
 
 
-
     public DroneSubscriber(Drone drone){
         this.drone = drone;
         clientId = MqttClient.generateClientId();
@@ -28,15 +27,22 @@ public class DroneSubscriber extends Thread{
 
     public void run() {
 
+        //Waiting a certain amount of time before connecting
+        try {
+            Thread.sleep(drone.getDronesList().size()* 1000L);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         try {
             client = new MqttClient(BROKER, clientId);
             MqttConnectOptions connOpts = new MqttConnectOptions();
             connOpts.setCleanSession(true);
 
             // Connect the client
-            System.out.println(clientId + " Connecting Broker " + BROKER);
+            System.out.println("> "+clientId + " Connecting Broker " + BROKER);
             client.connect(connOpts);
-            System.out.println(clientId + " Connected - Thread PID: " + Thread.currentThread().getId());
+            //System.out.println(clientId + " Connected - Thread PID: " + Thread.currentThread().getId());
 
             Gson gson = new Gson();
 
@@ -84,5 +90,6 @@ public class DroneSubscriber extends Thread{
             }
         }
     }
+
 
 }

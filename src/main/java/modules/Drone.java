@@ -5,9 +5,8 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 import simulators.PM10Simulator;
 import threads.*;
 import javax.xml.bind.annotation.XmlRootElement;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import java.sql.Timestamp;
+import java.util.*;
 
 @XmlRootElement
 public class Drone {
@@ -20,7 +19,7 @@ public class Drone {
     @JsonIgnore
     private Position position;
     @JsonIgnore
-    private List<Drone> dronesList;
+    private transient List<Drone> dronesList;
     @JsonIgnore
     private int batteryLevel = 100;
     @JsonIgnore
@@ -50,16 +49,19 @@ public class Drone {
     @JsonIgnore
     private transient List<DeliveryStatistics> deliveryStatistics;
     @JsonIgnore
-    private int nDelivery;
+    private transient int nDelivery;
     @JsonIgnore
-    private double totKm;
+    private transient double totKm;
     @JsonIgnore
-    public RechargeLockServer rechargeLockServer = new RechargeLockServer();
+    public transient RechargeLockServer rechargeLockServer = new RechargeLockServer();
     @JsonIgnore
     private transient String wantRecharge;
     @JsonIgnore
     private transient int assignedDeliveries;
-
+    @JsonIgnore
+    private transient Map<Long, Order> ordersInDelivery;
+    @JsonIgnore
+    private transient DeliveryChecker deliveryChecker;
 
     public Drone(){}
 
@@ -79,6 +81,7 @@ public class Drone {
         totKm = 0.0d;
         wantRecharge = null;
         assignedDeliveries = 0;
+        ordersInDelivery = new HashMap<>();
     }
 
     public boolean isMaster() {
@@ -91,9 +94,9 @@ public class Drone {
         //start or stop the correct thread
         if(master){
             this.startPM10Sensor();
-            //TODO: start after receving all positions
             this.startSubscriberMQTT();
             this.startComputeStatistics();
+            this.startDeliveryChecker();
         } else {
             this.startPM10Sensor();
             this.startMasterLifeChecker();
@@ -325,12 +328,6 @@ public class Drone {
         subscriberMQTT.stopExecution();
     }
 
-
-    public void doDelivery(Position retire, Position delivery){
-        DeliveryThread deliveryThread = new DeliveryThread(this, retire, delivery);
-        deliveryThread.start();
-    }
-
     public boolean isRecharging(){
         return this.recharging;
     }
@@ -408,5 +405,34 @@ public class Drone {
 
     public int getAssignedDeliveries(){
         return this.assignedDeliveries;
+    }
+
+    public Map<Long,Order> getOrdersInDelivery(){
+        return this.ordersInDelivery;
+    }
+    public synchronized void addOrderInDelivery(Order order,long ts){
+        this.ordersInDelivery.put(ts,order);
+        System.out.println("> Orders in delivery: "+this.ordersInDelivery);
+    }
+
+    public synchronized void removeOrderInDeliveryById(int id){
+        Iterator it = this.ordersInDelivery.entrySet().iterator();
+        Map<Long, Order> newMap = new HashMap<>();
+        while (it.hasNext()) {
+            Map.Entry<Long, Order> entry = (Map.Entry<Long, Order>) it.next();
+            if(entry.getValue().getId() != id){
+                newMap.put(entry.getKey(),entry.getValue());
+            }
+        }
+        this.ordersInDelivery = newMap;
+    }
+
+    public void startDeliveryChecker(){
+        deliveryChecker = new DeliveryChecker(this);
+        deliveryChecker.start();
+    }
+
+    public void stopDeliveryChecker(){
+        deliveryChecker.stopExecution();
     }
 }

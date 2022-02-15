@@ -53,6 +53,12 @@ public class ManagerServiceImpl extends ManagerGrpc.ManagerImplBase {
 
         drone.stopMasterLifeChecker();
 
+        /*try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }*/
+
         int droneBatteryLevel = drone.getBatteryLevel();
         if(drone.isInDelivery()){
             droneBatteryLevel -= 10;
@@ -144,13 +150,16 @@ public class ManagerServiceImpl extends ManagerGrpc.ManagerImplBase {
         Position delivery = new Position(request.getDelivery().getX(), request.getDelivery().getY());
 
         //drone.doDelivery(retire, delivery);
-        DeliveryThread dt = new DeliveryThread(drone,retire,delivery);
+        DeliveryThread dt = new DeliveryThread(drone,retire,delivery,request.getOrderId());
         dt.start();
     }
 
     @Override
     public void delivered(Welcome.DeliveredMessage request, StreamObserver<Welcome.DeliveredResponse> responseObserver){
         if(drone.isMaster()){
+
+            int orderId = request.getOrderId();
+            drone.removeOrderInDeliveryById(orderId);
 
             if(drone.ordersQueue.size()>0){
                 AssignDelivery ad = new AssignDelivery(drone);

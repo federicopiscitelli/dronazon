@@ -5670,6 +5670,17 @@ public final class Welcome {
      * <code>required .proto.Position delivery = 2;</code>
      */
     proto.Welcome.PositionOrBuilder getDeliveryOrBuilder();
+
+    /**
+     * <code>required int32 orderId = 3;</code>
+     * @return Whether the orderId field is set.
+     */
+    boolean hasOrderId();
+    /**
+     * <code>required int32 orderId = 3;</code>
+     * @return The orderId.
+     */
+    int getOrderId();
   }
   /**
    * Protobuf type {@code proto.DeliveryMessage}
@@ -5741,6 +5752,11 @@ public final class Welcome {
                 delivery_ = subBuilder.buildPartial();
               }
               bitField0_ |= 0x00000002;
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              orderId_ = input.readInt32();
               break;
             }
             default: {
@@ -5822,6 +5838,23 @@ public final class Welcome {
       return delivery_ == null ? proto.Welcome.Position.getDefaultInstance() : delivery_;
     }
 
+    public static final int ORDERID_FIELD_NUMBER = 3;
+    private int orderId_;
+    /**
+     * <code>required int32 orderId = 3;</code>
+     * @return Whether the orderId field is set.
+     */
+    public boolean hasOrderId() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>required int32 orderId = 3;</code>
+     * @return The orderId.
+     */
+    public int getOrderId() {
+      return orderId_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -5834,6 +5867,10 @@ public final class Welcome {
         return false;
       }
       if (!hasDelivery()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasOrderId()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -5858,6 +5895,9 @@ public final class Welcome {
       if (((bitField0_ & 0x00000002) != 0)) {
         output.writeMessage(2, getDelivery());
       }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        output.writeInt32(3, orderId_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -5874,6 +5914,10 @@ public final class Welcome {
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getDelivery());
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, orderId_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -5900,6 +5944,11 @@ public final class Welcome {
         if (!getDelivery()
             .equals(other.getDelivery())) return false;
       }
+      if (hasOrderId() != other.hasOrderId()) return false;
+      if (hasOrderId()) {
+        if (getOrderId()
+            != other.getOrderId()) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -5918,6 +5967,10 @@ public final class Welcome {
       if (hasDelivery()) {
         hash = (37 * hash) + DELIVERY_FIELD_NUMBER;
         hash = (53 * hash) + getDelivery().hashCode();
+      }
+      if (hasOrderId()) {
+        hash = (37 * hash) + ORDERID_FIELD_NUMBER;
+        hash = (53 * hash) + getOrderId();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -6066,6 +6119,8 @@ public final class Welcome {
           deliveryBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000002);
+        orderId_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -6109,6 +6164,10 @@ public final class Welcome {
             result.delivery_ = deliveryBuilder_.build();
           }
           to_bitField0_ |= 0x00000002;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.orderId_ = orderId_;
+          to_bitField0_ |= 0x00000004;
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -6165,6 +6224,9 @@ public final class Welcome {
         if (other.hasDelivery()) {
           mergeDelivery(other.getDelivery());
         }
+        if (other.hasOrderId()) {
+          setOrderId(other.getOrderId());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -6176,6 +6238,9 @@ public final class Welcome {
           return false;
         }
         if (!hasDelivery()) {
+          return false;
+        }
+        if (!hasOrderId()) {
           return false;
         }
         if (!getRetire().isInitialized()) {
@@ -6445,6 +6510,43 @@ public final class Welcome {
           delivery_ = null;
         }
         return deliveryBuilder_;
+      }
+
+      private int orderId_ ;
+      /**
+       * <code>required int32 orderId = 3;</code>
+       * @return Whether the orderId field is set.
+       */
+      public boolean hasOrderId() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <code>required int32 orderId = 3;</code>
+       * @return The orderId.
+       */
+      public int getOrderId() {
+        return orderId_;
+      }
+      /**
+       * <code>required int32 orderId = 3;</code>
+       * @param value The orderId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOrderId(int value) {
+        bitField0_ |= 0x00000004;
+        orderId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 orderId = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearOrderId() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        orderId_ = 0;
+        onChanged();
+        return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -7105,6 +7207,17 @@ public final class Welcome {
      * @return The id.
      */
     int getId();
+
+    /**
+     * <code>required int32 orderId = 7;</code>
+     * @return Whether the orderId field is set.
+     */
+    boolean hasOrderId();
+    /**
+     * <code>required int32 orderId = 7;</code>
+     * @return The orderId.
+     */
+    int getOrderId();
   }
   /**
    * Protobuf type {@code proto.DeliveredMessage}
@@ -7190,6 +7303,11 @@ public final class Welcome {
             case 48: {
               bitField0_ |= 0x00000020;
               id_ = input.readInt32();
+              break;
+            }
+            case 56: {
+              bitField0_ |= 0x00000040;
+              orderId_ = input.readInt32();
               break;
             }
             default: {
@@ -7361,6 +7479,23 @@ public final class Welcome {
       return id_;
     }
 
+    public static final int ORDERID_FIELD_NUMBER = 7;
+    private int orderId_;
+    /**
+     * <code>required int32 orderId = 7;</code>
+     * @return Whether the orderId field is set.
+     */
+    public boolean hasOrderId() {
+      return ((bitField0_ & 0x00000040) != 0);
+    }
+    /**
+     * <code>required int32 orderId = 7;</code>
+     * @return The orderId.
+     */
+    public int getOrderId() {
+      return orderId_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -7389,6 +7524,10 @@ public final class Welcome {
         return false;
       }
       if (!hasId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasOrderId()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -7421,6 +7560,9 @@ public final class Welcome {
       if (((bitField0_ & 0x00000020) != 0)) {
         output.writeInt32(6, id_);
       }
+      if (((bitField0_ & 0x00000040) != 0)) {
+        output.writeInt32(7, orderId_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -7452,6 +7594,10 @@ public final class Welcome {
       if (((bitField0_ & 0x00000020) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(6, id_);
+      }
+      if (((bitField0_ & 0x00000040) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(7, orderId_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -7500,6 +7646,11 @@ public final class Welcome {
         if (getId()
             != other.getId()) return false;
       }
+      if (hasOrderId() != other.hasOrderId()) return false;
+      if (hasOrderId()) {
+        if (getOrderId()
+            != other.getOrderId()) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -7536,6 +7687,10 @@ public final class Welcome {
       if (hasId()) {
         hash = (37 * hash) + ID_FIELD_NUMBER;
         hash = (53 * hash) + getId();
+      }
+      if (hasOrderId()) {
+        hash = (37 * hash) + ORDERID_FIELD_NUMBER;
+        hash = (53 * hash) + getOrderId();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -7687,6 +7842,8 @@ public final class Welcome {
         bitField0_ = (bitField0_ & ~0x00000010);
         id_ = 0;
         bitField0_ = (bitField0_ & ~0x00000020);
+        orderId_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000040);
         return this;
       }
 
@@ -7742,6 +7899,10 @@ public final class Welcome {
         if (((from_bitField0_ & 0x00000020) != 0)) {
           result.id_ = id_;
           to_bitField0_ |= 0x00000020;
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.orderId_ = orderId_;
+          to_bitField0_ |= 0x00000040;
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -7812,6 +7973,9 @@ public final class Welcome {
         if (other.hasId()) {
           setId(other.getId());
         }
+        if (other.hasOrderId()) {
+          setOrderId(other.getOrderId());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -7835,6 +7999,9 @@ public final class Welcome {
           return false;
         }
         if (!hasId()) {
+          return false;
+        }
+        if (!hasOrderId()) {
           return false;
         }
         if (!getNewPosition().isInitialized()) {
@@ -8211,6 +8378,43 @@ public final class Welcome {
       public Builder clearId() {
         bitField0_ = (bitField0_ & ~0x00000020);
         id_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int orderId_ ;
+      /**
+       * <code>required int32 orderId = 7;</code>
+       * @return Whether the orderId field is set.
+       */
+      public boolean hasOrderId() {
+        return ((bitField0_ & 0x00000040) != 0);
+      }
+      /**
+       * <code>required int32 orderId = 7;</code>
+       * @return The orderId.
+       */
+      public int getOrderId() {
+        return orderId_;
+      }
+      /**
+       * <code>required int32 orderId = 7;</code>
+       * @param value The orderId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOrderId(int value) {
+        bitField0_ |= 0x00000040;
+        orderId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 orderId = 7;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearOrderId() {
+        bitField0_ = (bitField0_ & ~0x00000040);
+        orderId_ = 0;
         onChanged();
         return this;
       }
@@ -16134,49 +16338,50 @@ public final class Welcome {
       "ctedMessage\022\n\n\002id\030\001 \002(\005\"#\n\017ElectedRespon" +
       "se\022\020\n\010received\030\001 \002(\010\"\032\n\014AliveMessage\022\n\n\002" +
       "id\030\001 \002(\005\" \n\rAliveResponse\022\017\n\007isAlive\030\001 \002" +
-      "(\010\"U\n\017DeliveryMessage\022\037\n\006retire\030\001 \002(\0132\017." +
+      "(\010\"f\n\017DeliveryMessage\022\037\n\006retire\030\001 \002(\0132\017." +
       "proto.Position\022!\n\010delivery\030\002 \002(\0132\017.proto" +
-      ".Position\"$\n\020DeliveryResponse\022\020\n\010receive" +
-      "d\030\001 \002(\010\"\212\001\n\020DeliveredMessage\022\021\n\ttimestam" +
-      "p\030\001 \002(\t\022$\n\013newPosition\030\002 \002(\0132\017.proto.Pos" +
-      "ition\022\n\n\002km\030\003 \002(\001\022\024\n\014avgPollution\030\004 \002(\001\022" +
-      "\017\n\007battery\030\005 \002(\005\022\n\n\002id\030\006 \002(\005\"%\n\021Delivere" +
-      "dResponse\022\020\n\010received\030\001 \002(\010\"L\n\017RechargeR" +
-      "equest\022\n\n\002id\030\001 \002(\005\022-\n\ttimestamp\030\002 \002(\0132\032." +
-      "google.protobuf.Timestamp\" \n\020RechargeRes" +
-      "ponse\022\014\n\004free\030\001 \002(\010\"Z\n\020RechargeComplete\022" +
-      "\n\n\002id\030\001 \002(\005\022$\n\013newPosition\030\002 \002(\0132\017.proto" +
-      ".Position\022\024\n\014batteryLevel\030\003 \002(\005\",\n\030Recha" +
-      "rgeCompleteResponse\022\020\n\010received\030\001 \002(\010\">\n" +
-      "\027UnavailableDroneMessage\022\n\n\002id\030\001 \002(\005\022\027\n\017" +
-      "startingDroneID\030\002 \002(\005\",\n\030UnavailableDron" +
-      "eResponse\022\020\n\010received\030\001 \002(\010\"@\n\017PositionM" +
-      "essage\022!\n\010position\030\001 \002(\0132\017.proto.Positio" +
-      "n\022\n\n\002id\030\002 \002(\005\"$\n\020PositionResponse\022\020\n\010rec" +
-      "eived\030\001 \002(\010\"W\n\005Order\022\n\n\002id\030\001 \002(\005\022\037\n\006reti" +
-      "re\030\002 \002(\0132\017.proto.Position\022!\n\010delivery\030\003 " +
-      "\002(\0132\017.proto.Position\"3\n\024PendingOrdersMes" +
-      "sage\022\033\n\005order\030\001 \002(\0132\014.proto.Order\")\n\025Pen" +
-      "dingOrdersResponse\022\020\n\010received\030\001 \002(\0102\343\005\n" +
-      "\007Manager\0228\n\007Welcome\022\025.proto.WelcomeMessa" +
-      "ge\032\026.proto.WelcomeResponse\022;\n\010Election\022\026" +
-      ".proto.ElectionMessage\032\027.proto.ElectionR" +
-      "esponse\0228\n\007Elected\022\025.proto.ElectedMessag" +
-      "e\032\026.proto.ElectedResponse\0222\n\005Alive\022\023.pro" +
-      "to.AliveMessage\032\024.proto.AliveResponse\022;\n" +
-      "\010Delivery\022\026.proto.DeliveryMessage\032\027.prot" +
-      "o.DeliveryResponse\022>\n\tDelivered\022\027.proto." +
-      "DeliveredMessage\032\030.proto.DeliveredRespon" +
-      "se\022;\n\010Recharge\022\026.proto.RechargeRequest\032\027" +
-      ".proto.RechargeResponse\022M\n\021RechargeCompl" +
-      "eted\022\027.proto.RechargeComplete\032\037.proto.Re" +
-      "chargeCompleteResponse\022S\n\020UnavailableDro" +
-      "ne\022\036.proto.UnavailableDroneMessage\032\037.pro" +
-      "to.UnavailableDroneResponse\022?\n\014SendPosit" +
-      "ion\022\026.proto.PositionMessage\032\027.proto.Posi" +
-      "tionResponse\022T\n\027AssignPendingDeliveries\022" +
-      "\033.proto.PendingOrdersMessage\032\034.proto.Pen" +
-      "dingOrdersResponse"
+      ".Position\022\017\n\007orderId\030\003 \002(\005\"$\n\020DeliveryRe" +
+      "sponse\022\020\n\010received\030\001 \002(\010\"\233\001\n\020DeliveredMe" +
+      "ssage\022\021\n\ttimestamp\030\001 \002(\t\022$\n\013newPosition\030" +
+      "\002 \002(\0132\017.proto.Position\022\n\n\002km\030\003 \002(\001\022\024\n\014av" +
+      "gPollution\030\004 \002(\001\022\017\n\007battery\030\005 \002(\005\022\n\n\002id\030" +
+      "\006 \002(\005\022\017\n\007orderId\030\007 \002(\005\"%\n\021DeliveredRespo" +
+      "nse\022\020\n\010received\030\001 \002(\010\"L\n\017RechargeRequest" +
+      "\022\n\n\002id\030\001 \002(\005\022-\n\ttimestamp\030\002 \002(\0132\032.google" +
+      ".protobuf.Timestamp\" \n\020RechargeResponse\022" +
+      "\014\n\004free\030\001 \002(\010\"Z\n\020RechargeComplete\022\n\n\002id\030" +
+      "\001 \002(\005\022$\n\013newPosition\030\002 \002(\0132\017.proto.Posit" +
+      "ion\022\024\n\014batteryLevel\030\003 \002(\005\",\n\030RechargeCom" +
+      "pleteResponse\022\020\n\010received\030\001 \002(\010\">\n\027Unava" +
+      "ilableDroneMessage\022\n\n\002id\030\001 \002(\005\022\027\n\017starti" +
+      "ngDroneID\030\002 \002(\005\",\n\030UnavailableDroneRespo" +
+      "nse\022\020\n\010received\030\001 \002(\010\"@\n\017PositionMessage" +
+      "\022!\n\010position\030\001 \002(\0132\017.proto.Position\022\n\n\002i" +
+      "d\030\002 \002(\005\"$\n\020PositionResponse\022\020\n\010received\030" +
+      "\001 \002(\010\"W\n\005Order\022\n\n\002id\030\001 \002(\005\022\037\n\006retire\030\002 \002" +
+      "(\0132\017.proto.Position\022!\n\010delivery\030\003 \002(\0132\017." +
+      "proto.Position\"3\n\024PendingOrdersMessage\022\033" +
+      "\n\005order\030\001 \002(\0132\014.proto.Order\")\n\025PendingOr" +
+      "dersResponse\022\020\n\010received\030\001 \002(\0102\343\005\n\007Manag" +
+      "er\0228\n\007Welcome\022\025.proto.WelcomeMessage\032\026.p" +
+      "roto.WelcomeResponse\022;\n\010Election\022\026.proto" +
+      ".ElectionMessage\032\027.proto.ElectionRespons" +
+      "e\0228\n\007Elected\022\025.proto.ElectedMessage\032\026.pr" +
+      "oto.ElectedResponse\0222\n\005Alive\022\023.proto.Ali" +
+      "veMessage\032\024.proto.AliveResponse\022;\n\010Deliv" +
+      "ery\022\026.proto.DeliveryMessage\032\027.proto.Deli" +
+      "veryResponse\022>\n\tDelivered\022\027.proto.Delive" +
+      "redMessage\032\030.proto.DeliveredResponse\022;\n\010" +
+      "Recharge\022\026.proto.RechargeRequest\032\027.proto" +
+      ".RechargeResponse\022M\n\021RechargeCompleted\022\027" +
+      ".proto.RechargeComplete\032\037.proto.Recharge" +
+      "CompleteResponse\022S\n\020UnavailableDrone\022\036.p" +
+      "roto.UnavailableDroneMessage\032\037.proto.Una" +
+      "vailableDroneResponse\022?\n\014SendPosition\022\026." +
+      "proto.PositionMessage\032\027.proto.PositionRe" +
+      "sponse\022T\n\027AssignPendingDeliveries\022\033.prot" +
+      "o.PendingOrdersMessage\032\034.proto.PendingOr" +
+      "dersResponse"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -16242,7 +16447,7 @@ public final class Welcome {
     internal_static_proto_DeliveryMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proto_DeliveryMessage_descriptor,
-        new java.lang.String[] { "Retire", "Delivery", });
+        new java.lang.String[] { "Retire", "Delivery", "OrderId", });
     internal_static_proto_DeliveryResponse_descriptor =
       getDescriptor().getMessageTypes().get(10);
     internal_static_proto_DeliveryResponse_fieldAccessorTable = new
@@ -16254,7 +16459,7 @@ public final class Welcome {
     internal_static_proto_DeliveredMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proto_DeliveredMessage_descriptor,
-        new java.lang.String[] { "Timestamp", "NewPosition", "Km", "AvgPollution", "Battery", "Id", });
+        new java.lang.String[] { "Timestamp", "NewPosition", "Km", "AvgPollution", "Battery", "Id", "OrderId", });
     internal_static_proto_DeliveredResponse_descriptor =
       getDescriptor().getMessageTypes().get(12);
     internal_static_proto_DeliveredResponse_fieldAccessorTable = new

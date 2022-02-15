@@ -3,6 +3,9 @@ import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientHandlerException;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
+import com.sun.jersey.api.client.config.ClientConfig;
+import com.sun.jersey.api.client.config.DefaultClientConfig;
+import com.sun.jersey.api.json.JSONConfiguration;
 import modules.AddResponse;
 import modules.Drone;
 import threads.DronesInput;
@@ -36,6 +39,7 @@ public class DroneProcess {
         String postPath = "/drones/add";
         WebResource webResource = client.resource(RESTServerAddress+postPath);
         String input = new Gson().toJson(drone);
+       // System.out.println(input);
         try {
             clientResponse =  webResource.type("application/json").post(ClientResponse.class, input);
         } catch (ClientHandlerException e) {
@@ -50,6 +54,7 @@ public class DroneProcess {
         di.start();
 
         //The response of the REST server is the list of the drones in the network
+
         AddResponse response = clientResponse.getEntity(AddResponse.class);
 
         //Adding the drone list to my drone and setting the position

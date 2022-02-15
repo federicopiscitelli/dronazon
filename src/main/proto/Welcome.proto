@@ -81,6 +81,7 @@ message AliveResponse{
 message DeliveryMessage{
  required Position retire = 1;
  required Position delivery = 2;
+ required int32 orderId = 3;
 }
 
 message DeliveryResponse{
@@ -94,6 +95,7 @@ message DeliveredMessage{
   required double avgPollution = 4;
   required int32 battery = 5;
   required int32 id = 6;
+  required int32 orderId = 7;
 }
 
 message DeliveredResponse{

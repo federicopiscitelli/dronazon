@@ -13,7 +13,7 @@ public class OrdersQueue {
         if(queue.size()>0) {
             Order orderToReturn = queue.get(0);
             queue.remove(0);
-            System.out.println("> Removed from queue. Now queue is:" + Arrays.toString(queue.toArray()));
+            //System.out.println("> Removed from queue. Now queue is:" + Arrays.toString(queue.toArray()));
             return orderToReturn;
         } else {
             return null;
@@ -22,7 +22,7 @@ public class OrdersQueue {
 
     public synchronized void putOrder(Order o){
         queue.add(o);
-        System.out.println("> Added in queue. Now queue is:"+Arrays.toString(queue.toArray()));
+        //System.out.println("> Added in queue. Now queue is:"+Arrays.toString(queue.toArray()));
     }
 
     public Order getNth(int index){
