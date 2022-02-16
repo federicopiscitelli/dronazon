@@ -60,12 +60,12 @@ public class MasterLifeChecker extends Thread{
                     }
                 });
                 try {
-                    channel.awaitTermination(2, TimeUnit.SECONDS);
+                    channel.awaitTermination(10, TimeUnit.SECONDS);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }else {
-                stop();
+                stopExecution();
             }
 
             if(!exit) {

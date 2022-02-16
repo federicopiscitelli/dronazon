@@ -242,7 +242,7 @@ public class Drone {
 
         synchronized (next) {
             if(dronesList != null && dronesList.size()>0) {
-                System.out.println("> Removing " + id + " from list");
+                //System.out.println("> Removing " + id + " from list");
                 if (id != this.getId()) {
                     dronesList.removeIf(d -> (d.getId() == id));
                 }
@@ -300,15 +300,7 @@ public class Drone {
                 '}';
     }
 
-    public void sendElectionMessageToNext(int id, int levelBattery){
-        ElectionThread electionThread = new ElectionThread(this,id,levelBattery);
-        electionThread.start();
-    }
 
-    public void sendElectedMessageToNext(int id){
-        ElectedThread electedThread = new ElectedThread(this, id);
-        electedThread.start();
-    }
 
     public void startMasterLifeChecker(){
         masterLifeChecker = new MasterLifeChecker(this);

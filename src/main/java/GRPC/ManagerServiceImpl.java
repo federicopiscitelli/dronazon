@@ -15,14 +15,28 @@ import java.time.Instant;
 public class ManagerServiceImpl extends ManagerGrpc.ManagerImplBase {
 
     Drone drone;
+    Object electionLock;
 
     public ManagerServiceImpl(Drone d){
         this.drone = d;
+        this.electionLock = new Object();
     }
 
 
     @Override
     public void welcome(Welcome.WelcomeMessage request, StreamObserver<Welcome.WelcomeResponse> responseObserver) {
+
+        //wait if i'm in election
+        if(drone.isInElection()){
+            try {
+                synchronized (electionLock) {
+                    //System.out.println("> Wait for the election to end");
+                    electionLock.wait();
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
 
         Welcome.WelcomeResponse response = Welcome.WelcomeResponse
                 .newBuilder()
@@ -44,20 +58,14 @@ public class ManagerServiceImpl extends ManagerGrpc.ManagerImplBase {
     @Override
     public void election(Welcome.ElectionMessage request, StreamObserver<Welcome.ElectionResponse> responseObserver){
 
+        drone.stopMasterLifeChecker();
+
         Welcome.ElectionResponse response = Welcome.ElectionResponse
                 .newBuilder()
                 .setReceived(true)
                 .build();
         responseObserver.onNext(response);
         responseObserver.onCompleted();
-
-        drone.stopMasterLifeChecker();
-
-        /*try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }*/
 
         int droneBatteryLevel = drone.getBatteryLevel();
         if(drone.isInDelivery()){
@@ -66,30 +74,30 @@ public class ManagerServiceImpl extends ManagerGrpc.ManagerImplBase {
 
         if (request.getBattery() > droneBatteryLevel) {  //if request has major battery level
                 drone.setInElection(true);
-                System.err.println("1) " + request.getBattery() + " > " + droneBatteryLevel);
+                //System.err.println("1) " + request.getBattery() + " > " + droneBatteryLevel);
                 ElectionThread electionThread = new ElectionThread(drone, request.getId(), request.getBattery());
                 electionThread.start();
         } else if (request.getBattery() < droneBatteryLevel && !drone.isInElection()) { //if drone has major battery level
                 drone.setInElection(true);
-                System.err.println("2) " + request.getBattery() + " < " + droneBatteryLevel);
+                //System.err.println("2) " + request.getBattery() + " < " + droneBatteryLevel);
                 ElectionThread electionThread = new ElectionThread(drone, drone.getId(), droneBatteryLevel);
                 electionThread.start();
         } else if (request.getBattery() == droneBatteryLevel) { //same battery level compare the IDs
-                System.err.println("3) " + request.getBattery() + " == " + droneBatteryLevel);
+                //System.err.println("3) " + request.getBattery() + " == " + droneBatteryLevel);
                 if (request.getId() > drone.getId()) {
                         drone.setInElection(true);
-                        System.err.println("4) " + request.getId() + " " + drone.getId());
+                        //System.err.println("4) " + request.getId() + " " + drone.getId());
                         ElectionThread electionThread = new ElectionThread(drone, request.getId(), request.getBattery());
                         electionThread.start();
                 } else if (request.getId() < drone.getId() && !drone.isInElection()) {
                         drone.setInElection(true);
-                        System.err.println("5) " + request.getId() + " " + drone.getId());
+                        //System.err.println("5) " + request.getId() + " " + drone.getId());
                         ElectionThread electionThread = new ElectionThread(drone, drone.getId(), droneBatteryLevel);
                         electionThread.start();
                 } else if (request.getId() == drone.getId()) { //test drone.isInElection()
                         drone.setMaster(true);
                         drone.setInElection(false);
-                        System.err.println("6) " + request.getId() + " " + drone.getId());
+                        //System.err.println("6) " + request.getId() + " " + drone.getId());
                         System.out.println("> I'M THE NEW MASTER");
                         ElectedThread electedThread = new ElectedThread(drone,drone.getId());
                         electedThread.start();
@@ -112,7 +120,7 @@ public class ManagerServiceImpl extends ManagerGrpc.ManagerImplBase {
         if(drone.getId() != request.getId() && drone.isInElection()) { //if i'm not the master
             drone.setInElection(false);
             drone.setMasterID(request.getId());
-            System.err.println("> Master id in the request is: "+request.getId());
+            //System.err.println("> Master id in the request is: "+request.getId());
             drone.setMaster(false);
             ElectedThread electedThread = new ElectedThread(drone,request.getId());
             electedThread.start();
@@ -120,6 +128,12 @@ public class ManagerServiceImpl extends ManagerGrpc.ManagerImplBase {
             up.start();
         } else {
             System.out.println("> Election ended");
+        }
+
+        //notify after election
+        synchronized (electionLock) {
+            //System.out.println("> Waking up all waiting drones");
+            electionLock.notifyAll();
         }
 
 
@@ -196,9 +210,9 @@ public class ManagerServiceImpl extends ManagerGrpc.ManagerImplBase {
             responseObserver.onNext(response);
             responseObserver.onCompleted();
         } else if(drone.isRecharging()){
-            //mi metto in wait
+            //wait
             drone.rechargeLockServer.block();
-            //rispondi che è libero
+            //response
             Welcome.RechargeResponse response = Welcome.RechargeResponse
                     .newBuilder()
                     .setFree(true)

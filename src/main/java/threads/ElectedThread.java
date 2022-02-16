@@ -62,18 +62,19 @@ public class ElectedThread extends Thread{
         }
 
         if(nextNotResponding[0]){
-            if(drone.getNext().getId() != id && drone.removeDroneFromList(drone.getNext().getId())) {
+            drone.removeDroneFromList(drone.getNext().getId());
+            if(drone.getNext().getId() != id) {
                 System.out.println("> Retrying with drone: "+drone.getNext().getId());
-                run();
-            } else if(drone.getNext().getId() == id && drone.removeDroneFromList(drone.getNext().getId())){
+                start();
+            } /*else if(drone.getNext().getId() == id){
                 ElectionThread electionThread = new ElectionThread(drone,drone.getId(), drone.getBatteryLevel());
                 electionThread.start();
-            }
+            }*/
         }
 
 
         try {
-            channel.awaitTermination(4, TimeUnit.SECONDS);
+            channel.awaitTermination(drone.getDronesList().size()*10, TimeUnit.SECONDS);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

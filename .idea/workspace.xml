@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1cea5345-8023-44b2-b8c7-efda0cc3016e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/threads/DeliveryChecker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.bin" afterDir="false" />
@@ -14,83 +13,19 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/DroneProcess.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/DroneProcess.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/GRPC/ManagerServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/GRPC/ManagerServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/MQTT/DroneSubscriber$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/MQTT/DroneSubscriber$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/MQTT/DroneSubscriber.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/MQTT/DroneSubscriber.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/modules/Drone$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/modules/Drone$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/modules/Drone.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/modules/Drone.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$DeliveredMessage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$DeliveredMessage$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$DeliveredMessage$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$DeliveredMessage$Builder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$DeliveredMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$DeliveredMessage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$DeliveredMessageOrBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$DeliveredMessageOrBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$DeliveredResponse$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$DeliveredResponse$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$DeliveredResponse$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$DeliveredResponse$Builder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$DeliveredResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$DeliveredResponse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$DeliveryMessage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$DeliveryMessage$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$DeliveryMessage$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$DeliveryMessage$Builder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$DeliveryMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$DeliveryMessage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$DeliveryMessageOrBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$DeliveryMessageOrBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$DeliveryResponse$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$DeliveryResponse$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$DeliveryResponse$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$DeliveryResponse$Builder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$DeliveryResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$DeliveryResponse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$Order$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$Order$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$Order$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$Order$Builder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$Order.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$PendingOrdersMessage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$PendingOrdersMessage$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$PendingOrdersMessage$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$PendingOrdersMessage$Builder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$PendingOrdersMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$PendingOrdersMessage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$PendingOrdersResponse$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$PendingOrdersResponse$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$PendingOrdersResponse$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$PendingOrdersResponse$Builder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$PendingOrdersResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$PendingOrdersResponse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$PositionMessage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$PositionMessage$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$PositionMessage$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$PositionMessage$Builder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$PositionMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$PositionMessage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$PositionResponse$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$PositionResponse$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$PositionResponse$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$PositionResponse$Builder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$PositionResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$PositionResponse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$RechargeComplete$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$RechargeComplete$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$RechargeComplete$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$RechargeComplete$Builder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$RechargeComplete.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$RechargeComplete.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$RechargeCompleteResponse$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$RechargeCompleteResponse$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$RechargeCompleteResponse$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$RechargeCompleteResponse$Builder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$RechargeCompleteResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$RechargeCompleteResponse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$RechargeRequest$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$RechargeRequest$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$RechargeRequest$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$RechargeRequest$Builder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$RechargeRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$RechargeRequest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$RechargeResponse$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$RechargeResponse$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$RechargeResponse$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$RechargeResponse$Builder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$RechargeResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$RechargeResponse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$UnavailableDroneMessage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$UnavailableDroneMessage$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$UnavailableDroneMessage$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$UnavailableDroneMessage$Builder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$UnavailableDroneMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$UnavailableDroneMessage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$UnavailableDroneResponse$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$UnavailableDroneResponse$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$UnavailableDroneResponse$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$UnavailableDroneResponse$Builder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$UnavailableDroneResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome$UnavailableDroneResponse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/proto/Welcome.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/threads/AssignDelivery$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/threads/AssignDelivery$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/threads/AssignDelivery.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/threads/AssignDelivery.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/threads/AssignPendingDeliveries$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/threads/AssignPendingDeliveries$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/threads/AssignPendingDeliveries.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/threads/AssignPendingDeliveries.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/threads/DeliveryThread$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/threads/DeliveryThread$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/threads/DeliveryThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/threads/DeliveryThread.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/threads/RechargeLock.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/threads/RechargeLock.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/threads/RechargeRequest$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/threads/RechargeRequest$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/threads/RechargeRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/threads/RechargeRequest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/extracted-include-protos/test/Welcome.proto" beforeDir="false" afterPath="$PROJECT_DIR$/build/extracted-include-protos/test/Welcome.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/generated/source/proto/main/java/proto/Welcome.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/generated/source/proto/main/java/proto/Welcome.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/Welcome.proto" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/Welcome.proto" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DroneProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DroneProcess.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GRPC/ManagerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GRPC/ManagerServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MQTT/DroneSubscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MQTT/DroneSubscriber.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/modules/Drone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modules/Drone.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modules/OrdersQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modules/OrdersQueue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/threads/AssignDelivery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/threads/AssignDelivery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/threads/DeliveryThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/threads/DeliveryThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/threads/RechargeRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/threads/RechargeRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/threads/RechargingThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/threads/RechargingThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/proto/Welcome.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/proto/Welcome.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/threads/DroneUnavailable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/threads/DroneUnavailable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/threads/ElectedThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/threads/ElectedThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/threads/ElectionThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/threads/ElectionThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/threads/MasterLifeChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/threads/MasterLifeChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/threads/UpdatePosition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/threads/UpdatePosition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/threads/WelcomeThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/threads/WelcomeThread.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -314,7 +249,7 @@
       <workItem from="1643638366605" duration="19635000" />
       <workItem from="1643987013079" duration="16901000" />
       <workItem from="1644594342331" duration="47453000" />
-      <workItem from="1644939354593" duration="6652000" />
+      <workItem from="1644939354593" duration="21184000" />
     </task>
     <servers />
   </component>

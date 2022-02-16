@@ -36,7 +36,7 @@ public class UpdatePosition extends Thread{
         newStub.sendPosition(positionRequest, new StreamObserver<Welcome.PositionResponse>() {
             public void onNext(Welcome.PositionResponse positionResponse) {
                 if(positionResponse.getReceived()) {
-                    System.out.println("> Position received successfully");
+                   // System.out.println("> Position received successfully");
                 }
             }
 
@@ -55,7 +55,7 @@ public class UpdatePosition extends Thread{
             }
         });
         try {
-            channelToMaster.awaitTermination(2, TimeUnit.SECONDS);
+            channelToMaster.awaitTermination(15, TimeUnit.SECONDS);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

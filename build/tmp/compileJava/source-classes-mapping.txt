@@ -1,23 +1,15 @@
-MQTT/Dronazon.java
- MQTT.Dronazon
+modules/AddResponse.java
+ modules.AddResponse
 simulators/Buffer.java
  simulators.Buffer
 REST/server/Administrator.java
  REST.server.Administrator
-simulators/Measurement.java
- simulators.Measurement
+MQTT/Dronazon.java
+ MQTT.Dronazon
 modules/DeliveryStatistics.java
  modules.DeliveryStatistics
-modules/AddResponse.java
- modules.AddResponse
 simulators/PM10Simulator.java
  simulators.PM10Simulator
-modules/Stat.java
- modules.Stat
-REST/services/StatService.java
- REST.services.StatService
-REST/client/Administrator.java
- REST.client.Administrator
 proto/Welcome.java
  proto.Welcome
  proto.Welcome$1
@@ -117,6 +109,14 @@ proto/Welcome.java
  proto.Welcome$WelcomeResponse$1
  proto.Welcome$WelcomeResponse$Builder
  proto.Welcome$WelcomeResponseOrBuilder
+modules/Stat.java
+ modules.Stat
+REST/services/StatService.java
+ REST.services.StatService
+REST/client/Administrator.java
+ REST.client.Administrator
+modules/Stats.java
+ modules.Stats
 modules/Timestamps.java
  modules.Timestamps
 modules/Order.java
@@ -132,14 +132,16 @@ proto/ManagerGrpc.java
  proto.ManagerGrpc$ManagerMethodDescriptorSupplier
  proto.ManagerGrpc$ManagerStub
  proto.ManagerGrpc$MethodHandlers
-modules/Stats.java
- modules.Stats
-modules/Position.java
- modules.Position
 threads/RechargeLockServer.java
  threads.RechargeLockServer
+modules/OrdersQueue.java
+ modules.OrdersQueue
+simulators/Measurement.java
+ simulators.Measurement
 simulators/Simulator.java
  simulators.Simulator
+modules/Position.java
+ modules.Position
 DroneProcess.java
  DroneProcess
 threads/MasterLifeChecker.java
@@ -195,8 +197,6 @@ GRPC/GRPCDroneServer.java
  GRPC.GRPCDroneServer
 threads/DronesInput.java
  threads.DronesInput
-modules/OrdersQueue.java
- modules.OrdersQueue
 threads/WelcomeThread.java
  threads.WelcomeThread
  threads.WelcomeThread$1

@@ -65,9 +65,9 @@ public class DroneSubscriber extends Thread{
                 public void deliveryComplete(IMqttDeliveryToken token) { }
 
             });
-            System.out.println(">" + clientId + " Subscribing ... - Thread PID: " + Thread.currentThread().getId());
+            System.out.println("> " + clientId + " Subscribing ... - Thread PID: " + Thread.currentThread().getId());
             client.subscribe(TOPIC, QOS);
-            System.out.println(">" + clientId + " Subscribed to topics : " + TOPIC);
+            System.out.println("> " + clientId + " Subscribed to topics : " + TOPIC);
 
 
 

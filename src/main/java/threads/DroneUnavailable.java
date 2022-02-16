@@ -42,25 +42,5 @@ public class DroneUnavailable extends Thread{
                 System.out.println("> Server not reachable");
             }
         }
-
-        //Telling my next that a drone exit the network
-        /*final ManagedChannel channel = ManagedChannelBuilder.forTarget(drone.getNext().getIp()).usePlaintext(true).build();
-        ManagerGrpc.ManagerStub stub = ManagerGrpc.newStub(channel);
-        Welcome.UnavailableDroneMessage request = Welcome.UnavailableDroneMessage
-                .newBuilder()
-                .setStartingDroneID(startingDroneID)
-                .setId(drone.getId())
-                .build();
-
-        stub.unavailableDrone(request, new StreamObserver<Welcome.UnavailableDroneResponse>() {
-            public void onNext(Welcome.UnavailableDroneResponse response) {}
-            public void onError(Throwable throwable) {
-                channel.shutdownNow();
-                //what if next is not responding
-            }
-            public void onCompleted() {
-                channel.shutdownNow();
-            }
-        });*/
     }
 }

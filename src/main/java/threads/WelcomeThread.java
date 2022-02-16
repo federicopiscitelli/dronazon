@@ -53,7 +53,6 @@ public class WelcomeThread extends Thread{
 
                 drone.addDroneToList(toWelcome);
                 System.out.println("> Hello from drone: " + welcomeResponse.getId() + " master:" + welcomeResponse.getMaster());
-                //System.out.println("> Next is " + drone.getNext().getId() +" "+drone.getDronesList());
             }
 
             //if there are some errors, such as drone is not available
@@ -74,7 +73,7 @@ public class WelcomeThread extends Thread{
 
         //Needed for wait the response
         try {
-            channel.awaitTermination(10, TimeUnit.SECONDS);
+            channel.awaitTermination(30, TimeUnit.SECONDS);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

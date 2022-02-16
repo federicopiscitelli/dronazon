@@ -24,6 +24,7 @@ public class ElectionThread extends Thread{
 
     public synchronized void run(){
 
+        drone.stopMasterLifeChecker();
         drone.removeDroneFromList(drone.getMasterID());
 
         //System.out.println("> Received election message. Sending to "+drone.getNext().getId());
@@ -75,7 +76,7 @@ public class ElectionThread extends Thread{
         }
 
         try {
-            channel.awaitTermination(4, TimeUnit.SECONDS);
+            channel.awaitTermination(drone.getDronesList().size()*10, TimeUnit.SECONDS);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
