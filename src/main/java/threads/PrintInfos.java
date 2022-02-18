@@ -19,7 +19,7 @@ public class PrintInfos extends Thread{
                 e.printStackTrace();
             }
 
-            System.out.println("> INFORMATIONS -> Deliveries: "+drone.getnDelivery()+". Distance: "+drone.getTotKm()+"km. Battery: "+drone.getBatteryLevel()+"%.");
+            //System.out.println("> INFORMATIONS -> Deliveries: "+drone.getnDelivery()+". Distance: "+drone.getTotKm()+"km. Battery: "+drone.getBatteryLevel()+"%.");
         }
     }
 

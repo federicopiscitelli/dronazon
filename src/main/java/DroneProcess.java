@@ -90,7 +90,6 @@ public class DroneProcess {
 
         PrintInfos pi = new PrintInfos(drone);
         pi.start();
-        
     }
 
 }

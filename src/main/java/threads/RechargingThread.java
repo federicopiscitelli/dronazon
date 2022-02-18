@@ -48,9 +48,9 @@ class RechargeLock{
         //System.out.println("> Responses :"+responses + " Max el: " +maxEl);
 
         synchronized (lock) {
+            System.out.println("> Waiting");
             while(responses < maxEl){
                 try {
-                    System.out.println("> Waiting");
                     lock.wait();
                 } catch (InterruptedException e) {
                     e.printStackTrace();

@@ -68,8 +68,26 @@ public class DronesInput extends Thread{
                 } else if (choice.equals("recharge")) {
                     Timestamp now = new Timestamp(System.currentTimeMillis());
                     drone.setWantRecharge(String.valueOf(now.getTime()));
+                    int oldBatteryLevel = drone.getBatteryLevel();
                     RechargingThread rechargingThread = new RechargingThread(drone);
                     rechargingThread.start();
+
+                    new java.util.Timer().schedule(
+                            new java.util.TimerTask() {
+                                @Override
+                                public void run() {
+                                    //if after some time drone still wants recharging maybe the recharge is stuck
+                                    if(!drone.isRecharging() && drone.getWantRecharge() != null && oldBatteryLevel == drone.getBatteryLevel()){
+                                        //retrying
+                                        System.err.println("! Recharge is stuck. Retrying ...");
+                                        RechargingThread rechargingThread = new RechargingThread(drone);
+                                        rechargingThread.start();
+                                    }
+                                }
+                            },
+                            (drone.getDronesList().size()-1)*11000
+                    );
+
                 } else {
                     System.out.println("> Unknown command");
                 }
