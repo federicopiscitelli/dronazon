@@ -49,84 +49,92 @@ public class Administrator {
 
             try {
                 System.out.print("> Your choice: ");
-                choice = Integer.parseInt(inFromUser.readLine());
+                try {
+                    choice = Integer.parseInt(inFromUser.readLine());
 
-                switch (choice){
-                    case 1:{
-                        String path = "/drones";
-                        try {
-                            WebResource webResource = client.resource(RESTServerAddress + path);
-                            clientResponse = webResource.type("application/json").get(ClientResponse.class);
-                            String json = clientResponse.getEntity(String.class);
-                            System.out.println(json);
+                    switch (choice) {
+                        case 1: {
+                            String path = "/drones";
+                            try {
+                                WebResource webResource = client.resource(RESTServerAddress + path);
+                                clientResponse = webResource.type("application/json").get(ClientResponse.class);
+                                String json = clientResponse.getEntity(String.class);
+                                System.out.println(json);
 
-                        } catch (ClientHandlerException e) {
-                            System.out.println("> Error during the request: "+e.getMessage());
+                            } catch (ClientHandlerException e) {
+                                System.out.println("> Error during the request: " + e.getMessage());
+                            }
                         }
-                    } break;
-                    case 2:{
-                        System.out.print("> Write the number: ");
-                        String n = inFromUser.readLine();
+                        break;
+                        case 2: {
+                            System.out.print("> Write the number: ");
+                            String n = inFromUser.readLine();
 
-                        String path = "/stats/"+n;
-                        try {
-                            WebResource webResource = client.resource(RESTServerAddress + path);
-                            clientResponse = webResource.type("application/json").get(ClientResponse.class);
-                            String json = clientResponse.getEntity(String.class);
-                            System.out.println(json);
+                            String path = "/stats/" + n;
+                            try {
+                                WebResource webResource = client.resource(RESTServerAddress + path);
+                                clientResponse = webResource.type("application/json").get(ClientResponse.class);
+                                String json = clientResponse.getEntity(String.class);
+                                System.out.println(json);
 
-                        } catch (ClientHandlerException e) {
-                            System.out.println("> Error during the request: "+e.getMessage());
+                            } catch (ClientHandlerException e) {
+                                System.out.println("> Error during the request: " + e.getMessage());
+                            }
                         }
-                    } break;
-                    case 3:{
-                        System.out.print("> Write the first timestamp: ");
-                        String t1 = inFromUser.readLine();
-                        System.out.print("> Write the second timestamp: ");
-                        String t2 = inFromUser.readLine();
+                        break;
+                        case 3: {
+                            System.out.print("> Write the first timestamp: ");
+                            String t1 = inFromUser.readLine();
+                            System.out.print("> Write the second timestamp: ");
+                            String t2 = inFromUser.readLine();
 
-                        Timestamps ts = new Timestamps(t1,t2);
-                        String path = "/stats/avg/delivery";
-                        try {
-                            WebResource webResource = client.resource(RESTServerAddress + path);
-                            String input = new GsonBuilder()
-                                                .setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")
-                                                .create()
-                                                .toJson(ts);
-                            clientResponse = webResource.type("application/json").post(ClientResponse.class,input);
-                            String json = clientResponse.getEntity(String.class);
-                            System.out.println("Delivery AVG: "+json);
+                            Timestamps ts = new Timestamps(t1, t2);
+                            String path = "/stats/avg/delivery";
+                            try {
+                                WebResource webResource = client.resource(RESTServerAddress + path);
+                                String input = new GsonBuilder()
+                                        .setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")
+                                        .create()
+                                        .toJson(ts);
+                                clientResponse = webResource.type("application/json").post(ClientResponse.class, input);
+                                String json = clientResponse.getEntity(String.class);
+                                System.out.println("Delivery AVG: " + json);
 
-                        } catch (ClientHandlerException e) {
-                            System.out.println("> Error during the request: "+e.getMessage());
+                            } catch (ClientHandlerException e) {
+                                System.out.println("> Error during the request: " + e.getMessage());
+                            }
                         }
-                    } break;
-                    case 4:{
-                        System.out.print("> Write the first timestamp: ");
-                        String t1 = inFromUser.readLine();
-                        System.out.print("> Write the second timestamp: ");
-                        String t2 = inFromUser.readLine();
+                        break;
+                        case 4: {
+                            System.out.print("> Write the first timestamp: ");
+                            String t1 = inFromUser.readLine();
+                            System.out.print("> Write the second timestamp: ");
+                            String t2 = inFromUser.readLine();
 
-                        Timestamps ts = new Timestamps(t1,t2);
-                        String path = "/stats/avg/distance";
-                        try {
-                            WebResource webResource = client.resource(RESTServerAddress + path);
-                            String input = new GsonBuilder()
-                                    .setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")
-                                    .create()
-                                    .toJson(ts);
-                            clientResponse = webResource.type("application/json").post(ClientResponse.class,input);
-                            String json = clientResponse.getEntity(String.class);
-                            System.out.println("Distance AVG: "+json+"km");
+                            Timestamps ts = new Timestamps(t1, t2);
+                            String path = "/stats/avg/distance";
+                            try {
+                                WebResource webResource = client.resource(RESTServerAddress + path);
+                                String input = new GsonBuilder()
+                                        .setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")
+                                        .create()
+                                        .toJson(ts);
+                                clientResponse = webResource.type("application/json").post(ClientResponse.class, input);
+                                String json = clientResponse.getEntity(String.class);
+                                System.out.println("Distance AVG: " + json + "km");
 
-                        } catch (ClientHandlerException e) {
-                            System.out.println("> Error during the request: "+e.getMessage());
+                            } catch (ClientHandlerException e) {
+                                System.out.println("> Error during the request: " + e.getMessage());
+                            }
                         }
-                    } break;
+                        break;
+                    }
+                } catch (NumberFormatException ex){
+                    System.err.println("! Numero non valido");
                 }
 
             } catch (IOException e) {
-                e.printStackTrace();
+                System.err.println("! Errore nell'input");
             }
 
         }while(choice != 0);

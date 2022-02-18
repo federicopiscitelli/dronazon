@@ -30,7 +30,7 @@ public class DeliveryChecker extends Thread{
                 while (it.hasNext()) {
                     Map.Entry<Long, Order> entry = (Map.Entry<Long, Order>) it.next();
                     if((System.currentTimeMillis() - entry.getKey()) >= 10000){
-                        System.err.println("! "+(System.currentTimeMillis() - entry.getKey())+" Delivery of order "+entry.getValue().getId()+" was not completed. Putting in queue...");
+                        System.err.println("! Delivery of order "+entry.getValue().getId()+" was not completed. Putting in queue...");
                         drone.ordersQueue.putOrder(entry.getValue());
                         drone.removeOrderInDeliveryById(entry.getValue().getId());
                     }

@@ -4,8 +4,9 @@ simulators/Buffer.java
  simulators.Buffer
 REST/server/Administrator.java
  REST.server.Administrator
-threads/DeliveryChecker.java
- threads.DeliveryChecker
+threads/UpdatePosition.java
+ threads.UpdatePosition
+ threads.UpdatePosition$1
 modules/DeliveryStatistics.java
  modules.DeliveryStatistics
 threads/RechargeLockServer.java
@@ -18,11 +19,12 @@ modules/Stat.java
 threads/AssignDelivery.java
  threads.AssignDelivery
  threads.AssignDelivery$1
-REST/client/Administrator.java
- REST.client.Administrator
-modules/Drone.java
- modules.Drone
- modules.Drone$1
+threads/RechargeRequest.java
+ threads.RechargeRequest
+ threads.RechargeRequest$1
+threads/DeliveryThread.java
+ threads.DeliveryThread
+ threads.DeliveryThread$1
 modules/Timestamps.java
  modules.Timestamps
 modules/MyBuffer.java
@@ -38,8 +40,9 @@ proto/ManagerGrpc.java
  proto.ManagerGrpc$ManagerMethodDescriptorSupplier
  proto.ManagerGrpc$ManagerStub
  proto.ManagerGrpc$MethodHandlers
-threads/PrintInfos.java
- threads.PrintInfos
+threads/MasterLifeChecker.java
+ threads.MasterLifeChecker
+ threads.MasterLifeChecker$1
 modules/OrdersQueue.java
  modules.OrdersQueue
 threads/WelcomeThread.java
@@ -49,9 +52,10 @@ simulators/Simulator.java
  simulators.Simulator
 modules/Position.java
  modules.Position
-threads/DronesInput.java
- threads.DronesInput
- threads.DronesInput$1
+threads/RechargingThread.java
+ threads.RechargeLock
+ threads.RechargeLock$1
+ threads.RechargingThread
 modules/Drones.java
  modules.Drones
 MQTT/DroneSubscriber.java
@@ -181,25 +185,21 @@ simulators/Measurement.java
  simulators.Measurement
 GRPC/GRPCDroneServer.java
  GRPC.GRPCDroneServer
-DroneProcess.java
- DroneProcess
-threads/DeliveryThread.java
- threads.DeliveryThread
- threads.DeliveryThread$1
+REST/client/Administrator.java
+ REST.client.Administrator
+threads/DronesInput.java
+ threads.DronesInput
+ threads.DronesInput$1
 threads/ElectionThread.java
  threads.ElectionThread
  threads.ElectionThread$1
  threads.ElectionThread$2
-threads/MasterLifeChecker.java
- threads.MasterLifeChecker
- threads.MasterLifeChecker$1
-threads/UpdatePosition.java
- threads.UpdatePosition
- threads.UpdatePosition$1
-threads/RechargingThread.java
- threads.RechargeLock
- threads.RechargeLock$1
- threads.RechargingThread
-threads/RechargeRequest.java
- threads.RechargeRequest
- threads.RechargeRequest$1
+DroneProcess.java
+ DroneProcess
+modules/Drone.java
+ modules.Drone
+ modules.Drone$1
+threads/DeliveryChecker.java
+ threads.DeliveryChecker
+threads/PrintInfos.java
+ threads.PrintInfos

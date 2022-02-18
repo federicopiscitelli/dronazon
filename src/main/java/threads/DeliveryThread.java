@@ -31,93 +31,94 @@ public class DeliveryThread extends Thread{
     }
 
     public void run(){
-        System.out.println("> Doing the delivery of the order "+orderId);
+        if(!drone.isRecharging() && !drone.isInDelivery()) {
+            System.out.println("> Doing the delivery of the order " + orderId);
 
-        drone.setInDelivery(true);
+            drone.setInDelivery(true);
 
-        try {
-            Thread.sleep(5000);
+            try {
+                Thread.sleep(5000);
 
-            //Timestamp of arrival to delivery place
-            Timestamp arriveTime = new Timestamp(System.currentTimeMillis());
+                //Timestamp of arrival to delivery place
+                Timestamp arriveTime = new Timestamp(System.currentTimeMillis());
 
-            //New battery level calculated after the delivery
-            int newBatteryLevel = drone.getBatteryLevel()-10;
-            drone.setBatteryLevel(newBatteryLevel);
+                //New battery level calculated after the delivery
+                int newBatteryLevel = drone.getBatteryLevel() - 10;
+                drone.setBatteryLevel(newBatteryLevel);
 
-            drone.incrementDelivery();
+                drone.incrementDelivery();
 
-            //Total distance traveled
-            double distanceFromRetire = Math.sqrt(
-                    Math.pow(drone.getPosition().getX()-retire.getX(),2) +
-                    Math.pow(drone.getPosition().getY()-retire.getY(),2)
-            );
-            double distanceDelivery = Math.sqrt(
-                    Math.pow(delivery.getX()-retire.getX(),2) +
-                    Math.pow(delivery.getY()-retire.getY(),2)
-            );
-            double totalKm = distanceFromRetire + distanceDelivery;
+                //Total distance traveled
+                double distanceFromRetire = Math.sqrt(
+                        Math.pow(drone.getPosition().getX() - retire.getX(), 2) +
+                                Math.pow(drone.getPosition().getY() - retire.getY(), 2)
+                );
+                double distanceDelivery = Math.sqrt(
+                        Math.pow(delivery.getX() - retire.getX(), 2) +
+                                Math.pow(delivery.getY() - retire.getY(), 2)
+                );
+                double totalKm = distanceFromRetire + distanceDelivery;
 
-            drone.addKms(totalKm);
+                drone.addKms(totalKm);
 
             /*System.out.println("> Order delivered with success" +
                     "\n\t Battery: "+drone.getBatteryLevel()+
                     "\n\t Total KM: "+totalKm);*/
 
-            //AVG of pollution measured
-            List<Double> measures = drone.getAveragesPM10();
-            double sum = 0.0d;
-            for (double value : measures){
-                sum+=value;
-            }
-            double avg = sum/measures.size();
-            drone.emptyAveragesAfterDelivery();
+                //AVG of pollution measured
+                List<Double> measures = drone.getAveragesPM10();
+                double sum = 0.0d;
+                for (double value : measures) {
+                    sum += value;
+                }
+                double avg = sum / measures.size();
+                drone.emptyAveragesAfterDelivery();
 
-            //send to master delivery data
-            System.out.println("> Delivered order "+orderId);
-            if(drone.isMaster() || drone.getMasterID()==drone.getId()){
-                DeliveryStatistics ds = new DeliveryStatistics(drone.getId(), totalKm, avg, newBatteryLevel);
-                drone.addDeliveryStatistic(ds);
-                drone.removeOrderInDeliveryById(orderId);
-            } else {
-                sendDeliveryDataToMaster(arriveTime, delivery, totalKm, avg, newBatteryLevel, orderId);
-            }
+                //send to master delivery data
+                System.out.println("> Delivered order " + orderId);
+                if (drone.isMaster() || drone.getMasterID() == drone.getId()) {
+                    DeliveryStatistics ds = new DeliveryStatistics(drone.getId(), totalKm, avg, newBatteryLevel);
+                    drone.addDeliveryStatistic(ds);
+                    drone.removeOrderInDeliveryById(orderId);
+                } else {
+                    sendDeliveryDataToMaster(arriveTime, delivery, totalKm, avg, newBatteryLevel, orderId);
+                }
 
-            if(newBatteryLevel < 15){
+                if (newBatteryLevel < 15) {
 
-                if(drone.isMaster()){
-                    drone.stopSubscriberMQTT();
-                    if(drone.ordersQueue.size()>0) {
-                        System.out.println("> Assigning pending orders...");
-                        for (Drone d : drone.getDronesList()) {
-                            if(drone.getId() != d.getId()) {
-                                AssignPendingDeliveries apd = new AssignPendingDeliveries(drone, d.getIp());
-                                apd.start();
+                    if (drone.isMaster()) {
+                        drone.stopSubscriberMQTT();
+                        if (drone.ordersQueue.size() > 0) {
+                            System.out.println("> Assigning pending orders...");
+                            for (Drone d : drone.getDronesList()) {
+                                if (drone.getId() != d.getId()) {
+                                    AssignPendingDeliveries apd = new AssignPendingDeliveries(drone, d.getIp());
+                                    apd.start();
+                                }
                             }
                         }
                     }
+
+                    Client client = Client.create();
+                    System.out.println("> Battery is under 15%. Removing the drone from the network...");
+                    //Remove a drone to the REST Server
+                    String deletePath = "/drones/" + drone.getId();
+                    WebResource webResource = client.resource(RESTServerAddress + deletePath);
+                    try {
+                        webResource.type("application/json").delete();
+                    } catch (ClientHandlerException e) {
+                        System.out.println("> Server not reachable");
+                    }
+                    System.out.println("> Drone removed...");
+                    System.exit(0);
                 }
 
-                Client client = Client.create();
-                System.out.println("> Battery is under 15%. Removing the drone from the network...");
-                //Remove a drone to the REST Server
-                String deletePath = "/drones/" + drone.getId();
-                WebResource webResource = client.resource(RESTServerAddress + deletePath);
-                try {
-                    webResource.type("application/json").delete();
-                } catch (ClientHandlerException e) {
-                    System.out.println("> Server not reachable");
-                }
-                System.out.println("> Drone removed...");
-                System.exit(0);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
 
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+            drone.setInDelivery(false);
         }
-
-        drone.setInDelivery(false);
-
     }
 
     public void sendDeliveryDataToMaster(Timestamp timestamp, Position newPosition, double km, double avgPollution, int batteryLevel, int orderId){

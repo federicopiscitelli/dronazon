@@ -13,17 +13,14 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/DroneProcess.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/DroneProcess.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/MQTT/DroneSubscriber.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/MQTT/DroneSubscriber.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/threads/RechargeLock.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/threads/RechargeLock.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/threads/RechargeRequest$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/threads/RechargeRequest$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/threads/RechargeRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/threads/RechargeRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/threads/DeliveryThread$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/threads/DeliveryThread$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/threads/DeliveryThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/threads/DeliveryThread.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DroneProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DroneProcess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/REST/client/Administrator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/REST/client/Administrator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/threads/DeliveryChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/threads/DeliveryChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/threads/DeliveryThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/threads/DeliveryThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/threads/DronesInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/threads/DronesInput.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/threads/PrintInfos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/threads/PrintInfos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/threads/RechargeRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/threads/RechargeRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/threads/RechargingThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/threads/RechargingThread.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +71,7 @@
     <property name="project.structure.side.proportion" value="0.68443805" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
-  <component name="RunManager" selected="Application.DroneProcess">
+  <component name="RunManager" selected="Application.Dronazon">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -247,7 +244,7 @@
       <workItem from="1643638366605" duration="19635000" />
       <workItem from="1643987013079" duration="16901000" />
       <workItem from="1644594342331" duration="47453000" />
-      <workItem from="1644939354593" duration="32323000" />
+      <workItem from="1644939354593" duration="38187000" />
     </task>
     <servers />
   </component>
