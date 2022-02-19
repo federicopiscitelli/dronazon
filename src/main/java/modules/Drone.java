@@ -404,7 +404,7 @@ public class Drone {
     }
     public synchronized void addOrderInDelivery(Order order,long ts){
         this.ordersInDelivery.put(ts,order);
-        System.out.println("> Orders in delivery: "+this.ordersInDelivery);
+        //System.out.println("> Orders in delivery: "+this.ordersInDelivery);
     }
 
     public synchronized void removeOrderInDeliveryById(int id){

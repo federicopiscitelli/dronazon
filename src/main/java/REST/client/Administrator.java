@@ -88,20 +88,28 @@ public class Administrator {
                             System.out.print("> Write the second timestamp: ");
                             String t2 = inFromUser.readLine();
 
-                            Timestamps ts = new Timestamps(t1, t2);
-                            String path = "/stats/avg/delivery";
-                            try {
-                                WebResource webResource = client.resource(RESTServerAddress + path);
-                                String input = new GsonBuilder()
-                                        .setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")
-                                        .create()
-                                        .toJson(ts);
-                                clientResponse = webResource.type("application/json").post(ClientResponse.class, input);
-                                String json = clientResponse.getEntity(String.class);
-                                System.out.println("Delivery AVG: " + json);
+                            if(t1.compareTo(t2)<0) {
+                                try {
+                                    Timestamps ts = new Timestamps(t1, t2);
+                                    String path = "/stats/avg/delivery";
+                                    try {
+                                        WebResource webResource = client.resource(RESTServerAddress + path);
+                                        String input = new GsonBuilder()
+                                                .setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")
+                                                .create()
+                                                .toJson(ts);
+                                        clientResponse = webResource.type("application/json").post(ClientResponse.class, input);
+                                        String json = clientResponse.getEntity(String.class);
+                                        System.out.println("Delivery AVG: " + json);
 
-                            } catch (ClientHandlerException e) {
-                                System.out.println("> Error during the request: " + e.getMessage());
+                                    } catch (ClientHandlerException e) {
+                                        System.out.println("> Error during the request: " + e.getMessage());
+                                    }
+                                }catch (IllegalArgumentException ex){
+                                    System.err.println("! Timestamp format must be yyyy-mm-dd hh:mm:ss");
+                                }
+                            } else {
+                                System.err.println("! Second timestamp is before the first one");
                             }
                         }
                         break;
@@ -111,26 +119,34 @@ public class Administrator {
                             System.out.print("> Write the second timestamp: ");
                             String t2 = inFromUser.readLine();
 
-                            Timestamps ts = new Timestamps(t1, t2);
-                            String path = "/stats/avg/distance";
                             try {
-                                WebResource webResource = client.resource(RESTServerAddress + path);
-                                String input = new GsonBuilder()
-                                        .setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")
-                                        .create()
-                                        .toJson(ts);
-                                clientResponse = webResource.type("application/json").post(ClientResponse.class, input);
-                                String json = clientResponse.getEntity(String.class);
-                                System.out.println("Distance AVG: " + json + "km");
+                                if(t1.compareTo(t2)<0) {
+                                    Timestamps ts = new Timestamps(t1, t2);
+                                    String path = "/stats/avg/distance";
+                                    try {
+                                        WebResource webResource = client.resource(RESTServerAddress + path);
+                                        String input = new GsonBuilder()
+                                                .setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")
+                                                .create()
+                                                .toJson(ts);
+                                        clientResponse = webResource.type("application/json").post(ClientResponse.class, input);
+                                        String json = clientResponse.getEntity(String.class);
+                                        System.out.println("Distance AVG: " + json + "km");
 
-                            } catch (ClientHandlerException e) {
-                                System.out.println("> Error during the request: " + e.getMessage());
+                                    } catch (ClientHandlerException e) {
+                                        System.err.println("! Error during the request: " + e.getMessage());
+                                    }
+                                } else {
+                                    System.err.println("! Second timestamp is before the first one");
+                                }
+                            }catch (IllegalArgumentException ex){
+                                System.err.println("! Timestamp format must be yyyy-mm-dd hh:mm:ss");
                             }
                         }
                         break;
                     }
                 } catch (NumberFormatException ex){
-                    System.err.println("! Numero non valido");
+                    System.err.println("! Not a valid option");
                 }
 
             } catch (IOException e) {
