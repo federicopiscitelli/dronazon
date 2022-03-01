@@ -11,14 +11,14 @@ drone master della smart-city. Il drone master stabilirà poi quale drone si dov
 Ogni drone ha installato un sensore che rileva il livello di inquinamento dell’aria. <br> 
 Inoltre, ogni consegna implica un consumo di batteria. Quando il livello di batteria residua di un drone è al di sotto del 15%, 
 il drone è costretto ad abbandonare il sistema. <br>
-Periodicamente, i droni devono comunicare ad un REST.REST.client.client.server remoto, chiamato REST.REST.client.client.server Amministratore, le informazioni relative:
+Periodicamente, i droni devono comunicare ad un server remoto, chiamato server Amministratore, le informazioni relative:
 - al numero di consegne effettuate, 
 - al numero di chilometri percorsi,
 - al livello di inquinamento dell’aria rilevato
 - al livello di batteria rimanente.
   
-Gli amministratori di Dronazon potranno monitorare il proprio sistema di consegne attraverso il REST.REST.client.client.server Amministratore. <br>
-Inoltre, tramite il REST.REST.client.client.server Amministratore è anche possibile registrare e rimuovere droni dal sistema dinamicamente.
+Gli amministratori di Dronazon potranno monitorare il proprio sistema di consegne attraverso il server Amministratore. <br>
+Inoltre, tramite il server Amministratore è anche possibile registrare e rimuovere droni dal sistema dinamicamente.
 
 ## Autori
 [@federicopiscitelli](https://gitlab.com/federicopiscitelli)  
